@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐实例 </title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" type="text/css" href="favicon.ico">
+</head>
+
+<body >
+    <div id="box">
+        <div id="app">
+            <!-- 搜索的顶部位置 -->
+            <div class="header">
+                <span><a style="color: rgb(238, 236, 94);text-decoration: none;" href="javascript:void(0);">&nbsp&nbspMusic</a></span>
+                <div class="search">
+                    <input type="text" placeholder="请输入歌手名字" class="text" v-model="city" @keyup.enter="getjoke">
+                    <input type="button" class="button" value="搜索" @click="getjoke">
+                </div>
+                <span class="tm" title="点击隐藏"><i>右上角展开</i>×</span>
+            </div>
+            <!-- 左边的列表 -->
+            <ul>
+                <li class="li" :title="a.name + '-' + a.artists[0].name" v-for="(a,index) in arr"
+                    @click="fun(a.id,a.name,a.artists[0].name)">{{a.name}}-{{a.artists[0].name}}</li>
+            </ul>
+            <!-- 主体位置 -->
+            <div class="section">
+                <!-- 歌曲信息及封面 -->
+                <div class="nar">
+                    <span class="name">{{ name }}</span>
+                    <img class="img" :src="imgUrl" alt>
+                </div>
+                <!-- 右边的歌词 -->
+                <div class="lyric">
+                    <span v-for="lrc in lyric">{{ lrc.toString().substring(lrc.toString().indexOf(']')+1,)  }}<br></span>
+                </div>
+            </div>
+            <!-- 下面的播放按钮 -->
+            <audio autoplay controls loop :src="url"></audio>
+        </div>
+        
+        <span class="kai" title="展开">√</span>
+        <div id="ahh">
+            <a class="skin" @click="first" href="javascript:void(0)" s
+            title="再次点击即可在歌曲皮肤与原始皮肤之间切换">显示初始皮肤</a>
+        </div>
+    </div>
+    <div>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="index.js"></script>
+    </div>
+
+    <script>
+        $(function () {
+            $(".kai").hide();
+            $(".tm i").hide();
+            $(".tm").click(function () {
+                $("#app").slideUp(100);
+                $(".kai").fadeIn();
+            });
+            $(".tm").hover(function () {
+                $(".tm i").stop().slideDown();
+            }, function () {
+                $(".tm i").stop().slideUp();
+            })
+            $(".kai").click(function () {
+                $("#app").slideDown(100);
+                $(".kai").fadeOut();
+            });
+            var app = $("#app"),
+                header = $(".header");
+            var disX,
+                disY;
+            header.mousedown(function (e) {
+                disX = e.pageX - parseInt(app.offset().left);
+                disY = e.pageY - parseInt(app.offset().top);
+                document.onmousemove = function (e) {
+                    var event = e || window.event;
+                    app.css({ "left": e.pageX - disX + "px", "top": e.pageY - disY + "px" });
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                }
+
+            })
+            $(".github").mousedown(function (e) {
+                if (e.button == 2) {
+                    $(this).fadeOut();
+                }
+            })
+        })
+    </script>
+    
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+    <script>
+        L2Dwidget.init({
+            "model": {
+                jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+                "scale": 1
+            },
+            "display": {
+                "position": "left", //看板娘的表现位置
+                "width": 150,  //小萝莉的宽度
+                "height": 300, //小萝莉的高度
+                "hOffset": 0,//小萝莉的X偏移量
+                "vOffset": -20//小萝莉的Y偏移量
+            },
+            "mobile": {
+                "show": true,
+                "scale": 0.5
+            },
+            "react": {
+                "opacityDefault": 0.7,//小萝莉的透明度
+                "opacityOnHover": 0.2
+            }
+        });
+    </script>
+</body>
+
+</html>
