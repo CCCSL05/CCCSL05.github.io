@@ -31,8 +31,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -484,6 +483,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -565,7 +567,7 @@
 <p><strong>盲目搜索的意思是不关心待解决问题的特性，而是不管三七二一，按照固定的规则或者随机的进行搜索。</strong>常用的盲目搜索算法有深度优先遍历算法与广度优先遍历算法。</p>
 <p><strong>启发式搜索的意思是根据待解决问题的特性，动态地来制定搜索的规则。</strong>常用的启发式算法有爬山法、A* 算法等。</p>
 <h3 id="盲目搜索"><a href="#盲目搜索" class="headerlink" title="盲目搜索"></a>盲目搜索</h3><h4 id="深度优先搜索算法DFS"><a href="#深度优先搜索算法DFS" class="headerlink" title="深度优先搜索算法DFS"></a>深度优先搜索算法DFS</h4><p><img src="https://data.educoder.net/api/attachments/349698" alt="预览大图"></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">'''
 迷宫的定义：
 A能走到B和C
 B能走到D和E
@@ -573,7 +575,7 @@ C能走到F
 F能走到G和H
 D,E,G,H是死胡同
 '''</span>
-graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+graph <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
             <span class="token string">'A'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'B'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token string">'E'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'C'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'F'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -582,30 +584,32 @@ graph <span class="token operator">=</span> <span class="token punctuation">{</s
             <span class="token string">'E'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'G'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'H'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-         <span class="token punctuation">}</span>
-<span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> start<span class="token punctuation">,</span> visited<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+         <span class="token punctuation">&#125;</span>
+<span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> start<span class="token punctuation">,</span> visited<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">'''
     深度优先搜索，从A走到H
     :param graph: 待搜索的迷宫
     :param start: 开始搜索的起点
     :param visited:  已经搜索过的地点集合
     '''</span>
-    <span class="token keyword">if</span> visited <span class="token keyword">is</span> None<span class="token punctuation">:</span>
-        visited <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> visited <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        visited <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     visited<span class="token punctuation">.</span>add<span class="token punctuation">(</span>start<span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 当前地点为H时结束搜索</span>
+    <span class="token comment"># 当前地点为H时结束搜索</span>
     <span class="token keyword">if</span> start <span class="token operator">==</span> <span class="token string">'H'</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span>
-    <span class="token comment" spellcheck="true"># 看看当前位置有哪些路可以走，如果能走并且之前没有走过就走</span>
+    <span class="token comment"># 看看当前位置有哪些路可以走，如果能走并且之前没有走过就走</span>
     <span class="token keyword">for</span> v <span class="token keyword">in</span> graph<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> v <span class="token operator">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> v <span class="token keyword">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
             dfs<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> v<span class="token punctuation">,</span> visited<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 从迷宫的A走到H，并按搜索的先后顺序打印地点</span>
-dfs<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 从迷宫的A走到H，并按搜索的先后顺序打印地点</span>
+dfs<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h4 id="广度优先搜索算法BFS"><a href="#广度优先搜索算法BFS" class="headerlink" title="广度优先搜索算法BFS"></a>广度优先搜索算法BFS</h4><p><img src="https://data.educoder.net/api/attachments/349792" alt="预览大图"></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">'''
 迷宫的定义：
 A能走到B和C
 B能走到D和E
@@ -613,7 +617,7 @@ C能走到F
 F能走到G和H
 D,E,G,H是死胡同
 '''</span>
-graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+graph <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
             <span class="token string">'A'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'B'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'B'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token string">'E'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'C'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'F'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -622,31 +626,31 @@ graph <span class="token operator">=</span> <span class="token punctuation">{</s
             <span class="token string">'E'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'G'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
             <span class="token string">'H'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-         <span class="token punctuation">}</span>
+         <span class="token punctuation">&#125;</span>
 <span class="token keyword">def</span> <span class="token function">bfs</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> start<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">'''
     广度优先搜索，从A走到H
     :param graph: 待搜索的迷宫
     :param start: 开始搜索的起点
     '''</span>
-    <span class="token comment" spellcheck="true"># queue为队列，当队列为空或者当前地点为H时搜索结束</span>
-    visited<span class="token punctuation">,</span> queue <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>start<span class="token punctuation">]</span>
+    <span class="token comment"># queue为队列，当队列为空或者当前地点为H时搜索结束</span>
+    visited<span class="token punctuation">,</span> queue <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>start<span class="token punctuation">]</span>
     <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 从队列中出队，即当前所处的地点</span>
+        <span class="token comment"># 从队列中出队，即当前所处的地点</span>
         vertex <span class="token operator">=</span> queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> vertex <span class="token operator">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> vertex <span class="token keyword">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
             visited<span class="token punctuation">.</span>add<span class="token punctuation">(</span>vertex<span class="token punctuation">)</span>
             <span class="token keyword">print</span><span class="token punctuation">(</span>vertex<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 当前地点是`H`的话就结束搜索</span>
+            <span class="token comment"># 当前地点是`H`的话就结束搜索</span>
             <span class="token keyword">if</span> vertex <span class="token operator">==</span> <span class="token string">'H'</span><span class="token punctuation">:</span>
                 <span class="token keyword">return</span>
-            <span class="token comment" spellcheck="true"># 将当前所处地点所能走到的地点放入队列</span>
+            <span class="token comment"># 将当前所处地点所能走到的地点放入队列</span>
             <span class="token keyword">for</span> v <span class="token keyword">in</span> graph<span class="token punctuation">[</span>vertex<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> v <span class="token operator">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> v <span class="token keyword">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
                     queue<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>v<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 从迷宫的A走到H，并按搜索的先后顺序打印地点</span>
-bfs<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 从迷宫的A走到H，并按搜索的先后顺序打印地点</span>
+bfs<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="启发式搜索-扫地机器人最短路径搜索"><a href="#启发式搜索-扫地机器人最短路径搜索" class="headerlink" title="启发式搜索 - 扫地机器人最短路径搜索"></a>启发式搜索 - 扫地机器人最短路径搜索</h3><p> <em><em>A</em> 算法</em>*</p>
 <blockquote>
 <ol>
@@ -656,103 +660,103 @@ bfs<span class="token punctuation">(</span>graph<span class="token punctuation">
 <li>从开放列表中选取一个F最小的节点走到该点。循环第一步，直至找到终点。</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 感觉算法写的有点问题</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 感觉算法写的有点问题</span>
 <span class="token keyword">def</span> <span class="token function">GenerateMap</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    map <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        nodeRow <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        map<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nodeRow<span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            node <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 构造方法创建节点</span>
+    <span class="token builtin">map</span> <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        nodeRow <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token builtin">map</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>nodeRow<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            node <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 构造方法创建节点</span>
             node<span class="token punctuation">.</span>y <span class="token operator">=</span> j
             node<span class="token punctuation">.</span>x <span class="token operator">=</span> i
             node<span class="token punctuation">.</span>unable <span class="token operator">=</span> <span class="token boolean">False</span>
-            node<span class="token punctuation">.</span>distanceFromDes <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>  <span class="token comment" spellcheck="true"># 距离终点的距离</span>
-            node<span class="token punctuation">.</span>distanceFromOri <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>  <span class="token comment" spellcheck="true"># 距离起点的距离</span>
+            node<span class="token punctuation">.</span>distanceFromDes <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>  <span class="token comment"># 距离终点的距离</span>
+            node<span class="token punctuation">.</span>distanceFromOri <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>  <span class="token comment"># 距离起点的距离</span>
             node<span class="token punctuation">.</span>allDistance <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
             node<span class="token punctuation">.</span>added <span class="token operator">=</span> <span class="token boolean">False</span>
             node<span class="token punctuation">.</span>closed <span class="token operator">=</span> <span class="token boolean">False</span>
-            node<span class="token punctuation">.</span>parent <span class="token operator">=</span> None
+            node<span class="token punctuation">.</span>parent <span class="token operator">=</span> <span class="token boolean">None</span>
             nodeRow<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> map
-<span class="token comment" spellcheck="true"># --------------------------------------</span>
+    <span class="token keyword">return</span> <span class="token builtin">map</span>
+<span class="token comment"># --------------------------------------</span>
 
-<span class="token comment" spellcheck="true"># 构造开启列表，开启列表为openedList</span>
-openedList <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 将起点的G和F设置成0，H已经设置过了 map表示地图节点，originIndex表示出发地</span>
-node <span class="token operator">=</span> map<span class="token punctuation">[</span>oriIndex<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>oriIndex<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token comment"># 构造开启列表，开启列表为openedList</span>
+openedList <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 将起点的G和F设置成0，H已经设置过了 map表示地图节点，originIndex表示出发地</span>
+node <span class="token operator">=</span> <span class="token builtin">map</span><span class="token punctuation">[</span>oriIndex<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>oriIndex<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 node<span class="token punctuation">.</span>distanceFromOri <span class="token operator">=</span> <span class="token number">0</span>
 node<span class="token punctuation">.</span>allDistance <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token comment" spellcheck="true"># 将起点存到开启列表中</span>
+<span class="token comment"># 将起点存到开启列表中</span>
 openedList<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
 node<span class="token punctuation">.</span>added <span class="token operator">=</span> <span class="token boolean">True</span>
-<span class="token comment" spellcheck="true"># 循环检查开启列表</span>
-<span class="token keyword">while</span> len<span class="token punctuation">(</span>openedList<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 将开启列表中第一个方块删除</span>
+<span class="token comment"># 循环检查开启列表</span>
+<span class="token keyword">while</span> <span class="token builtin">len</span><span class="token punctuation">(</span>openedList<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token comment"># 将开启列表中第一个方块删除</span>
     node <span class="token operator">=</span> openedList<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 方块的closed状态设置成True，相当于加入到关闭列表</span>
+    <span class="token comment"># 方块的closed状态设置成True，相当于加入到关闭列表</span>
     node<span class="token punctuation">.</span>closed <span class="token operator">=</span> <span class="token boolean">True</span>
-    <span class="token comment" spellcheck="true"># 如果走到了终点就获取路径</span>
-    <span class="token keyword">if</span> node<span class="token punctuation">.</span>y <span class="token operator">==</span> desIndex<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">and</span> node<span class="token punctuation">.</span>x <span class="token operator">==</span> desIndex<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        finalListNeedReverse <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">while</span> node <span class="token operator">!=</span> None<span class="token punctuation">:</span>
+    <span class="token comment"># 如果走到了终点就获取路径</span>
+    <span class="token keyword">if</span> node<span class="token punctuation">.</span>y <span class="token operator">==</span> desIndex<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">and</span> node<span class="token punctuation">.</span>x <span class="token operator">==</span> desIndex<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        finalListNeedReverse <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">while</span> node <span class="token operator">!=</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
             finalListNeedReverse<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
             node <span class="token operator">=</span> node<span class="token punctuation">.</span>parent
         finalListNeedReverse<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> finalListNeedReverse
-    <span class="token comment" spellcheck="true"># neighboursList存放的是当前方块周围的方块</span>
-    neighboursList <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># neighboursList存放的是当前方块周围的方块</span>
+    neighboursList <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     y <span class="token operator">=</span> node<span class="token punctuation">.</span>y
     x <span class="token operator">=</span> node<span class="token punctuation">.</span>x
     parentDistanceFromOri <span class="token operator">=</span> node<span class="token punctuation">.</span>distanceFromOri
-    <span class="token comment" spellcheck="true"># 检查当前方块周围的方块</span>
+    <span class="token comment"># 检查当前方块周围的方块</span>
     <span class="token keyword">for</span> needNodey <span class="token keyword">in</span> <span class="token punctuation">(</span>y <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> y<span class="token punctuation">,</span> y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> needNodey <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">or</span> needNodey <span class="token operator">>=</span> mapSize<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> needNodey <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">or</span> needNodey <span class="token operator">>=</span> mapSize<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
             <span class="token keyword">continue</span>
         <span class="token keyword">for</span> needNodex <span class="token keyword">in</span> <span class="token punctuation">(</span>x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> needNodex <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">or</span> needNodex <span class="token operator">>=</span> mapSize<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> needNodex <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">or</span> needNodex <span class="token operator">>=</span> mapSize<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
                 <span class="token keyword">continue</span>
-            needNode <span class="token operator">=</span> map<span class="token punctuation">[</span>needNodey<span class="token punctuation">]</span><span class="token punctuation">[</span>needNodex<span class="token punctuation">]</span>
-            <span class="token comment" spellcheck="true"># 不考虑不可达、在关闭列表中以及已经在开启列表中的方块</span>
-            <span class="token keyword">if</span> needNode<span class="token punctuation">.</span>unable <span class="token operator">==</span> <span class="token boolean">True</span> <span class="token operator">or</span> needNode<span class="token punctuation">.</span>closed <span class="token operator">==</span> <span class="token boolean">True</span> <span class="token operator">or</span> needNode<span class="token punctuation">.</span>added <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            needNode <span class="token operator">=</span> <span class="token builtin">map</span><span class="token punctuation">[</span>needNodey<span class="token punctuation">]</span><span class="token punctuation">[</span>needNodex<span class="token punctuation">]</span>
+            <span class="token comment"># 不考虑不可达、在关闭列表中以及已经在开启列表中的方块</span>
+            <span class="token keyword">if</span> needNode<span class="token punctuation">.</span>unable <span class="token operator">==</span> <span class="token boolean">True</span> <span class="token keyword">or</span> needNode<span class="token punctuation">.</span>closed <span class="token operator">==</span> <span class="token boolean">True</span> <span class="token keyword">or</span> needNode<span class="token punctuation">.</span>added <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
                 <span class="token keyword">continue</span>
             yOffset <span class="token operator">=</span> needNodey <span class="token operator">-</span> y
             xOffset <span class="token operator">=</span> needNodex <span class="token operator">-</span> x
             allOffset <span class="token operator">=</span> yOffset <span class="token operator">+</span> xOffset
-            <span class="token comment" spellcheck="true"># 计算可达并没有被添加到开启列表中的方块的G值</span>
-            <span class="token keyword">if</span> allOffset <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">or</span> allOffset <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token comment"># 计算可达并没有被添加到开启列表中的方块的G值</span>
+            <span class="token keyword">if</span> allOffset <span class="token operator">==</span> <span class="token number">1</span> <span class="token keyword">or</span> allOffset <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
                 distanceFromOri <span class="token operator">=</span> parentDistanceFromOri <span class="token operator">+</span> <span class="token number">1</span>
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 distanceFromOri <span class="token operator">=</span> parentDistanceFromOri <span class="token operator">+</span> <span class="token number">1.4</span>
-            <span class="token comment" spellcheck="true"># 更新最小的G值</span>
+            <span class="token comment"># 更新最小的G值</span>
             <span class="token keyword">if</span> needNode <span class="token keyword">in</span> neighboursList<span class="token punctuation">:</span>  
                 <span class="token keyword">if</span> distanceFromOri <span class="token operator">&lt;</span> needNode<span class="token punctuation">.</span>distanceFromOri<span class="token punctuation">:</span>
                     needNode<span class="token punctuation">.</span>distanceFromOri <span class="token operator">=</span> distanceFromOri
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 needNode<span class="token punctuation">.</span>distanceFromOri <span class="token operator">=</span> distanceFromOri
                 neighboursList<span class="token punctuation">.</span>append<span class="token punctuation">(</span>needNode<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 设置neighboursList中的方块的父方块，F值等</span>
+    <span class="token comment"># 设置neighboursList中的方块的父方块，F值等</span>
     <span class="token keyword">for</span> needNode <span class="token keyword">in</span> neighboursList<span class="token punctuation">:</span>
         needNode<span class="token punctuation">.</span>parent <span class="token operator">=</span> node
         needNode<span class="token punctuation">.</span>allDistance <span class="token operator">=</span> needNode<span class="token punctuation">.</span>distanceFromOri <span class="token operator">+</span> needNode<span class="token punctuation">.</span>distanceFromDes
         needNode<span class="token punctuation">.</span>added <span class="token operator">=</span> <span class="token boolean">True</span>
         openedList<span class="token punctuation">.</span>append<span class="token punctuation">(</span>needNode<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 将方块根据F值从小到大排序，这样每次只要获取列表中的一个方块就能得到F值最小的方块</span>
-    openedList<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">.</span>allDistance<span class="token punctuation">)</span>  
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="四皇后问题"><a href="#四皇后问题" class="headerlink" title="四皇后问题"></a>四皇后问题</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make</span><span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 将方块根据F值从小到大排序，这样每次只要获取列表中的一个方块就能得到F值最小的方块</span>
+    openedList<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">.</span>allDistance<span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="四皇后问题"><a href="#四皇后问题" class="headerlink" title="四皇后问题"></a>四皇后问题</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make</span><span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">'''
     标记皇后的位置，例如mark[0] = 2, 表示第1行皇后放在第3列的位置
     :param mark: 皇后的位置信息
     :return: 拼接好的结果
     '''</span>
-    <span class="token comment" spellcheck="true">#初始化数组</span>
-    r <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'X'</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-    <span class="token comment" spellcheck="true">#将每一行中皇后的位置用‘Q’代替</span>
+    <span class="token comment">#初始化数组</span>
+    r <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'X'</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token comment">#将每一行中皇后的位置用‘Q’代替</span>
     <span class="token keyword">for</span> i <span class="token keyword">in</span> mark<span class="token punctuation">:</span>
         r<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>mark<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Q'</span>
-    <span class="token comment" spellcheck="true">#枚举，将原来散的元素连接成字符串</span>
-    <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment">#枚举，将原来散的元素连接成字符串</span>
+    <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">:</span>
         r<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>v<span class="token punctuation">)</span>
     <span class="token keyword">return</span> r
 <span class="token keyword">def</span> <span class="token function">FourQueens</span><span class="token punctuation">(</span>mark<span class="token punctuation">,</span> cur<span class="token punctuation">,</span> ret<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -763,24 +767,48 @@ node<span class="token punctuation">.</span>added <span class="token operator">=
     :param ret:表示存放皇后摆放结果的列表，类型为列表。初始值为[]
     :return:无
     '''</span>
-    <span class="token keyword">if</span> cur <span class="token operator">==</span> len<span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true">#********* Begin *********#</span>
-        <span class="token comment" spellcheck="true"># 如果当前行是最后一行，记录一个解，并返回结束此次搜索</span>
+    <span class="token keyword">if</span> cur <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#********* Begin *********#</span>
+        <span class="token comment"># 如果当前行是最后一行，记录一个解，并返回结束此次搜索</span>
         ret<span class="token punctuation">.</span>append<span class="token punctuation">(</span>make<span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span>
-        <span class="token comment" spellcheck="true">#********* End *********#</span>
-    <span class="token comment" spellcheck="true">#试探处理，将当前行的皇后应该在的位置遍历每一列，如果满足条件，递归调用处理下一行</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#********* End *********#</span>
+    <span class="token comment">#试探处理，将当前行的皇后应该在的位置遍历每一列，如果满足条件，递归调用处理下一行</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>mark<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         mark<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">,</span> down <span class="token operator">=</span> i<span class="token punctuation">,</span> <span class="token boolean">True</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>cur<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 当想在当前位置放皇后会与其他皇后冲突时不放置皇后</span>
-            <span class="token keyword">if</span> mark<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> i <span class="token operator">or</span> abs<span class="token punctuation">(</span>i<span class="token operator">-</span>mark<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> cur <span class="token operator">-</span> j<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment"># 当想在当前位置放皇后会与其他皇后冲突时不放置皇后</span>
+            <span class="token keyword">if</span> mark<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> i <span class="token keyword">or</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>i<span class="token operator">-</span>mark<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> cur <span class="token operator">-</span> j<span class="token punctuation">:</span>
                 down <span class="token operator">=</span> <span class="token boolean">False</span>
                 <span class="token keyword">break</span>
         <span class="token keyword">if</span> down<span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 准备在下一行找能放置换后的位置</span>
-            FourQueens<span class="token punctuation">(</span>mark<span class="token punctuation">,</span> cur<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> ret<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            <span class="token comment"># 准备在下一行找能放置换后的位置</span>
+            FourQueens<span class="token punctuation">(</span>mark<span class="token punctuation">,</span> cur<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> ret<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
             </div>

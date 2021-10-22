@@ -31,8 +31,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -484,6 +483,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -746,9 +748,9 @@
 <p>SERIALIZABLE 是最高的事务隔离级别，主要通过强制事务排序来解决幻读问题。简单来说，就是在每个读取的数据行上加上共享锁实现，这样就避免了脏读、不可重复读和幻读等问题。但是该事务隔离级别执行效率低下，且性能开销也最大，所以一般情况下不推荐使用。</p>
 <h3 id="11-6-MySQL查看和修改事务隔离级别"><a href="#11-6-MySQL查看和修改事务隔离级别" class="headerlink" title="11.6 MySQL查看和修改事务隔离级别"></a>11.6 MySQL查看和修改事务隔离级别</h3><p>在 MySQL 中，可以通过<code>show variables like &#39;%tx_isolation%&#39;</code>或<code>select @@tx_isolation;</code>语句来查看当前事务隔离级别。</p>
 <p>另外，还可以使用下列语句分别查询全局和会话的事务隔离级别：</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> @<span class="token variable">@global.tx_isolation</span><span class="token punctuation">;</span>
-<span class="token keyword">SELECT</span> @<span class="token variable">@session.tx_isolation</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> @<span class="token variable">@global.tx_isolation</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> @<span class="token variable">@session.tx_isolation</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>提示：在MySQL 8.0.3 中，tx_isolation 变量被 transaction_isolation 变量替换了。在 MySQL 8.0.3 版本中查询事务隔离级别，只要把上述查询语句中的 tx_isolation 变量替换成 transaction_isolation 变量即可。</p>
 <p>MySQL 提供了 SET TRANSACTION 语句，该语句可以改变单个会话或全局的事务隔离级别。语法格式如下：</p>
 <p><code>SET [SESSION | GLOBAL] TRANSACTION ISOLATION LEVEL &#123;READ UNCOMMITTED | READ COMMITTED | REPEATABLE READ | SERIALIZABLE&#125;</code></p>
@@ -889,18 +891,20 @@
 <h3 id="11-11-MySQL锁监控"><a href="#11-11-MySQL锁监控" class="headerlink" title="11.11 MySQL锁监控"></a>11.11 MySQL锁监控</h3><p>通常情况下，当出现锁问题时，我们习惯性通过 SHOW FULL PROCESSLIST 和 SHOW ENGINE INNODB STATUS 命令来判断事务中锁问题的情况。其实还有特别重要的三张表，即在 information_schema 数据库下的 innodb_trx、innodb_locks 和 innodb_lock_waits 表。</p>
 <h2 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h2><h3 id="mysql分页查询和提高效率"><a href="#mysql分页查询和提高效率" class="headerlink" title="mysql分页查询和提高效率"></a>mysql分页查询和提高效率</h3><p>比如limit 100000,10虽然最后只返回10条数据，但是偏移量却高达100000，数据库的操作其实是拿到100010数据，然后返回最后10条。</p>
 <p>那么解决思路就是，我能不能跳过100000条数据然后读取10条，而不是读取100010条数据然后返回10条数据。</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 优化前</span>
-<span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> mytbl <span class="token keyword">order</span> <span class="token keyword">by</span> id <span class="token keyword">limit</span> <span class="token number">100000</span><span class="token punctuation">,</span><span class="token number">10</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 优化后</span>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 优化前</span>
+<span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> mytbl <span class="token keyword">order</span> <span class="token keyword">by</span> id <span class="token keyword">limit</span> <span class="token number">100000</span><span class="token punctuation">,</span><span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 优化后</span>
 <span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span>　mytbl
 <span class="token keyword">where</span> id<span class="token operator">>=</span> 
 <span class="token punctuation">(</span>
   <span class="token keyword">select</span> id <span class="token keyword">from</span> mytbl <span class="token keyword">order</span> <span class="token keyword">by</span> id <span class="token keyword">limit</span> <span class="token number">100000</span><span class="token punctuation">,</span><span class="token number">1</span>
 <span class="token punctuation">)</span>
 <span class="token keyword">limit</span> <span class="token number">10</span>
-<span class="token comment" spellcheck="true">-- 注：假设id是主键索引，那么里层走的是索引，外层也是走的索引，所以性能大大提高</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">-- 注：假设id是主键索引，那么里层走的是索引，外层也是走的索引，所以性能大大提高</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <hr>
 <p>  这份优化总结酝酿了有段时间了，主要始从自己目前在带领的一个项目当中吸取的、经历的，以及从自己了解到的一些实用的mysql语句或者设计方面的优化方案，特别是sql语句的书写方面。</p>
 <p>  话不多说，直接开始。</p>
