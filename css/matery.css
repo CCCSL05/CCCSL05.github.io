@@ -565,6 +565,7 @@ header .go-back i {
 .bg-cover:after {
     position: absolute;
     z-index: 1;
+    /* mark，删除首页的半透明前景 */
     width: 100%;
     height: 100%;
     display: block;
