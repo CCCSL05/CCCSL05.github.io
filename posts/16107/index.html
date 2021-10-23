@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="springboot, 人生几何">
-    <meta name="description" content="Spring Boot 是由 Pivotal 团队提供用来简化 Spring 的搭建和开发过程的全新框架。
-Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理，配合各种 starter 使用，基本上可以做到自动化配">
+    <meta name="keywords" content="Hello World, 人生几何">
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>springboot | 人生几何</title>
+    <title>Hello World | 人生几何</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +310,12 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">springboot</h1>
+                    <h1 class="description center-align post-title">Hello World</h1>
                 </div>
             </div>
         </div>
@@ -437,15 +436,6 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -462,14 +452,14 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    707
+                    73
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    1 Min
                 </div>
                 
 
@@ -497,20 +487,19 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Spring Boot 是由 Pivotal 团队提供用来简化 Spring 的搭建和开发过程的全新框架。</p>
-<p>Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理，配合各种 starter 使用，基本上可以做到自动化配置。Spring 可以做的事情，现在用 Spring boot 都可以做。</p>
-<h3 id="01-微服务（Microservice）是什么？"><a href="#01-微服务（Microservice）是什么？" class="headerlink" title="01. 微服务（Microservice）是什么？"></a>01. 微服务（Microservice）是什么？</h3><p>早些年的服务实现和实施思路是将很多功能从开发到交付都打包成一个很大的服务单元（一般称为 Monolith），而微服务实现和实施思路则更强调功能趋向单一，服务单元小型化和微型化。</p>
-<p>如果用“茶壶煮饺子”来打比方的话，原来我们是在一个茶壶里煮很多个饺子，现在（微服务化之后）则基本上是在一个茶壶煮一个饺子，而这些饺子就是服务的功能，茶壶则是将这些服务功能打包交付的服务单元，如图 1 所示。</p>
-<p><img src="http://c.biancheng.net/uploads/allimg/190730/5-1ZI0143635b8.png" alt="论茶壶里煮“饺子”的不同形式"></p>
-<p>所以，从思路和理念上来讲，微服务就是要倡导大家尽量将功能进行拆分，将服务粒度做小，使之可以独立承担对外服务的职责，沿着这个思路开发和交付的软件服务实体就叫作“微服务”，而围绕着这个思路和理念构建的一系列基础设施和指导思想，笔者将它称为“微服务体系”。</p>
-<p><strong>火车模型</strong></p>
-<p>这就涉及服务化早期实践中比较有名的“火车模型”，即交付的服务就像一辆火车，而这个服务相关的所有功能对应的项目成果，就是要装上火车车厢的一件件货物，交付的列车只有等到所有项目都开发测试完成后才可以装车出发，完成整个服务的交付。</p>
-<p>很显然，只要有一个车厢没有准备好货物（即功能项目未开发测试完成），火车就不能发车，服务就不能交付，这大大降低了服务的交付效率。如果每个功能项目可以各自独立交付，那么就不需要都等同一辆火车，各自出发就可以了。</p>
-<p>顺着这个思路，自然而然地，大家逐渐各自独立，每一个功能或者少数相近的功能作为单一项目开发完成后将作为一个独立的服务单元进行交付，从而在服务交付阶段，大家也能够并行不悖，各自演化而不受影响。</p>
-<h3 id="02-微服务的好处（优点）有哪些？"><a href="#02-微服务的好处（优点）有哪些？" class="headerlink" title="02. 微服务的好处（优点）有哪些？"></a>02. 微服务的好处（优点）有哪些？</h3><blockquote>
-<p>独立，独立，还是独立</p>
-<p>模块相互独立，可并行开发，每个模块只需要维护自己的功能即可。</p>
-</blockquote>
+                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
                 
             </div>
@@ -527,7 +516,7 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">CCCSL05</a>
+                    <a href="/about" rel="external nofollow noreferrer">ACsolin</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -537,7 +526,7 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://CCCSL05.github.io/2021/10/21/cbc-springboot-x/">https://CCCSL05.github.io/2021/10/21/cbc-springboot-x/</a>
+                    <a href="https://CCCSL05.github.io/posts/16107/">https://CCCSL05.github.io/posts/16107/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,7 +539,7 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint policy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">CCCSL05</a>
+                    <a href="/about" target="_blank">ACsolin</a>
                     !
                 </span>
             </div>
@@ -622,13 +611,13 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/10/21/EduCoder-Linux%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/">
+                <a href="/posts/39980/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Android">
                         
-                        <span class="card-title">Linux</span>
+                        <span class="card-title">Android</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -654,6 +643,14 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/android/">
+                        <span class="chip bg-color">android</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -663,13 +660,13 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/21/Android/">
+                <a href="/posts/22338/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Android">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hexo-Theme-Sakura">
                         
-                        <span class="card-title">Android</span>
+                        <span class="card-title">Hexo-Theme-Sakura</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -680,7 +677,7 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-12-12
                             </span>
                         <span class="publish-author">
                             
@@ -697,8 +694,12 @@ Spring Boot 去除了大量的 xml 配置文件，简化了复杂的依赖管理
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/android/">
-                        <span class="chip bg-color">android</span>
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%82%A6%E8%AF%BB/">
+                        <span class="chip bg-color">悦读</span>
                     </a>
                     
                 </div>
