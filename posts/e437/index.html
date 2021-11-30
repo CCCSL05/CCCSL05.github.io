@@ -1,0 +1,2196 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="runoob-kotlin, 诗酒趁年华">
+    <meta name="description" content="Kotlin 简介
+Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的Swift，由 JetBrains 设计开发并开源。
+Kotlin 可以编译成Java字节码，也可以编译成 JavaScr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>runoob-kotlin | 诗酒趁年华</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+    <script src="/js/FunnyTitle.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">诗酒趁年华</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">诗酒趁年华</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        <!-- 去掉github图标 -->
+        <!-- 
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+         -->
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">runoob-kotlin</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/kotlin/">
+                                <span class="chip bg-color">kotlin</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-08-20
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    9.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    39 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="Kotlin-简介"><a href="#Kotlin-简介" class="headerlink" title="Kotlin 简介"></a>Kotlin 简介</h3><ol>
+<li>Kotlin 是一种在 <strong>Java 虚拟机</strong>上运行的<strong>静态类型编程语言</strong>，被称之为 Android 世界的Swift，由 JetBrains 设计开发并开源。</li>
+<li>Kotlin 可以编译成<strong>Java字节码</strong>，也可以编译成 <strong>JavaScript</strong>，方便在没有 JVM 的设备上运行。</li>
+<li>在Google I/O 2017中，Google 宣布 Kotlin 成为 Android 官方开发语言。</li>
+</ol>
+<p><strong>为什么选择 Kotlin？</strong></p>
+<ul>
+<li>简洁: 大大减少样板代码的数量。</li>
+<li>安全: 避免空指针异常等整个类的错误。</li>
+<li>互操作性: 充分利用 JVM、Android 和浏览器的现有库。</li>
+<li>工具友好: 可用任何 Java IDE 或者使用命令行构建。</li>
+</ul>
+<h3 id="Kotlin-使用命令行编译"><a href="#Kotlin-使用命令行编译" class="headerlink" title="Kotlin 使用命令行编译"></a>Kotlin 使用命令行编译</h3><p><code>$ kotlinc hello.kt -include-runtime -d hello.jar</code></p>
+<ul>
+<li><strong>-d</strong>: 用来设置编译输出的名称，可以是 class 或 .jar 文件，也可以是目录。</li>
+<li><strong>-include-runtime</strong> : 让 .jar 文件包含 Kotlin 运行库，从而可以直接运行。</li>
+</ul>
+<p><code>kotlinc-jvm</code> 得到一个可交互的 shell，然后输入任何有效的 Kotlin 代码，并立即看到结果</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2017/05/1495788947-5293-kotlin-shell.png" alt="img"></p>
+<h3 id="Kotlin-基础语法"><a href="#Kotlin-基础语法" class="headerlink" title="Kotlin 基础语法"></a>Kotlin 基础语法</h3><h4 id="包声明"><a href="#包声明" class="headerlink" title="包声明"></a>包声明</h4><p>kotlin源文件不需要相匹配的目录和包，源文件可以放在任何文件目录。</p>
+<p>如果没有指定包，默认为 <strong>default</strong> 包。</p>
+<h4 id="默认导入"><a href="#默认导入" class="headerlink" title="默认导入"></a>默认导入</h4><p>有多个包会默认导入到每个 Kotlin 文件中：</p>
+<ul>
+<li>kotlin.*</li>
+<li>kotlin.annotation.*</li>
+<li>kotlin.collections.*</li>
+<li>kotlin.comparisons.*</li>
+<li>kotlin.io.*</li>
+<li>kotlin.ranges.*</li>
+<li>kotlin.sequences.*</li>
+<li>kotlin.text.*</li>
+</ul>
+<h4 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h4><p>函数定义使用关键字 fun，参数格式为：参数 : 类型</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token operator">:</span> Int<span class="token punctuation">,</span> b<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">&#123;</span>   <span class="token comment">// Int 参数，返回值 Int</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token operator">:</span> Int<span class="token punctuation">,</span> b<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token comment">// 表达式作为函数体，返回类型自动推断：</span>
+
+<span class="token comment">// 如果是返回 Unit类型，则可以省略(对于public方法也是这样)。(Unit类似Java中的void)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="可变长参数函数"><a href="#可变长参数函数" class="headerlink" title="可变长参数函数"></a>可变长参数函数</h4><p>函数的变长参数可以用 <strong>vararg</strong> 关键字进行标识：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">vars</span><span class="token punctuation">(</span><span class="token keyword">vararg</span> v<span class="token operator">:</span>Int<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>vt <span class="token keyword">in</span> v<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>vt<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 测试</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">vars</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>  <span class="token comment">// 输出12345</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="lambda-匿名函数"><a href="#lambda-匿名函数" class="headerlink" title="lambda(匿名函数)"></a>lambda(匿名函数)</h4><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 测试</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> sumLambda<span class="token operator">:</span> <span class="token punctuation">(</span>Int<span class="token punctuation">,</span> Int<span class="token punctuation">)</span> <span class="token operator">-></span> Int <span class="token operator">=</span> <span class="token punctuation">&#123;</span>x<span class="token punctuation">,</span>y <span class="token operator">-></span> x<span class="token operator">+</span>y<span class="token punctuation">&#125;</span> <span class="token comment">// lambda (参数类型)->返回类型 = &#123;函数体&#125;</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token function">sumLambda</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// 输出 3</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="定义常量与变量"><a href="#定义常量与变量" class="headerlink" title="定义常量与变量"></a>定义常量与变量</h4><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 可变变量定义：var 关键字</span>
+<span class="token keyword">var</span> <span class="token operator">&lt;</span>标识符<span class="token operator">></span> <span class="token operator">:</span> <span class="token operator">&lt;</span>类型<span class="token operator">></span> <span class="token operator">=</span> <span class="token operator">&lt;</span>初始化值<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 不可变变量定义：val 关键字，只能赋值一次的变量(类似Java中final修饰的变量)</span>
+<span class="token keyword">val</span> <span class="token operator">&lt;</span>标识符<span class="token operator">></span> <span class="token operator">:</span> <span class="token operator">&lt;</span>类型<span class="token operator">></span> <span class="token operator">=</span> <span class="token operator">&lt;</span>初始化值<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>常量与变量都可以没有初始化值,但是在引用前必须初始化</p>
+<p>编译器支持自动类型判断,即声明时可以不指定类型,由编译器判断。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> PI<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">3.1415926</span><span class="token comment">// 完整的 初始化</span>
+<span class="token keyword">val</span> b <span class="token operator">=</span> <span class="token number">1</span>       <span class="token comment">// 系统自动推断变量类型为Int</span>
+<span class="token keyword">val</span> c<span class="token operator">:</span> Int      <span class="token comment">// 先声明</span>
+c <span class="token operator">=</span> <span class="token number">1</span>           <span class="token comment">// 后赋值</span>
+
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">5</span>        
+x <span class="token operator">+=</span> <span class="token number">1</span>           <span class="token comment">// var变量可修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 这是一个单行注释</span>
+
+<span class="token comment">/* 
+/*
+   这是一个多行的块注释。
+   与 Java 不同, Kotlin 中的块注释允许嵌套。
+*/</span>
+<span class="token operator">*</span><span class="token operator">/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><p>$ 表示一个变量名或者变量值</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token string">"a is <span class="token interpolation variable">$a</span>"</span> <span class="token comment">// 插入变量a，a is 1</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token string">"a*a is <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>a <span class="token operator">*</span> a<span class="token delimiter variable">&#125;</span></span>"</span> <span class="token comment">// 插入 变量a+b的和, $&#123;表达式&#125;，a*a is 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="NULL检查机制"><a href="#NULL检查机制" class="headerlink" title="NULL检查机制"></a>NULL检查机制</h4><p>kotlin的空安全设计对于声明可为空的参数，在使用时要进行空判断处理，有两种处理方式，</p>
+<p>字段后==加!!==像Java一样抛出空异常，另一种字段后==加?==可不做处理返回值为 null或==配合?:==做空判断处理</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">//类型后面加?表示可为空，当age为null是，下面运行结果分别是：</span>
+<span class="token keyword">var</span> age<span class="token operator">:</span> String<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token comment">// 1. 抛出空指针异常</span>
+<span class="token keyword">val</span> ages <span class="token operator">=</span> age<span class="token operator">!!</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 抛异常</span>
+<span class="token comment">// 2. 不做处理返回 null</span>
+<span class="token keyword">val</span> ages1 <span class="token operator">=</span> age<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// ages1=null</span>
+<span class="token comment">// 3. age为空返回-1</span>
+<span class="token keyword">val</span> ages2 <span class="token operator">=</span> age<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?:</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token comment">// ages2= -1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="类型检测及自动类型转换"><a href="#类型检测及自动类型转换" class="headerlink" title="类型检测及自动类型转换"></a>类型检测及自动类型转换</h4><p>我们可以使用 is 运算符（或者 !is ）检测一个表达式是否某类型的一个实例(类似于Java中的instanceof关键字)。</p>
+<h4 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h4><p>区间表达式由具有操作符形式 <strong>..</strong> 的 rangeTo 函数辅以 in 和 !in 形成。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token comment">// 输出“1234”</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">4</span><span class="token operator">..</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token comment">// 什么都不输出</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 等同于 1 &lt;= i &amp;&amp; i &lt;= 10</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 使用 step 指定步长</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">4</span> step <span class="token number">2</span><span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token comment">// 输出“13”</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">4</span> downTo <span class="token number">1</span> step <span class="token number">2</span><span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token comment">// 输出“42”</span>
+
+
+<span class="token comment">// 使用 until 函数排除结束元素</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span> until <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>   <span class="token comment">// i in [1, 10) 排除了 10</span>
+     <span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Kotlin-基本数据类型"><a href="#Kotlin-基本数据类型" class="headerlink" title="Kotlin 基本数据类型"></a>Kotlin 基本数据类型</h3><p>Kotlin 的基本数值类型包括 Byte、Short、Int、Long、Float、Double 等。不同于 Java 的是，字符不属于数值类型，是一个独立的数据类型。</p>
+<h4 id="比较两个数字"><a href="#比较两个数字" class="headerlink" title="比较两个数字"></a>比较两个数字</h4><p>Kotlin 中没有基础数据类型，只有封装的数字类型，你每定义的一个变量，其实 Kotlin 帮你封装了一个对象，这样可以保证不会出现空指针。数字类型也一样，所以在比较两个数字的时候，就有比较数据大小和比较两个对象是否相同的区别了。</p>
+<p>在 Kotlin 中，三个等号 === 表示比较对象地址，两个 == 表示比较两个值大小。</p>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>由于不同的表示方式，较小类型并不是较大类型的子类型，较小的类型不能隐式转换为较大的类型。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> b<span class="token operator">:</span> Byte <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">// OK, 字面值是静态检测的</span>
+<span class="token keyword">val</span> i<span class="token operator">:</span> Int <span class="token operator">=</span> b <span class="token comment">// 错误，因为向编译器 声明了 b 的类型是Byte</span>
+<span class="token keyword">val</span> j<span class="token operator">:</span> Int <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// OK，toXXX 用于转换类型</span>
+
+<span class="token keyword">val</span> l <span class="token operator">=</span> <span class="token number">1L</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token comment">// Long + Int => Long，</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="位操作符"><a href="#位操作符" class="headerlink" title="位操作符"></a>位操作符</h4><p>对于 Int 和 Long 类型，还有一系列的位操作符可以使用，分别是：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token function">shl</span><span class="token punctuation">(</span>bits<span class="token punctuation">)</span> – 左移位 <span class="token punctuation">(</span>Java’s <span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token punctuation">)</span>
+<span class="token function">shr</span><span class="token punctuation">(</span>bits<span class="token punctuation">)</span> – 右移位 <span class="token punctuation">(</span>Java’s <span class="token operator">></span><span class="token operator">></span><span class="token punctuation">)</span>
+<span class="token function">ushr</span><span class="token punctuation">(</span>bits<span class="token punctuation">)</span> – 无符号右移位 <span class="token punctuation">(</span>Java’s <span class="token operator">></span><span class="token operator">></span><span class="token operator">></span><span class="token punctuation">)</span>
+<span class="token function">and</span><span class="token punctuation">(</span>bits<span class="token punctuation">)</span> – 与
+<span class="token function">or</span><span class="token punctuation">(</span>bits<span class="token punctuation">)</span> – 或
+<span class="token function">xor</span><span class="token punctuation">(</span>bits<span class="token punctuation">)</span> – 异或
+<span class="token function">inv</span><span class="token punctuation">(</span><span class="token punctuation">)</span> – 反向<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h4><p>和 Java 不一样，==Kotlin 中的 Char 不能直接和数字操作==，Char 必需是单引号 <strong>‘</strong> 包含起来的。比如普通字符 ‘0’，’a’。</p>
+<p>但是，<code>&#39;0&#39;.toInt() // 显式转换为数字，48</code></p>
+<h4 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h4><p>布尔用 Boolean 类型表示，它有两个值：true 和 false。</p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>数组用类 Array 实现，并且还有一个 size 属性及 get 和 set 方法，由于使用 [] 重载了 get 和 set 方法，所以我们可以通过下标很方便的获取或者设置数组对应位置的值。</p>
+<p>数组的创建两种方式：一种是使用==函数arrayOf()==；另外一种是使用==工厂函数Array()==。如下所示，我们分别是两种方式创建了两个数组：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//[1,2,3]</span>
+    <span class="token keyword">val</span> a <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token comment">//[0,2,4]</span>
+    <span class="token keyword">val</span> b <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> i <span class="token operator">-></span> <span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">//读取数组内容</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment">// 输出结果：1</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment">// 输出结果：2</span>
+    <span class="token comment">// [] 运算符代表调用成员函数 get() 和 set()。</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ol>
+<li><p>和 Java 一样，String 是不可变的。方括号 [] 语法可以很方便的获取字符串中的某个字符，也可以通过 for 循环来遍历：</p>
+</li>
+<li><p>Kotlin 支持三个引号 “”” 扩起来的字符串，支持多行字符串，可以通过 ‘’’333’’’.trimMargin() 方法来删除多余的空白。</p>
+<p>默认 | 用作边界前缀，但你可以选择其他字符并作为参数传入，比如 trimMargin(“&gt;”)。</p>
+</li>
+</ol>
+<h3 id="Kotlin-条件控制"><a href="#Kotlin-条件控制" class="headerlink" title="Kotlin 条件控制"></a>Kotlin 条件控制</h3><h4 id="IF-表达式"><a href="#IF-表达式" class="headerlink" title="IF 表达式"></a>IF 表达式</h4><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 传统用法</span>
+<span class="token keyword">var</span> max <span class="token operator">=</span> a 
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">&lt;</span> b<span class="token punctuation">)</span> max <span class="token operator">=</span> b
+
+<span class="token comment">// 把 IF 表达式的结果赋值给一个变量，print也会执行</span>
+<span class="token keyword">val</span> max <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Choose a"</span><span class="token punctuation">)</span>
+    a
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Choose b"</span><span class="token punctuation">)</span>
+    b
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token comment">// 作为表达式</span>
+<span class="token keyword">val</span> max <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span> a <span class="token keyword">else</span> b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="When-表达式"><a href="#When-表达式" class="headerlink" title="When 表达式"></a>When 表达式</h4><p>when 将它的参数和所有的分支条件==顺序比较==，直到某个分支满足条件。</p>
+<p>when 既可以被当做表达式使用也可以被当做语句使用。如果它被当做表达式，符合条件的分支的值就是整个表达式的值，如果当做语句使用， 则忽略个别分支的值。</p>
+<p>when 类似其他语言的 switch 操作符。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 顺序比较</span>
+<span class="token comment">// else 同 switch 的 default。如果其他分支都不满足条件将会求值 else 分支。</span>
+<span class="token comment">// when 也可以用来取代 if-else if链。</span>
+<span class="token keyword">when</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">10</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x is in the range"</span><span class="token punctuation">)</span>
+    <span class="token keyword">in</span> validNumbers <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x is valid"</span><span class="token punctuation">)</span>
+    <span class="token operator">!</span><span class="token keyword">in</span> <span class="token number">10</span><span class="token operator">..</span><span class="token number">20</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x is outside the range"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"none of the above"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 作为表达式，返回结果</span>
+<span class="token keyword">fun</span> <span class="token function">hasPrefix</span><span class="token punctuation">(</span>x<span class="token operator">:</span> Any<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">when</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">is</span> String <span class="token operator">-></span> x<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"prefix"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token boolean">false</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">when</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 这里不要参数，单纯的if-else-if链</span>
+    x<span class="token punctuation">.</span><span class="token function">isOdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x is odd"</span><span class="token punctuation">)</span>
+    x<span class="token punctuation">.</span><span class="token function">isEven</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x is even"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"x is funny"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Kotlin-循环控制"><a href="#Kotlin-循环控制" class="headerlink" title="Kotlin 循环控制"></a>Kotlin 循环控制</h3><h4 id="For-循环"><a href="#For-循环" class="headerlink" title="For 循环"></a>For 循环</h4><p>for 循环可以对任何提供迭代器（iterator）的对象进行遍历，语法如下:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> items <span class="token operator">=</span> <span class="token function">listOf</span><span class="token punctuation">(</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"kiwi"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>item <span class="token keyword">in</span> items<span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>index <span class="token keyword">in</span> items<span class="token punctuation">.</span>indices<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// index 遍历下标</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"item at <span class="token interpolation variable">$index</span> is <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>items<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意：”在区间上遍历”会编译成优化的实现而不会创建额外对象。或者你可以用库函数 withIndex：</p>
+<h4 id="Break-和-Continue-标签"><a href="#Break-和-Continue-标签" class="headerlink" title="Break 和 Continue 标签"></a>Break 和 Continue 标签</h4><p>在 Kotlin 中任何表达式都可以用标签（label）来标记。 标签的格式为标识符后跟 @ 符号，例如：abc@、fooBar@都是有效的标签。 要为一个表达式加标签，我们只要在其前加标签即可。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token label symbol">loop@</span> <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>……<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token label symbol">@loop</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="标签处返回"><a href="#标签处返回" class="headerlink" title="标签处返回"></a>标签处返回</h4><p>Kotlin 有函数字面量、局部函数和对象表达式。因此 Kotlin 的函数可以被嵌套。 标签限制的 return 允许我们从外层函数返回。 </p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    ints<span class="token punctuation">.</span><span class="token function">forEach</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token comment">// 会从foo返回，结束foo函数</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    ints<span class="token punctuation">.</span>forEach <span class="token label symbol">lit@</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 局部返回，方式一</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token label symbol">@lit</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    ints<span class="token punctuation">.</span><span class="token function">forEach</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token label symbol">@forEach</span> <span class="token comment">// 局部返回，方式二</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    ints<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">fun</span><span class="token punctuation">(</span>value<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 匿名函数</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当要返一个回值的时候，解析器优先选用标签限制的 return，即</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">return</span><span class="token label symbol">@a</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>意为”从标签 @a 返回 1”，而不是”返回一个标签标注的表达式 (@a 1)”。</p>
+<h3 id="Kotlin-类和对象"><a href="#Kotlin-类和对象" class="headerlink" title="Kotlin 类和对象"></a>Kotlin 类和对象</h3><p>Kotlin 类可以包含：构造函数和初始化代码块、函数、属性、内部类、对象声明。</p>
+<ol>
+<li><p>创建一个类，<code>val site = Runoob() // Kotlin 中没有 new 关键字</code></p>
+</li>
+<li><p>类的属性可以用关键字 <strong>var</strong> 声明为可变的，否则使用只读关键字 <strong>val</strong> 声明为不可变。</p>
+</li>
+<li><p>Koltin 中的类可以有<strong>一个 主构造器</strong>，以及一个或多个次构造器，主构造器是<strong>类头部的一部分</strong>，位于类名称之后:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> Person <span class="token keyword">constructor</span><span class="token punctuation">(</span>firstName<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 类内部</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 如果主构造器没有任何注解，也没有任何可见度修饰符，那么constructor关键字可以省略。</span>
+<span class="token keyword">class</span> <span class="token function">Person</span><span class="token punctuation">(</span>firstName<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>getter 和 setter</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">var</span> <span class="token operator">&lt;</span>propertyName<span class="token operator">></span><span class="token punctuation">[</span><span class="token operator">:</span> <span class="token operator">&lt;</span>PropertyType<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">=</span> <span class="token operator">&lt;</span>property_initializer<span class="token operator">></span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token operator">&lt;</span>getter<span class="token operator">></span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token operator">&lt;</span>setter<span class="token operator">></span><span class="token punctuation">]</span>
+
+<span class="token keyword">var</span> no<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">100</span>
+        <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> field                <span class="token comment">// 不做处理，返回本值，field代表变量的值</span>
+        <span class="token keyword">set</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>       <span class="token comment">// 如果传入的值小于 10 返回该值</span>
+                field <span class="token operator">=</span> value
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                field <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>         <span class="token comment">// 如果传入的值大于等于 10 返回 -1</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 非空属性必须在定义的时候初始化,kotlin提供了一种可以延迟初始化的方案,使用 lateinit 关键字描述属性：</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> MyTest <span class="token punctuation">&#123;</span>
+    <span class="token keyword">lateinit</span> <span class="token keyword">var</span> subject<span class="token operator">:</span> TestSubject
+
+    <span class="token annotation builtin">@SetUp</span> <span class="token keyword">fun</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        subject <span class="token operator">=</span> <span class="token function">TestSubject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation builtin">@Test</span> <span class="token keyword">fun</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        subject<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// dereference directly</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>主构造器中不能包含任何代码，初始化代码可以放在初始化代码段（init开头的 {代码块}）</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 主构造器的参数可以在 初始化代码段 中使用，也可以在类主体n定义的属性初始化代码中使用。 </span>
+<span class="token keyword">class</span> Person <span class="token keyword">constructor</span><span class="token punctuation">(</span>firstName<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 主构造器的参数可以在这里使用，可以用来给变量赋值</span>
+    <span class="token keyword">var</span> firstName <span class="token operator">=</span> firstName
+    <span class="token keyword">init</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 相当于java的构造函数内部，可使用成员属性，和传递的参数</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"FirstName is <span class="token interpolation variable">$firstName</span>"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>次构造函数</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 类也可以有二级构造函数，需要加前缀 constructor:</span>
+<span class="token comment">// 如果类有主构造函数，每个次构造函数都要，或直接或间接通过另一个次构造函数代理主构造函数。</span>
+<span class="token keyword">class</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 主构造器</span>
+    <span class="token keyword">constructor</span> <span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">,</span> age<span class="token operator">:</span>Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 次构造函数，对主构造器的扩展，所以要兼容主构造器</span>
+        <span class="token comment">// 初始化...</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 类默认有一个无参的构造函数，构造函数是 public 。</span>
+<span class="token comment">// 如果你不想你的类有公共的构造函数，你就得声明一个空的主构造函数：</span>
+<span class="token keyword">class</span> DontCreateMe <span class="token keyword">private</span> <span class="token keyword">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 构造函数私有化</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><em>注意：在 JVM 虚拟机中，如果主构造函数的所有参数都有默认值，编译器会生成一个附加的无参的构造函数，这个构造函数会直接使用默认值。</em></p>
+</li>
+<li><p>抽象类</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 注意：无需对抽象类或抽象成员标注open注解。</span>
+<span class="token keyword">open</span> <span class="token keyword">class</span> Base <span class="token punctuation">&#123;</span>
+    <span class="token keyword">open</span> <span class="token keyword">fun</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> Derived <span class="token operator">:</span> <span class="token function">Base</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">abstract</span> <span class="token keyword">fun</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>嵌套类 （相当于静态内部类？？？）</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> Outer <span class="token punctuation">&#123;</span>                  <span class="token comment">// 外部类</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> bar<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">class</span> Nested <span class="token punctuation">&#123;</span>             <span class="token comment">// 嵌套类</span>
+        <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> demo <span class="token operator">=</span> Outer<span class="token punctuation">.</span><span class="token function">Nested</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 调用格式：外部类.嵌套类.嵌套类方法/属性</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>demo<span class="token punctuation">)</span>    <span class="token comment">// == 2</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>内部类</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// inner表示内部类，内部类可以访问外部类成员属性和成员函数。</span>
+<span class="token keyword">class</span> Outer <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> bar<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">var</span> v <span class="token operator">=</span> <span class="token string">"成员属性"</span>
+    <span class="token comment">/**嵌套内部类**/</span>
+    <span class="token keyword">inner</span> <span class="token keyword">class</span> Inner <span class="token punctuation">&#123;</span>
+        <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> bar  <span class="token comment">// 访问外部类成员</span>
+        <span class="token keyword">fun</span> <span class="token function">innerTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">var</span> o <span class="token operator">=</span> <span class="token keyword">this</span><span class="token label symbol">@Outer</span> <span class="token comment">//获取外部类的成员变量，this@Outer表示是外部类的this</span>
+            <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"内部类可以引用外部类的成员，例如："</span> <span class="token operator">+</span> o<span class="token punctuation">.</span>v<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> demo <span class="token operator">=</span> <span class="token function">Outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>demo<span class="token punctuation">)</span> <span class="token comment">//   1</span>
+    <span class="token keyword">val</span> demo2 <span class="token operator">=</span> <span class="token function">Outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">innerTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   
+    <span class="token function">println</span><span class="token punctuation">(</span>demo2<span class="token punctuation">)</span>   <span class="token comment">// 内部类可以引用外部类的成员，例如：成员属性</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>为了消除歧义，要访问来自外部作用域的 this，我们使用this@label，其中 @label 是一个 代指 this 来源的标签。</p>
+<p>内部类在语义上是属于外部类的，故要依靠外部类对象。但是，嵌套类不需要依靠外部类对象。</p>
+</li>
+<li><p>匿名内部类</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> Test <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> v <span class="token operator">=</span> <span class="token string">"成员属性"</span>
+
+    <span class="token keyword">fun</span> <span class="token function">setInterFace</span><span class="token punctuation">(</span>test<span class="token operator">:</span> TestInterFace<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        test<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * 定义接口
+ */</span>
+<span class="token keyword">interface</span> TestInterFace <span class="token punctuation">&#123;</span>
+    <span class="token keyword">fun</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> test <span class="token operator">=</span> <span class="token function">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">/**
+     * 采用对象表达式来创建接口对象，即匿名内部类的实例。
+     */</span>
+    test<span class="token punctuation">.</span><span class="token function">setInterFace</span><span class="token punctuation">(</span><span class="token keyword">object</span> <span class="token operator">:</span> TestInterFace <span class="token punctuation">&#123;</span> <span class="token comment">// object代表匿名内部类对象</span>
+        <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"对象表达式创建匿名内部类的实例"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>-类的修饰符</p>
+<ul>
+<li><p>classModifier: 类属性修饰符，标示类本身特性。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">abstract</span>    <span class="token comment">// 抽象类  </span>
+<span class="token keyword">final</span>       <span class="token comment">// 类不可继承，默认属性</span>
+<span class="token keyword">enum</span>        <span class="token comment">// 枚举类</span>
+<span class="token keyword">open</span>        <span class="token comment">// 类可继承，类默认是final的</span>
+<span class="token keyword">annotation</span>  <span class="token comment">// 注解类</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>accessModifier: 访问权限修饰符</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">private</span>    <span class="token comment">// 仅在同一个文件中可见</span>
+<span class="token keyword">protected</span>  <span class="token comment">// 同一个文件中或子类可见</span>
+<span class="token keyword">public</span>     <span class="token comment">// 所有调用的地方都可见</span>
+<span class="token keyword">internal</span>   <span class="token comment">// 同一个模块中可见</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<h3 id="Kotlin-继承"><a href="#Kotlin-继承" class="headerlink" title="Kotlin 继承"></a>Kotlin 继承</h3><ol>
+<li><p>Kotlin 中所有类都继承该 Any 类，它是所有类的超类，对于没有超类型声明的类是默认超类：</p>
+</li>
+<li><p>注意：Any 不是 java.lang.Object。</p>
+</li>
+<li><p>如果一个类要被继承，可以使用 open 关键字进行修饰。</p>
+</li>
+</ol>
+<p>Any 默认提供了三个函数：<code>equals(); hashCode(); toString()</code></p>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>如果子类有主构造函数， 则基类必须在主构造函数中立即初始化。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">open</span> <span class="token keyword">class</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">var</span> name <span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">var</span> age <span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token comment">// 基类</span>
+
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token function">Student</span><span class="token punctuation">(</span>name <span class="token operator">:</span> String<span class="token punctuation">,</span> age <span class="token operator">:</span> Int<span class="token punctuation">,</span> <span class="token keyword">var</span> no <span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">var</span> score <span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Person</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 测试</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> s <span class="token operator">=</span>  <span class="token function">Student</span><span class="token punctuation">(</span><span class="token string">"Runoob"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">"S12346"</span><span class="token punctuation">,</span> <span class="token number">89</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"学生名： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>s<span class="token punctuation">.</span>name<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"年龄： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>s<span class="token punctuation">.</span>age<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"学生号： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>s<span class="token punctuation">.</span>no<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"成绩： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>s<span class="token punctuation">.</span>score<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果子类没有主构造函数，则必须在每一个二级构造函数中用 super 关键字初始化基类，或者在代理另一个构造函数。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">/**用户基类**/</span>
+<span class="token keyword">open</span> <span class="token keyword">class</span> <span class="token function">Person</span><span class="token punctuation">(</span>name<span class="token operator">:</span>String<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">/**次级构造函数**/</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>name<span class="token operator">:</span>String<span class="token punctuation">,</span>age<span class="token operator">:</span>Int<span class="token punctuation">)</span><span class="token operator">:</span><span class="token keyword">this</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">//初始化</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-------基类次级构造函数---------"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**子类继承 Person 类**/</span>
+<span class="token keyword">class</span> Student<span class="token operator">:</span>Person<span class="token punctuation">&#123;</span>
+
+    <span class="token comment">/**次级构造函数**/</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>name<span class="token operator">:</span>String<span class="token punctuation">,</span>age<span class="token operator">:</span>Int<span class="token punctuation">,</span>no<span class="token operator">:</span>String<span class="token punctuation">,</span>score<span class="token operator">:</span>Int<span class="token punctuation">)</span><span class="token operator">:</span><span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-------继承类次级构造函数---------"</span><span class="token punctuation">)</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"学生名： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>name<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"年龄： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>age<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"学生号： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>no<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"成绩： <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>score<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> s <span class="token operator">=</span>  <span class="token function">Student</span><span class="token punctuation">(</span><span class="token string">"Runoob"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">"S12345"</span><span class="token punctuation">,</span> <span class="token number">89</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h4><p>基类函数默认为final修饰，不能被子类重写。手动添加 open 允许子类重写该函数, 子类重写方法使用 override 关键词：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">/**用户基类**/</span>
+<span class="token keyword">open</span> <span class="token keyword">class</span> Person<span class="token punctuation">&#123;</span>
+    <span class="token keyword">open</span> <span class="token keyword">fun</span> <span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>       <span class="token comment">// 允许子类重写</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我毕业了"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**子类继承 Person 类**/</span>
+<span class="token keyword">class</span> Student <span class="token operator">:</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    <span class="token comment">// 重写方法</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我在读大学"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> s <span class="token operator">=</span>  <span class="token function">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    s<span class="token punctuation">.</span><span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果有多个相同的方法（继承 或者 实现 自其他类，如A、B类），则必须要重写该方法，使用super范型去选择性地调用父类的实现。</p>
+<h4 id="属性重写"><a href="#属性重写" class="headerlink" title="属性重写"></a>属性重写</h4><p>属性重写使用 override 关键字，属性必须具有兼容类型</p>
+<p>你可以用一个var属性重写一个val属性，但是反过来不行。因为val属性本身定义了getter方法，重写为var属性会在衍生类中额外声明一个setter方法，故val可以被重写。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">interface</span> Foo <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> count<span class="token operator">:</span> Int
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token function">Bar1</span><span class="token punctuation">(</span><span class="token keyword">override</span> <span class="token keyword">val</span> count<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> Foo
+
+<span class="token keyword">class</span> Bar2 <span class="token operator">:</span> Foo <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">var</span> count<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Kotlin-接口"><a href="#Kotlin-接口" class="headerlink" title="Kotlin 接口"></a>Kotlin 接口</h3><p>Kotlin 接口与 Java 8 类似，使用 interface 关键字定义接口，允许方法有默认实现：</p>
+<h4 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h4><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">interface</span> MyInterface <span class="token punctuation">&#123;</span>
+    <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">// 未实现</span>
+    <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">//已实现</span>
+      <span class="token comment">// 可选的方法体</span>
+      <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Child <span class="token operator">:</span> MyInterface <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 方法体</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"bar"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> c <span class="token operator">=</span>  <span class="token function">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    c<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="接口中的属性"><a href="#接口中的属性" class="headerlink" title="接口中的属性"></a>接口中的属性</h4><p>接口中的属性只能是抽象的，不允许初始化值，接口不会保存属性值，实现接口时，必须重写属性：</p>
+<p><em>接口属性不能有默认值</em></p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">interface</span> MyInterface <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> name<span class="token operator">:</span>String <span class="token comment">//name 属性, 抽象的</span>
+    <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 可选的方法体</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> Child <span class="token operator">:</span> MyInterface <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">var</span> name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">"runoob"</span> <span class="token comment">//重写属性</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 方法体</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"bar"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> c <span class="token operator">=</span>  <span class="token function">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    c<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+ 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="函数重写"><a href="#函数重写" class="headerlink" title="函数重写"></a>函数重写</h4><p>实现多个接口时，可能会遇到同一方法继承多个实现的问题。例如:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">interface</span> A <span class="token punctuation">&#123;</span>
+    <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>   <span class="token comment">// 已实现</span>
+    <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                  <span class="token comment">// 未实现，没有方法体，是抽象的</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">interface</span> B <span class="token punctuation">&#123;</span>
+    <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>   <span class="token comment">// 已实现</span>
+    <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"bar"</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span> <span class="token comment">// 已实现</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">class</span> C <span class="token operator">:</span> A <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"bar"</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>   <span class="token comment">// 重写</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">class</span> D <span class="token operator">:</span> A<span class="token punctuation">,</span> B <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 我们需要实现多个接口继承的所有方法，并指明 D 应该如何实现它们。单接口也是这样。</span>
+        <span class="token keyword">super</span><span class="token operator">&lt;</span>A<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">super</span><span class="token operator">&lt;</span>B<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+ 
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token operator">&lt;</span>B<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> d <span class="token operator">=</span>  <span class="token function">D</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    d<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    d<span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 输出 ABbar</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Kotlin-扩展"><a href="#Kotlin-扩展" class="headerlink" title="Kotlin 扩展"></a>Kotlin 扩展</h3><p>Kotlin 可以对一个类的属性和方法进行扩展，且不需要继承或使用 Decorator 模式。</p>
+<p>扩展是一种静态行为，对被扩展的类代码本身不会造成任何影响。</p>
+<h4 id="扩展函数"><a href="#扩展函数" class="headerlink" title="扩展函数"></a>扩展函数</h4><p>扩展函数可以在已有类中添加新的方法，不会对原类做修改</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token keyword">var</span> name<span class="token operator">:</span>String<span class="token punctuation">)</span>
+
+<span class="token comment">/**扩展函数**/</span>
+<span class="token keyword">fun</span> User<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token comment">// 扩展User这个类，扩展了一个Print函数。不止可以扩展自定义类</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"用户名 <span class="token interpolation variable">$name</span>"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>arg<span class="token operator">:</span>Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> user <span class="token operator">=</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token string">"Runoob"</span><span class="token punctuation">)</span>
+    user<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="扩展函数是静态解析的"><a href="#扩展函数是静态解析的" class="headerlink" title="扩展函数是静态解析的"></a>扩展函数是静态解析的</h4><p>扩展函数是静态解析的，并不是接收者类型的虚拟成员，在调用扩展函数时，具体被调用的的是哪一个函数，由调用函数的的对象表达式来决定的，而不是动态的类型决定的:</p>
+<p><em>多态是动态解析的</em></p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">open</span> <span class="token keyword">class</span> C
+
+<span class="token keyword">class</span> D<span class="token operator">:</span> <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">fun</span> C<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"c"</span>   <span class="token comment">// 扩展函数 foo</span>
+
+<span class="token keyword">fun</span> D<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"d"</span>   <span class="token comment">// 扩展函数 foo</span>
+
+<span class="token keyword">fun</span> <span class="token function">printFoo</span><span class="token punctuation">(</span>c<span class="token operator">:</span> C<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// 类型是 C 类，而不是传递的D类</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>arg<span class="token operator">:</span>Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">printFoo</span><span class="token punctuation">(</span><span class="token function">D</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// c</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>若扩展函数和成员函数一致，则使用该函数时，会优先使用成员函数。</p>
+<h4 id="扩展一个空对象"><a href="#扩展一个空对象" class="headerlink" title="扩展一个空对象"></a>扩展一个空对象</h4><p>在扩展函数内， 可以通过 this 来判断接收者是否为 NULL,这样，即使接收者为 NULL,也可以调用扩展函数。例如:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> Any<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">"null"</span>
+    <span class="token comment">// 空检测之后，“this”会自动转换为非空类型，所以下面的 toString()</span>
+    <span class="token comment">// 解析为 Any 类的成员函数</span>
+    <span class="token keyword">return</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>arg<span class="token operator">:</span>Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// null</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h4><p>扩展属性只能被声明为 val。</p>
+<p>扩展属性允许定义在类或者kotlin文件中，不允许定义在函数中。初始化属性因为属性没有后端字段（backing field），所以不允许被初始化，只能由显式提供的 getter/setter 定义。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 扩展List一个新属性lastIndex，值是size - 1，类型是val</span>
+<span class="token keyword">val</span> <span class="token operator">&lt;</span>T<span class="token operator">></span> List<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">.</span>lastIndex<span class="token operator">:</span> Int
+    <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> size <span class="token operator">-</span> <span class="token number">1</span>
+ 
+ <span class="token keyword">val</span> Foo<span class="token punctuation">.</span>bar <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">// 错误：扩展属性不能有初始化器</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="伴生对象的扩展"><a href="#伴生对象的扩展" class="headerlink" title="伴生对象的扩展"></a>伴生对象的扩展</h4><p>伴生对象通过”类名.”形式调用伴生对象，伴生对象声明的扩展函数，通过用类名限定符来调用：</p>
+<p>相当于java中的静态成员</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> MyClass <span class="token punctuation">&#123;</span>
+    <span class="token keyword">companion</span> <span class="token keyword">object</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span>  <span class="token comment">// 将被称为 "Companion"，声明伴生对象</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> MyClass<span class="token punctuation">.</span>Companion<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"伴随对象的扩展函数"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">val</span> MyClass<span class="token punctuation">.</span>Companion<span class="token punctuation">.</span>no<span class="token operator">:</span> Int
+    <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">10</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"no:<span class="token interpolation"><span class="token delimiter variable">$&#123;</span>MyClass<span class="token punctuation">.</span>no<span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+    MyClass<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="扩展的作用域"><a href="#扩展的作用域" class="headerlink" title="扩展的作用域"></a>扩展的作用域</h4><p>通常扩展函数或属性定义在顶级包下:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">package</span> foo<span class="token punctuation">.</span>bar
+
+<span class="token keyword">fun</span> Baz<span class="token punctuation">.</span><span class="token function">goo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> …… <span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>要使用所定义包之外的一个扩展, 通过import导入扩展的函数名进行使用:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">package</span> com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>usage
+
+<span class="token keyword">import</span> foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span>goo <span class="token comment">// 导入所有名为 goo 的扩展</span>
+                   <span class="token comment">// 或者</span>
+<span class="token keyword">import</span> foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span><span class="token operator">*</span>   <span class="token comment">// 从 foo.bar 导入一切</span>
+
+<span class="token keyword">fun</span> <span class="token function">usage</span><span class="token punctuation">(</span>baz<span class="token operator">:</span> Baz<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    baz<span class="token punctuation">.</span><span class="token function">goo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="扩展声明为成员"><a href="#扩展声明为成员" class="headerlink" title="扩展声明为成员"></a>扩展声明为成员</h4><p>在一个类内部你可以为另一个类声明扩展。</p>
+<p>在这个扩展中，有个多个隐含的接受者，其中扩展方法定义所在类的实例称为分发接受者，而扩展方法的目标类型的实例称为扩展接受者。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> D <span class="token punctuation">&#123;</span>
+    <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"D bar"</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> C <span class="token punctuation">&#123;</span>
+    <span class="token keyword">fun</span> <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"C baz"</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">fun</span> D<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 扩展D类</span>
+        <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// 调用 D.bar</span>
+        <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// 调用 C.baz</span>
+        <span class="token comment">// 2 ，C和D都有bar()函数，优先调用扩展类的，使用this@调用本类的</span>
+        <span class="token comment">// bar()         // 调用 D.bar()，扩展接收者优先</span>
+        <span class="token comment">// this@C.bar()  // 调用 C.bar()</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">fun</span> <span class="token function">caller</span><span class="token punctuation">(</span>d<span class="token operator">:</span> D<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        d<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// 调用扩展函数</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> c<span class="token operator">:</span> C <span class="token operator">=</span> <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> d<span class="token operator">:</span> D <span class="token operator">=</span> <span class="token function">D</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    c<span class="token punctuation">.</span><span class="token function">caller</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+	<span class="token comment">// D bar</span>
+	<span class="token comment">// C baz</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>假如在调用某一个函数，而该函数在分发接受者和扩展接受者均存在，则以扩展接收者优先，要引用分发接收者的成员你可以使用限定的 this 语法。</p>
+<p>以成员的形式定义的扩展函数, 可以声明为 open , 而且可以在子类中覆盖. 也就是说, 在这类扩展函数的派 发过程中, 针对分发接受者是虚拟的(virtual), 但针对扩展接受者仍然是静态的。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">open</span> <span class="token keyword">class</span> D <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> D1 <span class="token operator">:</span> <span class="token function">D</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">open</span> <span class="token keyword">class</span> C <span class="token punctuation">&#123;</span>
+    <span class="token keyword">open</span> <span class="token keyword">fun</span> D<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"D.foo in C"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">open</span> <span class="token keyword">fun</span> D1<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"D1.foo in C"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">fun</span> <span class="token function">caller</span><span class="token punctuation">(</span>d<span class="token operator">:</span> D<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        d<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// 调用扩展函数</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> C1 <span class="token operator">:</span> <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> D<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"D.foo in C1"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> D1<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"D1.foo in C1"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">caller</span><span class="token punctuation">(</span><span class="token function">D</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">// 输出 "D.foo in C"</span>
+    <span class="token function">C1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">caller</span><span class="token punctuation">(</span><span class="token function">D</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// 输出 "D.foo in C1" —— 分发接收者虚拟解析</span>
+    <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">caller</span><span class="token punctuation">(</span><span class="token function">D1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// 输出 "D.foo in C" —— 扩展接收者静态解析</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Kotlin-数据类与密封类"><a href="#Kotlin-数据类与密封类" class="headerlink" title="==Kotlin 数据类与密封类=="></a>==Kotlin 数据类与密封类==</h3><h4 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h4><p>Kotlin 可以创建一个只包含数据的类，关键字为 <strong>data</strong>：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">data</span> <span class="token keyword">class</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">val</span> age<span class="token operator">:</span> Int<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>编译器会自动的从主构造函数中根据所有声明的属性提取以下函数：</p>
+<ul>
+<li><code>equals()</code> / <code>hashCode()</code></li>
+<li><code>toString()</code> 格式如 <code>&quot;User(name=John, age=42)&quot;</code></li>
+<li><code>componentN() functions</code> 对应于属性，按声明顺序排列</li>
+<li><code>copy()</code> 函数</li>
+</ul>
+<p>如果这些函数在类中已经被明确定义了，或者从超类中继承而来，就不再会生成。</p>
+<p>为了保证生成代码的一致性以及有意义，数据类需要满足以下条件：</p>
+<ul>
+<li>主构造函数至少包含一个参数。</li>
+<li>所有的主构造函数的参数必须标识为<code>val</code> 或者 <code>var</code> ;</li>
+<li>数据类不可以声明为 <code>abstract</code>, <code>open</code>, <code>sealed</code> 或者 <code>inner</code>;</li>
+<li>数据类不能继承其他类 (但是可以实现接口)。</li>
+</ul>
+<p>复制使用 copy() 函数，我们可以使用该函数复制对象并修改部分属性,</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">
+<span class="token keyword">data</span> <span class="token keyword">class</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">val</span> age<span class="token operator">:</span> Int<span class="token punctuation">)</span>
+
+<span class="token keyword">fun</span> <span class="token function">copy</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> age<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">User</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> jack <span class="token operator">=</span> <span class="token function">User</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"Jack"</span><span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> olderJack <span class="token operator">=</span> jack<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span>age <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>jack<span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>olderJack<span class="token punctuation">)</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>组件函数允许数据类在<strong>解构声明</strong>中使用：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> jane <span class="token operator">=</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token string">"Jane"</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token operator">=</span> jane <span class="token comment">// 解构</span>
+<span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation variable">$name</span>, <span class="token interpolation variable">$age</span> years of age"</span><span class="token punctuation">)</span> <span class="token comment">// prints "Jane, 35 years of age"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>标准库提供了 <strong>Pair</strong> 和 <strong>Triple</strong> 。在大多数情形中，命名数据类是更好的设计选择，因为这样代码可读性更强而且提供了有意义的名字和属性。</p>
+<h4 id="密封类"><a href="#密封类" class="headerlink" title="密封类"></a>密封类</h4><p>密封类用来表示受限的类继承结构：</p>
+<p>声明一个密封类，使用 <strong>sealed</strong> 修饰类，密封类可以有子类，但是所有的子类都必须要内嵌在密封类中。</p>
+<p>sealed 不能修饰 interface ,abstract class(会报 warning,但是不会出现编译错误)</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">sealed</span> <span class="token keyword">class</span> Expr
+<span class="token keyword">data</span> <span class="token keyword">class</span> <span class="token function">Const</span><span class="token punctuation">(</span><span class="token keyword">val</span> number<span class="token operator">:</span> Double<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Expr</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">data</span> <span class="token keyword">class</span> <span class="token function">Sum</span><span class="token punctuation">(</span><span class="token keyword">val</span> e1<span class="token operator">:</span> Expr<span class="token punctuation">,</span> <span class="token keyword">val</span> e2<span class="token operator">:</span> Expr<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Expr</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">object</span> NotANumber <span class="token operator">:</span> <span class="token function">Expr</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">fun</span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token operator">:</span> Expr<span class="token punctuation">)</span><span class="token operator">:</span> Double <span class="token operator">=</span> <span class="token keyword">when</span> <span class="token punctuation">(</span>expr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">is</span> Const <span class="token operator">-></span> expr<span class="token punctuation">.</span>number
+    <span class="token keyword">is</span> Sum <span class="token operator">-></span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token punctuation">.</span>e1<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token punctuation">.</span>e2<span class="token punctuation">)</span>
+    NotANumber <span class="token operator">-></span> Double<span class="token punctuation">.</span>NaN
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用密封类的关键好处在于使用 when 表达式 的时候，如果能够 验证语句覆盖了所有情况，就不需要为该语句再添加一个 else 子句了。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token operator">:</span> Expr<span class="token punctuation">)</span><span class="token operator">:</span> Double <span class="token operator">=</span> <span class="token keyword">when</span><span class="token punctuation">(</span>expr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">is</span> Expr<span class="token punctuation">.</span>Const <span class="token operator">-></span> expr<span class="token punctuation">.</span>number
+    <span class="token keyword">is</span> Expr<span class="token punctuation">.</span>Sum <span class="token operator">-></span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token punctuation">.</span>e1<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token punctuation">.</span>e2<span class="token punctuation">)</span>
+    Expr<span class="token punctuation">.</span>NotANumber <span class="token operator">-></span> Double<span class="token punctuation">.</span>NaN
+    <span class="token comment">// 不再需要 `else` 子句，因为我们已经覆盖了所有的情况</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Kotlin-泛型"><a href="#Kotlin-泛型" class="headerlink" title="Kotlin 泛型"></a>Kotlin 泛型</h3><h4 id="泛型声明"><a href="#泛型声明" class="headerlink" title="泛型声明"></a>泛型声明</h4><p>泛型，即 “参数化类型”，将类型参数化，可以用在类，接口，方法上。</p>
+<p>定义泛型类型变量，可以完整地写明类型参数，如果编译器可以自动推定类型参数，也可以省略类型参数。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 1. 声明一个泛型类</span>
+<span class="token keyword">class</span> Box<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span>t<span class="token operator">:</span> T<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> t
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 2. 创建类的实例时我们需要指定类型参数:</span>
+<span class="token keyword">val</span> box<span class="token operator">:</span> Box<span class="token operator">&lt;</span>Int<span class="token operator">></span> <span class="token operator">=</span> Box<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">// 或者</span>
+<span class="token keyword">val</span> box <span class="token operator">=</span> <span class="token function">Box</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// 编译器会进行类型推断，1 类型 Int，所以编译器知道我们说的是 Box&lt;Int>。</span>
+
+<span class="token comment">// 3. 实例</span>
+<span class="token keyword">class</span> Box<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span>t <span class="token operator">:</span> T<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> t
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> boxInt <span class="token operator">=</span> Box<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token keyword">var</span> boxString <span class="token operator">=</span> Box<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">"Runoob"</span><span class="token punctuation">)</span>
+
+    <span class="token function">println</span><span class="token punctuation">(</span>boxInt<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>boxString<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Kotlin <strong>泛型函数的声明</strong>与 Java 相同，类型参数要放在函数名的前面：<code>fun &lt;T&gt; boxIn(value: T) = Box(value)</code></p>
+<p>在调用泛型函数时，如果可以推断出类型参数，可以省略泛型参数。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> age <span class="token operator">=</span> <span class="token number">23</span>
+    <span class="token keyword">val</span> name <span class="token operator">=</span> <span class="token string">"runoob"</span>
+    <span class="token keyword">val</span> bool <span class="token operator">=</span> <span class="token boolean">true</span>
+
+    <span class="token function">doPrintln</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>    <span class="token comment">// 整型</span>
+    <span class="token function">doPrintln</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>   <span class="token comment">// 字符串</span>
+    <span class="token function">doPrintln</span><span class="token punctuation">(</span>bool<span class="token punctuation">)</span>   <span class="token comment">// 布尔型</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">doPrintln</span><span class="token punctuation">(</span>content<span class="token operator">:</span> T<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 泛型函数 doPrintln，函数根据传入的不同类型做相应处理：</span>
+    <span class="token keyword">when</span> <span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">is</span> Int <span class="token operator">-></span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"整型数字为 <span class="token interpolation variable">$content</span>"</span><span class="token punctuation">)</span>
+        <span class="token keyword">is</span> String <span class="token operator">-></span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"字符串转换为大写：<span class="token interpolation"><span class="token delimiter variable">$&#123;</span>content<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token delimiter variable">&#125;</span></span>"</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"T 不是整型，也不是字符串"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h4><p>我们可以使用泛型约束来设定一个给定参数允许使用的类型。</p>
+<p>Kotlin 中使用 : 对泛型的类型上限进行约束。最常见的约束是上界(upper bound)：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token operator">&lt;</span>T <span class="token operator">:</span> Comparable<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token operator">></span> <span class="token function">sort</span><span class="token punctuation">(</span>list<span class="token operator">:</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// ……</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">sort</span><span class="token punctuation">(</span><span class="token function">listOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// OK。Int 是 Comparable&lt;Int> 的子类型</span>
+<span class="token function">sort</span><span class="token punctuation">(</span><span class="token function">listOf</span><span class="token punctuation">(</span>HashMap<span class="token operator">&lt;</span>Int<span class="token punctuation">,</span> String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 错误：HashMap&lt;Int, String> 不是 Comparable&lt;HashMap&lt;Int, String>> 的子类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>默认的上界是 Any?。</p>
+<p>对于多个上界约束条件，可以用 where 子句：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">copyWhenGreater</span><span class="token punctuation">(</span>list<span class="token operator">:</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">,</span> threshold<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span>
+    <span class="token keyword">where</span> T <span class="token operator">:</span> CharSequence<span class="token punctuation">,</span>
+          T <span class="token operator">:</span> Comparable<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> list<span class="token punctuation">.</span><span class="token function">filter</span> <span class="token punctuation">&#123;</span> it <span class="token operator">></span> threshold <span class="token punctuation">&#125;</span><span class="token punctuation">.</span><span class="token function">map</span> <span class="token punctuation">&#123;</span> it<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="型变"><a href="#型变" class="headerlink" title="型变"></a>型变</h4><p>Kotlin 中没有通配符类型，它有两个其他的东西：<strong>声明处型变（declaration-site variance）</strong>与<strong>类型投影（type projections）</strong>。</p>
+<p><strong>声明处型变</strong></p>
+<p>声明处的类型变异使用协变注解修饰符：in、out，消费者 in, 生产者 out。</p>
+<p>使用 out 使得一个类型参数协变，协变类型参数只能用作输出，可以作为返回值类型但是无法作为入参的类型：</p>
+<p>in 使得一个类型参数逆变，逆变类型参数只能用作输入，可以作为入参的类型但是无法作为返回值的类型：</p>
+<p><strong>星号投射</strong></p>
+<blockquote>
+<p>有些时候, 你可能想表示你并不知道类型参数的任何信息, 但是仍然希望能够安全地使用它. 这里所谓”安全地使用”是指, 对泛型类型定义一个类型投射, 要求这个泛型类型的所有的实体实例, 都是这个投射的子类型。</p>
+<p>对于这个问题, Kotlin 提供了一种语法, 称为 星号投射(star-projection):</p>
+<ul>
+<li>假如类型定义为 Foo<out T> , 其中 T 是一个协变的类型参数, 上界(upper bound)为 TUpper ,Foo&lt;*&gt; 等价于 Foo<out TUpper> . 它表示, 当 T 未知时, 你可以安全地从 Foo&lt;*&gt; 中 读取TUpper 类型的值.</li>
+<li>假如类型定义为 Foo<in T> , 其中 T 是一个反向协变的类型参数, Foo&lt;*&gt; 等价于 Foo<inNothing> . 它表示, 当 T 未知时, 你不能安全地向 Foo&lt;*&gt; 写入 任何东西.</li>
+<li>假如类型定义为 Foo<T> , 其中 T 是一个协变的类型参数, 上界(upper bound)为 TUpper , 对于读取值的场合, Foo&lt;*&gt; 等价于 Foo<out TUpper> , 对于写入值的场合, 等价于 Foo<in Nothing> .</li>
+</ul>
+<p>如果一个泛型类型中存在多个类型参数, 那么每个类型参数都可以单独的投射. 比如, 如果类型定义为interface Function&lt;in T, out U&gt; , 那么可以出现以下几种星号投射:</p>
+<ol>
+<li>Function&lt;*, String&gt; , 代表 Function&lt;in Nothing, String&gt; ;</li>
+<li>Function&lt;Int, *&gt; , 代表 Function&lt;Int, out Any?&gt; ;</li>
+<li>Function&lt;*,* &gt; , 代表 Function&lt;in Nothing, out Any?&gt; .</li>
+</ol>
+<p>注意: 星号投射与 Java 的原生类型(raw type)非常类似, 但可以安全使用</p>
+</blockquote>
+<h3 id="Kotlin-枚举类"><a href="#Kotlin-枚举类" class="headerlink" title="Kotlin 枚举类"></a>Kotlin 枚举类</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">enum</span> <span class="token keyword">class</span> Color<span class="token punctuation">&#123;</span>
+    RED<span class="token punctuation">,</span>BLACK<span class="token punctuation">,</span>BLUE<span class="token punctuation">,</span>GREEN<span class="token punctuation">,</span>WHITE <span class="token comment">// 都是实例对象</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="枚举初始化"><a href="#枚举初始化" class="headerlink" title="枚举初始化"></a>枚举初始化</h4><p>默认名称为枚举字符名，值从0开始。若需要指定值，则可以使用其构造函数：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">enum</span> <span class="token keyword">class</span> <span class="token function">Color</span><span class="token punctuation">(</span><span class="token keyword">val</span> rgb<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">RED</span><span class="token punctuation">(</span><span class="token number">0xFF0000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">GREEN</span><span class="token punctuation">(</span><span class="token number">0x00FF00</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">BLUE</span><span class="token punctuation">(</span><span class="token number">0x0000FF</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>枚举还支持以声明自己的匿名类及相应的方法、以及覆盖基类的方法。</p>
+<h4 id="使用枚举常量"><a href="#使用枚举常量" class="headerlink" title="使用枚举常量"></a>使用枚举常量</h4><p>Kotlin 中的枚举类具有合成方法，允许遍历定义的枚举常量，并通过其名称获取枚举常数。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">enum</span> <span class="token keyword">class</span> Color<span class="token punctuation">&#123;</span>
+    RED<span class="token punctuation">,</span>BLACK<span class="token punctuation">,</span>BLUE<span class="token punctuation">,</span>GREEN<span class="token punctuation">,</span>WHITE
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> color<span class="token operator">:</span>Color<span class="token operator">=</span>Color<span class="token punctuation">.</span>BLUE
+
+    <span class="token function">println</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 	  <span class="token comment">// 以数组的形式，返回枚举值</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token string">"RED"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 转换指定 name 为枚举值，若未匹配成功，会抛出IllegalArgumentException</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>color<span class="token punctuation">.</span>name<span class="token punctuation">)</span> 	<span class="token comment">// 获取枚举名称</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>color<span class="token punctuation">.</span>ordinal<span class="token punctuation">)</span>  <span class="token comment">// 获取枚举值在所有枚举数组中定义的顺序</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>自 Kotlin 1.1 起，可以使用 <code>enumValues&lt;T&gt;()</code> 和 <code>enumValueOf&lt;T&gt;()</code> 函数以泛型的方式访问枚举类中的常量 ：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">enum</span> <span class="token keyword">class</span> RGB <span class="token punctuation">&#123;</span> RED<span class="token punctuation">,</span> GREEN<span class="token punctuation">,</span> BLUE <span class="token punctuation">&#125;</span>
+
+<span class="token keyword">inline</span> <span class="token keyword">fun</span> <span class="token operator">&lt;</span><span class="token keyword">reified</span> T <span class="token operator">:</span> Enum<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token operator">></span> <span class="token function">printAllValues</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>enumValues<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">joinToString</span> <span class="token punctuation">&#123;</span> it<span class="token punctuation">.</span>name <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    printAllValues<span class="token operator">&lt;</span>RGB<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 输出 RED, GREEN, BLUE</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Kotlin-对象表达式和对象声明"><a href="#Kotlin-对象表达式和对象声明" class="headerlink" title="Kotlin 对象表达式和对象声明"></a>Kotlin 对象表达式和对象声明</h3><p>Kotlin 用对象表达式和对象声明来实现创建一个对某个类做了轻微改动的类的对象，且不需要去声明一个新的子类。</p>
+<h4 id="对象表达式"><a href="#对象表达式" class="headerlink" title="对象表达式"></a>对象表达式</h4><p>使用表达式的形式，表示一个对象。</p>
+<ol>
+<li><p>通过对象表达式实现一个<strong>匿名内部类的对象</strong>用于<strong>方法的参数</strong>中：</p>
+</li>
+<li><p>对象可以继承于某个基类，或者实现其他接口:</p>
+</li>
+<li><p>如果超类型有一个构造函数，则必须传递参数给它。多个超类型和接口可以用逗号分隔。</p>
+<p>通过对象表达式可以越过类的定义直接得到一个对象：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> site <span class="token operator">=</span> <span class="token keyword">object</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">"菜鸟教程"</span>
+        <span class="token keyword">var</span> url<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">"www.runoob.com"</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>site<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>site<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果你使用匿名对象作为公有函数的 返回类型或者用作公有属性的类型，那么该函数或属性的实际类型 会是匿名对象声明的超类型，如果你没有声明任何超类型，就会是 Any。在匿名对象 中添加的成员将无法访问。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> C <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 私有函数，所以其返回类型是匿名对象类型</span>
+    <span class="token keyword">private</span> <span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">object</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">val</span> x<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">"x"</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 公有函数，所以其返回类型是 Any</span>
+    <span class="token keyword">fun</span> <span class="token function">publicFoo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">object</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">val</span> x<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">"x"</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">fun</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">val</span> x1 <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>x        <span class="token comment">// 没问题</span>
+        <span class="token keyword">val</span> x2 <span class="token operator">=</span> <span class="token function">publicFoo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>x  <span class="token comment">// 错误：未能解析的引用“x”</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在对象表达中可以方便的访问到作用域中的其他变量:</p>
+</li>
+</ol>
+<h4 id="对象声明"><a href="#对象声明" class="headerlink" title="对象声明"></a>对象声明</h4><p>Kotlin 使用 object 关键字来声明一个对象。</p>
+<p>引用该对象，我们直接使用其名称（类名）即可：通过这种方式，我们获得的是一个单例。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">object</span> Site <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> url<span class="token operator">:</span>String <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">val</span> name<span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">"菜鸟教程"</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> s1 <span class="token operator">=</span>  Site
+    <span class="token keyword">var</span> s2 <span class="token operator">=</span> Site
+    s1<span class="token punctuation">.</span>url <span class="token operator">=</span> <span class="token string">"www.runoob.com"</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>s2<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>与对象表达式不同，当对象声明在另一个类的内部时，这个对象并不能通过外部类的实例访问到该对象，而只能通过类名来访问，同样该对象也不能直接访问到外部类的方法和变量。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> Site <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"菜鸟教程"</span>
+    <span class="token keyword">object</span> DeskTop<span class="token punctuation">&#123;</span> <span class="token comment">// 归属于类</span>
+        <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">"www.runoob.com"</span>
+        <span class="token keyword">fun</span> <span class="token function">showName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            print<span class="token punctuation">&#123;</span><span class="token string">"desk legs <span class="token interpolation variable">$name</span>"</span><span class="token punctuation">&#125;</span> <span class="token comment">// 错误，不能访问到外部类的方法和变量</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> site <span class="token operator">=</span> <span class="token function">Site</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    site<span class="token punctuation">.</span>DeskTop<span class="token punctuation">.</span>url <span class="token comment">// 错误，不能通过外部类的实例访问到该对象</span>
+    Site<span class="token punctuation">.</span>DeskTop<span class="token punctuation">.</span>url <span class="token comment">// 正确</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h4><p>类内部的对象声明可以用 companion 关键字标记，这样它就与外部类关联在一起，我们就可以直接通过外部类访问到对象的内部元素。</p>
+<p>我们可以省略掉该对象的对象名，然后使用 Companion 替代需要声明的对象名：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">class</span> MyClass <span class="token punctuation">&#123;</span>
+    <span class="token keyword">companion</span> <span class="token keyword">object</span> Factory <span class="token punctuation">&#123;</span>
+        <span class="token keyword">fun</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> MyClass <span class="token operator">=</span> <span class="token function">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">val</span> instance <span class="token operator">=</span> MyClass<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// 访问到对象的内部元素</span>
+
+<span class="token keyword">class</span> MyClass <span class="token punctuation">&#123;</span>
+    <span class="token keyword">companion</span> <span class="token keyword">object</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">val</span> x <span class="token operator">=</span> MyClass<span class="token punctuation">.</span>Companion <span class="token comment">// 用Companion替代</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong>一个类里面只能声明一个内部关联对象，即关键字 companion 只能使用一次。</p>
+<p>请伴生对象的成员看起来像其他语言的静态成员，但在运行时他们仍然是真实对象的实例成员。例如还可以实现接口：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">interface</span> Factory<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">fun</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> T
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> MyClass <span class="token punctuation">&#123;</span>
+    <span class="token keyword">companion</span> <span class="token keyword">object</span> <span class="token operator">:</span> Factory<span class="token operator">&lt;</span>MyClass<span class="token operator">></span> <span class="token punctuation">&#123;</span> <span class="token comment">// 实现接口</span>
+        <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> MyClass <span class="token operator">=</span> <span class="token function">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="对象表达式和对象声明之间的语义差异"><a href="#对象表达式和对象声明之间的语义差异" class="headerlink" title="对象表达式和对象声明之间的语义差异"></a>对象表达式和对象声明之间的语义差异</h4><p>对象表达式和对象声明之间有一个重要的语义差别：</p>
+<ul>
+<li>对象表达式是在使用他们的地方立即执行的</li>
+<li>对象声明是在第一次被访问到时延迟初始化的</li>
+<li>伴生对象的初始化是在相应的类被加载（解析）时，与 Java 静态初始化器的语义相匹配</li>
+</ul>
+<h3 id="kotlin-委托"><a href="#kotlin-委托" class="headerlink" title="kotlin 委托"></a>kotlin 委托</h3><p>在委托模式中，有两个对象参与处理同一个请求，接受请求的对象将请求委托给另一个对象来处理。</p>
+<p>Kotlin 直接支持委托模式，更加优雅，简洁。Kotlin 通过关键字 by 实现委托。</p>
+<h4 id="类委托"><a href="#类委托" class="headerlink" title="类委托"></a>类委托</h4><p>类的委托即一个类中定义的方法实际是调用另一个类的对象的方法来实现的。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token comment">// 创建接口</span>
+<span class="token keyword">interface</span> Base <span class="token punctuation">&#123;</span>   
+    <span class="token keyword">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 实现此接口的被委托的类</span>
+<span class="token keyword">class</span> <span class="token function">BaseImpl</span><span class="token punctuation">(</span><span class="token keyword">val</span> x<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> Base <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token function">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 通过关键字 by 建立委托类</span>
+<span class="token keyword">class</span> <span class="token function">Derived</span><span class="token punctuation">(</span>b<span class="token operator">:</span> Base<span class="token punctuation">)</span> <span class="token operator">:</span> Base <span class="token keyword">by</span> b <span class="token comment">// by 子句表示，将 b 保存在 Derived 的对象实例内部，而且编译器将会生成继承自 Base 接口的所有方法, 并将调用转发给 b。</span>
+
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> b <span class="token operator">=</span> <span class="token function">BaseImpl</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token function">Derived</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 输出 10</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="属性委托"><a href="#属性委托" class="headerlink" title="属性委托"></a>属性委托</h4><p>属性委托指的是一个类的某个属性值不是在类中直接进行定义，而是将其托付给一个代理类，从而实现对该类的属性统一管理。</p>
+<p>属性委托语法格式：</p>
+<p><code>val/var &lt;属性名&gt;: &lt;类型&gt; by &lt;表达式（代理类）&gt;</code></p>
+<p>by 关键字之后的表达式就是委托, 属性的 get() 方法(以及set() 方法)将被委托给这个对象的 getValue() 和 setValue() 方法。属性委托不必实现任何接口, 但必须提供 getValue() 函数(对于 var属性,还需要 setValue() 函数)。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">import</span> kotlin<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>KProperty
+<span class="token comment">// 定义包含属性委托的类</span>
+<span class="token keyword">class</span> Example <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> p<span class="token operator">:</span> String <span class="token keyword">by</span> <span class="token function">Delegate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 委托的类</span>
+<span class="token keyword">class</span> Delegate <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 参数 thisRef 为进行委托的类的对象，prop 为进行委托的属性的对象。</span>
+    <span class="token keyword">operator</span> <span class="token keyword">fun</span> <span class="token function">getValue</span><span class="token punctuation">(</span>thisRef<span class="token operator">:</span> Any<span class="token operator">?</span><span class="token punctuation">,</span> property<span class="token operator">:</span> KProperty<span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"<span class="token interpolation variable">$thisRef</span>, 这里委托了 <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>property<span class="token punctuation">.</span>name<span class="token delimiter variable">&#125;</span></span> 属性"</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">operator</span> <span class="token keyword">fun</span> <span class="token function">setValue</span><span class="token punctuation">(</span>thisRef<span class="token operator">:</span> Any<span class="token operator">?</span><span class="token punctuation">,</span> property<span class="token operator">:</span> KProperty<span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">></span><span class="token punctuation">,</span> value<span class="token operator">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"<span class="token interpolation variable">$thisRef</span> 的 <span class="token interpolation"><span class="token delimiter variable">$&#123;</span>property<span class="token punctuation">.</span>name<span class="token delimiter variable">&#125;</span></span> 属性赋值为 <span class="token interpolation variable">$value</span>"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">val</span> e <span class="token operator">=</span> <span class="token function">Example</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>p<span class="token punctuation">)</span>     <span class="token comment">// 访问该属性，调用 getValue() 函数</span>
+
+    e<span class="token punctuation">.</span>p <span class="token operator">=</span> <span class="token string">"Runoob"</span>   <span class="token comment">// 调用 setValue() 函数</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>p<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ACsolin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://CCCSL05.github.io/posts/e437/">https://CCCSL05.github.io/posts/e437/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">ACsolin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/kotlin/">
+                                    <span class="chip bg-color">kotlin</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/posts/7022/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="毛选读后感">
+                        
+                        <span class="card-title">毛选读后感</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BB%E4%B9%A6/">
+                        <span class="chip bg-color">读书</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AF%9B%E9%80%89/">
+                        <span class="chip bg-color">毛选</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a799/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="区块链-lxf">
+                        
+                        <span class="card-title">区块链-lxf</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">
+                        <span class="chip bg-color">区块链</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #6756CB;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="3043046905"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#6756CB'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2015-2021</span>
+            
+            <a href="/about" target="_blank">ACsolin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <!-- <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CCCSL05" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div> -->
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
