@@ -599,7 +599,7 @@ header .go-back i {
     font-size: 1.25rem;
     line-height: 1.4em;
     color: #eee;
-    /* mark，副标题颜色 红色加粗 */
+    /* mark，副标题颜色 和文章标题颜色 红色加粗 */
     color: #459bd4;
     /* color: red; */
     font-weight: bold;
