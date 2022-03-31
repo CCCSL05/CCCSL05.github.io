@@ -4,12 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Swagger, 云河月御风">
-    <meta name="description" content="前言
-
-一：swagger是什么？Swagger是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。
-Swagger是一个规范和完整的框架,用于生成、描述、调用和可视化RESTful风格的Web服务。
-目标是使客户端和文件系统作为">
+    <meta name="keywords" content="JWT, 云河月御风">
+    <meta name="description" content="1. JWT 是什么JSON Web Token（JWT）是为了网络应用环境间传递声明而执行的一种基于JSON的开发标准（RFC 7519），该token被设计为紧凑且安全的，特别适用于分布式站点的单点登陆（SSO）场景。
+JWT的声明一般">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +18,7 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Swagger | 云河月御风</title>
+    <title>JWT | 云河月御风</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -316,12 +313,12 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Swagger</h1>
+                    <h1 class="description center-align post-title">JWT</h1>
                 </div>
             </div>
         </div>
@@ -441,8 +438,8 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                                 <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/Swagger/">
-                                <span class="chip bg-color">Swagger</span>
+                            <a href="/tags/JWT/">
+                                <span class="chip bg-color">JWT</span>
                             </a>
                         
                     </div>
@@ -475,14 +472,14 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    8 Min
                 </div>
                 
 
@@ -510,96 +507,135 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+                <h2 id="1-JWT-是什么"><a href="#1-JWT-是什么" class="headerlink" title="1. JWT 是什么"></a>1. JWT 是什么</h2><p>JSON Web Token（JWT）是为了网络应用环境间传递声明而执行的一种基于JSON的开发标准（RFC 7519），该token被设计为紧凑且安全的，特别适用于分布式站点的单点登陆（SSO）场景。</p>
+<p>JWT的声明一般被用来在身份提供者（用户）和服务提供者（服务器）间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。</p>
+<h2 id="2-使用场景"><a href="#2-使用场景" class="headerlink" title="2.使用场景"></a>2.使用场景</h2><ul>
+<li>Authorization (授权) : 这是使用JWT的最常见场景，解决单点登录问题。一旦用户登录，后续每个请求都将包含JWT，允许用户访问该令牌允许的路由、服务和资源。因为JWT使用起来轻便，开销小，服务端不用记录用户状态信息（无状态），可以轻松地跨域使用，所以使用比较广泛。</li>
+<li>Information Exchange (信息交换) : 对于安全的在各方之间传输信息而言，JSON Web Tokens无疑是一种很好的方式。因为JWT可以被签名，例如，用公钥/私钥对，你可以确定发送人就是它们所说的那个人。此外，由于使用标头和有效负载计算签名，还可以验证内容是否未被篡改。</li>
+</ul>
+<h2 id="3-JWT的原理和流程"><a href="#3-JWT的原理和流程" class="headerlink" title="3. JWT的原理和流程"></a>3. JWT的原理和流程</h2><h3 id="3-1-跨域认证的问题"><a href="#3-1-跨域认证的问题" class="headerlink" title="3.1 跨域认证的问题"></a>3.1 跨域认证的问题</h3><p>互联网服务离不开用户认证。一般流程是下面这样： 1、用户向服务器发送用户名和密码。 2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。 3、服务器向用户返回一个 session_id，写入用户的 Cookie。 4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。 5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。</p>
+<p>这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session。</p>
+<p>举例来说，A 网站和 B 网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？</p>
+<p>一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。 另一种方案是服务器索性不保存 session 数据了，所有数据都保存在客户端，每次请求都发回服务器。JWT 就是这种方案的一个代表。</p>
+<h3 id="3-2-JWT-的原理"><a href="#3-2-JWT-的原理" class="headerlink" title="3.2 JWT 的原理"></a>3.2 JWT 的原理</h3><p>JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，就像下面这样。 { “姓名”: “张三”, “角色”: “管理员”, “到期时间”: “2018年7月1日0点0分” } 以后，用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。</p>
+<p><strong>服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。</strong></p>
+<p><strong>区别</strong> </p>
+<p>(1) session 存储在服务端占用服务器资源，而 JWT 存储在客户端 </p>
+<p>(1) session 存储在 Cookie 中，存在伪造跨站请求伪造攻击的风险 </p>
+<p>(2) session 只存在一台服务器上，那么下次请求就必须请求这台服务器，不利于分布式应用 </p>
+<p>(3) 存储在客户端的 JWT 比存储在服务端的 session 更具有扩展性</p>
+<h3 id="3-3-JWT的认证流程图"><a href="#3-3-JWT的认证流程图" class="headerlink" title="3.3  JWT的认证流程图"></a>3.3  JWT的认证流程图</h3><p><img src="https://ask.qcloudimg.com/http-save/yehe-2874029/8qwls7hxns.png?imageView2/2/w/1620" alt="img"></p>
+<p><strong>流程说明：</strong> </p>
+<p>1，浏览器发起请求登陆，携带用户名和密码； </p>
+<p>2，服务端验证身份，根据算法，将用户标识符打包生成 token, </p>
+<p>3，服务器返回JWT信息给浏览器，JWT不包含敏感信息； </p>
+<p>4，浏览器发起请求获取用户资料，把刚刚拿到的 token一起发送给服务器； </p>
+<p>5，服务器发现数据中有 token，验明正身； </p>
+<p>6，服务器返回该用户的用户资料；</p>
+<h3 id="3-4-JWT的6个优缺点"><a href="#3-4-JWT的6个优缺点" class="headerlink" title="3.4 JWT的6个优缺点"></a>3.4 JWT的6个优缺点</h3><p>1、JWT默认不加密，但可以加密。生成原始令牌后，可以使用改令牌再次对其进行加密。 </p>
+<p>2、当JWT未加密方法是，一些私密数据无法通过JWT传输。 </p>
+<p>3、JWT不仅可用于认证，还可用于信息交换。善用JWT有助于减少服务器请求数据库的次数。 </p>
+<p>4、JWT的最大缺点是服务器不保存会话状态，所以在使用期间不可能取消令牌或更改令牌的权限。也就是说，一旦JWT签发，在有效期内将会一直有效。 </p>
+<p>5、JWT本身包含认证信息，因此一旦信息泄露，任何人都可以获得令牌的所有权限。为了减少盗用，JWT的有效期不宜设置太长。对于某些重要操作，用户在使用时应该每次都进行进行身份验证。 </p>
+<p>6、为了减少盗用和窃取，JWT不建议使用HTTP协议来传输代码，而是使用加密的HTTPS协议进行传输。</p>
+<h2 id="4-JWT-的数据结构"><a href="#4-JWT-的数据结构" class="headerlink" title="4. JWT 的数据结构"></a>4. JWT 的数据结构</h2><h3 id="4-1-JWT消息构成"><a href="#4-1-JWT消息构成" class="headerlink" title="4.1 JWT消息构成"></a>4.1 JWT消息构成</h3><p>一个token分3部分，按顺序:</p>
+<ul>
+<li>头部（header)</li>
+<li>载荷（payload)</li>
+<li>签证（signature) 对象为一个很长的字符串，字符之间通过”.”分隔符分为三个子串。注意JWT对象为一个长字串，各字串之间也没有换行符，一般格式为：xxxxx.yyyyy.zzzzz 。 例如 yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</li>
+</ul>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-2874029/xrvp4pjty8.png?imageView2/2/w/1620" alt="img"></p>
+<h3 id="4-2-头部（header"><a href="#4-2-头部（header" class="headerlink" title="4.2 头部（header)"></a>4.2 头部（header)</h3><p>JWT的头部承载两部分信息：</p>
+<ul>
+<li>声明类型，这里是jwt</li>
+<li>声明加密的算法 通常直接使用 HMAC SHA256</li>
+</ul>
+<p>JWT里验证和签名使用的算法，可选择下面的：</p>
+<table>
+<thead>
+<tr>
+<th align="left">JWS</th>
+<th align="left">算法名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">HS256</td>
+<td align="left">HMAC256</td>
+<td align="left">HMAC with SHA-256</td>
+</tr>
+<tr>
+<td align="left">HS384</td>
+<td align="left">HMAC384</td>
+<td align="left">HMAC with SHA-384</td>
+</tr>
+<tr>
+<td align="left">HS512</td>
+<td align="left">HMAC512</td>
+<td align="left">HMAC with SHA-512</td>
+</tr>
+<tr>
+<td align="left">RS256</td>
+<td align="left">RSA256</td>
+<td align="left">RSASSA-PKCS1-v1_5 with SHA-256</td>
+</tr>
+<tr>
+<td align="left">RS384</td>
+<td align="left">RSA384</td>
+<td align="left">RSASSA-PKCS1-v1_5 with SHA-384</td>
+</tr>
+<tr>
+<td align="left">RS512</td>
+<td align="left">RSA512</td>
+<td align="left">RSASSA-PKCS1-v1_5 with SHA-512</td>
+</tr>
+<tr>
+<td align="left">ES256</td>
+<td align="left">ECDSA256</td>
+<td align="left">ECDSA with curve P-256 and SHA-256</td>
+</tr>
+<tr>
+<td align="left">ES384</td>
+<td align="left">ECDSA384</td>
+<td align="left">ECDSA with curve P-384 and SHA-384</td>
+</tr>
+<tr>
+<td align="left">ES512</td>
+<td align="left">ECDSA512</td>
+<td align="left">ECDSA with curve P-521 and SHA-512</td>
+</tr>
+</tbody></table>
+<p>JWT的头部描述JWT元数据的JSON对象参考： { “alg”: “HS256”, “typ”: “JWT” }</p>
+<p>代码样例如下:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// header Map</span>
+Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"alg"</span><span class="token punctuation">,</span> <span class="token string">"HS256"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"typ"</span><span class="token punctuation">,</span> <span class="token string">"JWT"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-3-载荷（payload"><a href="#4-3-载荷（payload" class="headerlink" title="4.3 载荷（payload)"></a>4.3 载荷（payload)</h3><p>Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据。JWT 规定了7个官方字段，供选用。</p>
+<blockquote>
+<p> iss (issuer)：签发人 exp (expiration time)：过期时间 sub (subject)：主题 aud (audience)：受众 nbf (Not Before)：生效时间 iat (Issued At)：签发时间 jti (JWT ID)：编号 </p>
 </blockquote>
-<h2 id="一：swagger是什么？"><a href="#一：swagger是什么？" class="headerlink" title="一：swagger是什么？"></a>一：swagger是什么？</h2><p>Swagger是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。</p>
-<p>Swagger是一个规范和完整的框架,用于生成、描述、调用和可视化RESTful风格的Web服务。</p>
-<p>目标是使客户端和文件系统作为服务器以同样的速度来更新文件的方法,参数和模型紧密集成到服务器。</p>
-<p>这个解释简单点来讲就是说，swagger是一款可以根据resutful风格生成的生成的接口开发文档，并且支持做测试的一款中间软件。</p>
-<h2 id="二：为什么要使用swaager"><a href="#二：为什么要使用swaager" class="headerlink" title="二：为什么要使用swaager?"></a>二：为什么要使用swaager?</h2><h3 id="2-1-对于后端开发人员来说"><a href="#2-1-对于后端开发人员来说" class="headerlink" title="2.1:对于后端开发人员来说"></a>2.1:对于后端开发人员来说</h3><ul>
-<li>不用再手写WiKi接口拼大量的参数，避免手写错误</li>
-<li>对代码侵入性低，采用全注解的方式，开发简单</li>
-<li>方法参数名修改、增加、减少参数都可以直接生效，不用手动维护</li>
-<li>缺点：增加了开发成本，写接口还得再写一套参数配置</li>
-</ul>
-<h3 id="2-2-对于前端开发来说"><a href="#2-2-对于前端开发来说" class="headerlink" title="2.2:对于前端开发来说"></a>2.2:对于前端开发来说</h3><ul>
-<li>后端只需要定义好接口，会自动生成文档，接口功能、参数一目了然</li>
-<li>联调方便，如果出问题，直接测试接口，实时检查参数和返回值,就可以快速定位是前端还是后端的问题</li>
-</ul>
-<h3 id="2-3：对于测试"><a href="#2-3：对于测试" class="headerlink" title="2.3：对于测试"></a>2.3：对于测试</h3><ul>
-<li>对于某些没有前端界面UI的功能，可以用它来测试接口</li>
-<li>操作简单，不用了解具体代码就可以操作</li>
-</ul>
-<h2 id="三：如何搭一个swagger"><a href="#三：如何搭一个swagger" class="headerlink" title="三：如何搭一个swagger"></a>三：如何搭一个swagger</h2><h3 id="3-1-引入swagger的依赖"><a href="#3-1-引入swagger的依赖" class="headerlink" title="3.1:引入swagger的依赖"></a>3.1:引入swagger的依赖</h3><p>目前推荐使用2.7.0版本,因为2.6.0版本有bug，而其他版本又没有经过验证</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!--引入swagger依赖库--></span>
-<span class="token comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>springfox-swagger2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.7.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!--引入swagger-ui页面的依赖，http://localhost:8080/swagger-ui.html--></span>
-<span class="token comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>springfox-swagger-ui<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.7.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!--引入swagger的bootstrap-ui页面的依赖,http://localhost:8080/doc.html--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.xiaoymin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>swagger-bootstrap-ui<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.9.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>除以上默认字段外，我们还可以自定义私有字段，如下例： { “sub”: “1234567890”, “name”: “chongchong”, “admin”: true } 注意，JWT 默认是不加密的，任何人都可以读到，所以不要把秘密信息放在这个部分。 这个 JSON 对象也要使用 Base64URL 算法转成字符串。 代码样例如下:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">JWT</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">withHeader</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span> <span class="token comment">// header</span>
+               <span class="token punctuation">.</span><span class="token function">withClaim</span><span class="token punctuation">(</span><span class="token string">"iss"</span><span class="token punctuation">,</span> <span class="token string">"Service"</span><span class="token punctuation">)</span> <span class="token comment">// payload</span>
+               <span class="token punctuation">.</span><span class="token function">withClaim</span><span class="token punctuation">(</span><span class="token string">"aud"</span><span class="token punctuation">,</span> <span class="token string">"APP"</span><span class="token punctuation">)</span>
+               <span class="token punctuation">.</span><span class="token function">withIssuedAt</span><span class="token punctuation">(</span>iatDate<span class="token punctuation">)</span> <span class="token comment">// sign time</span>
+               <span class="token punctuation">.</span><span class="token function">withExpiresAt</span><span class="token punctuation">(</span>expiresDate<span class="token punctuation">)</span> <span class="token comment">// expire time</span>
+               <span class="token punctuation">.</span><span class="token function">withClaim</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"cy"</span><span class="token punctuation">)</span> <span class="token comment">// payload</span>
+               <span class="token punctuation">.</span><span class="token function">withClaim</span><span class="token punctuation">(</span><span class="token string">"user_id"</span><span class="token punctuation">,</span> <span class="token string">"11222"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-2：springBoot整合swagger"><a href="#3-2：springBoot整合swagger" class="headerlink" title="3.2：springBoot整合swagger"></a>3.2：springBoot整合swagger</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
-<span class="token annotation punctuation">@EnableSwagger2</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SwaggerConfig</span> <span class="token punctuation">&#123;</span>
-
-    <span class="token comment">/**
-     * 创建API应用
-     * apiInfo() 增加API相关信息
-     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，
-     * 本例采用指定扫描的包路径来定义指定要建立API的目录。
-     *
-     * @return
-     */</span>
-    <span class="token annotation punctuation">@Bean</span>
-    <span class="token keyword">public</span> <span class="token class-name">Docket</span> <span class="token function">createRestApi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Docket</span><span class="token punctuation">(</span><span class="token class-name">DocumentationType</span><span class="token punctuation">.</span>SWAGGER_2<span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">apis</span><span class="token punctuation">(</span><span class="token class-name">RequestHandlerSelectors</span><span class="token punctuation">.</span><span class="token function">basePackage</span><span class="token punctuation">(</span><span class="token string">"com.example.swaggerstudy.controller"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">// 设置扫描路径，扫描controller包下的</span>
-                <span class="token comment">// .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))  //添加ApiOperiation注解的方法被扫描</span>
-                <span class="token punctuation">.</span><span class="token function">paths</span><span class="token punctuation">(</span><span class="token class-name">PathSelectors</span><span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">/**
-     * 创建该API的基本信息（这些基本信息会展现在文档页面中）
-     * 访问地址：http://项目实际地址/swagger-ui.html
-     * @return
-     */</span>
-    <span class="token keyword">private</span> <span class="token class-name">ApiInfo</span> <span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ApiInfoBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">"Spring Boot中使用Swagger2构建RESTful APIs"</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">"更多请关注http://www.baidu.com"</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">termsOfServiceUrl</span><span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">contact</span><span class="token punctuation">(</span><span class="token string">"sunf"</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token string">"1.0"</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="3-3：swagger的注解"><a href="#3-3：swagger的注解" class="headerlink" title="3.3：swagger的注解"></a>3.3：swagger的注解</h3><p>swagger的核心在于注解，接下来就着重讲一下swagger的注解：</p>
-<p><img src="https://img2018.cnblogs.com/blog/1066538/201901/1066538-20190120165242558-1262898008.png" alt="img"></p>
-<h2 id="四：使用swagger需要注意的问题"><a href="#四：使用swagger需要注意的问题" class="headerlink" title="四：使用swagger需要注意的问题"></a>四：使用swagger需要注意的问题</h2><ul>
-<li>对于只有一个HttpServletRequest参数的方法,如果参数小于5个，推荐使用 @ApiImplicitParams的方式单独封装每一个参数；如果参数大于5个，采用定义一个对象去封装所有参数的属性，然后使用@APiParam的方式</li>
-<li>默认的访问地址：ip:port/swagger-ui.html#/,但是在shiro中,会拦截所有的请求，必须加上默认访问路径（比如项目中，就是ip:port/context/swagger-ui.html#/），然后登陆后才可以看到</li>
-<li>在GET请求中，参数在Body体里面,不能使用@RequestBody。在POST请求，可以使用@RequestBody和@RequestParam，如果使用@RequestBody，对于参数转化的配置必须统一</li>
-<li>controller必须指定请求类型，否则swagger会把所有的类型(6种)都生成出来</li>
-<li>swagger在生产环境不能对外暴露,可以使用@Profile({“dev”, “prod”,“pre”})指定可以使用的环境</li>
-</ul>
+<h3 id="4-4-签名（signature"><a href="#4-4-签名（signature" class="headerlink" title="4.4 签名（signature)"></a>4.4 签名（signature)</h3><p>Signature 部分是对前两部分的签名，防止数据篡改。 首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。</p>
+<blockquote>
+<p> HMACSHA256(  base64UrlEncode(header) + “.” +  base64UrlEncode(payload),   secret) </p>
+</blockquote>
+<p>算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用”点”（.）分隔，就构成整个JWT对象TOKEN， 就可以返回给用户。</p>
+<h4 id="4-4-1-Base64URL算法"><a href="#4-4-1-Base64URL算法" class="headerlink" title="4.4.1 Base64URL算法"></a>4.4.1 Base64URL算法</h4><p>前面提到，Header 和 Payload 串型化的算法是 Base64URL。这个算法跟 Base64 算法基本类似，但有一些小的不同。 JWT 作为一个令牌（token），有些场合可能会放到 URL（比如 api.example.com/?token=xxx）。Base64 有三个字符+、/和=，在 URL 里面有特殊含义，所以要被替换掉：=被省略、+替换成-，/替换成_ 。这就是 Base64URL 算法。</p>
+<h3 id="4-5-JWT的用法"><a href="#4-5-JWT的用法" class="headerlink" title="4.5 JWT的用法"></a>4.5 JWT的用法</h3><p>客户端接收服务器返回的JWT，将其存储在Cookie或localStorage中。 此后，客户端将在与服务器交互中都会带JWT。如果将它存储在Cookie中，就可以自动发送，但是不会跨域，因此一般是将它放入HTTP请求的Header Authorization字段中。</p>
+<blockquote>
+<p> Authorization: Bearer <token> </p>
+</blockquote>
+<p>当跨域时，也可以将JWT被放置于POST请求的数据主体中。</p>
 
                 
             </div>
@@ -626,7 +662,7 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://CCCSL05.github.io/posts/94d1/">https://CCCSL05.github.io/posts/94d1/</a>
+                    <a href="https://CCCSL05.github.io/posts/191e/">https://CCCSL05.github.io/posts/191e/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -668,8 +704,8 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                                     <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/Swagger/">
-                                    <span class="chip bg-color">Swagger</span>
+                                <a href="/tags/JWT/">
+                                    <span class="chip bg-color">JWT</span>
                                 </a>
                             
                         </div>
@@ -715,9 +751,10 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/posts/191e/">
                     <div class="card-image">
@@ -735,9 +772,9 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -750,6 +787,7 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -772,13 +810,13 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/502c/">
+                <a href="/posts/94d1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="序列化">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Swagger">
                         
-                        <span class="card-title">序列化</span>
+                        <span class="card-title">Swagger</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -789,7 +827,7 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-31
                             </span>
                         <span class="publish-author">
                             
@@ -810,8 +848,8 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/">
-                        <span class="chip bg-color">序列化</span>
+                    <a href="/tags/Swagger/">
+                        <span class="chip bg-color">Swagger</span>
                     </a>
                     
                 </div>
