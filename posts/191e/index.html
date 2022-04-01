@@ -524,7 +524,7 @@ JWT的声明一般">
 <p>(1) session 存储在 Cookie 中，存在伪造跨站请求伪造攻击的风险 </p>
 <p>(2) session 只存在一台服务器上，那么下次请求就必须请求这台服务器，不利于分布式应用 </p>
 <p>(3) 存储在客户端的 JWT 比存储在服务端的 session 更具有扩展性</p>
-<h3 id="3-3-JWT的认证流程图"><a href="#3-3-JWT的认证流程图" class="headerlink" title="3.3  JWT的认证流程图"></a>3.3  JWT的认证流程图</h3><p><img src="https://ask.qcloudimg.com/http-save/yehe-2874029/8qwls7hxns.png?imageView2/2/w/1620" alt="img"></p>
+<h3 id="3-3-JWT的认证流程图"><a href="#3-3-JWT的认证流程图" class="headerlink" title="3.3  JWT的认证流程图"></a>3.3  JWT的认证流程图</h3><p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220401160529.png" alt="8qwls7hxns"></p>
 <p><strong>流程说明：</strong> </p>
 <p>1，浏览器发起请求登陆，携带用户名和密码； </p>
 <p>2，服务端验证身份，根据算法，将用户标识符打包生成 token, </p>
@@ -544,7 +544,7 @@ JWT的声明一般">
 <li>载荷（payload)</li>
 <li>签证（signature) 对象为一个很长的字符串，字符之间通过”.”分隔符分为三个子串。注意JWT对象为一个长字串，各字串之间也没有换行符，一般格式为：xxxxx.yyyyy.zzzzz 。 例如 yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</li>
 </ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-2874029/xrvp4pjty8.png?imageView2/2/w/1620" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220401160559.png" alt="xrvp4pjty8"></p>
 <h3 id="4-2-头部（header"><a href="#4-2-头部（header" class="headerlink" title="4.2 头部（header)"></a>4.2 头部（header)</h3><p>JWT的头部承载两部分信息：</p>
 <ul>
 <li>声明类型，这里是jwt</li>

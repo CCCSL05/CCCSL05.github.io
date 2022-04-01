@@ -592,7 +592,7 @@ Swagger是一个规范和完整的框架,用于生成、描述、调用和可视
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="3-3：swagger的注解"><a href="#3-3：swagger的注解" class="headerlink" title="3.3：swagger的注解"></a>3.3：swagger的注解</h3><p>swagger的核心在于注解，接下来就着重讲一下swagger的注解：</p>
-<p><img src="https://img2018.cnblogs.com/blog/1066538/201901/1066538-20190120165242558-1262898008.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220401185059.png" alt="1066538-20190120165242558-1262898008"></p>
 <h2 id="四：使用swagger需要注意的问题"><a href="#四：使用swagger需要注意的问题" class="headerlink" title="四：使用swagger需要注意的问题"></a>四：使用swagger需要注意的问题</h2><ul>
 <li>对于只有一个HttpServletRequest参数的方法,如果参数小于5个，推荐使用 @ApiImplicitParams的方式单独封装每一个参数；如果参数大于5个，采用定义一个对象去封装所有参数的属性，然后使用@APiParam的方式</li>
 <li>默认的访问地址：ip:port/swagger-ui.html#/,但是在shiro中,会拦截所有的请求，必须加上默认访问路径（比如项目中，就是ip:port/context/swagger-ui.html#/），然后登陆后才可以看到</li>
