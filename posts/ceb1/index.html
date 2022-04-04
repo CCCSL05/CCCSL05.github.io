@@ -481,7 +481,7 @@ Spring Security简介Spring Security 是一种高度自定义的安全框架，�
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    12 Min
+                    13 Min
                 </div>
                 
 
@@ -515,17 +515,17 @@ Spring Security简介Spring Security 是一种高度自定义的安全框架，�
 <h2 id="Spring-Security简介"><a href="#Spring-Security简介" class="headerlink" title="Spring Security简介"></a>Spring Security简介</h2><p>Spring Security 是一种高度自定义的安全框架，利用（基于）SpringIOC/DI和AOP功能，为系统提供了声明式安全访问控制功能，<strong>「减少了为系统安全而编写大量重复代码的工作」</strong>。</p>
 <p><strong>「核心功能：认证和授权」</strong></p>
 <h2 id="Spring-Security-认证流程"><a href="#Spring-Security-认证流程" class="headerlink" title="Spring Security 认证流程"></a>Spring Security 认证流程</h2><p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220403204841.png" alt="SpringSecurity认证执行流程"></p>
-<h2 id="Spring-Security-项目搭建"><a href="#Spring-Security-项目搭建" class="headerlink" title="Spring Security 项目搭建"></a>Spring Security 项目搭建</h2><h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><p>Spring Security已经被Spring boot进行集成，使用时直接引入启动器即可</p>
+<h2 id="Spring-Security-项目搭建"><a href="#Spring-Security-项目搭建" class="headerlink" title="Spring Security 项目搭建"></a>Spring Security 项目搭建</h2><h3 id="1、导入依赖"><a href="#1、导入依赖" class="headerlink" title="1、导入依赖"></a>1、导入依赖</h3><p>Spring Security已经被Spring boot进行集成，使用时直接引入启动器即可</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-security<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="访问页面"><a href="#访问页面" class="headerlink" title="访问页面"></a>访问页面</h3><p>导入spring-boot-starter-security启动器后，Spring Security已经生效，默认拦截全部请求，如果用户没有登录，跳转到内置登录页面。</p>
+<h3 id="2、访问页面"><a href="#2、访问页面" class="headerlink" title="2、访问页面"></a>2、访问页面</h3><p>导入spring-boot-starter-security启动器后，Spring Security已经生效，默认拦截全部请求，如果用户没有登录，跳转到内置登录页面。</p>
 <p>在浏览器输入：<code>http://localhost:8080/</code> 进入Spring Security内置登录页面</p>
 <p>用户名：user。</p>
 <p>密码：项目启动，打印在控制台中。</p>
-<h3 id="自定义用户名和密码"><a href="#自定义用户名和密码" class="headerlink" title="自定义用户名和密码"></a>自定义用户名和密码</h3><p>修改<strong>「application.yml」</strong> 文件</p>
+<h3 id="3、自定义用户名和密码"><a href="#3、自定义用户名和密码" class="headerlink" title="3、自定义用户名和密码"></a>3、自定义用户名和密码</h3><p>修改<strong>「application.yml」</strong> 文件</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 静态用户，一般只在内部网络认证中使用，如：内部服务器1，访问服务器2
 spring:
   security:
@@ -533,7 +533,7 @@ spring:
       name: test  # 通过配置文件，设置静态用户名
       password: test # 配置文件，设置静态登录密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="UserDetailsService详解"><a href="#UserDetailsService详解" class="headerlink" title="UserDetailsService详解"></a>UserDetailsService详解</h3><p>什么也没有配置的时候，账号和密码是由Spring Security定义生成的。而在实际项目中账号和密码都是从数据库中查询出来的。所以我们要通过<strong>「自定义逻辑控制认证逻辑」</strong>。如果需要自定义逻辑时，只需要实现UserDetailsService接口</p>
+<h3 id="4、UserDetailsService详解"><a href="#4、UserDetailsService详解" class="headerlink" title="4、UserDetailsService详解"></a>4、UserDetailsService详解</h3><p>什么也没有配置的时候，账号和密码是由Spring Security定义生成的。而在实际项目中账号和密码都是从数据库中查询出来的。所以我们要通过<strong>「自定义逻辑控制认证逻辑」</strong>。如果需要自定义逻辑时，只需要实现UserDetailsService接口</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserSecurity</span> <span class="token keyword">implements</span> <span class="token class-name">UserDetailsService</span> <span class="token punctuation">&#123;</span>
 
@@ -557,7 +557,7 @@ spring:
 
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="PasswordEncoder密码解析器详解"><a href="#PasswordEncoder密码解析器详解" class="headerlink" title="PasswordEncoder密码解析器详解"></a>PasswordEncoder密码解析器详解</h3><h4 id="PasswordEncoder"><a href="#PasswordEncoder" class="headerlink" title="PasswordEncoder"></a>PasswordEncoder</h4><p><strong>「PasswordEncoder」</strong> 是SpringSecurity 的密码解析器，用户密码校验、加密 。自定义登录逻辑时要求必须给容器注入PaswordEncoder的bean对象</p>
+<h3 id="5、PasswordEncoder密码解析器详解"><a href="#5、PasswordEncoder密码解析器详解" class="headerlink" title="5、PasswordEncoder密码解析器详解"></a>5、PasswordEncoder密码解析器详解</h3><h4 id="PasswordEncoder"><a href="#PasswordEncoder" class="headerlink" title="PasswordEncoder"></a>PasswordEncoder</h4><p><strong>「PasswordEncoder」</strong> 是SpringSecurity 的密码解析器，用户密码校验、加密 。自定义登录逻辑时要求必须给容器注入PaswordEncoder的bean对象</p>
 <p>SpringSecurity 定义了很多实现接口<strong>「PasswordEncoder」</strong> 满足我们密码加密、密码校验 使用需求。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220403204502.png" alt="image-20220403204502046"></p>
 <h4 id="自定义密码解析器"><a href="#自定义密码解析器" class="headerlink" title="自定义密码解析器"></a>自定义密码解析器</h4><ol>
@@ -629,7 +629,7 @@ spring:
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">BCryptPasswordEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Spring Security 自带</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="登录配置"><a href="#登录配置" class="headerlink" title="登录配置"></a>登录配置</h3><h4 id="方式一-转发"><a href="#方式一-转发" class="headerlink" title="方式一 转发"></a>方式一 转发</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">http<span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<h3 id="6、登录配置"><a href="#6、登录配置" class="headerlink" title="6、登录配置"></a>6、登录配置</h3><h4 id="方式1：转发"><a href="#方式1：转发" class="headerlink" title="方式1：转发"></a>方式1：转发</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">http<span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">usernameParameter</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span> <span class="token comment">// 设置请求参数中，用户名参数名称。 默认username</span>
     <span class="token punctuation">.</span><span class="token function">passwordParameter</span><span class="token punctuation">(</span><span class="token string">"pswd"</span><span class="token punctuation">)</span> <span class="token comment">// 设置请求参数中，密码参数名称。 默认password</span>
     <span class="token punctuation">.</span><span class="token function">loginPage</span><span class="token punctuation">(</span><span class="token string">"/toLogin"</span><span class="token punctuation">)</span> <span class="token comment">// 当用户未登录的时候，跳转的登录页面地址是什么？ 默认 /login</span>
@@ -637,7 +637,7 @@ spring:
     <span class="token punctuation">.</span><span class="token function">failureForwardUrl</span><span class="token punctuation">(</span><span class="token string">"/failure"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 登录失败后，请求转发的位置。Security请求转发使用Post请求。默认转发到：loginPage?error</span>
     <span class="token punctuation">.</span><span class="token function">successForwardUrl</span><span class="token punctuation">(</span><span class="token string">"/toMain"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 用户登录成功后，请求转发到的位置。Security请求转发使用POST请求。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="方式二-：重定向"><a href="#方式二-：重定向" class="headerlink" title="方式二 ：重定向"></a>方式二 ：重定向</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">http<span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<h4 id="方式2-：重定向"><a href="#方式2-：重定向" class="headerlink" title="方式2 ：重定向"></a>方式2 ：重定向</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">http<span class="token punctuation">.</span><span class="token function">formLogin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">usernameParameter</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span> <span class="token comment">// 设置请求参数中，用户名参数名称。 默认username</span>
     <span class="token punctuation">.</span><span class="token function">passwordParameter</span><span class="token punctuation">(</span><span class="token string">"pswd"</span><span class="token punctuation">)</span> <span class="token comment">// 设置请求参数中，密码参数名称。 默认password</span>
     <span class="token punctuation">.</span><span class="token function">loginPage</span><span class="token punctuation">(</span><span class="token string">"/toLogin"</span><span class="token punctuation">)</span> <span class="token comment">// 当用户未登录的时候，跳转的登录页面地址是什么？ 默认 /login</span>
@@ -645,7 +645,7 @@ spring:
  <span class="token punctuation">.</span><span class="token function">defaultSuccessUrl</span><span class="token punctuation">(</span><span class="token string">"/toMain"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//用户登录成功后，响应重定向到的位置。GET请求。必须配置绝对地址。</span>
   <span class="token punctuation">.</span><span class="token function">failureUrl</span><span class="token punctuation">(</span><span class="token string">"/failure"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 登录失败后，重定向的位置。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="方式三：自定义登录处理器"><a href="#方式三：自定义登录处理器" class="headerlink" title="方式三：自定义登录处理器"></a>方式三：自定义登录处理器</h4><p>自定义登录失败逻辑处理器</p>
+<h4 id="方式3-1：自定义登录处理器"><a href="#方式3-1：自定义登录处理器" class="headerlink" title="方式3.1：自定义登录处理器"></a>方式3.1：自定义登录处理器</h4><p>自定义登录失败逻辑处理器</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/*自定义登录失败处理器*/</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyAuthenticationFailureHandler</span> <span class="token keyword">implements</span> <span class="token class-name">AuthenticationFailureHandler</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span>  <span class="token class-name">String</span> url<span class="token punctuation">;</span>
@@ -668,7 +668,7 @@ spring:
 
 <span class="token comment">//get set 方法 省略</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="自定义登录成功逻辑处理器"><a href="#自定义登录成功逻辑处理器" class="headerlink" title="自定义登录成功逻辑处理器"></a>自定义登录成功逻辑处理器</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+<h4 id="方式3-2：自定义登录成功逻辑处理器"><a href="#方式3-2：自定义登录成功逻辑处理器" class="headerlink" title="方式3.2：自定义登录成功逻辑处理器"></a>方式3.2：自定义登录成功逻辑处理器</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * 自定义登录成功后处理器
  * 转发重定向，有代码逻辑实现
  * */</span>
@@ -703,7 +703,7 @@ http<span class="token punctuation">.</span><span class="token function">formLog
     <span class="token punctuation">.</span><span class="token function">loginPage</span><span class="token punctuation">(</span><span class="token string">"/toLogin"</span><span class="token punctuation">)</span> <span class="token comment">// 当用户未登录的时候，跳转的登录页面地址是什么？ 默认 /login</span>
     <span class="token punctuation">.</span><span class="token function">loginProcessingUrl</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">)</span> <span class="token comment">// 用户登录逻辑请求地址是什么。 默认是 /login</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="登录相关配置类"><a href="#登录相关配置类" class="headerlink" title="登录相关配置类"></a>登录相关配置类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<h4 id="方式3-3：登录相关配置类"><a href="#方式3-3：登录相关配置类" class="headerlink" title="方式3.3：登录相关配置类"></a>方式3.3：登录相关配置类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token annotation punctuation">@EnableWebSecurity</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SecurityConfig</span> <span class="token keyword">extends</span> <span class="token class-name">WebSecurityConfigurerAdapter</span> <span class="token punctuation">&#123;</span>
 
@@ -734,10 +734,10 @@ http<span class="token punctuation">.</span><span class="token function">formLog
             <span class="token punctuation">.</span><span class="token function">loginProcessingUrl</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">)</span> <span class="token comment">//设置登录 提交表单数据访问请求地址</span>
             <span class="token punctuation">.</span><span class="token function">defaultSuccessUrl</span><span class="token punctuation">(</span><span class="token string">"/toMain"</span><span class="token punctuation">)</span>   
             <span class="token punctuation">.</span><span class="token function">failureUrl</span><span class="token punctuation">(</span><span class="token string">"/toLogin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token comment">//.successForwardUrl("/toMain")</span>
-         <span class="token comment">//.failureForwardUrl("/toLogin");</span>
-            <span class="token comment">//.successHandler(new LoginSuccessHandler("/toMain", true)) //自定义登录成功处理器</span>
-                <span class="token comment">//.failureHandler(new LoginErrorHandler("/toLogin", true));</span>
+          <span class="token comment">//.successForwardUrl("/toMain")</span>
+          <span class="token comment">//.failureForwardUrl("/toLogin");</span>
+          <span class="token comment">//.successHandler(new LoginSuccessHandler("/toMain", true)) //自定义登录成功处理器</span>
+          <span class="token comment">//.failureHandler(new LoginErrorHandler("/toLogin", true));</span>
 
         http<span class="token punctuation">.</span><span class="token function">authorizeRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token comment">//.antMatchers("/toLogin").anonymous() //只能匿名用户访问</span>
@@ -770,7 +770,7 @@ http<span class="token punctuation">.</span><span class="token function">formLog
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="角色权限"><a href="#角色权限" class="headerlink" title="角色权限"></a>角色权限</h3><blockquote>
+<h3 id="7、角色权限"><a href="#7、角色权限" class="headerlink" title="7、角色权限"></a>7、角色权限</h3><blockquote>
 <p>❝</p>
 <p><strong>「hasAuthority(String)」</strong> 判断角色是否具有特定权限</p>
 <p>❞</p>
@@ -808,7 +808,7 @@ http<span class="token punctuation">.</span><span class="token function">authori
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//ip 是127.0.0.1 的请求 可以访问/ip</span>
 http<span class="token punctuation">.</span><span class="token function">authorizeRequests</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">antMatchers</span><span class="token punctuation">(</span><span class="token string">"/ip"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hasIpAddress</span><span class="token punctuation">(</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="403-权限不足页面处理"><a href="#403-权限不足页面处理" class="headerlink" title="403 权限不足页面处理"></a>403 权限不足页面处理</h3><p>1.编写类实现接口<strong>「AccessDeniedHandler」</strong></p>
+<h3 id="8、403-权限不足页面处理"><a href="#8、403-权限不足页面处理" class="headerlink" title="8、403 权限不足页面处理"></a>8、403 权限不足页面处理</h3><p>1.编写类实现接口<strong>「AccessDeniedHandler」</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * @describe  403 权限不足
  * @author: AnyWhere
@@ -843,7 +843,7 @@ http<span class="token punctuation">.</span><span class="token function">authori
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 配置403访问错误处理器。</span>
 http<span class="token punctuation">.</span><span class="token function">exceptionHandling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">accessDeniedHandler</span><span class="token punctuation">(</span>myAccessDeniedHandler<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="RememberMe（记住我）"><a href="#RememberMe（记住我）" class="headerlink" title="RememberMe（记住我）"></a>RememberMe（记住我）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<h3 id="9、RememberMe（记住我）"><a href="#9、RememberMe（记住我）" class="headerlink" title="9、RememberMe（记住我）"></a>9、RememberMe（记住我）</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token annotation punctuation">@EnableWebSecurity</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SecurityConfig</span> <span class="token keyword">extends</span> <span class="token class-name">WebSecurityConfigurerAdapter</span> <span class="token punctuation">&#123;</span>
   <span class="token annotation punctuation">@Override</span>
