@@ -10,7 +10,8 @@
    ——崔颢
 昔人已乘黄鹤去，此地空余黄鹤楼。黄鹤一去不复返，白云千载空悠悠。晴川历历汉阳树，芳草萋萋鹦鹉洲。日暮乡关何处是？烟波江上使人愁。
 本篇文章转自：序列化理解起来很简单 - 知乎 (zhihu.com)
-本来想">
+
+一、">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -483,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    14 Min
+                    13 Min
                 </div>
                 
 
@@ -516,23 +517,22 @@
 <p>   ——崔颢</p>
 <p>昔人已乘黄鹤去，此地空余黄鹤楼。<br>黄鹤一去不复返，白云千载空悠悠。<br>晴川历历汉阳树，芳草萋萋鹦鹉洲。<br>日暮乡关何处是？烟波江上使人愁。</p>
 <p>本篇文章转自：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/40462507">序列化理解起来很简单 - 知乎 (zhihu.com)</a></p>
-<p>本来想自己写的，但是别人写得太好了，看完之后感觉再写也是对其拙劣地模仿而已。</p>
 </blockquote>
-<h2 id="序列化的定义"><a href="#序列化的定义" class="headerlink" title="序列化的定义"></a>序列化的定义</h2><p><strong>序列化：</strong>把对象转化为可传输的字节序列过程称为序列化。</p>
+<h2 id="一、序列化的定义"><a href="#一、序列化的定义" class="headerlink" title="一、序列化的定义"></a>一、序列化的定义</h2><p><strong>序列化：</strong>把对象转化为可传输的字节序列过程称为序列化。</p>
 <p><strong>反序列化：</strong>把字节序列还原为对象的过程称为反序列化。</p>
 <hr>
-<h2 id="为什么要序列化？"><a href="#为什么要序列化？" class="headerlink" title="为什么要序列化？"></a>为什么要序列化？</h2><p>如果光看定义我想你很难一下子理解序列化的意义，那么我们可以从另一个角度来推导出什么是序列化, 那么究竟序列化的目的是什么？</p>
+<h2 id="二、为什么要序列化？"><a href="#二、为什么要序列化？" class="headerlink" title="二、为什么要序列化？"></a>二、为什么要序列化？</h2><p>如果光看定义我想你很难一下子理解序列化的意义，那么我们可以从另一个角度来推导出什么是序列化, 那么究竟序列化的目的是什么？</p>
 <p>其实序列化最终的目的是为了对象可以<strong>跨平台存储，和进行网络传输</strong>。而我们进行跨平台存储和网络传输的方式就是IO，而我们的IO支持的数据格式就是字节数组。</p>
 <p>因为我们单方面的只把对象转成字节数组还不行，因为没有规则的字节数组我们是没办法把对象的本来面目还原回来的，所以我们必须在把对象转成字节数组的时候就制定一种规则<strong>（序列化）</strong>，那么我们从IO流里面读出数据的时候再以这种规则把对象还原回来<strong>（反序列化）。</strong></p>
 <p>如果我们要把一栋房子从一个地方运输到另一个地方去，<strong>序列化</strong>就是我把房子拆成一个个的砖块放到车子里，然后留下一张房子原来结构的图纸，<strong>反序列化</strong>就是我们把房子运输到了目的地以后，根据图纸把一块块砖头还原成房子原来面目的过程</p>
 <hr>
-<h2 id="什么情况下需要序列化？"><a href="#什么情况下需要序列化？" class="headerlink" title="什么情况下需要序列化？"></a>什么情况下需要序列化？</h2><p>通过上面我想你已经知道了凡是需要进行“跨平台存储”和”网络传输”的数据，都需要进行序列化。</p>
+<h2 id="三、什么情况下需要序列化？"><a href="#三、什么情况下需要序列化？" class="headerlink" title="三、什么情况下需要序列化？"></a>三、什么情况下需要序列化？</h2><p>通过上面我想你已经知道了凡是需要进行“<strong>跨平台存储</strong>”和”<strong>网络传输</strong>”的数据，都需要进行序列化。</p>
 <p>本质上存储和网络传输 都需要经过 把一个对象状态保存成一种跨平台识别的字节格式，然后其他的平台才可以通过字节信息解析还原对象信息。</p>
 <hr>
-<h2 id="序列化的方式"><a href="#序列化的方式" class="headerlink" title="序列化的方式"></a>序列化的方式</h2><p>序列化只是一种拆装组装对象的规则，那么这种规则肯定也可能有多种多样，比如现在常见的序列化方式有：</p>
+<h2 id="四、序列化的方式"><a href="#四、序列化的方式" class="headerlink" title="四、序列化的方式"></a>四、序列化的方式</h2><p>序列化只是一种拆装组装对象的规则，那么这种规则肯定也可能有多种多样，比如现在常见的序列化方式有：</p>
 <p>JDK（不支持跨语言）、JSON、XML、Hessian、Kryo（不支持跨语言）、Thrift、Protostuff、FST（不支持跨语言）</p>
 <hr>
-<h2 id="序列化技术选型的几个关键点"><a href="#序列化技术选型的几个关键点" class="headerlink" title="序列化技术选型的几个关键点"></a>序列化技术选型的几个关键点</h2><p>序列化协议各有千秋，不能简单的说一种序列化协议是最好的，只能从你的当时环境下去选择最适合你们的序列化协议，如果你要为你的公司项目进行序列化技术的选型，那么主要从以下几个因素。</p>
+<h2 id="五、序列化技术选型的几个关键点"><a href="#五、序列化技术选型的几个关键点" class="headerlink" title="五、序列化技术选型的几个关键点"></a>五、序列化技术选型的几个关键点</h2><p>序列化协议各有千秋，不能简单的说一种序列化协议是最好的，只能从你的当时环境下去选择最适合你们的序列化协议，如果你要为你的公司项目进行序列化技术的选型，那么主要从以下几个因素。</p>
 <p><strong>协议是否支持跨平台</strong></p>
 <p>如果你们公司有好多种语言进行混合开发，那么就肯定不适合用有语言局限性的序列化协议，要不然你JDK序列化出来的格式，其他语言并没法支持。</p>
 <p><strong>序列化的速度</strong></p>
@@ -540,7 +540,7 @@
 <p><strong>序列化出来的大小</strong></p>
 <p>如果频繁的在网络中传输的数据那就需要数据越小越好，小的数据传输快，也不占带宽，也能整体提升系统的性能。</p>
 <hr>
-<h2 id="Java-是如何实现序列化的？"><a href="#Java-是如何实现序列化的？" class="headerlink" title="Java 是如何实现序列化的？"></a>Java 是如何实现序列化的？</h2><p>前面主要介绍了一下什么是序列化，那么下面主要讲下JAVA是如何进行序列化的，以及序列化的过程中需要注意的一些问题</p>
+<h2 id="六、Java-是如何实现序列化的？"><a href="#六、Java-是如何实现序列化的？" class="headerlink" title="六、Java 是如何实现序列化的？"></a>六、Java 是如何实现序列化的？</h2><p>前面主要介绍了一下什么是序列化，那么下面主要讲下JAVA是如何进行序列化的，以及序列化的过程中需要注意的一些问题</p>
 <ul>
 <li><strong>java 实现序列化很简单，只需要实现Serializable 接口即可。</strong></li>
 </ul>
@@ -566,8 +566,6 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <ul>
 <li><strong>把User对象设置值后写入文件</strong></li>
 </ul>
@@ -581,8 +579,6 @@ oos<span class="token punctuation">.</span><span class="token function">writeObj
 
 oos<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 oos<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <ul>
 <li><strong>再把从文件读取出来的转换为对象</strong></li>
@@ -599,7 +595,7 @@ oos<span class="token punctuation">.</span><span class="token function">close</s
 <p>以上把User对象进行二进制的数据存储后，并从文件中读取数据出来转成User对象就是一个序列化和反序列化的过程。</p>
 <p>序列化原理推荐阅读：<a href="https://link.zhihu.com/?target=http://developer.51cto.com/art/200908/147650.htm">http://developer.51cto.com/art/200908/147650.htm</a></p>
 <hr>
-<h2 id="JAVA序列化中常见的问题"><a href="#JAVA序列化中常见的问题" class="headerlink" title="JAVA序列化中常见的问题"></a>JAVA序列化中常见的问题</h2><h3 id="问题一：static-属性不能被序列化"><a href="#问题一：static-属性不能被序列化" class="headerlink" title="问题一：static 属性不能被序列化"></a>问题一：static 属性不能被序列化</h3><p>原因：序列化保存的是对象的状态，静态变量属于类的状态，因此 序列化并不保存静态变量。</p>
+<h2 id="七、JAVA序列化中常见的问题"><a href="#七、JAVA序列化中常见的问题" class="headerlink" title="七、JAVA序列化中常见的问题"></a>七、JAVA序列化中常见的问题</h2><h3 id="问题一：static-属性不能被序列化"><a href="#问题一：static-属性不能被序列化" class="headerlink" title="问题一：static 属性不能被序列化"></a>问题一：static 属性不能被序列化</h3><p>原因：序列化保存的是对象的状态，静态变量属于类的状态，因此 序列化并不保存静态变量。</p>
 <h3 id="问题二：Transient-属性不会被序列化"><a href="#问题二：Transient-属性不会被序列化" class="headerlink" title="问题二：Transient 属性不会被序列化"></a>问题二：Transient 属性不会被序列化</h3><p>接着上面的案例，我们在User里面加上一个<strong>transient</strong> <strong>状态的</strong>心情属性mood;</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
  <span class="token comment">//年龄</span>
@@ -699,7 +695,7 @@ oos<span class="token punctuation">.</span><span class="token function">close</s
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"name="</span><span class="token operator">+</span>user1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最后执行结果反序列化异常，原因是对象序列化和反序列化的版本号不同导致</p>
-<p><img src="https://pic4.zhimg.com/80/v2-045a357adfad2aeaccd688a0baf35733_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220414163719.png" alt="v2-045a357adfad2aeaccd688a0baf35733_720w"></p>
 <p><strong>（2）对象新增属性，但是版本号相同也可以反序列化成功</strong></p>
 <p>序列化的对象信息 这里比反序列化的对象多了个SEX属性</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
@@ -755,11 +751,11 @@ oos<span class="token punctuation">.</span><span class="token function">close</s
 
 
 <p>最后控制台打印结果正常</p>
-<p><img src="https://pic1.zhimg.com/80/v2-8c7612e9ac7e5d7d66a2b524ca66afd4_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220414163737.jpg" alt="v2-8c7612e9ac7e5d7d66a2b524ca66afd4_720w"></p>
 <p><strong>结果证明，只要序列化版本一样，对象新增属性并不会影响反序列化对象。</strong></p>
 <p><strong>（3）对象新增属性，但是版本号是使用的JDK生成序列化版本号</strong></p>
 <p>省略代码，最后执行结果报错，原因是序列化和反序列化的版本号不一致造成。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-7bf8f232929e412ce97036670761c9fc_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220414163757.jpg" alt="v2-7bf8f232929e412ce97036670761c9fc_720w"></p>
 <h3 id="问题四：父类、子类序列化问题"><a href="#问题四：父类、子类序列化问题" class="headerlink" title="问题四：父类、子类序列化问题"></a>问题四：父类、子类序列化问题</h3><p>序列化是以正向递归的形式进行的，如果父类实现了序列化那么其子类都将被序列化；子类实现了序列化而父类没实现序列化，那么只有子类的属性会进行序列化，而父类的属性是不会进行序列化的。</p>
 <p><strong>（1）父类没有实现序列化，子类实现序列化</strong></p>
 <p><strong>父类</strong></p>
@@ -807,7 +803,7 @@ oos<span class="token punctuation">.</span><span class="token function">close</s
 
 
 <p><strong>最后执行结果，父类属性未被序列化</strong></p>
-<p><img src="https://pic4.zhimg.com/80/v2-94f32ba79cd20838c4fe0d4d8ae5f437_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220414163812.jpg" alt="v2-94f32ba79cd20838c4fe0d4d8ae5f437_720w"></p>
 <p><strong>（2）父类实现序列化，子类不实现序列化</strong></p>
 <p><strong>父类</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span><span class="token punctuation">&#123;</span>
@@ -853,11 +849,11 @@ oos<span class="token punctuation">.</span><span class="token function">close</s
 
 
 <p><strong>最后执行结果，子类属性序列化正常</strong></p>
-<p><img src="https://pic3.zhimg.com/80/v2-938350cf69ba20abfc7d8d2ef168c016_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220414163828.jpg" alt="v2-938350cf69ba20abfc7d8d2ef168c016_720w"></p>
 <p>参考资料</p>
 <p><strong><a href="https://link.zhihu.com/?target=https://blog.csdn.net/frankarmstrong/article/details/54959727">https://blog.csdn.net/frankarmstrong/article/details/54959727</a></strong></p>
 <p><strong><a href="https://link.zhihu.com/?target=http://developer.51cto.com/art/200908/147650.htm">http://developer.51cto.com/art…</a></strong></p>
-<h2 id="另外参考"><a href="#另外参考" class="headerlink" title="另外参考"></a>另外参考</h2><p>我忘了这是我之前看哪篇文章的时候粘贴下来的了。。。</p>
+<h2 id="八、另外参考"><a href="#八、另外参考" class="headerlink" title="八、另外参考"></a>八、另外参考</h2><p>我忘了这是我之前看哪篇文章的时候粘贴下来的了。。。</p>
 <h3 id="什么是序列化"><a href="#什么是序列化" class="headerlink" title="什么是序列化"></a>什么是序列化</h3><blockquote>
 <p>序列化 (Serialization) 是一种用来处理对象流的机制，即将对象写入到 IO 流中。</p>
 <ul>
