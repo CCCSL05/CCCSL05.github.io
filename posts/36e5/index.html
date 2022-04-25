@@ -542,7 +542,6 @@
 <li>== 是关系运算符，比较两个变量的值是否一样，或是比较两个对象的引用是否一样（存储的是对象在堆中的地址）</li>
 <li>equals 是 Object 的方法，每一个类都是 Object 的子类，故每个对象都有 equals 方法。方法返回 boolean 类型，可被重写，自定义比较规则。若不重写，则比较的是两个对象的引用是否相同。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220416210702.png" alt="640"></p>
 <h4 id="2-1-7-Java-中的异常处理"><a href="#2-1-7-Java-中的异常处理" class="headerlink" title="2.1.7 Java 中的异常处理"></a>2.1.7 Java 中的异常处理</h4><p>Java 异常类结构层次图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20211231101643.jpg" alt="Java 异常类结构层次图"></p>
 <ul>
@@ -751,19 +750,19 @@ bufferedReader<span class="token punctuation">.</span><span class="token functio
 <li>修改覆盖，T1刚改完，T2就又改了</li>
 </ul>
 </li>
-<li>脏读<ul>
+<li>脏读（A修改了但最后没提交，B读取到了其中修改后的数据）<ul>
 <li>T1修改了数据，但没有提交。T2读取了这个数据并使用了，最后提交了。</li>
 <li>T2成功的事务使用了失败的事务修改的数据</li>
 <li>读到的数据是一个假的数据</li>
 </ul>
 </li>
-<li>不可重复读<ul>
+<li>不可重复读（B两次读取，A中间修改）<ul>
 <li>T1修改数据，T2在修改前后读取使用</li>
 <li>T2要读取使用的数据被T1修改</li>
 <li>前后读到的数据不一样</li>
 </ul>
 </li>
-<li>幻读<ul>
+<li>幻读（B两次读取范围内的数据count(15班学生)，期间A插入了一条数据）<ul>
 <li>T1新增数据，T2在新增前后读取使用</li>
 <li>T2要读取使用的数据整体发生变化</li>
 <li>前后读到的数据整体不一样</li>
@@ -964,13 +963,13 @@ bufferedReader<span class="token punctuation">.</span><span class="token functio
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/posts/6139/">
+                <a href="/posts/36e5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/42.jpg" class="responsive-img" alt="钢铁是怎么炼成的">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="面试">
                         
-                        <span class="card-title">钢铁是怎么炼成的</span>
+                        <span class="card-title">面试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -981,14 +980,14 @@ bufferedReader<span class="token punctuation">.</span><span class="token functio
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
-                                    读书
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
                                 </a>
                             
                             
@@ -998,8 +997,8 @@ bufferedReader<span class="token punctuation">.</span><span class="token functio
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%90%8D%E8%91%97/">
-                        <span class="chip bg-color">名著</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>

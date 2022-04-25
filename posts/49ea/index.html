@@ -521,8 +521,8 @@
 <li>数组下标越界检查</li>
 </ul>
 <h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>JVM JRE JDK的区别</p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150422.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150422.png" alt="img"></a></p>
-<h2 id="二、内存结构"><a href="#二、内存结构" class="headerlink" title="二、内存结构"></a>二、内存结构</h2><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a><strong>整体架构</strong></h3><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150440.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150440.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150422.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112305.png" alt="20200608150422 (1)"></a></p>
+<h2 id="二、内存结构"><a href="#二、内存结构" class="headerlink" title="二、内存结构"></a>二、内存结构</h2><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a><strong>整体架构</strong></h3><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150440.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112353.png" alt="20200608150440"></a></p>
 <h3 id="1、程序计数器"><a href="#1、程序计数器" class="headerlink" title="1、程序计数器"></a>1、程序计数器</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>用于保存JVM中下一条所要执行的指令的地址</p>
 <h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
 <li>线程私有<ul>
@@ -553,7 +553,7 @@
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150534.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150534.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150534.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112417.png" alt="20200608150534"></a></p>
 <p>在控制台中可以看到，主类中的方法在进入虚拟机栈的时候，符合栈的特点</p>
 <h4 id="问题辨析"><a href="#问题辨析" class="headerlink" title="问题辨析"></a>问题辨析</h4><ul>
 <li>垃圾回收是否涉及栈内存？<ul>
@@ -596,7 +596,7 @@
 <p><strong>jmap -heap 进程id</strong> </p>
 <p><strong>jconsole</strong></p>
 <p><strong>jvirsalvm</strong></p>
-<h3 id="5、方法区"><a href="#5、方法区" class="headerlink" title="5、方法区"></a>5、方法区</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150547.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150547.png" alt="img"></a></p>
+<h3 id="5、方法区"><a href="#5、方法区" class="headerlink" title="5、方法区"></a>5、方法区</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150547.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112428.png" alt="20200608150547"></a></p>
 <h4 id="内存溢出"><a href="#内存溢出" class="headerlink" title="内存溢出"></a>内存溢出</h4><ul>
 <li>1.8以前会导致<strong>永久代</strong>内存溢出</li>
 <li>1.8以后会导致<strong>元空间</strong>内存溢出</li>
@@ -607,7 +607,7 @@
 <li><p>获得对应类的.class文件</p>
 <ul>
 <li><p>在JDK对应的bin目录下运行cmd，<strong>也可以在IDEA控制台输入</strong></p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150602.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150602.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150602.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112837.png" alt="20200608150602"></a></p>
 </li>
 <li><p>输入 <strong>javac 对应类的绝对路径</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">F</span><span class="token operator">:</span>\JAVA\JDK8<span class="token punctuation">.</span><span class="token number">0</span>\bin<span class="token operator">></span>javac <span class="token class-name">F</span><span class="token operator">:</span>\<span class="token class-name">Thread_study</span>\src\com\nyima\JVM\day01\<span class="token class-name">Main</span><span class="token punctuation">.</span>java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -621,14 +621,14 @@
 <li><p>然后能在控制台看到反编译以后类的信息了</p>
 <ul>
 <li><p>类的基本信息</p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150618.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150618.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150618.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112438.png" alt="20200608150618"></a></p>
 </li>
 <li><p>常量池</p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150630.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150630.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150641.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150641.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150630.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112452.png" alt="20200608150630"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150641.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112506.png" alt="20200608150641"></a></p>
 </li>
 <li><p>虚拟机中执行编译的方法（框内的是真正编译执行的内容，**#号的内容需要在常量池中查找**）</p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150653.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150653.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150653.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112910.png" alt="20200608150653"></a></p>
 </li>
 </ul>
 </li>
@@ -818,9 +818,9 @@ ing<span class="token punctuation">;</span>
 <li>分配回收成本较高，但读写性能高</li>
 <li>不受JVM内存回收管理</li>
 </ul>
-<h4 id="文件读写流程"><a href="#文件读写流程" class="headerlink" title="文件读写流程"></a>文件读写流程</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150715.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150715.png" alt="img"></a></p>
+<h4 id="文件读写流程"><a href="#文件读写流程" class="headerlink" title="文件读写流程"></a>文件读写流程</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150715.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112940.png" alt="20200608150715"></a></p>
 <p><strong>使用了DirectBuffer</strong></p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150736.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150736.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150736.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423112959.png" alt="20200608150736"></a></p>
 <p>直接内存是操作系统和Java代码<strong>都可以访问的一块区域</strong>，无需将代码从系统内存复制到Java堆内存，从而提高了效率</p>
 <h4 id="释放原理"><a href="#释放原理" class="headerlink" title="释放原理"></a>释放原理</h4><p>直接内存的回收不是通过JVM的垃圾回收来释放的，而是通过<strong>unsafe.freeMemory</strong>来手动释放</p>
 <p>通过</p>
@@ -894,7 +894,7 @@ ing<span class="token punctuation">;</span>
 <li>ByteBuffer的实现内部使用了Cleaner（虚引用）来检测ByteBuffer。一旦ByteBuffer被垃圾回收，那么会由ReferenceHandler来调用Cleaner的clean方法调用freeMemory来释放内存</li>
 </ul>
 <h2 id="三、垃圾回收"><a href="#三、垃圾回收" class="headerlink" title="三、垃圾回收"></a>三、垃圾回收</h2><h3 id="1、如何判断对象可以回收"><a href="#1、如何判断对象可以回收" class="headerlink" title="1、如何判断对象可以回收"></a>1、如何判断对象可以回收</h3><h4 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h4><p>弊端：循环引用时，两个对象的计数都为1，导致两个对象都无法被释放</p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150750.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150750.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150750.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113019.png" alt="20200608150750"></a></p>
 <h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><ul>
 <li>JVM中的垃圾回收器通过<strong>可达性分析</strong>来探索所有存活的对象</li>
 <li>扫描堆中的对象，看能否沿着GC Root对象为起点的引用链找到该对象，如果<strong>找不到，则表示可以回收</strong></li>
@@ -906,7 +906,7 @@ ing<span class="token punctuation">;</span>
 </ul>
 </li>
 </ul>
-<h4 id="五种引用"><a href="#五种引用" class="headerlink" title="五种引用"></a>五种引用</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150800.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150800.png" alt="img"></a></p>
+<h4 id="五种引用"><a href="#五种引用" class="headerlink" title="五种引用"></a>五种引用</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150800.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113035.png" alt="20200608150800"></a></p>
 <h5 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h5><p>只有GC Root<strong>都不引用</strong>该对象时，才会回收<strong>强引用</strong>对象</p>
 <ul>
 <li>如上图B、C对象都不引用A1对象时，A1对象才会被回收</li>
@@ -971,18 +971,18 @@ ing<span class="token punctuation">;</span>
 </ul>
 </li>
 </ul>
-<h3 id="2、垃圾回收算法"><a href="#2、垃圾回收算法" class="headerlink" title="2、垃圾回收算法"></a>2、垃圾回收算法</h3><h4 id="标记-清除"><a href="#标记-清除" class="headerlink" title="标记-清除"></a>标记-清除</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150813.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150813.png" alt="img"></a></p>
+<h3 id="2、垃圾回收算法"><a href="#2、垃圾回收算法" class="headerlink" title="2、垃圾回收算法"></a>2、垃圾回收算法</h3><h4 id="标记-清除"><a href="#标记-清除" class="headerlink" title="标记-清除"></a>标记-清除</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150813.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113047.png" alt="20200608150813"></a></p>
 <p><strong>定义</strong>：标记清除算法顾名思义，是指在虚拟机执行垃圾回收的过程中，先采用标记算法确定可回收对象，然后垃圾收集器根据标识清除相应的内容，给堆内存腾出相应的空间</p>
 <ul>
 <li>这里的腾出内存空间并不是将内存空间的字节清0，而是记录下这段内存的起始结束地址，下次分配内存的时候，会直接<strong>覆盖</strong>这段内存</li>
 </ul>
 <p><strong>缺点</strong>：<strong>容易产生大量的内存碎片</strong>，可能无法满足大对象的内存分配，一旦导致无法分配对象，那就会导致jvm启动gc，一旦启动gc，我们的应用程序就会暂停，这就导致应用的响应速度变慢</p>
-<h4 id="标记-整理"><a href="#标记-整理" class="headerlink" title="标记-整理"></a>标记-整理</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150827.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150827.png" alt="img"></a></p>
+<h4 id="标记-整理"><a href="#标记-整理" class="headerlink" title="标记-整理"></a>标记-整理</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150827.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113059.png" alt="20200608150827"></a></p>
 <p>标记-整理 会将不被GC Root引用的对象回收，清楚其占用的内存空间。然后整理剩余的对象，可以有效避免因内存碎片而导致的问题，但是因为整体需要消耗一定的时间，所以效率较低</p>
-<h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150842.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150842.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150856.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150856.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150907.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150907.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150919.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150919.png" alt="img"></a></p>
+<h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150842.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113114.png" alt="20200608150842"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150856.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113150.png" alt="20200608150856"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150907.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113205.png" alt="20200608150907"></a></p>
+<p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150919.png"><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220423113216.png" alt="20200608150919"></a></p>
 <p>将内存分为等大小的两个区域，FROM和TO（TO中为空）。先将被GC Root引用的对象从FROM放入TO中，再回收不被GC Root引用的对象。然后交换FROM和TO。这样也可以避免内存碎片的问题，但是会占用双倍的内存空间。</p>
 <h3 id="3、分代回收"><a href="#3、分代回收" class="headerlink" title="3、分代回收"></a>3、分代回收</h3><p><a target="_blank" rel="noopener" href="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150931.png"><img src="https://nyimapicture.oss-cn-beijing.aliyuncs.com/img/20200608150931.png" alt="img"></a></p>
 <h4 id="回收流程"><a href="#回收流程" class="headerlink" title="回收流程"></a>回收流程</h4><p>新创建的对象都被放在了<strong>新生代的伊甸园</strong>中</p>
