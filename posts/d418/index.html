@@ -520,8 +520,8 @@
 <p>随便找一张流程图</p>
 <p>图来源：<a target="_blank" rel="noopener" href="https://www.javatt.com/p/31195">【SpringMVC】——图解执行流程 - Java天堂 (javatt.com)</a></p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412133343.png" alt="SpringMVC流程图"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412155510.png" alt="05bfabccca008b92a328967bb5a7bea9"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412133343.png" alt="SpringMVC流程图"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412155510.png" alt="05bfabccca008b92a328967bb5a7bea9"></p>
 <hr>
 <h2 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h2><p>一个<code>Controller</code> 和 一个<code>hello.html</code>，视图解析器是<code>Thymeleaf</code>。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Controller</span><span class="token punctuation">;</span>
@@ -560,56 +560,56 @@
 <p>用户请求被前端控制器 <code>DispatcherServlet</code>拦截</p>
 </blockquote>
 <p>发送 请求，<code>http://localhost:8022/demo4/hello</code>，我这里是使用 Tomcat 部署的，项目路径是 demo4。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412143459.png" alt="image-20220412143458939"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412143459.png" alt="image-20220412143458939"></p>
 <p>进入 <code>DispatcherServlet</code>的<code>doService</code>方法。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412143915.png" alt="image-20220412143915356"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412143915.png" alt="image-20220412143915356"></p>
 <p>然后F7进入 <code>doDispatch</code>方法内部，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412144043.png" alt="image-20220412144043552"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412144043.png" alt="image-20220412144043552"></p>
 <h3 id="2-DispatcherServlet请求查询handler"><a href="#2-DispatcherServlet请求查询handler" class="headerlink" title="2.DispatcherServlet请求查询handler"></a>2.<code>DispatcherServlet</code>请求查询handler</h3><blockquote>
 <p><code>DispatcherServlet</code>请求 <code>HandlerMapping</code></p>
 </blockquote>
 <p>在1037行进入方法内部，可以看到 <code>handlerMapping</code>，还有<code>HandlerExecutionChain</code></p>
 <p>通过 <code>mapping.getHandler(request);</code>，得到具体的处理器执行链。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412144253.png" alt="image-20220412144253762"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412144253.png" alt="image-20220412144253762"></p>
 <h3 id="3-HandlerMapping返回处理器执行链"><a href="#3-HandlerMapping返回处理器执行链" class="headerlink" title="3. HandlerMapping返回处理器执行链"></a>3. <code>HandlerMapping</code>返回处理器执行链</h3><blockquote>
 <p><code>HandlerMapping</code>返给<code>DispatcherServlet</code>处理器执行链</p>
 <p>处理器执行链<code>HandlerExecutionChain</code>(包括处理器对象和处理器拦截器)</p>
 </blockquote>
 <p>在上面的方法中返回的 <code>handler</code> 就是 <code>HandlerExecutionChain</code>执行链</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412150259.png" alt="image-20220412150259607"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412150259.png" alt="image-20220412150259607"></p>
 <h3 id="4-DispatcherServlet请求执行-handler"><a href="#4-DispatcherServlet请求执行-handler" class="headerlink" title="4. DispatcherServlet请求执行 handler"></a>4. <code>DispatcherServlet</code>请求执行 handler</h3><blockquote>
 <p><code>DispatcherServlet</code>把请求交给 <code>HandlerAdapter</code></p>
 </blockquote>
 <p>接着执行，return 到 <code>doDispatch</code>方法中。</p>
 <p>在 1044 行，进入 <code>getHandlerAdapter</code>，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412150743.png" alt="image-20220412150743347"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412150743.png" alt="image-20220412150743347"></p>
 <p>返回 <code>HandlerAdapter</code>，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151005.png" alt="image-20220412151005741"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151005.png" alt="image-20220412151005741"></p>
 <p>请求执行，通过<code>handlerAdpter</code>执行，进入方法内部</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151152.png" alt="image-20220412151152685"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151152.png" alt="image-20220412151152685"></p>
 <h3 id="5-HandlerAdapter执行-Handler"><a href="#5-HandlerAdapter执行-Handler" class="headerlink" title="5. HandlerAdapter执行 Handler"></a>5. <code>HandlerAdapter</code>执行 Handler</h3><p><code>ha.handle()</code></p>
 <p>跳转到了 IndexController 的 hello() 方法内部</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151345.png" alt="image-20220412151345643"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151345.png" alt="image-20220412151345643"></p>
 <h3 id="6-Handler返回-ModelAndView"><a href="#6-Handler返回-ModelAndView" class="headerlink" title="6. Handler返回 ModelAndView"></a>6. <code>Handler</code>返回 ModelAndView</h3><p>从 上面的方法里，一直 按 F8 调试，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412152739.png" alt="image-20220412152738950"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412152739.png" alt="image-20220412152738950"></p>
 <h3 id="7-HandlerAdapter返回-ModelAndView"><a href="#7-HandlerAdapter返回-ModelAndView" class="headerlink" title="7. HandlerAdapter返回 ModelAndView"></a>7. <code>HandlerAdapter</code>返回 ModelAndView</h3><p>然后返回到这个类里<code>RequestMappingHandlerAdapter</code>，或者直接搜索这个类，然后在下面位置打断点。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151906.png" alt="image-20220412151906313"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151928.png" alt="image-20220412151927938"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151906.png" alt="image-20220412151906313"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412151928.png" alt="image-20220412151927938"></p>
 <p>然后进入这个方法。这个方法返回了 <code>ModelAndView</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153034.png" alt="image-20220412153034212"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153034.png" alt="image-20220412153034212"></p>
 <p>最后在 <code>handleInternal</code>方法中 返回了 <code>mav</code> 给 <code>AbstractHandlerMethodAdapter</code>的 <code>handle</code>的方法，最后回到了<code>DisPatcherServlet</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153416.png" alt="image-20220412153416540"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153416.png" alt="image-20220412153416540"></p>
 <h3 id="8-DispatcherServlet请求解析视图"><a href="#8-DispatcherServlet请求解析视图" class="headerlink" title="8. DispatcherServlet请求解析视图"></a>8. <code>DispatcherServlet</code>请求解析视图</h3><p>往下执行，进入这个方法。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153524.png" alt="image-20220412153524014"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153524.png" alt="image-20220412153524014"></p>
 <p>进入 <code>render</code> 方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153656.png" alt="image-20220412153656469"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412153656.png" alt="image-20220412153656469"></p>
 <p>1</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154126.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154126.png"></p>
 <p>进入<code>resolveViewName</code>方法，可以看到视图解析器。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154349.png" alt="image-20220412154349845"></p>
-<h3 id="9-ViewResolver返回-View-对象"><a href="#9-ViewResolver返回-View-对象" class="headerlink" title="9. ViewResolver返回 View 对象"></a>9. <code>ViewResolver</code>返回 View 对象</h3><p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154448.png" alt="image-20220412154448433"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154349.png" alt="image-20220412154349845"></p>
+<h3 id="9-ViewResolver返回-View-对象"><a href="#9-ViewResolver返回-View-对象" class="headerlink" title="9. ViewResolver返回 View 对象"></a>9. <code>ViewResolver</code>返回 View 对象</h3><p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154448.png" alt="image-20220412154448433"></p>
 <h3 id="10-渲染视图"><a href="#10-渲染视图" class="headerlink" title="10. 渲染视图"></a>10. 渲染视图</h3><p>通过 <code>render</code> 方法渲染视图，在这个方法执行之前，浏览器还不能看到页面。执行之后就可以看到了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154539.png" alt="image-20220412154539796"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220412154539.png" alt="image-20220412154539796"></p>
 <h3 id="11-响应用户"><a href="#11-响应用户" class="headerlink" title="11. 响应用户"></a>11. 响应用户</h3><p>完了，没了。</p>
 
                 
