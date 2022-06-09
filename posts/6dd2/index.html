@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="count(1)、count(*)、count（列名）的区别, 云河月御风">
+    <meta name="keywords" content="一条SQL的执行过程, 云河月御风">
     <meta name="description" content="前言
 参考：
-[1].MySQL学习笔记：count(1)、count(*)、count（字段）的区别 - Hider1214 - 博客园 (cnblogs.com)
-[2].count(1)、count(*)与count(列名)的执行区别">
+[1].SQL语句在MySQL中的执行过程 | JavaGuide
+[2].一条Sql的执行过程 - xbhog - 博客园 (cnblogs.com)
+[3].一条sql语句在MySQL的执行过程_Thinking Town">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>count(1)、count(*)、count（列名）的区别 | 云河月御风</title>
+    <title>一条SQL的执行过程 | 云河月御风</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +316,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">count(1)、count(*)、count（列名）的区别</h1>
+                    <h1 class="description center-align post-title">一条SQL的执行过程</h1>
                 </div>
             </div>
         </div>
@@ -440,6 +441,10 @@
                                 <span class="chip bg-color">MySQL</span>
                             </a>
                         
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -461,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-06-05
+                    2022-06-07
                 </div>
                 
 
@@ -470,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    355
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
 
@@ -507,27 +512,47 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>参考：</p>
-<p>[1].<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hider/p/11726690.html">MySQL学习笔记：count(1)、count(*)、count（字段）的区别 - Hider1214 - 博客园 (cnblogs.com)</a></p>
-<p>[2].<a target="_blank" rel="noopener" href="https://blog.csdn.net/iFuMI/article/details/77920767">count(1)、count(*)与count(列名)的执行区别_BigoSprite的博客-CSDN博客_count</a></p>
+<p>[1].<a target="_blank" rel="noopener" href="https://javaguide.cn/database/mysql/how-sql-executed-in-mysql.html#%E4%B8%80-mysql-%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90">SQL语句在MySQL中的执行过程 | JavaGuide</a></p>
+<p>[2].<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xbhog/p/16260323.html">一条Sql的执行过程 - xbhog - 博客园 (cnblogs.com)</a></p>
+<p>[3].<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43618881/article/details/118657040">一条sql语句在MySQL的执行过程_Thinking Town的博客-CSDN博客_mysql一条sql执行过程</a></p>
+<p>[4].<a target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/bb3bfe58-0c7b-4f60-a3e1-4c45fad08e9a">执行一条sql语句经历了哪些过程. · 语雀 (yuque.com)</a></p>
+<p>[5].<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/354255965">字节三面：详解一条 SQL 的执行过程 - 知乎 (zhihu.com)</a></p>
+<p>[6].<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mengxinJ/p/14045520.html">一条 sql 的执行过程详解 - 萌新J - 博客园 (cnblogs.com)</a></p>
 </blockquote>
-<h2 id="执行效率"><a href="#执行效率" class="headerlink" title="执行效率"></a>执行效率</h2><p>参考自第二篇博客。</p>
+<h2 id="一、-MySQL-基本架构概览"><a href="#一、-MySQL-基本架构概览" class="headerlink" title="一、 MySQL 基本架构概览"></a>一、 MySQL 基本架构概览</h2><p><img src="https://fastly.jsdelivr.net/gh/CCCSL05/PicStore/noteImg/20220606093333.png" alt="13526879-3037b144ed09eb88"></p>
+<p>简单来说 MySQL 主要分为 Server 层和存储引擎层：</p>
+<ul>
+<li><strong>Server 层</strong>：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binlog 日志模块。</li>
+<li><strong>存储引擎</strong>： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolog 模块。<strong>现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5 版本开始就被当做默认存储引擎了。</strong></li>
+</ul>
+<h2 id="二、-Server-层基本组件介绍"><a href="#二、-Server-层基本组件介绍" class="headerlink" title="二、 Server 层基本组件介绍"></a>二、 Server 层基本组件介绍</h2><h3 id="（1）连接器"><a href="#（1）连接器" class="headerlink" title="（1）连接器"></a>（1）连接器</h3><p>客户端想要对数据库进行操作时，连接器就是用来负责跟客户端建立连接、获取权限（后面会用到）、维持和管理连接的。连接器支持短连接也支持长连接，同时为了避免频繁创建和销毁连接造成性能损失，可选择利用连接池进程管理，如druid，cp30等。</p>
+<h3 id="（2）-查询缓存-MySQL-8-0-版本后移除"><a href="#（2）-查询缓存-MySQL-8-0-版本后移除" class="headerlink" title="（2） 查询缓存(MySQL 8.0 版本后移除)"></a>（2） 查询缓存(MySQL 8.0 版本后移除)</h3><p>查询缓存主要用来缓存我们所执行的 select语句以及该语句的结果集。如果开启了查询缓存，执行查询语句的时候，会先查询缓存。如果缓存 key 被命中，就会直接返回给客户端。在数据变换频繁的表中，是不推荐使用的，当一张表的数据发生变化，其所有缓存都将清空。</p>
+<h3 id="（3）-分析器"><a href="#（3）-分析器" class="headerlink" title="（3） 分析器"></a>（3） 分析器</h3><p>分析器的工作主要是对要执行的SQL语句进行解析，最终得到抽象语法树。</p>
+<p>一、词法分析。提取关键字(Token)，比如 select，提出查询的表，提出字段名，提出查询条件等等</p>
+<p>二、语法分析。把提取出的Token转换为抽象语法树后进行检验。主要就是判断你输入的 sql 是否正确，是否符合 MySQL 的语法</p>
+<h3 id="（4）优化器"><a href="#（4）优化器" class="headerlink" title="（4）优化器"></a>（4）优化器</h3><p>查询优化器会找出执行该语句所有可能使用的方案，然后选择一条最优查询路径，即MySQL认为的效率最高的方式，并生成执行计划。比如你一个表中创建了多个索引，优化器会根据IO和CPU成本，选出代价最小的索引进行执行。</p>
+<p>查询成本计算可参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/aecdcc2babdd">https://www.jianshu.com/p/aecdcc2babdd</a></p>
+<p>可通过SQL语句前添加上 explain 关键字查看执行计划(重点关注type、key、Extra字段)；</p>
+<h3 id="（5）执行器"><a href="#（5）执行器" class="headerlink" title="（5）执行器"></a>（5）执行器</h3><p>根据执行计划完成SQL语句的操作，执行前会校验该用户有没有权限（第一步连接器获取的权限用于在这里做判断），如果没有权限，就会返回错误信息，如果有权限，就会去调用引擎的接口，返回接口执行的结果。</p>
+<h3 id="（6）存储引擎"><a href="#（6）存储引擎" class="headerlink" title="（6）存储引擎"></a>（6）存储引擎</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/bb3bfe58-0c7b-4f60-a3e1-4c45fad08e9a#ZjeS3">执行一条sql语句经历了哪些过程. · 语雀 (yuque.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mengxinJ/p/14045520.html">一条 sql 的执行过程详解 - 萌新J - 博客园 (cnblogs.com)</a></p>
+</blockquote>
 <ol>
-<li>当列名是主键时，<code>count(列名)</code> 会比 <code>count(1)</code>快。列名不为主键时，<code>count(1)</code>会比<code>count(列名)</code>快 。</li>
-<li>如果只有一个字段，<code>count(*)</code>最优，<code>count（1）</code> 的执行效率优于 <code>count（*）</code></li>
-<li>当表没有主键且有多个列时，<code>count(1)</code>最好</li>
+<li>首先执行器根据 MySQL 的执行计划来查询数据，先是从缓存池中查询数据，如果没有就会去数据库中查询，如果查询到了就将其放到缓存池中</li>
+<li>在数据被缓存到缓存池的同时，会写入 undo log 日志文件</li>
+<li>更新的动作是在 BufferPool 中完成的，同时会将更新后的数据添加到 redo log buffer 中</li>
+<li>完成以后就可以提交事务，在提交的同时会做以下三件事</li>
+<li>（第一件事）将redo log buffer中的数据刷入到 redo log 文件中</li>
+<li>（第二件事）将本次操作记录写入到 bin log文件中</li>
+<li>（第三件事）将 bin log 文件名字和更新内容在 bin log 中的位置记录到redo log中，同时在 redo log 最后添加 commit 标记</li>
 </ol>
-<h2 id="count"><a href="#count" class="headerlink" title="count(*)"></a>count(*)</h2><p>因为<code>COUNT(*)</code>是SQL92定义的标准统计行数的语法，所以MySQL对他进行了很多优化，<strong>这些优化的前提都是没有进行where和group的条件查询。</strong></p>
-<p>count(*)包括了所有的列，相当于行数，在统计结果的时候， 不会忽略列值为NULL </p>
-<h2 id="count-1"><a href="#count-1" class="headerlink" title="count(1)"></a>count(1)</h2><p>count(1)包括了忽略所有列，用1代表代码行，在统计结果的时候， 会统计列值为NULL的记录。</p>
-<blockquote>
-<p>官方文档，</p>
-<p>InnoDB handles SELECT COUNT(*) and SELECT COUNT(1) operations in the same way. There is no performance difference.</p>
-<p>翻译：InnoDB使用了相同的方式处理SELECT COUNT(*)和SELECT COUNT(1)的操作。没有性能差异。</p>
-<p>对于<code>count(1)</code>和<code>count(*)</code>，MySQL的优化是完全一样的，根本不存在谁更快！</p>
-</blockquote>
-<h2 id="count-列名"><a href="#count-列名" class="headerlink" title="count(列名)"></a>count(列名)</h2><p>进行全表扫描，判断指定字段的值是否为<code>NULL</code>，不为<code>NULL</code>则累加。</p>
-<p>性能比<code>count(1)</code>和<code>count(*)</code>慢。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>建议使用<code>count(*)</code></p>
+<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><ul>
+<li>MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、查询缓存、分析器、优化器、执行器，同时还有一个日志模块（binlog，MySQL Server的日志文件），这个日志模块所有执行引擎都可以共用，redolog 只有 InnoDB 有。</li>
+<li>引擎层是插件式的，目前主要包括，MyISAM,InnoDB,Memory 等。</li>
+<li>查询语句的执行流程如下：权限校验（如果命中缓存）—&gt;查询缓存—&gt;分析器—&gt;优化器—&gt;权限校验—&gt;执行器—&gt;引擎</li>
+<li>更新语句执行流程如下：分析器—-&gt;权限校验—-&gt;执行器—&gt;引擎—redo log(prepare 状态)—&gt;binlog—&gt;redo log(commit状态)</li>
+</ul>
 
                 
             </div>
@@ -554,7 +579,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://CCCSL05.github.io/posts/528d/">https://CCCSL05.github.io/posts/528d/</a>
+                    <a href="https://CCCSL05.github.io/posts/6dd2/">https://CCCSL05.github.io/posts/6dd2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,6 +619,10 @@
                             
                                 <a href="/tags/MySQL/">
                                     <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
                                 </a>
                             
                         </div>
@@ -639,9 +668,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/posts/6dd2/">
                     <div class="card-image">
@@ -659,9 +689,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -674,6 +704,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -696,13 +727,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/acbf/">
+                <a href="/posts/528d/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/41.jpg" class="responsive-img" alt="SSM 整合">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="count(1)、count(*)、count（列名）的区别">
                         
-                        <span class="card-title">SSM 整合</span>
+                        <span class="card-title">count(1)、count(*)、count（列名）的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -713,7 +744,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-05
                             </span>
                         <span class="publish-author">
                             
@@ -730,8 +761,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SSM/">
-                        <span class="chip bg-color">SSM</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
