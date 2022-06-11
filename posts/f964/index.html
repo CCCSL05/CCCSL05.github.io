@@ -361,6 +361,9 @@
 
     .toc-widget {
         width: 345px;
+        /*加一个高度和overflow*/
+        height: 80%;
+        overflow: auto;
         padding-left: 20px;
     }
 
@@ -1039,7 +1042,7 @@ Email: (this IS public) mcmohd@gmail.com<span aria-hidden="true" class="line-num
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('3'),
             headingSelector: 'h2, h3, h4'
         });
 

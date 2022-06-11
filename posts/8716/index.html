@@ -361,6 +361,9 @@ CET 分数有独特的计算方式，所以本篇文章写的分数是错误的�
 
     .toc-widget {
         width: 345px;
+        /*加一个高度和overflow*/
+        height: 80%;
+        overflow: auto;
         padding-left: 20px;
     }
 
@@ -779,7 +782,7 @@ CET 分数有独特的计算方式，所以本篇文章写的分数是错误的�
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('3'),
             headingSelector: 'h2, h3, h4'
         });
 

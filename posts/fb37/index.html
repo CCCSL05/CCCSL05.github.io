@@ -360,6 +360,9 @@ Swagger 不要再联系我了，我怕 Knife4j 误会
 
     .toc-widget {
         width: 345px;
+        /*加一个高度和overflow*/
+        height: 80%;
+        overflow: auto;
         padding-left: 20px;
     }
 
@@ -861,7 +864,7 @@ Swagger 不要再联系我了，我怕 Knife4j 误会
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('3'),
             headingSelector: 'h2, h3, h4'
         });
 

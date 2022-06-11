@@ -357,6 +357,9 @@
 
     .toc-widget {
         width: 345px;
+        /*加一个高度和overflow*/
+        height: 80%;
+        overflow: auto;
         padding-left: 20px;
     }
 
@@ -2865,7 +2868,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('3'),
             headingSelector: 'h2, h3, h4'
         });
 

@@ -358,6 +358,9 @@ Kotlin 可以编译成Java字节码，也可以编译成 JavaScr">
 
     .toc-widget {
         width: 345px;
+        /*加一个高度和overflow*/
+        height: 80%;
+        overflow: auto;
         padding-left: 20px;
     }
 
@@ -1836,7 +1839,7 @@ x <span class="token operator">+=</span> <span class="token number">1</span>    
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('3'),
             headingSelector: 'h2, h3, h4'
         });
 

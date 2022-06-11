@@ -359,6 +359,9 @@ Spring Security简介Spring Security 是一种高度自定义的安全框架，�
 
     .toc-widget {
         width: 345px;
+        /*加一个高度和overflow*/
+        height: 80%;
+        overflow: auto;
         padding-left: 20px;
     }
 
@@ -1220,7 +1223,7 @@ http<span class="token punctuation">.</span><span class="token function">excepti
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('3'),
             headingSelector: 'h2, h3, h4'
         });
 
