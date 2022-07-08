@@ -478,14 +478,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -556,6 +556,21 @@
 <li>查询语句的执行流程如下：权限校验（如果命中缓存）—&gt;查询缓存—&gt;分析器—&gt;优化器—&gt;权限校验—&gt;执行器—&gt;引擎</li>
 <li>更新语句执行流程如下：分析器—-&gt;权限校验—-&gt;执行器—&gt;引擎—redo log(prepare 状态)—&gt;binlog—&gt;redo log(commit状态)</li>
 </ul>
+<blockquote>
+<p>执行顺序：</p>
+<ol>
+<li>FROM, including JOINs on 找到数据来源</li>
+<li>WHERE 条件筛选</li>
+<li>GROUP BY</li>
+<li>HAVING 分组 聚合函数 having条件筛选</li>
+<li>WINDOW functions 窗口函数</li>
+<li>SELECT 得到某些字段的结果集</li>
+<li>DISTINCT 结果集去重</li>
+<li>UNION 加上别的select语句</li>
+<li>ORDER BY 排序</li>
+<li>LIMIT and OFFSET 截断</li>
+</ol>
+</blockquote>
 
                 
             </div>
