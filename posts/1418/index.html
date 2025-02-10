@@ -1,0 +1,2248 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Spring揭秘2,3, 云河月御风">
+    <meta name="description" content="前言
+
+Spring揭秘读书笔记，有点乱，之后在整理一下。
+
+
+二、Spring的IOC容器二、IOC的基本概念
+
+被注入对象=被入对象。一个圈，准备往里面塞一个对象。
+依赖对象，被注入对象所依赖的对象。好比被注入对象是水桶，依赖对象是水。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Spring揭秘2,3 | 云河月御风</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+    <script src="/js/FunnyTitle.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">云河月御风</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">云河月御风</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        <!-- 去掉github图标 -->
+        <!-- 
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+         -->
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/31.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Spring揭秘2,3</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /*加一个最大高度和overflow*/
+        max-height: 80%;
+        overflow: auto;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2022-11-26
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    13.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    50 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<ol>
+<li>Spring揭秘读书笔记，有点乱，之后在整理一下。</li>
+</ol>
+</blockquote>
+<h2 id="二、Spring的IOC容器"><a href="#二、Spring的IOC容器" class="headerlink" title="二、Spring的IOC容器"></a>二、Spring的IOC容器</h2><h3 id="二、IOC的基本概念"><a href="#二、IOC的基本概念" class="headerlink" title="二、IOC的基本概念"></a>二、IOC的基本概念</h3><blockquote>
+<ul>
+<li><p>被注入对象=被入对象。一个圈，准备往里面塞一个对象。</p>
+<p>依赖对象，被注入对象所依赖的对象。好比被注入对象是水桶，依赖对象是水。</p>
+</li>
+<li><p>1</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>一个类想要（依赖）一个具体的对象不需要自己创造，只需要把该对象提前创建好放到配置文件中，然后框架再找到给该类创建对象之前设置进去。</p>
+<ul>
+<li>把一个<strong>完整的对象</strong>放到工厂里，可以通过注解，框架处理。@Component</li>
+<li>把一个完整的对象从工厂拿出来，通过注解来拿。框架处理。@Autowired注入引用，@value注入值。</li>
+</ul>
+<p>因为这个完整的对象每次创建都会很麻烦，所以抽取出来放到工厂（ioc容器），要使用的话只需要加注解自动注入。</p>
+</li>
+<li><p>那篇文章提到了三种注入依赖对象的方式：</p>
+<ul>
+<li>构造方法注入，创建的时候接受一个对象参数，设置之后再创建该对象。（创建前）</li>
+<li><code>setter</code>方法注入，创建对象之后调用<code>setter</code>方法设置依赖的对象。（创建后）</li>
+<li>接口注入。<ul>
+<li>前面两种在构造器参数或在方法参数声明了需要的依赖对象。</li>
+<li>接口注入，需要依赖对象的类实现一个接口，并实现其方法，在该方法中完成依赖注入。具体不清楚，笔者猜测也是方法参数列表。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IOC带来了什么？</p>
+<ul>
+<li>IoC是一种可以帮助我们<strong>解耦</strong>各业务对象间依赖关系的对象绑定方式！</li>
+<li>使用依赖注入解耦，各个业务对象之间的相互依赖。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、IOC-Service-Provider"><a href="#三、IOC-Service-Provider" class="headerlink" title="三、IOC Service Provider"></a>三、IOC Service Provider</h3><blockquote>
+<ul>
+<li><p>IOC服务的提供者。也就是提供了IOC功能的 工具/应用/工厂。</p>
+<p>并且管理对象间的依赖。（第三方管理者，负责两者的配对关联）</p>
+</li>
+<li><p>Service Provider，服务提供者，todo。</p>
+</li>
+<li><p>注册对象，管理依赖。注册对象有什么用呢？？体现在哪里？？</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>IOC Service Provider主要有两个职责<ul>
+<li>创建对象，依赖一个数据源对象，该对象我们无需关心在哪里怎么创建的，这样不会污染业务对象的创建。（正是因为封装太好了所以才不明不白）</li>
+<li>依赖绑定，把依赖的对象创建好，并设置给被注入对象。</li>
+</ul>
+</li>
+<li>IOC Service Provider 如何管理对象以及对象间的依赖关系。<ul>
+<li>直接编码，通过程序代码，调用相关方法将A类与B类对象注册到容器中，并调用方法指定依赖关系。</li>
+<li>配置文件。如<code>xml</code>，定义<code>bean1</code>，<code>bean2</code>以及两者的依赖关系。还有<code>properties</code>文件等</li>
+<li>元数据，<ul>
+<li>我们可以直接在类中使用元数据信息来标注各个对象之间的依赖关系 。</li>
+<li><code>@Inject</code>，这种方式我也不太明白。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="四、IoC容器的-BeanFactory"><a href="#四、IoC容器的-BeanFactory" class="headerlink" title="四、IoC容器的 BeanFactory"></a>四、IoC容器的 BeanFactory</h3><blockquote>
+<ul>
+<li><code>BeanFactory</code> 与 <code>ApplicationContext</code> 的区别</li>
+<li>IOC 像是一种规范、定义，而IOC容器则是具体实现。</li>
+<li><code>BeanFacoory</code>是接口，而<code>DefaultListableBeanFactory</code>是一个通用实现。</li>
+<li><code>BeanDefinitionRegistry</code>接口定义了Bean的抽象注册逻辑。</li>
+</ul>
+</blockquote>
+<p>1.<code>Spring IOC</code>和<code>IOC Service Provider</code> 之间的关系。四及标题</p>
+<ol>
+<li><p><code>Spring IOC</code>和<code>IOC Service Provider</code> 之间的关系。</p>
+<ul>
+<li><code>Sring IOC</code>包含<code>IOC Service Provider</code> </li>
+</ul>
+</li>
+<li><p>Spring提供了两种IOC容器类型： <code>BeanFactory</code>和<code>ApplicationContext</code>。  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/pythias_/article/details/82752881">BeanFactory和ApplicationContext的区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qiongjingpang9161/article/details/112875146">ApplicationContext 和 BeanFactory 的区别</a></li>
+<li> <code>BeanFactory</code>，bean懒加载，默认不会初始化</li>
+<li><code>ApplicationContext</code>，加载的时候全部都初始化，应用级别的（多了国际化、AOP等功能），继承了 <code>BeanFactory</code>接口。</li>
+</ul>
+</li>
+<li><p><code>BeanFacoory</code>是IOC容器，而Spring的IOC容器包含一个 <code>IOC Service Provider</code>。所以<code>BeanFacoory</code>几乎支持<code>IOCSP</code>这三种方式管理对象以及对象之间的依赖关系</p>
+<ul>
+<li><p>直接编码，调用相关<code>API</code>方法。（1注册bean刀容器中，2指定依赖关系【两种方式：构造器、setter】）</p>
+</li>
+<li><p>外部配置文件，<code>Properties</code>（<code>PropertiesBeanDefinitionReader</code>）、<code>xml</code>（<code>XmlBeanDefinitionReader</code>）</p>
+</li>
+</ul>
+<p> 由<code>BeanDefinitionReader</code>的实现类读取配置文件内容并映射到<code>BeanDefinition</code>，然后将<code>BeanDefinition</code>注册到一个<code>BeanDefinitionRegistry</code>，之后 <code>BeanDefinitionRegistry</code>完成<code>Bean</code>的注册和加载。  </p>
+<ul>
+<li><p>注解方式，</p>
+<ul>
+<li><code>@Autowired</code>：被注入对象从工厂中获取依赖的对象</li>
+<li><code>@Component</code>：把该组件放入工厂</li>
+<li><code>&lt;content:component-scan base-package=&quot;xxx.xxx&quot;&gt;</code>，扫描该包下的组件放入工厂</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>BeanFactory</code>与<code>xml</code></p>
+<ul>
+<li><p><code>&lt;beans&gt;</code>与 <code>&lt;bean&gt;</code>，</p>
+<ul>
+<li><p><code>beans</code>是最顶层元素，包含0或1个<code>description</code>，多个<code>bean</code>、<code>import</code>、<code>alias</code></p>
+</li>
+<li><p><code>beans</code>的属性可以管理所有<code>bean</code>的行为，有 <code>default-lazy-init</code>，<code>default-autowire</code>，<code>default-dependecy-check</code>，<code>default-init-method</code>，<code>default-destroy-method</code></p>
+</li>
+<li><p><code>&lt;description&gt;</code>，配置文件的描述信息</p>
+</li>
+<li><p><code>&lt;import&gt;</code>，导入配置文件中的<code>bean</code>以及它依赖的<code>bean</code>。可以加载多个配置文件，把不同的配置放入不同的配置文件中去。</p>
+<p>容器可以加载多个配置文件。主配置文件也可以加载其他的配置文件。这两种都可以。</p>
+</li>
+<li><p><code>&lt;alias&gt;</code>，给名字很长的<code>bean</code>起一个别名。<code>&lt;alias name=&quot;dataSourceForMasterDataSource&quot; alias=&quot;masterDataSource/a/b&quot;&gt;</code>，三个别名，<code>/</code>或 <code>空格</code>或 <code>:</code>分割。</p>
+</li>
+</ul>
+</li>
+<li><p>介绍<code>bean</code>，<code>&lt;bean id=&quot;xxx&quot; name=&quot;a/b/c&quot; class=&quot;com.xx.xx&quot;&gt;</code></p>
+<ul>
+<li><code>id</code>，容器内的唯一标识</li>
+<li><code>name</code>，别名，可以有多个</li>
+<li><code>class</code>，什么类的对象</li>
+</ul>
+</li>
+<li><p><code>bean</code>的属性初始化与相互依赖：设置值、设置依赖引用</p>
+<ol>
+<li><p>构造器，type指定参数的类型（可以区分不同的构造器，否则会使用第一个），index指定参数顺序0（默认是按顺序填充）。</p>
+</li>
+<li><p><code>setter</code>，</p>
+<ul>
+<li>构造器依靠 <code>&lt;constructor-arg&gt;</code>注入，<code>setter</code> 依靠<code>&lt;property&gt;</code>注入设置值。这是注入方式，也就是说要想注入值，必须要走这两种方法。</li>
+<li><code>&lt;property name=&quot;age&quot; value/ref=&quot;xxx&quot;&gt;</code></li>
+</ul>
+</li>
+<li><p><code>&lt;property&gt;</code>和<code>&lt;constructor-arg&gt;</code>  的内置标签体有：bean、 ref、 idref、 value、 null、 list、 set、 map、<br> props。  这些都是值类型。</p>
+<ul>
+<li><code>&lt;value&gt;</code>，Java基本类型以及包装类型</li>
+<li><code>&lt;ref&gt;</code>，对象类型。三个属性，local，parent，bean=“bean1”。</li>
+<li><code>&lt;idref&gt;</code>，对象的名称。依赖的<code>bean</code>的名称而不是引用</li>
+<li><code>&lt;bean&gt;</code>，内部对象bean。id不是必须的</li>
+<li><code>&lt;list&gt;</code>，List以及子类或数组，有序注入</li>
+<li><code>&lt;set&gt;</code>，Set及其子类子类，无序注入</li>
+<li><code>&lt;map&gt;</code>，key-value键值对。内部是 <code>&lt;entry&gt;</code>或者使用属性简化版。key是普通类型作为键，key-ref是对象作为键</li>
+<li><code>&lt;props&gt;</code>，简化的 <code>&lt;map&gt;</code>，键值对都是<code>String</code>类型。</li>
+<li><code>&lt;null/&gt;</code>，null 空对象</li>
+</ul>
+</li>
+<li><p><code>depends-on</code>，bean属性。bean初始化的先决条件</p>
+<ul>
+<li><p>依赖的初始化顺序。非显式依赖，需要先初始化被依赖的对象，才能初始化自身，但是依赖的对象不知道什么时候初始化，可以通过<code>depends-on</code>让容器先初始化依赖的<code>bean</code>再初始化自己。</p>
+<p>   若依赖的bean有多个可以使用 <code>,</code>分割。</p>
+</li>
+<li><p>显式依赖是指我们明确依赖的对象再这之前初始化了。</p>
+</li>
+</ul>
+</li>
+<li><p><code>autowire</code>，bean属性。无需指定具体对象，通过某种规则自动匹配注入</p>
+<ul>
+<li>no、 byName、 byType、 constructor和autodetect 。</li>
+<li>no，没有，完全依赖手工明确指明依赖关系</li>
+<li>byName，被注入类中声明的对象名称==beanName</li>
+<li>byType，按照类型若找到多个，容器不知道怎么处理则会抛异常。子类按类型匹配也算匹配成功。</li>
+<li>constructor，byType模式，只不过是用于构造器方法参数，而byType适用于property</li>
+<li>autodetect ，byType + constructor。<ul>
+<li>无参构造，使用byType注入对象属性。</li>
+<li>有参构造，使用constructor注入构造器参数</li>
+</ul>
+</li>
+<li>手工匹配会覆盖自动匹配。</li>
+<li>自动绑定只能用于对象类型（String、Class类除外）</li>
+</ul>
+</li>
+<li><p><code>dependency-check</code>，bean属性。</p>
+<ul>
+<li>检查每个对象某种类型的所有依赖是否全部已经注入完成，</li>
+<li>none，不检查，默认值。</li>
+<li>simple，简单类型以及collection</li>
+<li>object，对象引用类型</li>
+<li>all，simple + object</li>
+</ul>
+</li>
+<li><p><code>lazy-init</code>，bean属性。</p>
+<ul>
+<li>延迟初始化。但是如果被立马初始化的所依赖，为了立马初始化的那个bean，则延迟失效。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>继承，bean本质是Java对象，而对象存在父子关系（继承）</p>
+<ul>
+<li><code>parent=&quot;xxx&quot;</code>，指定父类bean（父类对象），可以继承父类对象的默认值。</li>
+<li><code>abstract=&quot;true&quot;</code>，抽象类，没有实例bean，相当于一个模板。容器不会去初始化。</li>
+</ul>
+</li>
+<li><p>bean 的 scope，</p>
+<ul>
+<li>scope之前创建并装配，之后销毁对象</li>
+<li><code>singleton</code>，从第一次创建一直到容器销毁。3种方式，默认不写、<code>singleton=&quot;true&quot;</code>、<code>scope=&quot;singleton&quot;</code></li>
+<li><code>prototype</code>，每次请对返回一个新的对象引用，生命周期不归容器管了。两种方式，<code>singleton=&quot;false&quot;</code>、<code>scope=&quot;prototype&quot;</code></li>
+<li><code>request</code>，每次http请求</li>
+<li><code>session</code>，</li>
+<li><code>global session</code>，只有应用在基于<code>portlet</code>的Web应用程序中才有意义，因为其他没有这个范围。</li>
+</ul>
+</li>
+<li><p>自定义<code>scope</code>范围</p>
+<ul>
+<li><p><code>singleton</code>和<code>prototype</code>是硬编码</p>
+</li>
+<li><p><code>scope</code>属性是扩展scope接口的实现类</p>
+</li>
+<li><p>创建一个自己的scope要先实现scope接口，<code>get</code>和<code>remove</code>方法必须实现。然后调用beanFactory的注册scope方法，注册到容器中。然后就可以在<code>scope</code>属性使用了。</p>
+<p>第二种注册scope的方法：CustomScopeConfigurer。这种方法可以在xml配置文件中定义注册scope</p>
+</li>
+</ul>
+</li>
+<li><p>工厂方法与 FactoryBean</p>
+<ul>
+<li><p>针对接口以及注入其实现类。2种方式，1是直接注入，2是通过工厂的返回接口实现类进行注入（解耦）。</p>
+</li>
+<li><p>工厂注入有3种，</p>
+</li>
+<li><p>工厂的静态方法，工厂方法不带参数、带参数（根据参数获取实例）</p>
+<p><code>&lt;bean id=&quot;bar&quot; class=&quot;...StaticBarInterfaceFactory&quot; factory-method=&quot;getInstance&quot;/&gt;  </code>，</p>
+<p><code>&lt;constructor-arg&gt; 方法参数值 &lt;/constructor-arg&gt;  </code></p>
+</li>
+<li><p>工厂的非静态方法，通过工厂的实例对象调用方法，需要有一个工厂的实例bean，通用可以使用参数。</p>
+<p><code>&lt;bean id=&quot;bar&quot; factory-bean=&quot;barFactory&quot; factory-method=&quot;getInstance&quot;/&gt;  </code>，</p>
+</li>
+<li><p><code>FactoryBean</code>，一个接口类型，实现类可以在<code>xml</code>中声明为 <code>&lt;bean&gt;</code>，该<code>bean</code>比较特殊。</p>
+<ul>
+<li>自定义一个类实现<code>FactoryBean</code>接口，实现所有方法，<code>&lt;bean&gt;</code>定义，在引用这个<code>bean</code>的时候返回的不是<code>factoryBean</code>本身而是它所指向的对象。</li>
+<li>加前缀&amp;，表示获取<code>factoryBean</code>本身</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>偷梁换柱之术，方法注入、方法替换</p>
+<blockquote>
+<ul>
+<li>A依赖B，B设置为<code>prototype</code>，创建两个A，发现他们以来的B是同一个（不符合多例）。</li>
+<li>实例注入是由<code>xml</code>模板决定的，也就是说模板里确定了引用的<code>bean</code>，所以每次都是同一个</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>方法注入，该bean的依赖注入每次都通过方法注入</p>
+<p><code>&lt;lookup-method name=&quot;getNewsBean&quot; bean=&quot;newsBean&quot;/&gt;  </code>替换 <code>&lt;ref bean=&quot;newsBean&quot;/&gt;  </code></p>
+</li>
+<li><p>殊途同归，</p>
+<ol>
+<li><p>使用<code>BeanFactoryAware</code>接口，实现这个接口，容器在实例化该bean的时候，会将容器本身beanfactory传入该bean中（调用接口的方法，并把容器当作参数传递进去）。该bean就拥有了容器对象。</p>
+<p>然后<code>getbean</code>方法里，从容器中获取bean并返回，每次容器都会创造造一个bean返回。</p>
+<p>（方法注入动态生成的子类，完成的是与以上类似的逻辑  。）</p>
+</li>
+<li><p>使用<code>ObjectFactoryCreatingFactoryBean</code>，</p>
+<p>通过<code>setter</code>方法注入，<code>getBean</code>方法里调用<code>ObjectFactoryCreatingFactoryBean</code>的<code>getObject()</code>方法。</p>
+<p><code>ObjectFactoryCreatingFactoryBean</code>在<code>xml</code>里配置 <code>targetBeanName  </code>属性</p>
+</li>
+</ol>
+</li>
+<li><p>方法替换，替换方法体，覆盖掉原来的逻辑</p>
+<ul>
+<li><code>&lt;replaced-method name=&quot;methodName&quot; replacer=&quot;beanName&quot;&gt;  &lt;/replaced-method&gt;</code></li>
+<li>在 <code>&lt;bean&gt;</code>标签内。刚引入的时候效率不高。可通过 <code>&lt;arg-type&gt;  </code>指明方法的参数类型，用来确定替换哪一个方法（重名方法、带参数的方法）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>容器背后的秘m</p>
+<ol>
+<li><p>战略性观望（IOC容器的构建过程）</p>
+<blockquote>
+<p>Spring的IOC容器主要就是根据xml配置文件构建了整个容器，</p>
+<ul>
+<li>这个流程（Spring读取<code>xml</code>配置文件）分为两个阶段：容器启动阶段、bean实例化阶段</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>容器启动，（<code>bean</code>变成具有某些配置的<code>Java</code>对象）</p>
+<p>读取配置文件，解析为Java对象，变成一个个的<code>BeanDefinition</code>对象（代表了该<code>xml</code>里<code>bean</code>的一些配置信息），最后把这些<code>BeanDefinition</code>对象注册到<code>BeanDefinitionRegistry</code> 中。 </p>
+</li>
+<li><p>bean实例化，getBean要获取Bean的时候触发第二阶段</p>
+<p>检查该Bean是否存在，存在则直接返回，没有则实例化该Bean和它所有的依赖（如果有回调接口会调用接口）</p>
+</li>
+</ul>
+</li>
+<li><p>插手容器的启动</p>
+<ol>
+<li><p><code>BeanFactoryPostProcessor</code>可以扩展第一阶段，两个常用的实现类：<code>PropertyPlaceholderConfigurer</code> 和 <code>PropertyOverrideConfigurer</code> </p>
+</li>
+<li><p>另外，为了处理配置文件中的数据类型与真正的业务对象所定义的数据类型转换，CustomEditorConfigurer来注册自定义的PropertyEditor以补助容器中默认的PropertyEditor。</p>
+</li>
+<li><p><code>BeanFactory</code>配置<code>BeanFactoryPostProcessor</code>需要手动配置， </p>
+<p><code>propertyPostProcessor.postProcessBeanFactory(beanFactory) // 手动配置</code></p>
+<p><code>ApplicationContext</code>配置后置处理器只需要在xml配置文件中声明即可，会自动识别并应用</p>
+</li>
+<li><p>几个常见的<code>BeanFactoryPostProcessor</code></p>
+<ol>
+<li><p><code>PropertyPlaceholderConfigurer</code>占位符替换，在<code>xml</code>中使用在<code>properties</code>文件中配置的数据，<code>$&#123;jdbc.xx&#125;</code>。</p>
+<p>不仅能加载<code>properties</code>配置文件，还能加载Java的<code>System</code>类中的Properties。</p>
+</li>
+<li><p><code>PropertyOverrideConfigurer</code>（bean属性值重写覆盖），<code>beanName.xx=value</code>，覆盖之前的配置。多个的话，不断覆盖，最后一个生效。</p>
+</li>
+<li><p><code>CustomEditorConfigurer</code>，xml中Class类是字符串，要转成各种Java类。</p>
+<p>Spring内部通过JavaBean的<code>PropertyEditor</code>来帮助进行<code>String</code>类型到其他类型的转换工作  </p>
+<p>自定义<code>PropertyEditor</code>，继承<code>PropertyEditor</code>并重写对应的方法 <code>setAsText(String)</code>，该方法实现了<code>String</code>类型转化为其他类型，然后通过<code>CustomEditorConfigurer</code>注册自定义的<code>PropertyEditor</code>。</p>
+<p> <code>setAsText(String)</code>方法体，<code>setValue(dateValue);  </code>把结果值设置进去</p>
+<p><code>beanFactory</code>还是通过编码手动设置，<code>ApplicationContext</code>自动配置。</p>
+<p>Spring 2.0之后通过<code>PropertyEditorRegistrar</code>，推荐。</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>了解bean的一生</strong> （todo，太多知识了，后续补充）</p>
+<blockquote>
+<ul>
+<li><p>BeanFactory的getBean方法可以被客户端对象显式调用，也可以在容器内部隐式地被调用  </p>
+</li>
+<li><p>ApplicationContext启动之后会实例化所有的bean定义，在启动阶段的活动完成之后，紧接着调用注册到该容器的所有bean定义的实例化方法getBean()  。</p>
+</li>
+<li><p><code>getBean</code>第一次调用才会进行Bean的实例化</p>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p><code>Bean</code>的实例化与<code>BeanWrapper</code></p>
+<blockquote>
+<p><code>BeanWrapper</code>主要用来设置bean对象的属性</p>
+</blockquote>
+<p>创建bean对象有两种方式（策略模式决定）：反射和<code>CGLIB</code>动态字节码。</p>
+<p>默认情况下，容器内部采用的是<code>CglibSubclassingInstantiationStrategy</code>。  </p>
+<p>创建完对象返回的并不是bean对象，而是<code>BeanWrapper</code>对象。（这样做就是为了设置对象属性），直接或间接的继承了<code>PropertyAccessor</code>接口、<code>PropertyEditorRegistry</code>接口、<code>TypeConverter</code>接口。使用<code>BeanWrapper</code>对<code>bean</code>实例操作很方便。</p>
+</li>
+<li><p>各色的Aware接口</p>
+<p>当对象实例化完成并且相关属性以及依赖设置完成之后，容器会检查该Bean是否实现了一系列的Aware结尾的接口。如果实现了，会把一些相关的对象通过接口的方法诸如进来。</p>
+<p>接口有实现方法，通过方法参数传递到该bean。</p>
+<p><code>BeanNameAware</code>、<code>BeanClassLoaderAware</code>、<code>BeanFactoryAware</code>，这些只针对<code>BeanFactory</code>容器。</p>
+<p>而<code>ApplicationContext</code>容器使用<code>BeanPostProcessor</code>方式，<code>ResourceLoaderAware</code>、<code>ApplicationEventPublisherAware</code>、<code>MessageSourceAware</code>、<code>ApplicationContextAware</code>，这四个Aware都注入<code>ApplicationContext</code>容器。</p>
+</li>
+<li><p>BeanPostProcessor</p>
+<blockquote>
+<ul>
+<li>PostProcessor是存在于对象实例化阶段，而BeanFactoryPostProcessor则是存在于容器启动阶段</li>
+<li>与BeanFactoryPostProcessor通常会处理容器内所有符合条件的BeanDefinition类似， BeanPostProcessor会处理容器内所有符合条件的实例化后的对象实例</li>
+<li>拦截实现aop代理对象。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>实例化bean对象之后，进行相关处理。</p>
+<p>ApplicationContext对应的那些Aware接口实际上就是通过BeanPostProcessor的方式进行处理的。</p>
+<p>Spring的AOP则更多地使用<code>BeanPostProcessor</code>来为对象生成相应的代理对象，</p>
+<p>自定义<code>BeanPostProcessor</code>。0接口标识被处理类、1实现接口编写自定义处理器（内部判断是否是被处理的接口实现实例。）、2将自定义的注册到容器（BeanFactory手工编码或ApplicationContext的xml配置）</p>
+<p>   <code>InstantiationAwareBeanPostProcessor</code>，对象实例化达成短路效果。实例化对象之前，容器会检查是否有该接口的实现类，如果有直接使用该实现类返回的Bean，不去走bean的生命周期。</p>
+<ol start="4">
+<li><p><code>InitializingBean</code>和<code>init-method</code></p>
+<ol>
+<li><code>InitializingBean</code>在前置处理之后，进一步调整对象实例的状态，一般是Spring容器内部使用。所以一般我们使用<code>init-method</code>方法可对对象做自定义的补充、或者是预先处理某段逻辑。</li>
+<li><code>init-method</code>的方法名随意，统一的话可以使用<code>&lt;beans&gt;</code>的<code>default-init-method</code>属性。</li>
+<li>这两个效果相同，都是初始化，一般选其中一个就可以了。</li>
+</ol>
+</li>
+<li><p><code>DisposableBean</code>与<code>destroy-method</code></p>
+<ol>
+<li><p>这两个都是自定义销毁。<code>DisposableBean</code>一次性的，只检查<code>singleton</code>类型的Bean的销毁。也就是说<code>DisposableBean</code>接口只处理<code>singleton</code>类型bean。</p>
+<p>注册回调之后不会立马调用，在销毁的时候调用。</p>
+</li>
+<li><p>BeanFactory，调用<code>ConfigurableBeanFactory</code>提供的<code>destroySingletons()</code>方法销毁容器中管理的所有<code>singleton</code>类型的对象实例。  </p>
+</li>
+<li><p>ApplicationContext，<code>AbstractApplicationContext</code>为我们提供了<code>registerShutdownHook()</code>方法  </p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>小结</p>
+</li>
+</ol>
+<h3 id="五、Spring-IOC容器ApplicationContext"><a href="#五、Spring-IOC容器ApplicationContext" class="headerlink" title="五、Spring IOC容器ApplicationContext"></a>五、Spring IOC容器ApplicationContext</h3><blockquote>
+<p>Spring为基本的<code>BeanFactory</code>类型容器提供了<code>XmlBeanFactory</code>实现。</p>
+<p>相应地，它也为<code>ApplicationContext</code>类型容器提供了以下几个常用的实现 ：<code>FileSystemXmlApplicationContext</code>（文件系统）、<code>ClassPathXmlApplicationContext</code>（classpath）、<code>XmlWebApplicationContext</code>（web应用程序）</p>
+</blockquote>
+<h4 id="5-1-统一资源加载策略"><a href="#5-1-统一资源加载策略" class="headerlink" title="5.1 统一资源加载策略"></a>5.1 统一资源加载策略</h4><blockquote>
+<p><code>URL</code>全名是Uniform Resource Locator（统一资源定位器），但多少有些名不副实的味道，不够用。所以Spring又提出了基于<code>ResourceLoader</code>接口的资源抽象和加载策略 。</p>
+</blockquote>
+<h5 id="（1）Spring中的Resource"><a href="#（1）Spring中的Resource" class="headerlink" title="（1）Spring中的Resource"></a>（1）Spring中的<code>Resource</code></h5><p><code>Resource</code>作为（表示资源类型的）接口，有几个实现类：</p>
+<ol>
+<li><code>ByteArrayResource</code>（字节数组）、</li>
+<li><code>ClassPathResource</code>（Java应用程序的<code>classpath</code>）、</li>
+<li><code>FileSystemResource</code>（文件）、</li>
+<li><code>UrlResource</code>（URL）、</li>
+<li><code>InputStreamResource</code>（较为少用，一般以<code>ByteArrayResource</code>以及其他形式资源实现代之）。</li>
+</ol>
+<p>要想自定义<code>Resource</code>的实现类，不必实现接口的7个方法，可以继承<code>AbstractResource</code>抽象类，重写相应的方法就可以了。</p>
+<h5 id="（2）ResourceLoader，统一资源定位器"><a href="#（2）ResourceLoader，统一资源定位器" class="headerlink" title="（2）ResourceLoader，统一资源定位器"></a>（2）ResourceLoader，统一资源定位器</h5><p>ResourceLoader接口是资源查找定位策略的统一抽象，实现类：</p>
+<ol>
+<li><code>DefaultResourceLoader</code>，是否以<code>classpath:</code>开头，是的话构造<code>ClassPathResource</code>类对象资源，不是通过<code>URL</code>定位资源。</li>
+<li><code>FileSystemResourceLoader</code>，它继承自<code>DefaultResourceLoader</code>，但覆写了<code>getResourceByPath(String)</code>方法。</li>
+</ol>
+<p>接口<code>ResourcePatternResolver</code>（批量查找），继承了<code>ResourceLoader</code>，可一次性查找到多个文件。而ResouceLoader一次只能返回一个资源对象。</p>
+<p>可以接收一个<code>ResourceLoader</code>，将匹配到的资源路径交给它处理，不指定的话默认是<code>DefaultResourceLoader</code>。</p>
+<p>（<code>ResourcePatternResolver</code>主要是根据规则路径匹配出多个具体的文件资源位置，具体查找文件还要<code>ResourceLoader</code>返回资源文件）</p>
+<ol>
+<li><code>PathMatchingResourcePatternResolver</code>，支持原生的<code>ResourceLoader</code>、支持Ant风格<code>/**</code>、支持 <code>classpath*:</code></li>
+</ol>
+<h5 id="（3）ApplicationContext与ResourceLoader"><a href="#（3）ApplicationContext与ResourceLoader" class="headerlink" title="（3）ApplicationContext与ResourceLoader"></a>（3）ApplicationContext与ResourceLoader</h5><blockquote>
+<ul>
+<li><code>ApplicationContext</code>继承了<code>ResourcePatternResolver</code>，当然就间接实现了<code>ResourceLoader</code>接口。</li>
+<li>所有的<code>ApplicationContext</code>都是<code>AbstractApplicationContext</code>。而<code>AbstractApplicationContext</code>继承了<code>DefaultResourceLoader</code>，内部拥有一个<code>PathMatchingResourcePatternResolver</code>。</li>
+</ul>
+</blockquote>
+<p>ApplicationContext的几个作用</p>
+<ol>
+<li><p>作为<code>ResourceLoader</code>使用。（子类实例付给接口类型）</p>
+</li>
+<li><p><code>ApplicatuonContext</code>设置其他类型的<code>ResourceLoader</code>（通过setter、构造器注入）</p>
+<p>注入Applicationcontext和注入ResourceLoader一样的效果，所以注入ApplicationContext。<code>ResourceLoaderAware</code>和<code>ApplicationContextAware</code>接口（），可以注入ResourceLoader和ApplicationContext。</p>
+</li>
+<li><p>注入<code>Resource</code>类型。</p>
+<p>对于<code>BeanFactory</code>，没有<code>Resource</code>类型的<code>PropertyEditor</code>，需要自定义相关的<code>PropertyEditor</code>。</p>
+<p>但是<code>ApplicationContext</code>可以识别加载。让<code>ApplicationContext</code>作为<code>ResourceLoader</code>加载一下传入的值（资源路径）。</p>
+</li>
+<li><p>特定的ApplicationContext容器实现，在作为ResourceLoader加载资源时，会有其特定的行为。</p>
+<p>协议前缀：<code>file:</code>、<code>http:</code>、<code>ftp:</code>。ResourceLoader新增前缀<code>classpath:</code>，ResourcePatternResolver新增<code>classpath*:</code>（找到多个则返回多个）。</p>
+<p><code>ClassPathXmlApplicationContext</code>可以省略classpath:前缀，写不写都可以识别。</p>
+<p><code>FileSystemXmlApplicationContext</code>，不写前缀默认从文件系统加载，写上 <code>classpath:</code>则会从Classpath中加载（仅限于容器的实例化并加载bean定义文件这个特定阶段）。和<code>FileSystemResourceLoader</code>处理逻辑一样。</p>
+</li>
+</ol>
+<h4 id="5-2国际化"><a href="#5-2国际化" class="headerlink" title="5.2国际化"></a>5.2国际化</h4><h5 id="（1）Java-SE-提供的国际化支持"><a href="#（1）Java-SE-提供的国际化支持" class="headerlink" title="（1）Java SE 提供的国际化支持"></a>（1）Java SE 提供的国际化支持</h5><p>对于Java中的国际化信息处理，主要涉及两个类：</p>
+<ol>
+<li><code>Locale</code>，语言、国家</li>
+<li><code>ResourceBundle</code>，某个国家的一系列信息集合。message叫做baseName然后追加特定的地区代码。</li>
+</ol>
+<h5 id="（2）MessageSource与ApplicationContext"><a href="#（2）MessageSource与ApplicationContext" class="headerlink" title="（2）MessageSource与ApplicationContext"></a>（2）MessageSource与ApplicationContext</h5><blockquote>
+<p>接口<code>MessageSource</code>进一步抽象了国际化，包含3个方法，都是<code>getMessage</code>。</p>
+<p>而<code>ApplicationContext</code>实现了<code>MessageSource</code>接口，故可以作为<code>MessageSource</code>使用。</p>
+<p>容器内集成，在<code>xml</code>中配置一个具体的实现类作为MessageSource使用，bean的名字叫<code>messageSource</code>。</p>
+</blockquote>
+<p>Spring提供了三种MessageSource的实现：</p>
+<ol>
+<li><code>StaticMessageSource</code>（简单实现，多用于测试）、</li>
+<li><code>ResourceBundleMessageSource</code>（加了缓存优化，最常用，适用于正式环境）、</li>
+<li><code>ReloadableResourceBundleMessageSource</code>，通过其<code>cacheSeconds</code>属性可以指定时间段，以定期刷新并检查底层的properties资源文件是否有变更。（定期刷新检查资源文件是否变更）</li>
+<li>自定义：继承<code>AbstractMessageSource</code>或者直接实现<code>MessageSource</code>接口。</li>
+</ol>
+<p><code>MessageSourceAware</code>和<code>MessageSource</code>的注入：</p>
+<blockquote>
+<p>ApplicationContext启动的时候，会自动识别容器中类型为MessageSourceAware的bean定义，  并将自身作为MessageSource注入相应对象实例中。</p>
+</blockquote>
+<p>某个业务bean需要容器作为MessageSource使用，使用<code>xxxAware</code>接口注入容器，这样业务bean就支持国际化了。</p>
+<ol>
+<li>Aware接口，<code>MessageSourceAware</code>，实现接口注入<code>messageSource</code>（其实是容器）。</li>
+<li>属性依赖注入，<code>MessageSource</code>，在<code>xml</code>创建一个<code>messageSource</code>的bean，然后业务bean引用就可以了。</li>
+</ol>
+<h4 id="5-3容器内事件发布"><a href="#5-3容器内事件发布" class="headerlink" title="5.3容器内事件发布"></a>5.3容器内事件发布</h4><blockquote>
+<p>基于Java SE标准自定义事件类而实现</p>
+</blockquote>
+<h5 id="（1）自定义事件发布"><a href="#（1）自定义事件发布" class="headerlink" title="（1）自定义事件发布"></a>（1）自定义事件发布</h5><blockquote>
+<p>事件对象、监听器（判断事件类型决定是否处理）、事件发布者。</p>
+</blockquote>
+<p>JavaSE，一个类一个接口，<code>EventObject</code>类、<code>EventListener</code>接口。扩展这两个实现自定义。</p>
+<p>事件就是事情，要处理的事情（要执行的代码逻辑）</p>
+<p>生产者与消费者的关系，事件发布是生产，监听器处理时消费。</p>
+<h5 id="（2）Spring的容器内事件发布类结构分析"><a href="#（2）Spring的容器内事件发布类结构分析" class="headerlink" title="（2）Spring的容器内事件发布类结构分析"></a>（2）Spring的容器内事件发布类结构分析</h5><p>三个角色：</p>
+<ol>
+<li><code>ApplicationEvent</code>，事件对象，抽象类继承自<code>EventObject</code>，三个实现<ol>
+<li><code>ContextClosedEvent</code>，容器关闭</li>
+<li><code>ContextRefreshedEvent</code>，容器初始化或刷新</li>
+<li><code>RequestHandledEvent</code>，Web请求</li>
+</ol>
+</li>
+<li><code>ApplicationListener</code>，监听器，接口继承自<code>EventListener</code>。</li>
+<li><code>ApplicationContext</code>，事件发布者，<ul>
+<li>虽然是事件发布者，但是<code>ApplicationOntext</code>的具体实现类<code>AbstractApplicationContext</code>把事件发布功能全部委托给了<code>ApplicationEventMulticaster</code>接口来做，该接口实现了监听器的管理。其子接口<code>AbstractApplicationEventMulticaster</code>定义了事件发布的接口，其子类<code>SimpleApplicationEventMulticaster</code>是事件发布的具体实现（默认使用了SyncTaskExecutor进行事件的发布）。</li>
+<li>容器启动的时候检查bean，没有则把<code>SimpleApplicationEventMulticaster</code>注册进来</li>
+</ul>
+</li>
+</ol>
+<h5 id="（3）Spring容器内事件发布的应用"><a href="#（3）Spring容器内事件发布的应用" class="headerlink" title="（3）Spring容器内事件发布的应用"></a>（3）Spring容器内事件发布的应用</h5><blockquote>
+<p>Spring的ApplicationContext容器内的事件发布机制  ，主要用于单一容器内的简单消息通知和处理，并不适合分布式、多进程、多容器之间的事件通知</p>
+</blockquote>
+<p>要让我们的业务类支持容器内的事件发布，两种方式：</p>
+<ol>
+<li><code>ApplicationEventPublisherAware</code>接口，将<code>ApplicationContext</code>容器本身作为<code>ApplicationEventPublisher</code>注入当前对象</li>
+<li><code>ApplicationContextAware</code>接口，与第一种相同。</li>
+</ol>
+<h4 id="5-4多配置模块加载的简化"><a href="#5-4多配置模块加载的简化" class="headerlink" title="5.4多配置模块加载的简化"></a>5.4多配置模块加载的简化</h4><ol>
+<li><p><code>ApplicationContext</code>把配置文件作为String数组当作参数传入容器。</p>
+<p>而<code>BeanFactory</code>容器则是只能加载一个配置文件（主配置文件里使用<code>import</code>即可），返回一个工厂。而<code>BeanFactory</code>可以加载一个配置文件的同时加载一个子工厂。</p>
+</li>
+<li><p><code>ClassPathXmlApplicationContext</code>还可以通过指定Classpath中的某个类所处位置来加载相应配置文件。</p>
+</li>
+</ol>
+<h3 id="六、SpringIOC容器扩展篇"><a href="#六、SpringIOC容器扩展篇" class="headerlink" title="六、SpringIOC容器扩展篇"></a>六、SpringIOC容器扩展篇</h3><h4 id="6-1-Spring-2-5的基于注解的依赖注入"><a href="#6-1-Spring-2-5的基于注解的依赖注入" class="headerlink" title="6.1 Spring 2.5的基于注解的依赖注入"></a>6.1 Spring 2.5的基于注解的依赖注入</h4><blockquote>
+<p>表达不同，底层实现机制基本保持一致。</p>
+</blockquote>
+<h5 id="（1）注解版的自动绑定-Autowired"><a href="#（1）注解版的自动绑定-Autowired" class="headerlink" title="（1）注解版的自动绑定(@Autowired)"></a>（1）注解版的自动绑定(@Autowired)</h5><ol>
+<li><p>从<code>xml&lt;bean&gt;</code>的<code>autowire</code>到注解<code>@Autowired</code></p>
+<ol>
+<li><p>beans的default-autowire属性。<code>bean</code>的<code>autowired</code>迁移到Java实体类里的<code>@Autowired</code>注解</p>
+</li>
+<li><p>注解修饰位置：属性（同xml）、构造器（同xml）、方法（任意方法，不止<code>setter</code>）</p>
+</li>
+<li><p>把<code>autowired</code>属性迁移到了实体类上，那么<code>xml</code>里只剩下了<code>&lt;bean&gt;</code>定义。</p>
+<p>遍历<code>bean</code>，检查<code>bean</code>对应的Java实体类上的<code>@Autowired</code>注解（3个位置，属性、构造器、方法），然后从容器获取依赖对象并注入。</p>
+</li>
+<li><p><code>AutowiredAnnotationBeanPostProcessor</code>，Spring提供，这个BeanPostProcessor在实例化bean定义的过程中，来检查当前对象是否有@Autowired标注的依赖需要注入。最后配置到<code>xml</code>中。</p>
+</li>
+</ol>
+</li>
+<li><p><code>@Qualifier</code>的陪伴</p>
+<blockquote>
+<p>Qualifier 的意思是合格者，通过这个标示，表明了哪个实现类才是我们所需要的，添加 @Qualifier 注解，需要注意的是@Qualifier 的参数名称为我们之前定义 @Service 注解的名称之一。</p>
+</blockquote>
+<ol>
+<li><p>@autowired按照类型匹配，当匹配的多个的时候，就可以使用@Qualifier按照Name进行匹配。</p>
+<p>既然是陪伴，那没有@Autowired可不行，必须有才能使用该注解。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h5 id="（2）-Autowired之外的选择——使用JSR250标注依赖注入关系"><a href="#（2）-Autowired之外的选择——使用JSR250标注依赖注入关系" class="headerlink" title="（2）@Autowired之外的选择——使用JSR250标注依赖注入关系"></a>（2）@Autowired之外的选择——使用JSR250标注依赖注入关系</h5><p>JSR250的<code>@Resource</code>和<code>@PostConstruct</code>以及<code>@PreDestroy</code>对相应类进行标注，达到依赖注入的目的。</p>
+<ol>
+<li><p><code>@Resource</code>，是按照Name注入，根据提供的name到容器内查找。标注地方：属性、构造器、方法。</p>
+</li>
+<li><p><code>@PostConstruct</code>修饰方法，在实例化之后调用。<code>@PreDestroy</code>修饰方法，在销毁之前调用。</p>
+<p>是使用<code>@PostConstruct</code>和<code>@PreDestroy</code>，还是使用Spring的<code>InitializingBean</code>和<code>DisposableBean</code>接口，或者<code>init-method</code>和<code>destroy-method</code>配置项，可以根据个人的喜好自己决定。</p>
+</li>
+<li><p>这些注解都是通过<code>BeanPostProcessor</code>实现具体逻辑的（获取注解并处理），使注解生效的。</p>
+<p>只有将<code>CommonAnnotationBeanPostProcessor</code>添加到容器， JSR250的相关注解才能发挥作用。</p>
+</li>
+<li><p>使用一个<code>&lt;context:annotation-config&gt;</code>配置搞定以上所有的BeanPostProcessor配置到<code>xml</code>。</p>
+</li>
+<li><p>Spring提供的@Autowired加上@Qualifier 和 JSR250提供的@Resource等注解属于两个派系。  </p>
+</li>
+</ol>
+<h5 id="（3）将革命进行得更彻底一些-class-path-scanning功能介绍"><a href="#（3）将革命进行得更彻底一些-class-path-scanning功能介绍" class="headerlink" title="（3）将革命进行得更彻底一些(class-path-scanning功能介绍)"></a>（3）将革命进行得更彻底一些(class-path-scanning功能介绍)</h5><blockquote>
+<p>单有注解标识是没用的，需要一个对应的<code>BeanPostProcessor</code>进行处理。</p>
+</blockquote>
+<ol>
+<li><p>工作流程</p>
+<p>当扫描到某个类标注了相应的注解之后，就会提取该类的相关信息，构建对应的BeanDefinition，然后把构建完的BeanDefinition注册到容器。后续的依赖注入就能从容器中拿到bean了。</p>
+</li>
+<li><p>xml，可以扫描多个包，base-package里使用逗号分隔包名</p>
+<p><code>&lt;context:component-scan base-package=&quot;org.spring21&quot;/&gt;  </code></p>
+</li>
+<li><p><code>&lt;context:component-scan&gt;</code>默认扫描的注解类型是<code>@Component</code>。不过，在@Component语义基础上细化后的@Repository、 @Service和@Controller也同样可以获得。</p>
+</li>
+<li><p>bean的默认命名，首字母小写的类名。可以提供一个自定义的名字。</p>
+</li>
+<li><p>顺便完成了注解的自动配置。</p>
+<p><code>&lt;context:component-scan&gt;</code>有一个属性annotation-config默认为true，完成了<code>&lt;context:annotation-config&gt;</code>的功能，所以使用了该标签可以不用写<code>&lt;context:annotation-config&gt;</code>标签了。</p>
+</li>
+<li><p>内部嵌套过滤器。</p>
+<p>在标签内可以写过滤器，</p>
+<p>包含那些组件<code>&lt;context:include-filter type=&quot;annotation&quot; expression=&quot;cn.spring21.annotation.FXService&quot;/&gt;</code>   ，排除那些组件 <code>&lt;context:exclude-filter ... /&gt;  </code> 。</p>
+<p><code>include-filter</code>和<code>exclude-filter</code>可以使用的type类型有<code>annotation</code>、 <code>assignable</code>、 <code>regex</code>和<code>aspectj</code>四种  </p>
+</li>
+</ol>
+<h4 id="6-2-Spring-3-0展望"><a href="#6-2-Spring-3-0展望" class="headerlink" title="6.2 Spring 3.0展望"></a>6.2 Spring 3.0展望</h4><p>泛型化</p>
+<p>基于注解的工厂方法</p>
+<h2 id="三、Spring-AOP框架"><a href="#三、Spring-AOP框架" class="headerlink" title="三、Spring AOP框架"></a>三、Spring AOP框架</h2><h3 id="七、一起来看AOP"><a href="#七、一起来看AOP" class="headerlink" title="七、一起来看AOP"></a>七、一起来看AOP</h3><blockquote>
+<p>Aspect之对于AOP，就相当于Class之对于OOP（面向对象）。</p>
+</blockquote>
+<h4 id="7-1-AOP的尴尬"><a href="#7-1-AOP的尴尬" class="headerlink" title="7.1 AOP的尴尬"></a>7.1 AOP的尴尬</h4><p>AOP现在没有主权，必须寄生于OOP的主权领土中</p>
+<h4 id="7-2-AOP走向现实"><a href="#7-2-AOP走向现实" class="headerlink" title="7.2 AOP走向现实"></a>7.2 AOP走向现实</h4><blockquote>
+<p>实现AOP的语言称为AOL，AOL可以与系统语言相同如Java，也可以不同如AspectJ。系统语言被寄生，AOL是寄生虫。</p>
+<p>将AOL组件集成到OOP组件的过程叫做织入。</p>
+</blockquote>
+<p>历史发展：</p>
+<ol>
+<li>静态AOP时代，AspectJ，编写好之后通过编译，直接注入到class文件中。（编译时）</li>
+<li>动态AOP时代，AspectJ既支持静态又支持动态。织入信息使用xml保存（可灵活修改），在类加载或系统运行期间改变class字节码文件完成织入。（运行时）</li>
+</ol>
+<h4 id="7-3-Java平台上的AOP实现机制"><a href="#7-3-Java平台上的AOP实现机制" class="headerlink" title="7.3 Java平台上的AOP实现机制"></a>7.3 Java平台上的AOP实现机制</h4><h5 id="（1）动态代理"><a href="#（1）动态代理" class="headerlink" title="（1）动态代理"></a>（1）动态代理</h5><blockquote>
+<p>动态代理，生成的class没变化，基于接口在运行时通过反射创建一个代理对象。</p>
+<p>依赖接口。</p>
+</blockquote>
+<p>运行期间，基于接口动态生成代理对象。</p>
+<p>SpringAOP默认使用这种机制实现AOP。</p>
+<h5 id="（2）动态字节码增强"><a href="#（2）动态字节码增强" class="headerlink" title="（2）动态字节码增强"></a>（2）动态字节码增强</h5><blockquote>
+<p>编译之后的字节码发生变化。使用的对象被替换为其增强后的子类对象。</p>
+<p>不依赖接口。（但是不能有<code>final</code>）</p>
+</blockquote>
+<p>动态构建class字节码文件。</p>
+<p>在运行期间，通过这种动态字节码增强技术，为目标类生成一个子类，让系统使用这个动态生成的子类。</p>
+<p>SpringAOP在无法采用动态代理机制进行AOP功能扩展的时候，会使用CGLIB库的动态字节码增强来实现AOP的功能扩展。</p>
+<h5 id="（3）Java代码生成"><a href="#（3）Java代码生成" class="headerlink" title="（3）Java代码生成"></a>（3）Java代码生成</h5><p>通过描述生成Java代码，然后通过工具编译部署。</p>
+<p>比较古老，早期EJB容器使用较多。</p>
+<h5 id="（4）自定义类加载器"><a href="#（4）自定义类加载器" class="headerlink" title="（4）自定义类加载器"></a>（4）自定义类加载器</h5><blockquote>
+<p>不改变class文件，通过自定义类加载器改变交给虚拟机的class。</p>
+</blockquote>
+<p>类加载器会读取class文件，然后解析class文件并加载到虚拟机中。</p>
+<p>自定义类加载器，在读取class文件后，把切面逻辑加进去然后交给虚拟机。</p>
+<h5 id="（5）AOL扩展"><a href="#（5）AOL扩展" class="headerlink" title="（5）AOL扩展"></a>（5）AOL扩展</h5><p>通过AOP语言实现，比如AspectJ。很强，但代价就是要学一门新的语言。</p>
+<h4 id="7-4-AOP国家的公民"><a href="#7-4-AOP国家的公民" class="headerlink" title="7.4 AOP国家的公民"></a>7.4 AOP国家的公民</h4><h5 id="（1）Joinpoint"><a href="#（1）Joinpoint" class="headerlink" title="（1）Joinpoint"></a>（1）Joinpoint</h5><blockquote>
+<p>在程序中，方法被调用那一行叫做Jointpoint。方法的具体逻辑可以执行横切处理（前后添加逻辑）。</p>
+</blockquote>
+<p>常见的<code>Jointpoint</code>类型，在下面这些点（织入点）前后可以添加AOP逻辑。</p>
+<ol>
+<li>方法调用</li>
+<li>方法调用执行（方法执行）</li>
+<li>构造方法调用</li>
+<li>字段设置，<code>setter</code>或者直接设值</li>
+<li>字段获取，<code>getter</code>或者直接访问</li>
+<li>异常处理执行</li>
+<li>类初始化，静态块</li>
+</ol>
+<h5 id="（2）Pointcut"><a href="#（2）Pointcut" class="headerlink" title="（2）Pointcut"></a>（2）Pointcut</h5><blockquote>
+<p>类似正则表达式，是一个公式，用于匹配符合规则的<code>Jointpoint</code>。</p>
+</blockquote>
+<ol>
+<li><p>Pointcut的表述方式</p>
+<ol>
+<li><p>直接指定Jointpoint所在的方法名称</p>
+<p>比较简单、功能单一，仅限于方法级别的Joinpoint。</p>
+</li>
+<li><p>正则表达式</p>
+<p>比较普遍，比较强大。</p>
+</li>
+<li><p>使用特定的Pointcut表述语言</p>
+<p>最强大的，但有点复杂。</p>
+</li>
+</ol>
+</li>
+<li><p>Pointcut运算</p>
+<ol>
+<li>Pointcut与Pointcut之间可以进行逻辑运算，得到更复杂的Pointcut。比如 || 或运算。</li>
+</ol>
+</li>
+</ol>
+<h5 id="（3）Advice"><a href="#（3）Advice" class="headerlink" title="（3）Advice"></a>（3）Advice</h5><blockquote>
+<p>横切逻辑，前、后、环绕、还是异常。</p>
+</blockquote>
+<ol>
+<li>Before Advice，在Jointpoint指定位置之前执行</li>
+<li>After Advice，<ol>
+<li>After return Advice，方法return了执行</li>
+<li>After throwing Advice（throwing Advice），方法出异常了执行</li>
+<li>After Advice（Finally Advice），方法后面一定执行，1+2。</li>
+</ol>
+</li>
+<li>Around Advice，前面执行一次，后面再执行一次。</li>
+<li>Introduction，不是根据时机（执行点），而是根据功能（类，添加接口实现）。</li>
+</ol>
+<h5 id="（4）Aspect"><a href="#（4）Aspect" class="headerlink" title="（4）Aspect"></a>（4）Aspect</h5><p>2.0之后，因为集成了AspectJ，所以可以使用<code>@Aspect</code>结合POJO来声明Aspect</p>
+<h5 id="（5）织入和织入器"><a href="#（5）织入和织入器" class="headerlink" title="（5）织入和织入器"></a>（5）织入和织入器</h5><p>织入操作，和完成织入操作的处理器。</p>
+<h5 id="（6）目标对象"><a href="#（6）目标对象" class="headerlink" title="（6）目标对象"></a>（6）目标对象</h5><p>被横切的类，称为目标对象。</p>
+<h3 id="八、SpringAOP概述及其实现机制"><a href="#八、SpringAOP概述及其实现机制" class="headerlink" title="八、SpringAOP概述及其实现机制"></a>八、SpringAOP概述及其实现机制</h3><blockquote>
+<p>上面讲的是<code>AOP</code>，接下来讲 <code>Spring AOP</code>。</p>
+</blockquote>
+<h4 id="8-1-Spring-AOP概述"><a href="#8-1-Spring-AOP概述" class="headerlink" title="8.1 Spring AOP概述"></a>8.1 Spring AOP概述</h4><p><code>Spring AOP</code>使用Java作为AOP的实现语言。</p>
+<h4 id="8-2-Spring-AOP的实现机制"><a href="#8-2-Spring-AOP的实现机制" class="headerlink" title="8.2 Spring AOP的实现机制"></a>8.2 Spring AOP的实现机制</h4><blockquote>
+<p><code>Spring AOP</code>属于第二代AOP，采用动态代理机制和字节码生成技术实现。</p>
+<p>在运行期间为目标对象生成一个代理对象（包含横切逻辑），系统使用这个代理对象代替原对象。</p>
+</blockquote>
+<h5 id="（1）设计模式之代理模式"><a href="#（1）设计模式之代理模式" class="headerlink" title="（1）设计模式之代理模式"></a>（1）设计模式之代理模式</h5><p>4种角色，被访问的抽象、被访问的具体、代理、客户的具体。</p>
+<p>通过构造器获得目标引用对象，然后控制转发，在这之前后可以添加逻辑。</p>
+<p>但是引用的对象类型各不相同，所以要代理一个对象就要一个新的代理类。一旦多了会很麻烦，这就是静态代理。</p>
+<h5 id="（2）动态代理"><a href="#（2）动态代理" class="headerlink" title="（2）动态代理"></a>（2）动态代理</h5><p><code>Proxy</code>类，和<code>InvocationHandler</code>接口。目标类依赖要有接口。</p>
+<p>代理类实现<code>InvocationHandler</code>接口，然后引用Object目标对象。通过方法名判断拦截的方法是哪一个，最后通过<code>method.invoke</code>调用目标方法。<code>Proxy</code>类的<code>newProxyInstance</code>方法创造一个代理对象。</p>
+<ul>
+<li>动态代理只适用于实现了接口的类，如果该类没有实现任何接口，那么就不能使用动态代理。</li>
+<li>默认情况下，SpringAOP发现目标类实现了接口就会使用动态代理，否则使用CGLIB。</li>
+</ul>
+<h5 id="（3）动态字节码生成"><a href="#（3）动态字节码生成" class="headerlink" title="（3）动态字节码生成"></a>（3）动态字节码生成</h5><blockquote>
+<p>在系统运行期间为目标对象生成一个子类，替代原对象。</p>
+</blockquote>
+<p>代理类实现<code>MethodInterceptor</code>接口，重写<code>intercept</code>方法。判断拦截的方法名称，然后<code>proxy.invokeSuper</code>调用目标的方法。</p>
+<p>最后通过<code>CGLIB</code>的<code>Enhancer</code>为目标对象生成一个子类，<code>enhancer.setCallback</code>。</p>
+<h3 id="九、SpringAOP一世"><a href="#九、SpringAOP一世" class="headerlink" title="九、SpringAOP一世"></a>九、SpringAOP一世</h3><p><em>SpringAOP的第一代实现</em></p>
+<h4 id="9-1-Spring-AOP中的Joinpoint"><a href="#9-1-Spring-AOP中的Joinpoint" class="headerlink" title="9.1 Spring AOP中的Joinpoint"></a>9.1 Spring AOP中的Joinpoint</h4><p>在<code>Spring AOP</code>中，仅支持方法执行的类型的<code>Joinpoint</code></p>
+<h4 id="9-2-Spring-AOP中的Pointcut"><a href="#9-2-Spring-AOP中的Pointcut" class="headerlink" title="9.2 Spring AOP中的Pointcut"></a>9.2 Spring AOP中的Pointcut</h4><p><code>Pointcut</code>接口，两个方法，<code>getClassFilter</code>、<code>getMethodMatcher</code></p>
+<p>一个Pointcur匹配的方法可能是多个</p>
+<ol>
+<li><p><code>ClassFilter</code>接口，根据规则过滤类（比如类名正则）。</p>
+<p>有一个方法<code>matches</code>返回<code>boolean</code>，用于匹配被织入对象的类型。</p>
+<p>有一个默认的<code>ClassFilter</code>类型的成员（默认规则匹配，匹配所有类）。</p>
+</li>
+<li><p><code>MethodMatcher</code>接口，根据规则过滤方法（比如方法名正则）。</p>
+<p>两个<code>matches</code>方法，区别在于一个有被拦截方法的<code>args</code>参数，一个没有，取决于<code>isRuntime</code>方法返回值，返回<code>false</code>，为<code>StaticMethodMatcher</code>（大多数情况），不带方法参数，会缓存效率好。</p>
+<p>一个<code>isRuntime</code>方法，</p>
+<p>一个默认实例对象</p>
+</li>
+<li><p>分为<code>StaticMethodMatcher</code>和<code>DynamicMethodMatcher</code></p>
+</li>
+</ol>
+<h5 id="9-2-1-常见的Pointcut"><a href="#9-2-1-常见的Pointcut" class="headerlink" title="9.2.1 常见的Pointcut"></a>9.2.1 常见的Pointcut</h5><ol>
+<li><p>NameMatchMethodPointcut，</p>
+<p>指定一组方法名称进行匹配，无法匹配重载方法名（因为只匹配方法名，不匹配参数列表）。可以使用<code>*</code>进行模糊匹配，比如<code>add*</code>。</p>
+</li>
+<li><p>JdkRegexMethodPointcut 和 Per5RegexMethodPointcut，专门基于正则（包括方法签名）。</p>
+<p>继承了抽象类<code>AbstractkRegexMethodPointcut</code>，声明了<code>patern</code>和<code>patterns</code>属性（一个或多个正则）。</p>
+</li>
+<li><p><code>AnnotationMethodPointcut</code></p>
+<p>放在类上，匹配该类所有的方法。</p>
+<p>放在方法上，仅匹配该方法。</p>
+</li>
+<li><p>ComposablePointcut，逻辑运算，并、交。Pointcuts工具类。</p>
+<p><code>union</code>，<code>intersection</code>。</p>
+</li>
+<li><p>ControlFlowPointcut，控制在哪些方法内部执行会被拦截到。检查方法栈，性能很差。</p>
+<p>构造器参数，第一个是类名，匹配该类所有方法。第二个（可选）是方法名，限定到方法级别。</p>
+</li>
+</ol>
+<h5 id="9-2-2-扩展Pointcut-Customize-Pointcut"><a href="#9-2-2-扩展Pointcut-Customize-Pointcut" class="headerlink" title="9.2.2 扩展Pointcut(Customize Pointcut)"></a>9.2.2 扩展Pointcut(Customize Pointcut)</h5><p>自定义Pointcut，继承抽象父类，然后实现覆写方法就可以了，</p>
+<p>自定义Pointcut分为两种</p>
+<ol>
+<li><code>StaticMethodMatcherPointcut</code>，<ol>
+<li><code>isRuntime</code>返回<code>false</code></li>
+<li>三个参数的<code>matches</code>方法返回异常：<code>UnsopportedOperationEception</code>，</li>
+<li>重写两个参数的<code>matches</code>方法</li>
+</ol>
+</li>
+<li><code>DynamicMethodMatcherPointcut</code>，<ol>
+<li><code>getClassFilter</code>返回默认的<code>TRUE</code>实例成员</li>
+<li><code>isRuntime</code>返回<code>true</code></li>
+<li>两个参数<code>matches</code>，默认返回<code>true</code>，也可以重写。</li>
+<li>重写三个参数的<code>matches</code>方法</li>
+</ol>
+</li>
+</ol>
+<h5 id="9-2-3-IoC容器中的Pointcut"><a href="#9-2-3-IoC容器中的Pointcut" class="headerlink" title="9.2.3 IoC容器中的Pointcut"></a>9.2.3 IoC容器中的Pointcut</h5><p>Spring中Pointcut实现都是普通的Java对象（bean，Pointcut接口的实现类），作为bean写在<code>xml</code>文件中。</p>
+<p>不会直接注册到容器中，然后公开使用，但是该bean的属性可以使用注入的对象。</p>
+<h4 id="9-3-Spring-AOP中的Advice"><a href="#9-3-Spring-AOP中的Advice" class="headerlink" title="9.3 Spring AOP中的Advice"></a>9.3 Spring AOP中的Advice</h4><p>Spring中Advice按照自身实例能否在目标对象类的所有实例中共享，分为以下两种：</p>
+<h5 id="9-3-1-per-class类型的Advice"><a href="#9-3-1-per-class类型的Advice" class="headerlink" title="9.3.1 per-class类型的Advice"></a>9.3.1 per-class类型的Advice</h5><blockquote>
+<p>类的实例共享，类级别的，每个类一个Advice。</p>
+<p>只对方法处理，与实例对象无关。几乎所有的Advice都属于这个。</p>
+</blockquote>
+<ol>
+<li><p>Before Advice</p>
+<ol>
+<li>实现接口<code>MethodBeforeAdvice</code>（继承自<code>BeforeAdvice</code>接口），实现<code>before</code>方法</li>
+</ol>
+</li>
+<li><p>ThrowsAdvice</p>
+<ol>
+<li><p>Spring的<code>ThrowsAdvice</code>接口对应AOP概念的<code>AfterThrowingAdvice</code>，一个<code>afterThrowing</code>方法，前三个参数可省略，最后一个类型可以是不同的异常类型（从而有多个<code>afterThrowing</code>方法）</p>
+</li>
+<li><p>发生异常时进行异常处理，原来<code>@ControllerAdvice</code>说的是这个啊（该注解适用于全局异常处理，但是Controller也有局部处理，直接在Controller里实现对象的异常处理方法）。</p>
+<p>运行时异常处理，发邮件通知运维。</p>
+</li>
+</ol>
+</li>
+<li><p>AfterReturnAdvice</p>
+<ol>
+<li><code>AfterReturnAdvice</code>接口继承自<code>AfterAdvice</code>接口，一个<code>afterReturn</code>方法。</li>
+<li>方法成功执行后的横切逻辑。</li>
+<li>可以访问到返回值，但是不能修改。</li>
+</ol>
+</li>
+<li><p>AroundAdvice</p>
+<ol>
+<li>SpringAOP没有提供After（Finally）Advice。</li>
+<li>没有直接定义AroundAdvice的接口，而是使用标准，<code>MethodInterceptor</code>.（继承自<code>Interceptor</code>），一个<code>invoke</code>方法。</li>
+<li><code>invocation.proceed()</code>原方法的执行，在前后可以加逻辑，也可以捕获异常，也可以更改返回值。</li>
+</ol>
+</li>
+</ol>
+<h5 id="9-3-2-per-instance类型的Advice"><a href="#9-3-2-per-instance类型的Advice" class="headerlink" title="9.3.2 per-instance类型的Advice"></a>9.3.2 per-instance类型的Advice</h5><blockquote>
+<p>//todo</p>
+<p>类的实例不共享，实例级别的，每个实例都有自己的Advice。</p>
+<p>保存对象的相关状态。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dichengyan0013/article/details/102347168">Spring AOP之Introduction(@DeclareParents)简介</a></p>
+</blockquote>
+<p>在SpringAOP中Introduction是唯一一种per-instance类型的Advice。</p>
+<p>【重点，这里不是xxxAdvice接口】接口<code>IntroductionInterceptor</code>继承了<code>MethodInterceptor</code>和<code>DynamicIntroductionAdvice</code>接口，</p>
+<ol>
+<li>如果要添加<code>Introduction</code>逻辑，实现<code>IntroductionInterceptor</code>接口，实现<code>invoke</code>方法。</li>
+<li>大多数情况下，使用两个现成的实现类：<ol>
+<li><code>DelegatingIntroductionInterceptor</code>，delegate委托，</li>
+<li><code>DelegatePerTargetObjectIntroductionInterceptor</code></li>
+</ol>
+</li>
+</ol>
+<h4 id="9-4-Spring-AOP中的Aspect"><a href="#9-4-Spring-AOP中的Aspect" class="headerlink" title="9.4 Spring AOP中的Aspect"></a>9.4 Spring AOP中的Aspect</h4><blockquote>
+<p><code>Advisor</code>代表Spring的<code>Aspect</code>，只有一个Pointcut和Advice是一种特殊的Aspect（正常的会有多个）。</p>
+<p><code>Advisor</code>两个子接口：<code>PointcutAdvisor</code>和<code>IntroductionAdvisor</code>。</p>
+</blockquote>
+<h5 id="9-4-1-PointcutAdvisor家族"><a href="#9-4-1-PointcutAdvisor家族" class="headerlink" title="9.4.1 PointcutAdvisor家族"></a>9.4.1 PointcutAdvisor家族</h5><p>PointcutAdvisor是接口，一个<code>getPointcut</code>方法。层级关系图。</p>
+<p>几个常用的实现：</p>
+<ol>
+<li><p><code>DefaultPointcutAdvisor</code>，最通用的，包含Pointcut和Advice（除了Introduction类型的Advice）</p>
+<p>DefaultPointcutAdvisor可以放在<code>xml</code>里作为<code>bean</code>，设置属性值。</p>
+</li>
+<li><p><code>NameMatchMethodPointcutAdvisor</code>，</p>
+<p>是细化的<code>DefaultPointcutAdvisor</code>，在它的基础上，限定Pointcut类型为NameMatchMethodPointcut，NameMatchMethodPointcutAdvisor内含一个NameMatchMethodPointcut实例。</p>
+</li>
+<li><p><code>RegexpMethodPointcutAdvisor</code></p>
+<p>限定Pointcut类型为正则表达式，内部有一个AbstractRegexpMethodPointcutAdvisor类型的实例，有两个实现类：<code>jdk...</code>和<code>per5...</code>。默认使用<code>jdk...</code>，若使用per5，则调用相应方法<code>setPer5(true)</code>。</p>
+</li>
+<li><p><code>DefaultBeanFactoryPointcutAdvisor</code>，使用比较少，绑定了BeanFactory。</p>
+<ol>
+<li>根据beanName查找Advice并注入，</li>
+<li>只有当Pointcut匹配成功之后，才去实例化对应的Advice。</li>
+</ol>
+</li>
+</ol>
+<h5 id="9-4-2-IntroductionAdvisor分支"><a href="#9-4-2-IntroductionAdvisor分支" class="headerlink" title="9.4.2 IntroductionAdvisor分支"></a>9.4.2 IntroductionAdvisor分支</h5><p>IntroductionAdvisor只能应用于类级别的拦截，只能用<code>Introduction</code>的<code>Advice</code>。专门用于服务于<code>Introduction</code>。</p>
+<p>该接口只有一个默认实现<code>DefaultIntroductionAdvisor</code>，构造参数：Advice实例，IntroductionInfo实例。</p>
+<h5 id="9-4-3-Ordered的作用"><a href="#9-4-3-Ordered的作用" class="headerlink" title="9.4.3 Ordered的作用"></a>9.4.3 Ordered的作用</h5><p>同一个执行点，有多个通知（比如多个before）需要执行。Spring在处理这种情况时，按指定的顺序和优先级执行，顺序号越小优先级越大。像是过滤链的执行。</p>
+<p>可指定<code>Advisor</code>的<code>order</code>属性值</p>
+<h4 id="9-5-Spring-AOP的织入"><a href="#9-5-Spring-AOP的织入" class="headerlink" title="9.5 Spring AOP的织入"></a>9.5 Spring AOP的织入</h4><blockquote>
+<p>AspectJ使用<code>ajc编译器</code>作为织入器，JBoss AOP使用自定义的<code>ClassLoader</code>作为织入器，Spring AOP使用<code>ProxyFactory</code>作为织入器。</p>
+</blockquote>
+<h5 id="9-5-1-如何与ProxyFactory打交道"><a href="#9-5-1-如何与ProxyFactory打交道" class="headerlink" title="9.5.1 如何与ProxyFactory打交道"></a>9.5.1 如何与ProxyFactory打交道</h5><blockquote>
+<ol>
+<li>ProxyFactory并非唯一的织入器，而是最基本的织入器。</li>
+<li>Spring AOP是基于代理模式实现的，织入完成后，会返回代理对象（有横切逻辑）。</li>
+<li>Spring AOP实现代理采用了动态代理和CGLIB两种机制</li>
+</ol>
+</blockquote>
+<p>为ProxyFactory提供原材料之后，ProxyFactory会返回织入后的代理对象。</p>
+<p>ProxyFactory需要两个东西，</p>
+<ol>
+<li><p>目标对象（原对象，通过构造器或setter注入）、</p>
+</li>
+<li><p>应用到目标对象的Aspect，也叫Advisor。</p>
+<p>除了可以指定Advisor，还可以指定Advice。非Introduction默认为<code>Pointcut.TRUE</code>实例。Introduction，如果是<code>IntroductionInfo</code>子类，或构造一个<code>DefaultIntroductionAdvisor</code>，如果是<code>DynamicIntroductionAdvise</code>子类，则会抛异常。</p>
+</li>
+</ol>
+<p>如何使用ProxyFactory进行代理（基于接口、无接口）</p>
+<ol>
+<li><p>基于接口，<code>setInterfaces</code>方法指定接口。</p>
+<p>默认情况下，ProxyFactory检测到实现了接口，就会对目标类进行基于接口的代理。</p>
+<p><strong>生成的代理对象只能强转为接口类型，不能转为接口的实现类。因为代理对象的类型是Proxy类。</strong></p>
+</li>
+<li><p>基于类的代理（CGLIB）</p>
+<ol>
+<li><p>默认情况下，ProxyFactory基于接口实现代理，也可以明确指明使用CGLIB基于类。</p>
+</li>
+<li><p>调用<code>setProxyTargetClass(true)</code>方法，设置代理基于类而不是接口。</p>
+<p>此外，调用<code>setOptimize(true)</code>方法也可以设置基于类代理。</p>
+</li>
+</ol>
+</li>
+<li><p>Introduction的引入</p>
+<ol>
+<li>Introduction可以为已存在的对象添加新的行为，只能应用于对象级别，而不是常规的方法级别的Advice。</li>
+<li>织入过程中不需要指定Pointcut，只需要指定目标接口类er</li>
+<li>织入器调用<code>setInterfaces</code>方法，设置目标接口类。与1基于接口有点像，但是1可选。而Introduction必须是通过该方法。</li>
+<li><code>Introduction</code>的Advice和Advisor是不能和其他的混用的，自己自成一派，只能使用自己门派的。</li>
+</ol>
+</li>
+</ol>
+<h5 id="9-5-2-看清ProxyFactory的本质"><a href="#9-5-2-看清ProxyFactory的本质" class="headerlink" title="9.5.2 看清ProxyFactory的本质"></a>9.5.2 看清ProxyFactory的本质</h5><p>根接口：<code>AopProxy</code>，两个实现：JDK动态代理、CGLIB</p>
+<ol>
+<li><p>不同的AopProxy实现的实例化采用工厂模式，<code>AopProxyFactory</code>，有一个方法createAopProxy根据传入的<code>AdvisedSupport</code>实例决定生成什么类型dAopProxy。</p>
+</li>
+<li><p>该接口有一个实现类DefaultAopProxyFactory（传入config的isOptimize或者isProxyTargetClass为true或者没有实现一个接口使用CGLIB，否则使用动态代理）。</p>
+</li>
+<li><p><code>AdvisedSupport</code>（不是Advice），就是生成代理对象所需要的信息的载体（配置信息的集），ProxyConfig对象生成的配置信息、Advised对象生成的属性信息。</p>
+<ol>
+<li>ProxyConfig，5个boolean属性<ol>
+<li>ProxyTargetClass，默认false，使用CGLIB</li>
+<li>optimize，代理对象是否进一步优化，默认false</li>
+<li>opaque，代理对象是否可以强转为Advised，默认false</li>
+<li>exposeProxy，设置exposeBody，默认false</li>
+<li>frozen，设置为true则代理对象的配置信息完成后不允许修改。默认false。</li>
+</ol>
+</li>
+<li>Advised接口，访问添加移除Advisor。</li>
+</ol>
+</li>
+<li><p>ProxyFactory，集<code>AopProxy</code>和<code>AdvisedSupport</code>于一身，可以生成代理对象，也可以设置代理对象需要的信息。</p>
+<p>父类是ProxyCreatorSupport，它继承自AdvisedSupport，抽取了一些公共方法。内部有一个AopProxyFactory实例。</p>
+</li>
+</ol>
+<h5 id="9-5-3-容器中的织入器——ProxyFactoryBean"><a href="#9-5-3-容器中的织入器——ProxyFactoryBean" class="headerlink" title="9.5.3 容器中的织入器——ProxyFactoryBean"></a>9.5.3 容器中的织入器——ProxyFactoryBean</h5><p>在IOC容器中使用ProxyFactoryBean作为织入器，和ProxyFactory差别不大。</p>
+<p><strong>ProxyFactoryBean的本质</strong></p>
+<p>断词，应该是<code>Proxy + FactoryBean</code>。本质上是一个用来生产<code>Proxy</code>的<code>FactoryBean</code>（引用的不是本身，而是getObject方法的返回对象）。</p>
+<p>所以，ProxyFactoryBean取的是getObject方法返回的代理对象。通过父类（ProxyCreatorSupport）的<code>createAopProxy</code>方法取得<code>AopProxy</code>，然后<code>return AopProxy.getProxy()</code>。</p>
+<p><strong>ProxyFactoryBean的使用</strong></p>
+<p>ProxyFactoryBean与父类ProxyCreatorSupport相比多来几个新增属性：</p>
+<ol>
+<li>ProxyInterfaces，与interfaces指定接口类型等效。</li>
+<li>InterceptorNames，可以一次性指定多个Advice、Advisor。</li>
+<li>singleton，代理对象是否是单例（同一个）。</li>
+</ol>
+<h5 id="9-5-4-加快织入的自动化进程"><a href="#9-5-4-加快织入的自动化进程" class="headerlink" title="9.5.4 加快织入的自动化进程"></a>9.5.4 加快织入的自动化进程</h5><p>Spring Aop提供了自动代理机制，解决了ProxyFactoryBean配置工作量大的问题。</p>
+<p>自动代理可以自动使用代理对象，使用BeanPostProcessor更换对象就可以了。</p>
+<ol>
+<li>自动代理的实现原理<ol>
+<li>需要使用ApplicationContext，使用<code>BeanPostProcessor</code>，拦截判断条件，然后返回代理对象。</li>
+<li>不同的自动代理其实就是不同的拦截方式。</li>
+</ol>
+</li>
+<li>可用的AutoProxyCreator（自动代理的两个常用实现类）<ol>
+<li><p>BeanNameAutoProxyCreator，beanNames属性</p>
+<p>指定<code>beanNames</code>属性（可使用<code>*</code>模糊匹配，使用<code>,</code>分割多个），拦截器拦截这组bean。通过<code>interceptorNames</code>指定使用哪些拦截器。</p>
+</li>
+<li><p>DefaultAdvisorAutoProxyCreator，<code>xml</code>里注册一下。然后会根据每个Advisor提供的拦截器进行拦截。</p>
+</li>
+</ol>
+</li>
+<li>扩展AutoProxyCreator（自定义自动代理器）<blockquote>
+<p>所有的<code>AutoProxyCreator</code>都是<code>InstantiationAwareBeanPostProcessor</code>（bean声明开头检测，短路，直接返回）</p>
+</blockquote>
+<ol>
+<li>继承AbstractAutoProxyCreator</li>
+<li>继承AbstractAdvisorAutoProxyCreator</li>
+<li>AspectJawareAdvisorAutoProxyCreator</li>
+</ol>
+</li>
+</ol>
+<h4 id="9-6-TargetSource"><a href="#9-6-TargetSource" class="headerlink" title="9.6 TargetSource"></a>9.6 TargetSource</h4><p>TargetSource就是Target的容器。</p>
+<ol>
+<li>目标对象就像数据表，<code>targetSource</code>就像数据库。</li>
+<li><code>setTarget</code> 或者 <code>setTargetName</code>，框架内部都是会封装成<code>targetSource</code>然后统一化调用。</li>
+<li>TargetSource有一个目标对象池，每次<code>getTarget</code>方法调用按规则返回。</li>
+<li>可以使只有一个目标对象实例，这通常是ProxyFactory或ProxyFactoryBean的处理方式</li>
+</ol>
+<h5 id="9-6-1-可用的TargetSource实现类"><a href="#9-6-1-可用的TargetSource实现类" class="headerlink" title="9.6.1 可用的TargetSource实现类"></a>9.6.1 可用的TargetSource实现类</h5><ol>
+<li><p>SingletonTargetSource，单例</p>
+<p>每次调用都返回同一个目标对象，可通过构造器设置目标对象。</p>
+</li>
+<li><p>PrototypeTargetSource，多例</p>
+</li>
+<li><p>HotSwappableTargetSource，热切换。</p>
+<p>在构造的时候传入一个默认的targetObject。使用swap方法可替换旧的实例对象，实现热切换。</p>
+<p>案例：数据库A崩坏，快速切换数据源B。</p>
+</li>
+<li><p>CommonsPoolTargetSource，连接池。</p>
+</li>
+<li><p>ThreadLocalTargetSource，不同的线程有不同的目标对象。</p>
+</li>
+</ol>
+<h5 id="9-6-2-自定义TargetSource"><a href="#9-6-2-自定义TargetSource" class="headerlink" title="9.6.2 自定义TargetSource"></a>9.6.2 自定义TargetSource</h5><p>扩展TargetSource接口，该接口继承自TargetClassAware接口，有4哥方法：</p>
+<ol>
+<li>getTargetClass，返回目标对象类型</li>
+<li>isStatic，是否返回同一个目标对象实例（是否需要bean单例属性值）</li>
+<li>getTarget，返回目标对象实例</li>
+<li>releaseTarget，大部分时候不用实现，释放目标对象。</li>
+</ol>
+<h3 id="十、SpringAOP二世"><a href="#十、SpringAOP二世" class="headerlink" title="十、SpringAOP二世"></a>十、SpringAOP二世</h3><h3 id="10-1-AspectJ形式的Spring-AOP"><a href="#10-1-AspectJ形式的Spring-AOP" class="headerlink" title="10.1 @AspectJ形式的Spring AOP"></a>10.1 @AspectJ形式的Spring AOP</h3><blockquote>
+<p>Spring2.0之后，AOP新增注解形式、xml的aop空间</p>
+</blockquote>
+<h4 id="10-1-1-AspectJ形式AOP使用之先睹为快"><a href="#10-1-1-AspectJ形式AOP使用之先睹为快" class="headerlink" title="10.1.1 @AspectJ形式AOP使用之先睹为快"></a>10.1.1 @AspectJ形式AOP使用之先睹为快</h4><ul>
+<li>@Aspect标注在类上，声明为Aspect。@Pointcut标注在方法上表示要拦截的方法集。@Around（指定Pointcut）是Advice，要增强的逻辑，指定Pointcut。</li>
+<li>一个Aspect里可以有多个Pointcut和Advice，Advice需要制定拦截的Pointcut。</li>
+</ul>
+<p>两种方式将Aspect织入目标对象类：</p>
+<ol>
+<li>编程方式织入<ol>
+<li>ProxyFactory的另一个兄弟：AspectJProxyFactory，这两个差别不大。AspectJProxyFactory多了一个addAspect方法。</li>
+<li>创建AspectJProxyFactory，然后调用setter设置目标对象、设置Aspect。</li>
+</ol>
+</li>
+<li>通过自动代理织入<ol>
+<li>AutoProxyCreator的实现类<code>annotationAwareAspectJAutoProxyCreator</code>实现自动代理，需要在xml里注册一下。</li>
+<li>相当于在bean合适的生命周期处理注解的实现类。</li>
+<li>另，Spring2.0之后，直接使用 <code>&lt;aop:aspectJ-autoProxy&gt;</code>就行了</li>
+</ol>
+</li>
+</ol>
+<h4 id="10-1-2-AspectJ形式的Pointcut"><a href="#10-1-2-AspectJ形式的Pointcut" class="headerlink" title="10.1.2 @AspectJ形式的Pointcut"></a>10.1.2 @AspectJ形式的Pointcut</h4><p>2.0之前是通过方法名和正则，2.0之后可使用Pointcut的描述语言。</p>
+<ol>
+<li><p>@Pointcut的声明方式</p>
+<ol>
+<li>@Pointcut（执行表达式），pointcut修饰的方法必须是void。</li>
+<li>表达式包括：pointcut标志符、表达式匹配模式。</li>
+<li>表达式可以进行逻辑运算，拦截到的方法做交集或者并集。</li>
+<li>可以将所有的pointcut提取到一个类中，然后在其它类通过类全名加方法名()调用</li>
+</ol>
+</li>
+<li><p>@Pointcut表达式的标志符</p>
+<p>SpringAOP只支持方法级别的pointcut，所以AspectJ的表达式使用受限。</p>
+<p>几种标志符：</p>
+<ol>
+<li><p>excution(表达式)</p>
+<ol>
+<li><p>方法返回类型、方法名、参数列表不能省略，其他可以省略，比如public。</p>
+</li>
+<li><p>两种通配符：<code>..</code>和 <code>*</code>（任意匹配）。<code>..</code>修饰参数列表表示参数不定个数，类型不限。</p>
+<p><code>..*</code>修饰包，比如<code>com.demo..*.web</code>，表示demo多层级下的web包。<code>com.demo.*.web</code>表示demo下的一个层级包。</p>
+</li>
+</ol>
+</li>
+<li><p>within(类名全称)，该类的所有方法都标为joinpoint。可使用通配符。</p>
+</li>
+<li><p>this(类型)和target(类型)。</p>
+<p>AspectJ中，this是调用方法的一方所属的对象，target是被调用方法的所属对象。add方法内调用target的print方法，add属于this，print属于target。</p>
+<p>在SpringAOP中，this是目标对象的代理对象，target是目标对象。但是都指定接口类型通常是相同的（基于接口代理，CGLIB），指定具体类型不是接口类型，则基于接口匹配不到。</p>
+</li>
+<li><p>args(参数类型全称)，匹配指定参数类型、数量的Joinpoint。</p>
+<p>运行时匹配<code>Object user</code>也可以匹配到，但是<code>execution(* *(User))</code>是静态匹配，编译前匹配的。</p>
+</li>
+<li><p>@within(注解类型A)，拦截被A注解标注的类的所有方法。</p>
+</li>
+<li><p>@target(目标对象上的注解类型A)，目标对象被注解A修饰。</p>
+</li>
+<li><p>@args(参数类型上的注解类型A)，参数类型上有注解A修饰。可以拦截。</p>
+</li>
+<li><p>@annotation(注解A)，拦截所有标有注解A的方法。</p>
+</li>
+</ol>
+</li>
+<li><p>@Pointcut表达式在SpringAOP中的真实面目</p>
+<blockquote>
+<p>架构：抽象接口，具体的分类抽象接口，抽象类，实现类。</p>
+</blockquote>
+<ol>
+<li>Pointcut表达式经过解析之后会变成Pointcut对象（<code>AspectJExpressionPointcut</code>）。</li>
+<li><code>AspectJExpressionPointcut</code>会委托Aspect解析表达式，返回一个PointcutExpression对象（AspecJ的类对象），然后委托这个对象进行匹配。</li>
+</ol>
+</li>
+</ol>
+<h4 id="10-1-3-AspectJ形式的Advice"><a href="#10-1-3-AspectJ形式的Advice" class="headerlink" title="10.1.3 @AspectJ形式的Advice"></a>10.1.3 @AspectJ形式的Advice</h4><p>@Before(表达式)，表达式可以是execution开头也可以是调用标注@Pointcut方法。</p>
+<ol>
+<li><p>Before Advice，@Before(表达式)</p>
+<p>获取Joinpoint的方法参数：</p>
+<ol>
+<li><p>通过Joinpoint参数，<code>joinpoint.getArgs()</code>获取参数，还有其他方法：getThis获得代理对象。。。</p>
+</li>
+<li><p>args标志符获得参数，表达式内部：args(name)，然后参数列表<code>String name</code>。这两个name要一致且与方法参数名相同。</p>
+<p>Pointcut修饰的方法也可以用来接受参数。</p>
+</li>
+</ol>
+<p>以上两个可以同时使用，不过Joinpoint永远在第一个。（除了AroundAdvice和Introduction都可以这么使用）</p>
+<p>像args这种指定对象类型的，都可以直接指定对象名称，用于获取该实例对象的具体信息。</p>
+</li>
+<li><p>After Throwing Advice，@AfterThrowing(pointcut=? ,throwing=”e”)，</p>
+<ol>
+<li><p><code>throwing</code>属性绑定异常。e是自己起的异常参数名，用来绑定到方法参数上。</p>
+<p>不需要异常信息，可省略不写。</p>
+</li>
+<li><p>（Pointcut，RuntimeException）</p>
+</li>
+</ol>
+</li>
+<li><p>After Return Advice，@AfterReturn</p>
+<ol>
+<li>@AfterReturn的<code>return</code>属性绑定返回值。在方法参数列表接收。</li>
+</ol>
+</li>
+<li><p>After（Finally）Advice，@After</p>
+</li>
+<li><p>Around Advice，@Around</p>
+<ol>
+<li>第一个参数必须是ProceedingJoinPoint类型，必须书写。和其他的第一个可选JoinPoint参数不同。</li>
+<li><code>joinpoint.proceed(object数组)</code>，可传入参数，替代原来的方法参数。</li>
+</ol>
+</li>
+<li><p>Introduction，@DeclearParent，</p>
+<ol>
+<li>修饰实例对象。用于给目标对象添加额外的接口方法。</li>
+<li><code>value</code>属性指定目标对象，可使用通配符指定多个。</li>
+<li><code>defaultImpl</code>属性指定接口实现类。</li>
+</ol>
+</li>
+</ol>
+<h4 id="10-1-4-AspectJ中的Aspect更多话题"><a href="#10-1-4-AspectJ中的Aspect更多话题" class="headerlink" title="10.1.4 @AspectJ中的Aspect更多话题"></a>10.1.4 @AspectJ中的Aspect更多话题</h4><ol>
+<li><p>Advice的执行顺序，多个Advice匹配到了同一个Joinpoint。</p>
+<ol>
+<li>在同一个Aspect内。按声明顺序，优先级最高的看守最外边的大门</li>
+<li>在不同的Aspect内。让Aspect类实现Ordered接口指定顺序，否则顺序不确定。值小优先级大。</li>
+</ol>
+<p>自动代理会走Ordered顺序逻辑。而手动编程则是按照添加的顺序。</p>
+</li>
+<li><p>Aspect的实例化模式</p>
+<p>IOC中的Aspect类对象默认是单例。</p>
+<p>Spring2.0后AOP只支持singleton（默认）、perthis（每个代理对象有自己的Aspect）、pertarget（每个目标对象有自己的Aspect）三种实例化模式。</p>
+<p>@Aspect(perthis(表达式))指定perthis实例化模式，表达式是Pointcut表达式，在匹配之后实例化Aspect。</p>
+<p>使用了perthis或pertarget之后就不能指定相关bean的singleton的scope了。</p>
+</li>
+</ol>
+<h3 id="10-2-基于Schema的AOP"><a href="#10-2-基于Schema的AOP" class="headerlink" title="10.2 基于Schema的AOP"></a>10.2 基于Schema的AOP</h3><p>从基于DTD变化为基于Schema，对Java5之前的友善，因为Java5之前不能用注解@Aspect。</p>
+<h5 id="10-2-1-基于Schema的AOP配置概览"><a href="#10-2-1-基于Schema的AOP配置概览" class="headerlink" title="10.2.1 基于Schema的AOP配置概览"></a>10.2.1 基于Schema的AOP配置概览</h5><ol>
+<li>Pointcut、Advisor、Aspect等概念都可以配置都在<code>&lt;aop:config&gt;</code>里，该标签只有一个属性proxy-target-class，对应proxyConfig里的proxyTargetClass属性。</li>
+<li><code>&lt;aop:config&gt;</code>有三个子元素，<code>&lt;aop:pointcut&gt;</code>，<code>&lt;aop:advisor&gt;</code>，<code>&lt;aop:aspect&gt;</code>，必须按照顺序书写。底层仍然是自动代理机制。</li>
+</ol>
+<h5 id="10-2-2-向基于Schema的AOP迁移"><a href="#10-2-2-向基于Schema的AOP迁移" class="headerlink" title="10.2.2 向基于Schema的AOP迁移"></a>10.2.2 向基于Schema的AOP迁移</h5><p>Java5之下的福音：基于Schema的AOP</p>
+<ol>
+<li>使用<code>&lt;aop:advisor&gt;</code>取代各种Advisor实现类的bean声明，<code>&lt;aop:aconfig&gt;</code>取代各种AutoProxyCreator。</li>
+<li><code>&lt;aop:advisor&gt;</code>的4个属性：<ol>
+<li>id，标识</li>
+<li>pointcut-ref，pointcut对象（表达式）</li>
+<li>advice-ref，Advice对象（Advice类型）</li>
+<li>order，顺序</li>
+</ol>
+</li>
+<li><code>&lt;aop:advisor&gt;</code>的pointcut属性，指定pointcut表达式。</li>
+<li><code>&lt;aop:pointcut&gt;</code>的<code>type</code>属性可指定为regex，但是底层还是AspectJ处理，所以还是不要用了。</li>
+<li><code>&lt;aop:pointcut&gt;</code>的<code>id</code>属性，可以在<code>&lt;aop:advisor&gt;</code>，<code>&lt;aop:aspect&gt;</code>中通过<code>pointcut-ref</code>属性引用。</li>
+</ol>
+<h5 id="10-2-3-AspectJ到“基于Schema的AOP”迁移"><a href="#10-2-3-AspectJ到“基于Schema的AOP”迁移" class="headerlink" title="10.2.3 @AspectJ到“基于Schema的AOP”迁移"></a>10.2.3 @AspectJ到“基于Schema的AOP”迁移</h5><p>@AspectJ和基于Schema的AOP都是标注POJO。</p>
+<p>基于Schema的AOP，简单介绍：</p>
+<ol>
+<li><p>Aspect，ref引用一个bean对象（@Aspect修饰的类）</p>
+</li>
+<li><p>Pointcut，两个位置：aop:config下（共享使用）、aop:aspect内部（私有）</p>
+<p>pointcut之间的逻辑运算在xml声明为<code>and</code>、<code>or</code>、<code>not</code>。</p>
+</li>
+<li><p>Advice，方法定义在Aspect类的内部。然后使用<code>method</code>属性指明。</p>
+<ul>
+<li><code>&lt;aop:after-throwing&gt;</code>的属性和注解差不多，具体Advice方法的参数列表也差不多。</li>
+</ul>
+</li>
+<li><p>Introduction，<code>&lt;aop:declare-parents&gt;</code>有3个属性</p>
+<ol>
+<li>types-matching，目标对象（可使用通配符匹配多个）</li>
+<li>implement-interface，接口</li>
+<li>default-impl，接口的默认实现类</li>
+</ol>
+</li>
+</ol>
+<p>基于Schema的AOP，其他：</p>
+<ol>
+<li>Advice的参数化，参数列表接收参数。基本与注解方式相同。</li>
+<li>Advice的执行顺序，aspect标签有order属性指定顺序号。</li>
+<li>Aspect的实例化模式，仅支持singleton。</li>
+</ol>
+<p>小结：</p>
+<p>3中AOP的使用：</p>
+<ol>
+<li>1.x最麻烦的、</li>
+<li>基于@Aspect注解的、</li>
+<li>基于Schema的</li>
+</ol>
+<h3 id="十一、AOP应用案例"><a href="#十一、AOP应用案例" class="headerlink" title="十一、AOP应用案例"></a>十一、AOP应用案例</h3><blockquote>
+<p>异常处理、安全检查、缓存</p>
+</blockquote>
+<h4 id="11-1-异常处理"><a href="#11-1-异常处理" class="headerlink" title="11.1 异常处理"></a>11.1 异常处理</h4><h5 id="11-1-1-Java异常处理"><a href="#11-1-1-Java异常处理" class="headerlink" title="11.1.1 Java异常处理"></a>11.1.1 Java异常处理</h5><p>Java异常分为两种：编译器可以检查出来的（checked exception）、检查不出来的（unchecked exception）</p>
+<p>异常<code>Throwable</code>类有两个子类：<code>Error</code>错误和<code>Exception</code>。而<code>Exception</code>又有两个字类：<code>RuntimeException</code>和<code>NoRuntimeException</code>。Error 和 RuntimeException 是 unchecked exception。</p>
+<p>“Effect Java Exception”书中，unchecked exception称为Fault，checked exception称为Contingency。</p>
+<h5 id="11-1-2-Fault-Barrier"><a href="#11-1-2-Fault-Barrier" class="headerlink" title="11.1.2 Fault Barrier"></a>11.1.2 Fault Barrier</h5><p>专门用于解决Fault（unchecked exception）的Aspect。在各处的处理逻辑相同，使用AOP拦截处理。</p>
+<p>SpringAOP的ThrowsAdvice就是Fault Barrier的一个实例</p>
+<h4 id="11-2-安全检查"><a href="#11-2-安全检查" class="headerlink" title="11.2 安全检查"></a>11.2 安全检查</h4><p>基于filer控制web的资源访问</p>
+<p>基于aop控制任何类型的应用安全。</p>
+<p>AOP可以将分散在各地的相同逻辑，统一处理。</p>
+<h4 id="11-3-缓存"><a href="#11-3-缓存" class="headerlink" title="11.3 缓存"></a>11.3 缓存</h4><h3 id="十二、SpringAOP之扩展篇"><a href="#十二、SpringAOP之扩展篇" class="headerlink" title="十二、SpringAOP之扩展篇"></a>十二、SpringAOP之扩展篇</h3><blockquote>
+<p>AOP，其实就是增强处理（前后加方法，原方法参数的替换），统一处理（分散在各处的处理逻辑相同，使用AOP统一处理）</p>
+</blockquote>
+<h4 id="12-1-有关公开当前调用的代理对象的探讨"><a href="#12-1-有关公开当前调用的代理对象的探讨" class="headerlink" title="12.1 有关公开当前调用的代理对象的探讨"></a>12.1 有关公开当前调用的代理对象的探讨</h4><h5 id="12-1-1-问题的现象"><a href="#12-1-1-问题的现象" class="headerlink" title="12.1.1 问题的现象"></a>12.1.1 问题的现象</h5><p>同一对象内嵌套方法调用拦截失效：同一个类中，method1方法内调用method2方法，AOP拦截method1和method2。当调用method1时，AOP会生效。但是内部调用的method2方法，AOP却没有拦截。</p>
+<h5 id="12-1-2-原因的分析"><a href="#12-1-2-原因的分析" class="headerlink" title="12.1.2 原因的分析"></a>12.1.2 原因的分析</h5><p>代理模式，</p>
+<p>代理对象拦截method1方法之后，做了method1的增强逻辑，然后使用原对象调用method方法，此时内部的method2方法也会被原对象调用。（method1内部的所有逻辑都是被原对象调用的）</p>
+<p>其它类对象的方法调用，可以通过注入依赖对象的代理。</p>
+<h5 id="12-1-3-解决方案"><a href="#12-1-3-解决方案" class="headerlink" title="12.1.3 解决方案"></a>12.1.3 解决方案</h5><p>像注入其他类的代理一样，注入当前类的代理。</p>
+<p>SpringAOP提供了<code>AopContext.currentProxy()</code>获取当前目标对象的代理对象，需要设置ProxyConfig的exposeProxy为true（暴露代理对象）。</p>
+<p>上面是在方法内直接调用API进行替换，其他方法：</p>
+<ol>
+<li>属性成员，通过构造器或setter注入</li>
+<li>getThis方法，<code>return AopContext.currentProxy()</code></li>
+<li>依赖额外的Wrapper类，通过这个类的getWrapper获得原对象，getProxy方法获得原对象的代理。</li>
+<li>声明统一的接口，使用BeanPostProcessor处理。</li>
+</ol>
+<p>AspectJ直接将增强逻辑织入的目标对象的方法，不会出现这种情况。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
+<p>1</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ACsolin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://CCCSL05.github.io/posts/1418/">https://CCCSL05.github.io/posts/1418/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">ACsolin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/posts/c18d/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Spring揭秘4">
+                        
+                        <span class="card-title">Spring揭秘4</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a698/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Axios">
+                        
+                        <span class="card-title">Axios</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('3'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #6756CB;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="3043046905"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#6756CB'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2015-2025</span>
+            
+            <a href="/about" target="_blank">ACsolin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <!-- <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CCCSL05" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div> -->
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

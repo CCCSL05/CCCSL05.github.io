@@ -1,0 +1,1707 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Shell入门, 云河月御风">
+    <meta name="description" content="前言
+参考：Shell 教程 | 菜鸟教程 (runoob.com)。
+
+运行#!&amp;#x2F;bin&amp;#x2F;bash
+echo &amp;quot;Hello World !&amp;quot;
+
+
+chmod +x ./test.sh  #使脚本具有">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Shell入门 | 云河月御风</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+    <script src="/js/FunnyTitle.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">云河月御风</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">云河月御风</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        <!-- 去掉github图标 -->
+        <!-- 
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+         -->
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Shell入门</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /*加一个最大高度和overflow*/
+        max-height: 80%;
+        overflow: auto;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2022-09-30
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    3.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    16 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell.html">Shell 教程 | 菜鸟教程 (runoob.com)</a>。</p>
+</blockquote>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+echo &quot;Hello World !&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol>
+<li><code>chmod +x ./test.sh</code>  #使脚本具有执行权限</li>
+<li><code>./test.sh</code>  或 <code>sh test.sh</code> #执行脚本</li>
+</ol>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ol>
+<li><p><strong>声明变量</strong>，<code>variable_name=value</code>，等号两侧避免使用空格。</p>
+<p>还可以用语句给变量赋值，如：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">for file in &#96;ls &#x2F;etc&#96;
+或
+for file in $(ls &#x2F;etc)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>使用变量</strong>，<code>echo $your_name</code> 或 <code>echo $&#123;your_name&#125;</code>。花括号明确指定边界。</p>
+<p>直接写 <code>$defCmd</code>，会把变量的值当成命令执行。</p>
+</li>
+<li><p>只读变量，<code>readonly  myUrl=&quot;https://www.google.com&quot;</code>。</p>
+</li>
+<li><p>删除变量，<code>unset variable_name</code>。</p>
+</li>
+<li><p>读取变量：<code>read -p &quot;请输入密码:&quot; -n 6 -t 5 -s password</code>。</p>
+</li>
+<li><p>整数变量，<code>declare -i my_integer=42</code>。一些Shell中使用 <strong>declare</strong> 或 <strong>typeset</strong> 命令来声明整数变量。</p>
+</li>
+<li><p>数组变量，<code>my_array=(1 2 3 4 5)</code>。括号里的各个元素的空格可以使用换行符代替。</p>
+<ol>
+<li><p>单独定义数组的各个分量：<code>array_name[0]=value0</code>，<code>array_name[n]=valuen</code>，下标可以不连续。</p>
+</li>
+<li><p>读取数组某个元素：<code>$&#123;数组名[下标]&#125;</code>。</p>
+</li>
+<li><p>读取数组全部元素：<code>echo $&#123;array_name[@]&#125;</code>。</p>
+</li>
+<li><p>获取数组的长度：<code>length=$&#123;#array_name[@]&#125;</code>，<code>length=$&#123;#array_name[*]&#125;</code>，</p>
+</li>
+<li><p>关联数组：Map 键值对。<code>-A</code> 选项就是用于声明一个关联数组。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">declare -A site&#x3D;([&quot;google&quot;]&#x3D;&quot;www.google.com&quot; [&quot;runoob&quot;]&#x3D;&quot;www.runoob.com&quot; [&quot;taobao&quot;]&#x3D;&quot;www.taobao.com&quot;)
+
+declare -A site
+site[&quot;google&quot;]&#x3D;&quot;www.google.com&quot;
+site[&quot;runoob&quot;]&#x3D;&quot;www.runoob.com&quot;
+site[&quot;taobao&quot;]&#x3D;&quot;www.taobao.com&quot;
+echo $&#123;site[&quot;runoob&quot;]&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>6</p>
+</li>
+</ol>
+</li>
+<li><p>环境变量，<code>echo $PATH</code>。</p>
+</li>
+<li><p>特殊变量，例如 <code>$0</code> 表示脚本的名称，<code>$1</code>, <code>$2</code>, 等表示脚本的参数。<code>$#</code>表示传递给脚本的参数数量，<code>$?</code> 表示上一个命令的退出状态等。</p>
+</li>
+<li><p>字符串变量，使用 单引号 或 双引号。</p>
+<ol>
+<li><p>单引号里面统统原样输出。</p>
+<p>双引号里面可以使用变量、转义符、特殊语法。</p>
+</li>
+<li><p>拼接字符串：使用 单引号 或 双引号 拼接，中级不能有空格分隔。类似php中的<code>.</code>，Java中默认的+连接。</p>
+<p><code>echo greeting=&quot;hello1, &quot;$your_name</code>，相当于Java中  <code>greeting=&quot;hello1, &quot; + $your_name</code>。</p>
+<p><code>echo greeting=&#39;hello2, &#39;$your_name&#39;.ok.&#39;</code>，相当于Java中  <code>greeting=&quot;hello2, &quot; + $your_name + &quot;.ok.&quot;</code>。</p>
+</li>
+<li><p>获取字符串长度：<code>echo $&#123;#name&#125;</code>。</p>
+</li>
+<li><p>子字符串：<code>echo $&#123;string:1:4&#125;</code>，从字符串第 2 个字符开始截取 4 个字符。下标0开始，截取n个字符。</p>
+</li>
+<li><p>查找子字符串： echo `expr index “$name” zhang` ，下标从1开始。</p>
+</li>
+</ol>
+</li>
+<li><p>todo</p>
+</li>
+</ol>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ol>
+<li><p>单行注释，<code>#</code></p>
+</li>
+<li><p>多行注释</p>
+</li>
+</ol>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">:&lt;&lt;EOF
+注释内容...
+注释内容...
+注释内容...
+EOF
+
+:&lt;&lt;&#39;COMMENT&#39;
+这是注释的部分。
+可以有多行内容。
+COMMENT
+
+:&lt;&lt;&#39;&#39;
+注释内容...
+注释内容...
+注释内容...
+&#39;
+
+:&lt;&lt;!
+注释内容...
+注释内容...
+注释内容...
+!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>:</code> 是一个空命令，用于执行后面的 Here 文档，<code>&lt;&lt;&#39;EOF&#39;</code> 表示开启 Here 文档，<code>COMMENT</code> 是 Here 文档的标识符，在这两个标识符之间的内容都会被视为注释，不会被执行。<br>EOF 也可以使用其他符号。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">: &#39;
+这是注释的部分。
+可以有多行内容。
+&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用冒号 <code>:</code> 命令，并用单引号 <code>&#39;</code> 将多行内容括起来。由于冒号是一个空命令，这些内容不会被执行。</p>
+<p>格式为：<code>: + 空格 + 单引号</code>。</p>
+<h2 id="Shell-传递参数"><a href="#Shell-传递参数" class="headerlink" title="Shell 传递参数"></a>Shell 传递参数</h2><ol>
+<li>其中 <code>$1</code> 表示第一个参数，<code>$2</code> 表示第二个参数，依此类推。</li>
+<li><code>$*</code> 与 <code>$@</code> 区别：<ul>
+<li>相同点：都是引用所有参数。</li>
+<li>不同点：只有在双引号中体现出来。假设在脚本运行时写了三个参数 1、2、3，则 <code>&quot; $* &quot;</code> 等价于 “1 2 3”（传递了一个参数），而 <code>&quot;$@&quot;</code> 等价于 “1” “2” “3”（传递了三个参数）。</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">参数处理</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$#</td>
+<td align="left">传递到脚本的参数个数</td>
+</tr>
+<tr>
+<td align="left">$*</td>
+<td align="left">以一个单字符串显示所有向脚本传递的参数。 如”<code>$*</code>“用「”」括起来的情况、以”<code>$1</code> <code> $2</code> … <code>$n</code>“的形式输出所有参数。</td>
+</tr>
+<tr>
+<td align="left">$$</td>
+<td align="left">脚本运行的当前进程ID号</td>
+</tr>
+<tr>
+<td align="left">$!</td>
+<td align="left">后台运行的最后一个进程的ID号</td>
+</tr>
+<tr>
+<td align="left">$@</td>
+<td align="left">与<code>$*</code>相同，但是使用时加引号，并在引号中返回每个参数。 如”<code>$@</code>“用「”」括起来的情况、以”<code>$1</code>“ “<code>$2</code>“ … “<code>$n</code>“ 的形式输出所有参数。</td>
+</tr>
+<tr>
+<td align="left">$-</td>
+<td align="left">显示Shell使用的当前选项，与 set命令 功能相同。</td>
+</tr>
+<tr>
+<td align="left">$?</td>
+<td align="left">显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td>
+</tr>
+</tbody></table>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算数运算，数字运算"><a href="#算数运算，数字运算" class="headerlink" title="算数运算，数字运算"></a>算数运算，数字运算</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># expr 是一款表达式计算工具，使用它能完成表达式的求值操作。+ - * &#x2F; % 
+val&#x3D;&#96;expr 2 + 2&#96;
+
+#赋值
+desc&#x3D;$title
+
+#判断，用于比较两个数字。!&#x3D;
+#必须要有空格分隔
+[ $a &#x3D;&#x3D; $b ] 
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a>关系运算</h3><p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 返回 true false
+-eq 相等.		equal.
+-ne 不相等.		not equal.
+-gt 大于.		greater than.
+-lt 小于.			less than.
+-ge 大于等于.	grater than or equal to.
+-le 小于等于.	less than or equal to.
+
+a&#x3D;10
+b&#x3D;20
+if [ $a -eq $b ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">!  非运算
+避免 -a 与运算
+避免 -o 或运算
+
+a&#x3D;10
+b&#x3D;20
+if [ ! $a !&#x3D; $b ]
+if [ $a -lt 100 -a $b -gt 15 ]
+if [ $a -lt 100 -o $b -gt 100 ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">&amp;&amp; 逻辑与
+|| 逻辑或
+
+a&#x3D;10
+b&#x3D;20
+if [[ $a -lt 100 &amp;&amp; $b -gt 100 ]]
+if [[ $a -lt 100 || $b -gt 100 ]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">a&#x3D;&quot;abc&quot;
+b&#x3D;&quot;efg&quot;
+# 字符串相等返回 true。 
+if [ $a &#x3D; $b ]
+
+# 字符串不相等返回 true。 
+if [ $a !&#x3D; $b ]
+
+# 字符串长度为0返回 true。 is zero
+if [ -z $a ]
+
+# 字符串长度不为0返回 true。is not zero
+if [ -n &quot;$a&quot; ]
+
+# 字符串不为空返回 true。
+if [ $a ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="文件测试运算符"><a href="#文件测试运算符" class="headerlink" title="文件测试运算符"></a>文件测试运算符</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+# author:菜鸟教程
+# url:www.runoob.com
+
+file&#x3D;&quot;&#x2F;var&#x2F;www&#x2F;runoob&#x2F;test.sh&quot;
+if [ -r $file ]
+then
+   echo &quot;文件可读&quot;
+else
+   echo &quot;文件不可读&quot;
+fi
+if [ -w $file ]
+then
+   echo &quot;文件可写&quot;
+else
+   echo &quot;文件不可写&quot;
+fi
+if [ -x $file ]
+then
+   echo &quot;文件可执行&quot;
+else
+   echo &quot;文件不可执行&quot;
+fi
+if [ -f $file ]
+then
+   echo &quot;文件为普通文件&quot;
+else
+   echo &quot;文件为特殊文件&quot;
+fi
+if [ -d $file ]
+then
+   echo &quot;文件是个目录&quot;
+else
+   echo &quot;文件不是个目录&quot;
+fi
+if [ -s $file ]
+then
+   echo &quot;文件不为空，文件大小大于0&quot;
+else
+   echo &quot;文件为空，文件大小等于0&quot;
+fi
+if [ -e $file ]
+then
+   echo &quot;文件存在&quot;
+else
+   echo &quot;文件不存在&quot;
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="自增和自减操作符"><a href="#自增和自减操作符" class="headerlink" title="自增和自减操作符"></a>自增和自减操作符</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+
+# 初始化变量
+num&#x3D;5
+echo &quot;初始值: $num&quot;
+
+# 自增
+let num++
+echo &quot;自增后: $num&quot;
+# 自减
+let num--
+echo &quot;自减后: $num&quot;
+
+# 使用 $(( ))
+num&#x3D;$((num + 1))
+echo &quot;使用 $(( )) 自增后: $num&quot;
+num&#x3D;$((num - 1))
+echo &quot;使用 $(( )) 自减后: $num&quot;
+
+# 使用 expr
+num&#x3D;$(expr $num + 1)
+echo &quot;使用 expr 自增后: $num&quot;
+num&#x3D;$(expr $num - 1)
+echo &quot;使用 expr 自减后: $num&quot;
+
+# 使用 (( ))
+((num++))
+echo &quot;使用 (( )) 自增后: $num&quot;
+((num--))
+echo &quot;使用 (( )) 自减后: $num&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p><code>echo string</code>。 <code>echo</code> 会自动添加换行符。</p>
+<ol>
+<li><p>显示普通字符串：<code>echo &quot;It is a test&quot;</code>。</p>
+<p>可以省略双引号：<code>echo It is a test</code>。</p>
+</li>
+<li><p>显示转义字符：<code>echo &quot;\&quot;It is a test\&quot;&quot;</code>。输出 <code>&quot;It is a test&quot;</code>。同样，双引号也可以省略</p>
+</li>
+<li><p>显示变量：<code>read name; echo &quot;$name It is a test&quot;</code>.</p>
+</li>
+<li><p>显示换行：<code>echo -e &quot;OK! \nIt is a test&quot;</code> 。<code>-e</code> 开启转义。</p>
+<p><code>\n</code>换行，<code>\c</code> 不换行：<code>echo -e &quot;OK! \c&quot;; echo &quot;It is a test&quot;</code></p>
+</li>
+<li><p>显示结果定向至文件：<code>echo &quot;It is a test&quot; &gt; myfile</code>。</p>
+</li>
+<li><p>原样输出：使用单引号</p>
+</li>
+<li><p>显示命令执行结果：echo `date`</p>
+</li>
+</ol>
+<h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p><code>printf</code> 命令模仿 C 程序库（library）里的 <code>printf()</code> 程序。</p>
+<p>默认的 <code>printf</code> 不会自动添加换行符，我们可以手动添加 <code>\n</code>。</p>
+<p>格式：<code>printf  format-string  [arguments...]</code></p>
+<ul>
+<li><code>%s</code>：字符串</li>
+<li><code>%d</code>：十进制整数</li>
+<li><code>%f</code>：浮点数</li>
+<li><code>%c</code>：字符</li>
+<li><code>%x</code>：十六进制数</li>
+<li><code>%o</code>：八进制数</li>
+<li><code>%b</code>：二进制数</li>
+<li><code>%e</code>：科学计数法表示的浮点数</li>
+</ul>
+<p><code>%-10s</code> 指一个宽度为 10 个字符（**-** 表示左对齐，没有则表示右对齐），任何字符都会被显示在 10 个字符宽的字符内，如果不足则自动以空格填充，超过也会将内容全部显示出来。</p>
+<p><code>%-4.2f</code> 指格式化为小数，其中 <code>.2</code> 指保留 2 位小数。</p>
+<p>示例：<code>printf &quot;%s %s %s\n&quot; a b c d e f g h i j</code></p>
+<h2 id="test-命令"><a href="#test-命令" class="headerlink" title="test 命令"></a>test 命令</h2><blockquote>
+<p>linux shell中test命令和[] 的区别</p>
+</blockquote>
+<p>在 Linux shell 中，test 命令和 []（也称为方括号测试）实际上是等价的。[] 实际上是 test 命令的快捷方式，并且它们都被用于评估条件表达式。</p>
+<p>但是，从语法和使用上来说，它们之间有一些细微的差异：</p>
+<ol>
+<li><code>test</code> 命令：</li>
+</ol>
+<p><code>test</code> 命令使用 <code>-a</code> 操作符进行与操作，使用 <code>-o</code> 操作符进行或操作，不支持 <code>||</code>、<code>&amp;&amp;</code> 这种写法的操作符。</p>
+<p>另外，在 bash 中，小括号具有特殊含义，<code>(cmd)</code> 表示启动一个子 shell 来执行 <em>cmd</em> 命令。</p>
+<p>所以这里的 <code>(</code> 和 <code>)</code> 要用 <code>\</code> 转义字符、或者引号来去掉它们的特殊含义，避免被当成命令替换（Command substitution）来处理。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token builtin class-name">test</span> -e file.txt<span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"file.txt exists"</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li><code>[]</code>（方括号测试）：</li>
+</ol>
+<p>该命令是 <code>test</code> 命令的同义词，它对条件表达式的判断结果和 <code>test</code> 命令完全一样。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span> -e file.txt <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"file.txt exists"</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>注意，[ 和 ] 实际上是 shell 中的内建命令 test 的快捷方式，并且它们需要与其他内容用空格分隔。</p>
+<ol start="3">
+<li><code>[[ ]]</code>（双方括号测试）：</li>
+</ol>
+<p>除了 test 和 []，Bash 还支持 [[ ]]，这是 Bash 特有的，并提供了更强大的功能和更少的错误（例如，无需对变量进行引号处理以防止文件名扩展和单词拆分）。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -e <span class="token string">"<span class="token variable">$file_name</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$file_name</span> exists"</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>在 Bash 中，当您可以使用 [[ ]] 时，通常建议使用它，因为它提供了更多的功能和更好的错误处理。但是，请注意，[[ ]] 不是 POSIX 标准的一部分，因此它可能不会在所有的 shell 中都可用。</p>
+<p>总之，test 和 [] 在功能上是等价的，但 [[ ]] 在 Bash 中提供了更多的功能和更好的错误处理。</p>
+<h2 id="Shell-流程控制"><a href="#Shell-流程控制" class="headerlink" title="Shell 流程控制"></a>Shell 流程控制</h2><ol>
+<li>shell 不能有空的if分支。</li>
+</ol>
+<h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 单行
+if [ $(ps -ef | grep -c &quot;ssh&quot;) -gt 1 ]; then echo &quot;true&quot;; fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>【】判断使用 -gt 判断大于</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">a&#x3D;10
+b&#x3D;20
+if [ $a &#x3D;&#x3D; $b ]; then
+   echo &quot;a 等于 b&quot;
+elif [ $a -gt $b ]
+then
+   echo &quot;a 大于 b&quot;
+elif [ $a -lt $b ]
+then
+   echo &quot;a 小于 b&quot;
+else
+   echo &quot;没有符合的条件&quot;
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>(( ))使用 &gt; 判断大于</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">a&#x3D;10
+b&#x3D;20
+if (( $a &#x3D;&#x3D; $b ))
+then
+   echo &quot;a 等于 b&quot;
+elif (( $a &gt; $b ))
+then
+   echo &quot;a 大于 b&quot;
+elif (( $a &lt; $b ))
+then
+   echo &quot;a 小于 b&quot;
+else
+   echo &quot;没有符合的条件&quot;
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>单行</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">for var in item1 item2 ... itemN; do command1; command2… done;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>多行</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">for loop in 1 2 3 4 5
+do
+    echo &quot;The value is: $loop&quot;
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+int&#x3D;1
+while (( $int&lt;&#x3D;5 ))
+do
+    echo $int
+    let &quot;int++&quot;
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">echo &#39;按下 &lt;CTRL-D&gt; 退出&#39;
+echo -n &#39;输入你最喜欢的网站名: &#39;
+while read FILM
+do
+    echo &quot;是的！$FILM 是一个好网站&quot;
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>==无限循环==</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">while :
+do
+    command
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>或</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">while true
+do
+    command
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>或</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">for (( ; ; ))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="until"><a href="#until" class="headerlink" title="until"></a>until</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+
+a&#x3D;0
+
+until [ ! $a -lt 10 ]
+do
+   echo $a
+   a&#x3D;&#96;expr $a + 1&#96;
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="case…esac"><a href="#case…esac" class="headerlink" title="case…esac"></a>case…esac</h3><p>与 switch case 类似。使用 <code>;;</code> 表示<code>break</code>。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">echo &#39;输入 1 到 4 之间的数字:&#39;
+echo &#39;你输入的数字为:&#39;
+read aNum
+case $aNum in
+    1)  echo &#39;你选择了 1&#39;
+    ;;
+    2)  echo &#39;你选择了 2&#39;
+    ;;
+    3)  echo &#39;你选择了 3&#39;
+    ;;
+    4)  
+        echo &#39;你选择了 4&#39;
+        ;;
+    *)  
+        echo &#39;你没有输入 1 到 4 之间的数字&#39;
+        ;;
+esac
+
+
+# 示例2
+site&#x3D;&quot;runoob&quot;
+case &quot;$site&quot; in
+   &quot;runoob&quot;) echo &quot;菜鸟教程&quot; 
+   ;;
+   &quot;google&quot;) echo &quot;Google 搜索&quot; 
+   ;;
+   &quot;taobao&quot;) echo &quot;淘宝网&quot; 
+   ;;
+esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="跳出循环"><a href="#跳出循环" class="headerlink" title="跳出循环"></a>跳出循环</h3><p><code>break</code></p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+while :
+do
+    echo -n &quot;输入 1 到 5 之间的数字:&quot;
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo &quot;你输入的数字为 $aNum!&quot;
+        ;;
+        *) echo &quot;你输入的数字不是 1 到 5 之间的! 游戏结束&quot;
+            break
+        ;;
+    esac
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>continue</code></p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+while :
+do
+    echo -n &quot;输入 1 到 5 之间的数字: &quot;
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo &quot;你输入的数字为 $aNum!&quot;
+        ;;
+        *) echo &quot;你输入的数字不是 1 到 5 之间的!&quot;
+            continue
+            echo &quot;游戏结束&quot;
+        ;;
+    esac
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ol>
+<li><p>可以 <code>function fun()</code> 定义，也可以直接 <code>fun()</code> 定义,不带任何参数。</p>
+</li>
+<li><p>参数返回，可以显示加：<code>return</code> 返回，如果不加，将以最后一条命令运行结果，作为返回值。 <code>return</code> 后跟数值 <code>n(0-255)</code>.</p>
+<p>函数返回值在调用该函数后通过 <code>$?</code> 来获得。</p>
+</li>
+</ol>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+
+funWithParam()&#123;
+    echo &quot;第一个参数为 $1 !&quot;
+    echo &quot;第二个参数为 $2 !&quot;
+    echo &quot;第十个参数为 $10 !&quot;
+    echo &quot;第十个参数为 $&#123;10&#125; !&quot;
+    echo &quot;第十一个参数为 $&#123;11&#125; !&quot;
+    echo &quot;参数总数有 $# 个!&quot;
+    echo &quot;作为一个字符串输出所有参数 $* !&quot;
+    return 100
+&#125;
+funWithParam 1 2 3 4 5 6 7 8 9 34 73
+echo &quot;函数 funWithParam 返回值为 $? !&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Shell-文件包含"><a href="#Shell-文件包含" class="headerlink" title="Shell 文件包含"></a>Shell 文件包含</h2><ul>
+<li><code>source</code> 与 <code>.</code> 等价，在当前shell环境中执行shell脚本。</li>
+</ul>
+<p>被包含文件：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+
+url&#x3D;&quot;http:&#x2F;&#x2F;www.runoob.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>包含其他文件：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash
+
+#使用 . 号来引用test1.sh 文件
+. .&#x2F;test1.sh
+
+# 或者使用以下包含文件代码
+# source .&#x2F;test1.sh
+
+echo &quot;菜鸟教程官网地址：$url&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ol>
+<li><em>被包含的文件 test1.sh 不需要可执行权限。</em></li>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li><p>变量使用会加<code>$</code>，所以在字符串内也会识别出变量。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/719e188e7228">Shell脚本中判断输入变量或者参数是否为空的方法 - 简书 (jianshu.com)</a>。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 判断变量
+if  [ ! -n &quot;$word&quot; ] ;then
+# 判断输入参数
+if [ ! -n &quot;$1&quot; ] ;then
+# 直接通过变量判断
+if [ ! $para1 ]; then
+# 使用test判断
+if test -z &quot;$dmin&quot;
+# 使用&quot;&quot;判断
+if [ &quot;$dmin&quot; &#x3D; &quot;&quot; ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>3</p>
+</li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="shell运行jar"><a href="#shell运行jar" class="headerlink" title="shell运行jar"></a>shell运行jar</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">#!&#x2F;bin&#x2F;bash 
+
+# 后台运行jar包，并将日志写到nohup.out文件
+APP_NAME&#x3D;gmall-portal-0.0.1-SNAPSHOT.jar
+
+tpid&#x3D;&#96;ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk &#39;&#123;print $2&#125;&#39;&#96;
+if [ $&#123;tpid&#125; ]; then
+echo &#39;Stop Process...&#39;
+kill -9 $tpid
+fi
+
+# 再次查看进程是否已结束
+tpid&#x3D;&#96;ps -ef|grep $APP_NAME|grep -v grep|grep -v kill|awk &#39;&#123;print $2&#125;&#39;&#96;
+if [ $&#123;tpid&#125; ]; then
+echo &#39;Stop Process...&#39;
+kill -9 $tpid
+else
+echo &#39;Stop Procecss Successfully!&#39;
+echo &#39;start Procecss...&#39;
+# 启动程序，简单的启动
+nohup java -jar $APP_NAME &gt; nohup.out &amp;
+# 启动程序，并用jconsole或jvisual监控程序
+# nohup java -Djava.rmi.server.hostname&#x3D;192.168.199.130 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port&#x3D;8888 -Dcom.sun.management.jmxremote.ssl&#x3D;false -Dcom.sun.management.jmxremote.authenticate&#x3D;false -jar $APP_NAME &gt; nohup.out &amp;
+
+# 动态查看日志文件
+tail -300f nohup.out
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ACsolin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://CCCSL05.github.io/posts/65f6/">https://CCCSL05.github.io/posts/65f6/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">ACsolin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/posts/df2a/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="Docker随笔">
+                        
+                        <span class="card-title">Docker随笔</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/999a/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="SpringBoot多数据源及事务解决方案">
+                        
+                        <span class="card-title">SpringBoot多数据源及事务解决方案</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('3'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #6756CB;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="3043046905"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#6756CB'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2015-2025</span>
+            
+            <a href="/about" target="_blank">ACsolin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <!-- <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CCCSL05" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div> -->
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -437,25 +437,12 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -473,7 +460,7 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.7k
+                    4.8k
                 </div>
                 
 
@@ -527,6 +514,7 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
 <li><code>git checkout &lt;filename&gt;</code>，把暂存区的文件恢复到工作区</li>
 </ul>
 <h3 id="Git-Merge-合并到当前分支的分支名"><a href="#Git-Merge-合并到当前分支的分支名" class="headerlink" title="Git Merge 合并到当前分支的分支名"></a>Git Merge 合并到当前分支的分支名</h3><blockquote>
+<p>把目标分支合并到当前分支，合并过来。</p>
 <p>如何将两个分支合并到一起。就是说我们新建一个分支，在其上开发某个新功能，开发完成后再合并回主线。</p>
 <p>==git merge 目标分支，如果目标分支和当前分支不在一条线上，则把目标分支合并过来到当前分支。如果在一条线上且在目标分支上面，则合并（跳到）目标分支。如果在目标分支下面，则不做任何处理==</p>
 </blockquote>
@@ -536,6 +524,7 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
 <li><code>GIt Merge 合并到当前分支的分支名</code>，如果要合并的分支是当前的父节点，那么合并就是将父分支的指向当前。</li>
 </ul>
 <h3 id="Git-Rebase-目标基础分支"><a href="#Git-Rebase-目标基础分支" class="headerlink" title="Git Rebase 目标基础分支"></a>Git Rebase 目标基础分支</h3><blockquote>
+<p>把自己这条线变更道目标分支。</p>
 <p>另外一种合并分支的方法</p>
 <p>把分叉的地方，复制出来，粘贴到当前分支下</p>
 </blockquote>
@@ -551,6 +540,7 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
 </ul>
 <h2 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h2><h3 id="分离HEAD"><a href="#分离HEAD" class="headerlink" title="分离HEAD"></a>分离HEAD</h3><blockquote>
 <p>在提交树上移动</p>
+<p>分离的 HEAD 就是让其指向了某个具体的提交记录而不是分支名，在这种情况下提交的话又出现一条没有分支名的分支。</p>
 </blockquote>
 <p>在提交树上移动</p>
 <ul>
@@ -702,7 +692,7 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
 <p>注意：每次push的结果是，本地和远程分支结构一致。</p>
 </blockquote>
 <ul>
-<li><p>因为这情况（历史偏离）有许多的不确定性，Git 是不会允许你 <code>push</code> 变更的。实际上它会强制你先合并远程最新的代码，然后才能分享你的工作。</p>
+<li><p>因为这情况（历史偏离）有许多的不确定性，Git 是不会允许你 <code>push</code> 变更的。<mark>实际上它会强制你先合并远程最新的代码</mark>，然后才能分享你的工作。</p>
 </li>
 <li><p>如何解决这个问题呢？很简单，你需要做的就是使你的工作基于最新的远程分支。使用rebase </p>
 <p><code>git fetch; git rebase o/main; git push</code></p>
@@ -858,11 +848,7 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -931,23 +917,11 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    技术
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -980,23 +954,11 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    技术
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/mybatis/">
-                        <span class="chip bg-color">mybatis</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1181,7 +1143,7 @@ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，�
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2015-2022</span>
+                <span id="year">2015-2025</span>
             
             <a href="/about" target="_blank">ACsolin</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>

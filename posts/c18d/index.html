@@ -1,0 +1,1531 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Spring揭秘4, 云河月御风">
+    <meta name="description" content="前言
+
+Spring揭秘读书笔记，有点乱，之后在整理一下。
+
+
+四、使用Spring访问数据十三、统一的数据访问异常层次体系13.1 DAO模式的背景J2EE和新模式提出了DAO（Data Access Object）模式分离了数据的访问和">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Spring揭秘4 | 云河月御风</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+    <script src="/js/FunnyTitle.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">云河月御风</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">云河月御风</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        <!-- 去掉github图标 -->
+        <!-- 
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+         -->
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Spring揭秘4</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /*加一个最大高度和overflow*/
+        max-height: 80%;
+        overflow: auto;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2022-12-01
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    4.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    17 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<ol>
+<li>Spring揭秘读书笔记，有点乱，之后在整理一下。</li>
+</ol>
+</blockquote>
+<h2 id="四、使用Spring访问数据"><a href="#四、使用Spring访问数据" class="headerlink" title="四、使用Spring访问数据"></a>四、使用Spring访问数据</h2><h3 id="十三、统一的数据访问异常层次体系"><a href="#十三、统一的数据访问异常层次体系" class="headerlink" title="十三、统一的数据访问异常层次体系"></a>十三、统一的数据访问异常层次体系</h3><h4 id="13-1-DAO模式的背景"><a href="#13-1-DAO模式的背景" class="headerlink" title="13.1 DAO模式的背景"></a>13.1 DAO模式的背景</h4><p>J2EE和新模式提出了DAO（Data Access Object）模式分离了数据的访问和存储，屏蔽了数据访问方式的差异性。</p>
+<p>声明一个数据访问的接口，统一方法规范。之后注入不同的实现类即可</p>
+<h4 id="13-2-梦想照进现实"><a href="#13-2-梦想照进现实" class="headerlink" title="13.2 梦想照进现实"></a>13.2 梦想照进现实</h4><p>内部异常直接处理掉，不抛给客户端的话，客户端不知道异常原因。这样接口上就出现抛异常的声明，影响了客户端。</p>
+<p>问题1：接口抛异常SQLException</p>
+<p>问题2：有额外的异常，接口上又要加异常。</p>
+<p>接口应该设计成统一的，但是加异常影响了接口的统一。</p>
+<h4 id="13-3-发现问题，解决问题"><a href="#13-3-发现问题，解决问题" class="headerlink" title="13.3 发现问题，解决问题"></a>13.3 发现问题，解决问题</h4><p>内部处理异常不行，抛出也不行，那么统一封装之后再抛出（大多数处理不了，所以抛出unchecked exception比较合适，而且编译器不会检查）</p>
+<p>抛出unchecked exception（RuntimeException）不用在方法上声明。</p>
+<p>分类转译（Exception Translation），因为各个数据库厂商抛出的SQLException封装的错误信息规范不同。</p>
+<p>捕获异常，分类处理。根据异常码，转换异常。将不同的异常信息，统一处理封装。</p>
+<h4 id="13-4-不重新发明轮子"><a href="#13-4-不重新发明轮子" class="headerlink" title="13.4 不重新发明轮子"></a>13.4 不重新发明轮子</h4><p>dao.DataAccessException 抽象异常类</p>
+<p>DataAccessException的几个子类：</p>
+<ol>
+<li>CleanupFailureDataAccessException，成功问问之后，清理资源失败，比如关闭数据库连接</li>
+<li>DataAccessResourceFailureException，无法访问到数据资源，如数据库服务器挂掉</li>
+<li>DataSourceLookupFailureException，对JNDI服务或其他地方的DataSource进行查找，查找失败</li>
+<li>ConcurrencyFailureException，并发访问数据库失败，比如获得数据库锁<ol>
+<li>OptimisticLockingFailureException，乐观锁冲突</li>
+<li>PessimisticLockingFailureException，悲观锁冲突<ol>
+<li>CannotAcquireLockException，</li>
+<li>DeadLockLoserDataAccessException，</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>InvalidDataAccessApiUsageException，用错误的API去访问数据，比如改API返回一个数据，但是SQL缺少返回多个记录</li>
+<li>InvalidDataAccessResourceUsageException，错误的方式访问数据库资源，</li>
+<li>DataRetrievalFailureException，已知数据存在，但是获取失败</li>
+<li>PerssionDeniedDataAccessException，当前用户没有权限访问该数据</li>
+<li>DataIntegrityViolationException，数据一致性冲突，比如插入相同主键的记录</li>
+<li>UncategorizeDataAccessException，未分类异常</li>
+</ol>
+<h3 id="十四、JDBC-API的最佳实践"><a href="#十四、JDBC-API的最佳实践" class="headerlink" title="十四、JDBC API的最佳实践"></a>十四、JDBC API的最佳实践</h3><h4 id="14-1-基于Template的JDBC使用方式"><a href="#14-1-基于Template的JDBC使用方式" class="headerlink" title="14.1 基于Template的JDBC使用方式"></a>14.1 基于Template的JDBC使用方式</h4><h5 id="14-1-1-JDBC的尴尬"><a href="#14-1-1-JDBC的尴尬" class="headerlink" title="14.1.1 JDBC的尴尬"></a>14.1.1 JDBC的尴尬</h5><p>JDBC标准主要面向较为底层的数据库操作。</p>
+<p>“贾琏与知识”，每次都要书写一样的连接代码，处理结果集也非常麻烦，最后还要关闭连接资源。</p>
+<p>最初的JDBC使用一个SQLException描述所有SQL异常。采用ErrorCode区分异常，但是它把规范交给了厂商定义（千奇百怪不统一的ErrorCode）。</p>
+<h5 id="14-1-2-JdbcTemplate的诞生"><a href="#14-1-2-JdbcTemplate的诞生" class="headerlink" title="14.1.2 JdbcTemplate的诞生"></a>14.1.2 JdbcTemplate的诞生</h5><p>Spring框架提供了一个Helper工具类：JdbcTemplate（操作JDBC的基石，框架其他高级的操作都是构建于这个之上）</p>
+<p>主要两个作用：规范统一化<code>JDBC API</code>、规范化<code>SQLException</code>（统一处理）。</p>
+<p>JdbcTemplate是直接操作JDBC API的。</p>
+<ol>
+<li><p>模板方法模式简介</p>
+<ol>
+<li><p>JdbcTemplate使用了模板方法模式</p>
+</li>
+<li><p>模板方法封装了算法或行为逻辑，即如果有多个类存在相似的算法逻辑或行为逻辑（连接资源、释放资源），就可以把这些相似的行为逻辑提取到模板中实现，然后让子类实现某些自定义的逻辑（不同的实现）</p>
+<p>（和策略模式有点像，不过策略模式是单一的，模板方法有一个框架顺序）</p>
+<p>策略模式，那个Excel导入导出的，是比较标准的策略模式。</p>
+</li>
+</ol>
+</li>
+<li><p>JdbcTemplate的演化</p>
+<ol>
+<li>使用模板方法模式对JDBC API进行重构，最后调用excute方法执行整个过程（连接，执行，释放）。</li>
+<li>Spring实现JdbcTemplate时还引入了<code>StatementCallback</code>回调接口，exec方法接受一个<code>StatementCallback</code>接口对象，避免了实现子类才能使用。</li>
+<li>JdbcTemplate继承了<code>JdbcAccessor</code>抽象类，实现了<code>JdbcOperations</code>接口。<ol>
+<li><code>JdbcOperations</code>接口定义了JDBC操作集合，比如查询删除</li>
+<li><code>JdbcAccessor</code>抽象类为子类提供了一些公用的属性：<ol>
+<li><code>DataSource</code>，获取数据库资源的统一接口，替代了JDBC传统的连接方式。</li>
+<li><code>SQLExceptionTranslator</code>，转译JdbcTemplate传递的SQLException</li>
+</ol>
+</li>
+<li>JdbcTemplate的<code>CallBack</code>接口简单化分为如下4组：<ol>
+<li>面向Connection的模板方法，ConnectionCallback，避免直接使用</li>
+<li>面向Statement的模板方法，StatementCallback，基于静态的SQL访问数据</li>
+<li>面向PreparedStatement的模板方法，PreparedStatementCallback，包含参数的数据访问</li>
+<li>面向CallableStatement的模板方法，CallableStatementCreator，数据存储过程访问</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>使用DataSourceUtils进行Connection的管理</p>
+<ol>
+<li><code>Connection con = DataSourceUtils.getConnection(getDataSource());</code>而不是直接使用datasource对象getConnection，是为了可以多做一些处理，比如将取得的Con绑定到当前线程。</li>
+</ol>
+</li>
+<li><p>使用NativeJdbcExtractor获得真相</p>
+<ol>
+<li>J2EE，从DataSource中获取的<code>Connection</code>或<code>Statement</code>是代理对象</li>
+<li>通过JdbcTemplate的<code>setNativeJdbcExtractor</code>，可以使用数据库驱动提供的原始API。</li>
+<li>CommonsNativeJdbcExtractor，</li>
+<li>C3p0NativeJdbcExtractor，</li>
+<li>WebLogicNativeJdbcExtractor，</li>
+<li>WebSphereNativeJdbcExtractor，这4个都在nativejdbc包中。</li>
+</ol>
+</li>
+<li><p>控制JdbcTemplate的行为</p>
+<ol>
+<li>在查询删除等操作数据之前，可以设置一些操作的元信息。<code>applyStatementSettings(stmt/ps/cs)</code>。</li>
+<li>比如设置超时时间、最大结果集</li>
+</ol>
+</li>
+<li><p>SQLException到DataAccessException体系的转译</p>
+<ol>
+<li><p><code>SQLExceptionTranslator</code>接口，该接口有一个translate方法。用于转换异常。</p>
+</li>
+<li><p>两个主要实现类：</p>
+<ol>
+<li>SQLErrorCodeSQLExceptionTranslator（默认），基于SQLException返回的ErrorCode进行转换</li>
+<li>SQLStateSQLExceptionTranslator，根据<code>SQLException.getSQLState()</code>返回的信息进行异常转换，数据厂商之间实现存在差异。</li>
+</ol>
+</li>
+<li><p>自定义，当默认的SQLErrorCodeSQLExceptionTranslator满足不了</p>
+<p>SQLErrorCodeSQLExceptionTranslator流程</p>
+<ol>
+<li>检查自定义能否处理。【可自定义子类】</li>
+<li>检查Java6，使用<code>SQLExceptionSubclassTranslator</code>。</li>
+<li><code>SQLErrorFactory</code>加载xml里的code，使用<code>ErrorCode</code>进行比对。【可自定义xml】</li>
+<li>求助<code>SQLStateSqlExceptionTranslator</code>。</li>
+</ol>
+<p>自定义：</p>
+<ol>
+<li><p>实现一个SQLErrorCodeSQLExceptionTranslator的子类，有一个方法：customTranslate自定义异常转换，返回null无法转译。然后将自定义的转译器设置给JdbcTemplate，</p>
+</li>
+<li><p>在classpath路径下添加固定的配置文件。</p>
+<p>在classpath路径下提供sql-error-code.xml自定义配置，</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h5 id="14-1-3-JdbcTemplate和它的兄弟们"><a href="#14-1-3-JdbcTemplate和它的兄弟们" class="headerlink" title="14.1.3 JdbcTemplate和它的兄弟们"></a>14.1.3 JdbcTemplate和它的兄弟们</h5><blockquote>
+<p>JdbcTemplate，SimpleJdbcTemplate，NameparameterJdbcTemplate</p>
+</blockquote>
+<p><mark>1 使用JdbcTemplate进行数据访问</mark></p>
+<ul>
+<li><p>初始化JdbcTemplate，</p>
+<p>构造（只需要在构造器传入一个DataSource，或者通过setter设置DataSource，或者xml里初始化）</p>
+</li>
+<li><p>基于JdbcTemplate的数据访问</p>
+<ol>
+<li>使用JdbcTemplate查询数据，queryForInt(SQL语句，可选Object参数填充问号)，queryForMap，queryForList，…</li>
+<li>使用<code>Callback</code>接口自定义查询结果<ol>
+<li><code>ResultSetExtractor</code>，JdbcTemplate内部使用的，我们一般不用，拥有较大的控制权（可以遍历ResultSet）。有一个extractData方法，返回自定义数据集。</li>
+<li><code>RowCallbackHandler</code>（无返回类型），只关注单行结果的处理，处理结果当到当前RowCallbackHandler对象内。有一个processRow方法。</li>
+<li><code>RowMapper</code>（有返回类型），关注单行结果的处理。只不过处理的结果会交给ResultSetExtractor实现类。有一个mapRow方法。</li>
+<li>这三种的区别：<code>return oList</code>，<code>oList.add(o)</code>，<code>return o</code>。</li>
+<li>JdbcTemplate内部使用的<code>ResultSetExtractor</code>实现类<code>RowMapperResultSetExtractor</code>内部拥有一个<code>RowMapper</code>用来处理单行结果，其他事情自己做。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>基于JdbcTemplate的数据更新</p>
+<ol>
+<li><p>update方法，可以插入、更新、删除。</p>
+</li>
+<li><p>使用PrepareStatement相关的Callback接口。使用PrepareStatementCreator创建PrepareStatement，使用PrepareStatementSetter设置占位符。</p>
+</li>
+<li><p>excute方法只接受SQL，无返回值。适合创建表、删除表的操作。</p>
+</li>
+<li><p>批量更新数据，batchUpdate。会先检查是否支持。</p>
+<ol>
+<li>BatchPrepareStatementSetter，getBatchSize返回批量更新的数目，setValue，设置每一个的值。</li>
+</ol>
+</li>
+<li><p>调用存储过程。</p>
+<ol>
+<li><p>JDBC通过CallableStatement调用存储过程。</p>
+</li>
+<li><p>JdbcTemplate调用存储过程，使用excute方法，在传入一个CallableStatementCallback接口的实现对象（重写doInCallableStatement方法或者createCallablestatement方法）。</p>
+<p>或者直接调用call方法。</p>
+</li>
+</ol>
+</li>
+<li><p>递增主键生成策略的抽象（生成下一个主键ID）</p>
+<ol>
+<li><p>数据库服务器端（数据库厂商实现，可以获取到下一个主键ID），客户端（算法实现）</p>
+</li>
+<li><p>incrementer包下定义了递增主键生成策略的相关接口和实现类。顶层接口DataFieldMaxValueIncrementer，实现类分为两类：</p>
+<ol>
+<li><p>基于独立键表（每个表对应一个独立的主键表），额外的主键表记录每个表的最大主键，HSQLDB，MySQL。可以设置cacheSize，本地缓存，减少访问数据库连接。</p>
+<p>MySQLMaxValueIncrementer，提供DataSource，主键表名，列名。</p>
+</li>
+<li><p>基于数据库Sequence，数据库本身支持主键的生成（创建一个相关的Sequence），DB2，Oracle，Postgre。</p>
+<p>额外的抽象接口，AbstractSequenceMaxValueIncrementer，有三个实现类：</p>
+<ol>
+<li>DB2SequenceMaxValueIncrementer</li>
+<li>OracleSequenceMaxValueIncrementer</li>
+<li>PostgreSequenceMaxValueIncrementer</li>
+</ol>
+</li>
+<li><p>自定义的话，就是实现抽象接口。</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Spring中的LOB类型处理</p>
+<ol>
+<li><p>LOB（Large OBject），<strong>数据库</strong>中存储大量数据的数据类型，分为BLOB（二进制数据），CLOB（字符数据）</p>
+</li>
+<li><p>Oracle需要特殊API才能完成，其他跟通常字段无区别，通过PrepareStatement设置LOB的值，通过ResultSet获取值。</p>
+</li>
+<li><p>Oracle.sql.CLOB/BLOB进行相关操作，插入需要先插入占位符。</p>
+</li>
+<li><p><code>LobHandler</code>接口屏蔽了操作BLOB和CLOB的差异，LobCreator。</p>
+<p>实现类：</p>
+<ol>
+<li>OracleLobHandler，专门处理Oracle，需要提供相应的NativeJdbcExtractor实现类。</li>
+<li>DefaultLobHandler，使用JdbcTemplate操作LOB数据时，通常使用AbstractLobCreatingPrepareStatementCallback（构造参数有个LobHandler）作为callback接口。查询使用AbstractStreamingResultSetExtractor。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<p><mark>2 NameParameterJdbcTemplate</mark></p>
+<p>功能：不再使用？作为占位符而是使用<code>:变量名</code> 作为占位符，</p>
+<p>SqlParameterSource接口，两个实现类，MapSqlParameterSource（Map键值对，addValue方法添加新的键值对），BeanPropertySqlParameterSource（Bean对象，成员属性名就是Map的键）。</p>
+<ul>
+<li>实现原理</li>
+</ul>
+<p>NameParameterJdbcTemplate内部持有一个JdbcOperation实例（JdbcTemplate是唯一实现类）。</p>
+<p>借助NameParameterUtils解析占位符替换为<code>?</code>，然后调用JdbcTemplate完成操作。</p>
+<p><mark>3 SimpleJdbcTemplate</mark></p>
+<p>Java5，集合了前两种的功能。并且添加了动态参数、自动拆箱装箱、泛型。</p>
+<p>内部持有NameParameterJdbcTemplate实例，该实例再委托给JdbcTemplate操作。</p>
+<h5 id="14-1-4-Spring中的DataSource"><a href="#14-1-4-Spring中的DataSource" class="headerlink" title="14.1.4 Spring中的DataSource"></a>14.1.4 Spring中的DataSource</h5><p><mark>1 DataSource的种类</mark></p>
+<p>基本角色是Connectionfactory，可以管理数据库连接s</p>
+<p>分为三类：</p>
+<ol>
+<li><p>简单的DataSource实现，只提供Connectionfactory的基本功能，常用于开发或测试，绝不会用于正式环境。</p>
+<p>两个实现：</p>
+<ol>
+<li><p>DriverManagerDataSource，顾名思义，是为了替代JDBC的DriverManager（在此基础上封装了）。每次都会返回一个新的数据库连接，没有缓冲池的功能。</p>
+</li>
+<li><p>SingletonConnectionDataSource，每次都返回同一个数据库连接（单例连接）。当调用close方法后，连接会被销毁，可以设置suppressClose为true避免在close时销毁。</p>
+<p>构造方法可以接收数据库连接进行封装。</p>
+</li>
+</ol>
+</li>
+<li><p>拥有连接缓冲池的DataSource实现，在Connectionfactory基础上，还会通过连接缓冲池管理连接。生产环境。实际中最常用的。</p>
+<p>调用close方法，连接不会销毁，而是回到连接池中。</p>
+<p>例如，Commons DBCP和CP30，ComboPooledDataSource是CP30的DataSource具体实现类。</p>
+</li>
+<li><p>支持分布式事务的DataSource实现类（XADataSource的实现类），同样支持数据库连接的缓冲。</p>
+</li>
+</ol>
+<p><mark>2 DataSource的访问方式</mark></p>
+<ol>
+<li>本地DataSource访问，通过引用访问，最常用。</li>
+<li>远程DataSource访问，通过JNDI访问（应用服务器命名）。JndiObjectFactoryBean。<code>&lt;jndi:lookup &gt;</code></li>
+</ol>
+<p><mark>3 自定义DataSource实现</mark></p>
+<ul>
+<li><p>新建DataSource实现，</p>
+<p>扩展AbstractDataSource抽象类，有一个AbstractRoutingDataSource子类，扩展的话，实际只需要重写一个查找方法determineCurrentLookupKey，访问不同的数据源。</p>
+</li>
+<li><p>为现有的DataSource添加新行为，</p>
+<p>DelegatingDataSource，内部持有一个DataSource对象，当相关连接方法调用的时候，会委派给内部的DataSource实例。</p>
+<p>自定义的话，在调用转发之前添加我们的逻辑。</p>
+<p>有几个现成的实现类：</p>
+<ol>
+<li>UserCredentialsDataSourceAdapter，为现有的DataSource加入验证信息。getConnection(username,password)</li>
+<li>TransactionAwareDataSourceProxy，获得的Connection会加入Spring的事务管理。内部是使用DataSourceUtils获取连接。</li>
+<li>LazyConnectionDataSourceProxy，获得的是一个代理对象，当con被使用的时候才会从DataSource上获取。</li>
+</ol>
+</li>
+</ul>
+<h5 id="14-1-5-JdbcDaoSupport"><a href="#14-1-5-JdbcDaoSupport" class="headerlink" title="14.1.5 JdbcDaoSupport"></a>14.1.5 JdbcDaoSupport</h5><p>DataSource提供数据库连接，JdbcTemplate进行操作。</p>
+<p>将DataSource和JdbcTemplate提取到DAO的超类中，Spring提供了JdbcDaoSupport作为超类（自动注入了DataSource和JdbcTemplate）。</p>
+<h4 id="14-2-基于操作对象的JDBC使用方式"><a href="#14-2-基于操作对象的JDBC使用方式" class="headerlink" title="14.2 基于操作对象的JDBC使用方式"></a>14.2 基于操作对象的JDBC使用方式</h4><blockquote>
+<p>查询更新调用存储过程等操作抽象成了操作对象。内部是通过JdbcTemplate操作的。</p>
+<p>RdbmsOperation抽象类，下面分为SqlOperation（SqlQuery、SqlUpdate）、SqlCall（StoredProcedure）</p>
+</blockquote>
+<h5 id="14-2-1-基于操作对象的查询"><a href="#14-2-1-基于操作对象的查询" class="headerlink" title="14.2.1 基于操作对象的查询"></a>14.2.1 基于操作对象的查询</h5><p>SqlQuery有两个字类：MappingSqlQueryWithParameters（子MappingSqlQuery（子SqlFunction）），UpdatableSqlQuery</p>
+<ol>
+<li><p><code>MappingSqlQueryWithParameters</code>，实现了父类的newRowMapper方法处理查询结果，返回了内部类RowMapperImpl的实例（实现了RowMapper接口）。但是这个实例的mapRow方法内部有委托给了<code>MappingSqlQueryWithParameters</code>处理，所以我们要实现MappingSqlQueryWithParameters的子类并实现mapRow方法。</p>
+<p>操作对象之前要调用compile方法，通过之后才可以操作对象，一般放在构造方法最后一行。</p>
+<p>declareParameter在compile方法之前，指明SQL语句中的各种参数类型VARCHAR。</p>
+<p>mapRow方法后两个参数（不常用），parameters（excute传递过来的object数组），context（查询方法传递的map参数）</p>
+</li>
+<li><p><code>MappingSqlQuery</code>，继承自MappingSqlQueryWithParameters实现了4个参数的mapRow方法，实现逻辑是调用去除后两个参数的重载方法。（不处理结果集的话，这个最常用）</p>
+<p>扩展：只需要实现两个参数的方法就行了。</p>
+</li>
+<li><p><code>SqlFunction</code>，只返回一行一列的查询结果（一个值）。该类是实体类可以实例化。run方法返回int类型，runGeneric返回object类型。</p>
+<p>属于RdbmsOperation，使用前要调用compile方法。</p>
+</li>
+<li><p><code>UpdatableSqlQuery</code>，查询出来，更新回去。</p>
+<p>使用，继承并实现updateRow方法，</p>
+</li>
+<li><p>基于操作对象的LOB查询，基于JdbcTemplate还是基于对象都是LobHandler来处理的。为具体的操作对象提供相应的LobHandler实现就行了。LobHandler作为成员注入。</p>
+</li>
+</ol>
+<h5 id="14-2-2-基于操作对象的更新"><a href="#14-2-2-基于操作对象的更新" class="headerlink" title="14.2.2 基于操作对象的更新"></a>14.2.2 基于操作对象的更新</h5><ol>
+<li><p>SqlUpdate，</p>
+<p>继承自SqlOperation，实体类，需要调用compile方法才能执行sql。</p>
+</li>
+<li><p>BatchSqlUpdate，</p>
+<p>批量更新，实体类，底层是JdbcTemplate结合BatchPrepareStatementSetter。</p>
+<p>当队列数量等于batchSize时（默认5000，可以设置），会自动触发更新。最后调用flush方法确保队列中残留的也更新了。</p>
+</li>
+<li><p>基于操作对象的LOB更新</p>
+<p>借助LobHandler使用操作对象完成更新，SqlLobVaule提供占位符。</p>
+</li>
+</ol>
+<h5 id="14-2-3-基于操作对象的存储过程调用"><a href="#14-2-3-基于操作对象的存储过程调用" class="headerlink" title="14.2.3 基于操作对象的存储过程调用"></a>14.2.3 基于操作对象的存储过程调用</h5><p>StoredProcedure抽象类，父类是SqlCall，</p>
+<p>继承实现子类，调用构造方法传入对应数据源和存储过程的名称，最后excute调用。</p>
+<p>setFunction(true))声明该存储过程是函数。</p>
+<p>declareParameter（存储过程接收的参数）的参数类型为，SqlParameter，SqlOutParameter，SqlInOutParameter。</p>
+<p>excute参数可以是一个map，也可以是一个ParameterMapper（可以获得connection）。</p>
+<h3 id="第15章-Spring对各种ORM的集成"><a href="#第15章-Spring对各种ORM的集成" class="headerlink" title="第15章 Spring对各种ORM的集成"></a>第15章 Spring对各种ORM的集成</h3><blockquote>
+<p>Spring对ORM的集成处理</p>
+<ul>
+<li>统一的资源管理方式</li>
+<li>特定于ORM的数据访问异常到Spring统一异常体系的转译</li>
+<li>统一的数据访问事务管理及控制方式</li>
+</ul>
+</blockquote>
+<h4 id="15-1-Spring对Hibernate的集成"><a href="#15-1-Spring对Hibernate的集成" class="headerlink" title="15.1 Spring对Hibernate的集成"></a>15.1 Spring对Hibernate的集成</h4><p>15.1.1 旧日“冬眠”时光 </p>
+<p>15.1.2 “春天”里的“冬眠” </p>
+<ol>
+<li><p>HibernateTemplate的登场</p>
+<ul>
+<li><p>基于HibernateTemplate的Session资源管理</p>
+</li>
+<li><p>特定于Hibernate的数据访问异常转译，SessionFactoryUtils工具类帮助转译（静态方法convertHibernateAccessException），。</p>
+</li>
+<li><p>基本数据访问操作，HibernateOperations接口定义了数据访问的方法。</p>
+<p>（1）查询，get（没有返回null）、load（没有报异常）、find、iterate（返回iterate形式，而不是List）。</p>
+<p>find返回List，只能使用？占位。findByNameParam可以使用命名参数占位。findByNameQuery使用？占位但是HQL查询！#@#@。findByNameQueryAndNameParam。</p>
+<p>（2）更新。save，update，delete。</p>
+</li>
+</ul>
+</li>
+<li><p>Spring中SessionFactory的配置及获取</p>
+<p>Hibernate的SessionFactory，就好像JDBC的DataSource。</p>
+<ul>
+<li><p>直接编程，通过配置对象获取SessionFactory。</p>
+</li>
+<li><p>【IOC】LocalSessionFactoryBean，getObject。最常用的。</p>
+</li>
+<li><p>【IOC】AnnotationSessionFactoryBean，Java5注解。该Bean的几个配置属性annotatedClasses，annotatedPackages，configurationClass。</p>
+</li>
+<li><p>【JNDI】通过JNDI获取SessionFactory</p>
+</li>
+</ul>
+</li>
+<li><p>HibernateDaoSupport</p>
+</li>
+</ol>
+<p>与JdbcDaoSupport使命相同，内置了HibernateTemplate，不用每个子类都重新声明注入了。</p>
+<h4 id="15-2-Spring对iBATIS的集成"><a href="#15-2-Spring对iBATIS的集成" class="headerlink" title="15.2 Spring对iBATIS的集成"></a>15.2 Spring对iBATIS的集成</h4><h5 id="15-2-1-iBATIS实践之“前生”篇"><a href="#15-2-1-iBATIS实践之“前生”篇" class="headerlink" title="15.2.1 iBATIS实践之“前生”篇"></a>15.2.1 iBATIS实践之“前生”篇</h5><p>SqlMapClient进行数据访问（构造参数是配置文件），</p>
+<p>SqlMapClient的三种使用方式进行数据访问。</p>
+<ol>
+<li><p>基于SqlMapClient的自动提交事务型简单数据访问</p>
+</li>
+<li><p>基于SqlMapClient的非自动提交事务型数据访问。手动开启/提交事务。</p>
+</li>
+<li><p>基于SqlMapSession的数据访问，</p>
+<p>从SqlMapClient中获取SqlMapSession，自己管理数据访问资源、事务控制和异常处理。</p>
+</li>
+</ol>
+<h5 id="15-2-2-iBATIS实践之“今世”篇"><a href="#15-2-2-iBATIS实践之“今世”篇" class="headerlink" title="15.2.2 iBATIS实践之“今世”篇"></a>15.2.2 iBATIS实践之“今世”篇</h5><p>Spring集成iBATIS的时候使用了比较灵活的SqlMapSession。</p>
+<p>SqlMapClientTemplate，管理事务、异常处理、资源管理。</p>
+<ol>
+<li><p>SqlMapClientTemplate的实现，模板模式，excute。queryForObject内部还是调用excute方法。</p>
+</li>
+<li><p>SqlMapClientTemplate的使用</p>
+<ol>
+<li><p>SqlMapClientTemplate的构建</p>
+<p>依赖SqlMapClient，所以内部要有一个实例，构造方法注入DataSource和SqlMapClient。</p>
+<p>IOC模式，通过SqlMapClientFactoryBean获取SqlMapClient。</p>
+</li>
+<li><p>使用SqlMapClientCallback进行数据访问</p>
+<ol>
+<li>使用模板定义好的方法访问，方法都在接口SqlMapClientOperations中定义。</li>
+<li>insert，update，delete。</li>
+</ol>
+</li>
+<li><p>基于SqlMapClientTemplate的基本数据访问操作</p>
+</li>
+</ol>
+</li>
+<li><p>SqlMapClientDaoSupport，内置了SqlMapClientTemplate，继承就可以拥有。</p>
+</li>
+</ol>
+<h4 id="15-3-Spring中对其他ORM方案的集成概述"><a href="#15-3-Spring中对其他ORM方案的集成概述" class="headerlink" title="15.3 Spring中对其他ORM方案的集成概述"></a>15.3 Spring中对其他ORM方案的集成概述</h4><p>数据访问方式通过相应的Template提供，具体逻辑由相应的回调接口提供。</p>
+<ul>
+<li>数据访问资源管理<ul>
+<li>连接工厂</li>
+<li>连接或会话资源，从连接工厂获得的连接进行数据访问操作。</li>
+</ul>
+</li>
+<li>特定数据访问异常的转译，转为Spring统一的异常体系。</li>
+<li>统一管理事务</li>
+</ul>
+<h5 id="15-3-1-Spring对JDO的集成"><a href="#15-3-1-Spring对JDO的集成" class="headerlink" title="15.3.1 Spring对JDO的集成"></a>15.3.1 Spring对JDO的集成</h5><p>Java Data Object</p>
+<ol>
+<li><p>JDO资源管理</p>
+<p>JDO中的连接工厂是PersistenceManagerFactory，实例化PersistenceManagerFactory实现类（构造参数：数据源），通过LocalPersistenceManagerFactoryBean创建。注入到JdoTemplate中。</p>
+<p>回调接口JdoCallback。</p>
+</li>
+<li><p>异常转译</p>
+<p>JdoTemplate不用担心转译</p>
+<p>PersistenceManagerFactoryUtils工具类的静态方法convertJdoAccessException，方法newJdbdExceptionTranslator返回的translator用于处理异常。</p>
+</li>
+<li><p>JdoDaoSupport</p>
+<p>内置JdoTemplate。</p>
+</li>
+</ol>
+<h5 id="15-3-2-Spring对TopLink的集成"><a href="#15-3-2-Spring对TopLink的集成" class="headerlink" title="15.3.2 Spring对TopLink的集成"></a>15.3.2 Spring对TopLink的集成</h5><ol>
+<li><p>资源管理</p>
+<p>没有connectionFactory的概念，使用sessionFactory作为替代品。</p>
+<p>使用LocalSessionFactoryBean来配置和创建sessionFactory（指定配置文件和数据源）。或者直接实例化sessionFactory，或者使用LocalSessionFactory编码获得。</p>
+<p>TopLinkTemplate，TopLinkCallBack回调接口。</p>
+</li>
+<li><p>异常转译</p>
+<p>TopLinkTemplate不用担心转译</p>
+<p>SessionFactoryUtils工具类的静态方法convertTopLinkAccessException方法进行异常转译。</p>
+</li>
+<li><p>ToplinkDaoSupport，内置TopLinkTemplate</p>
+</li>
+</ol>
+<h5 id="15-3-3-Spring对JPA的集成"><a href="#15-3-3-Spring对JPA的集成" class="headerlink" title="15.3.3 Spring对JPA的集成"></a>15.3.3 Spring对JPA的集成</h5><p>JPA（Java Persistence API，Java持久化API）</p>
+<ol>
+<li><p>资源管理</p>
+<p>EntityManagerFactory对应ConnectionFactory，三种方式配置获取：</p>
+<ol>
+<li>使用LocalEntityManagerFactoryBean，IOC中配置PersistenceUnitName属性，配置文件默认读取<code>META-INF/persistence.xml</code>。</li>
+<li>使用LocalContainerEntityManagerFactoryBean，比较常用，IOC中指定文件文件的位置、DataSource、loadTimeWeaver实现。</li>
+<li>通过JNDI获取，JndiObjectFactoryBean。配置jndiName属性。或者使用 <code>&lt;jee:jndi-lookup &gt;</code></li>
+</ol>
+<p>JpaTemplate，JpaCallBack回调接口。JpaOperations接口中定义了模板访问数据的方法。</p>
+</li>
+<li><p>异常转译</p>
+<p>JpaTemplate不用担心转译</p>
+<p>EntityManagerFactoryUtils工具类的静态方法convertJpaAccessException。</p>
+</li>
+<li><p>JpaDaoSupport</p>
+<p>内置JpaTemplate，</p>
+</li>
+</ol>
+<h3 id="第16章-Spring数据访问之扩展篇"><a href="#第16章-Spring数据访问之扩展篇" class="headerlink" title="第16章 Spring数据访问之扩展篇"></a>第16章 Spring数据访问之扩展篇</h3><h4 id="16-1-活用模板方法模式及Callback"><a href="#16-1-活用模板方法模式及Callback" class="headerlink" title="16.1 活用模板方法模式及Callback"></a>16.1 活用模板方法模式及Callback</h4><p>为了更好的释放资源使用了模板方法模式以及Callback</p>
+<h5 id="16-1-1-FTPClientTemplate"><a href="#16-1-1-FTPClientTemplate" class="headerlink" title="16.1.1 FTPClientTemplate"></a>16.1.1 FTPClientTemplate</h5><p>使用Template模式和Callback接口</p>
+<h5 id="16-1-2-HttpClientTemplate"><a href="#16-1-2-HttpClientTemplate" class="headerlink" title="16.1.2 HttpClientTemplate"></a>16.1.2 HttpClientTemplate</h5><p>同上处理</p>
+<p>获取资源、操作、释放资源、处理异常</p>
+<h4 id="16-2-数据访问中的多数据源"><a href="#16-2-数据访问中的多数据源" class="headerlink" title="16.2 数据访问中的多数据源"></a>16.2 数据访问中的多数据源</h4><h5 id="16-2-1-“主权独立”的多数据源"><a href="#16-2-1-“主权独立”的多数据源" class="headerlink" title="16.2.1 “主权独立”的多数据源"></a>16.2.1 “主权独立”的多数据源</h5><p>【多独立】1个JdbcTemplate对应一个独立的数据源，每个数据源的职能不同。</p>
+<h5 id="16-2-2-“合纵连横”的多数据源"><a href="#16-2-2-“合纵连横”的多数据源" class="headerlink" title="16.2.2 “合纵连横”的多数据源"></a>16.2.2 “合纵连横”的多数据源</h5><p>【多合一】多个数据源之间推出一个盟主（路由，RoutingDataSource）。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
+<p>1</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ACsolin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://CCCSL05.github.io/posts/c18d/">https://CCCSL05.github.io/posts/c18d/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">ACsolin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/posts/14c/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Spring揭秘5">
+                        
+                        <span class="card-title">Spring揭秘5</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/1418/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="Spring揭秘2,3">
+                        
+                        <span class="card-title">Spring揭秘2,3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ACsolin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('3'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #6756CB;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="3043046905"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#6756CB'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2015-2025</span>
+            
+            <a href="/about" target="_blank">ACsolin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <!-- <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CCCSL05" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div> -->
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
