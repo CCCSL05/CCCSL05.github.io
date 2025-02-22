@@ -4,19 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="k8s安装, 云河月御风">
-    <meta name="description" content="前言
-参考：
+    <meta name="keywords" content="IDEA, 云河月御风">
+    <meta name="description" content="使用
+idea快捷键。
 
-集群版：
+Ctrl + Shift + 数字打书签，Ctrl + 数字跳转书签。
 
-一主二从：安装Kubernetes(k8s)保姆级教程—无坑版。
+Ctrl + p，提示方法参数。Ctrl + Alt + 空格，提示补全（类名或接口名提示）。Ctrl + 空格，代码提示。
 
-
-单节点：
-（我初学的时候参考以下的文章，现在再看，如果不是电脑资源特别不够的情况一般不选择单节点，实际开发中都是集群模式）
-
-k8s单节点部署">
+Ctrl +">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +24,7 @@ k8s单节点部署">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>k8s安装 | 云河月御风</title>
+    <title>IDEA | 云河月御风</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +319,12 @@ k8s单节点部署">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">k8s安装</h1>
+                    <h1 class="description center-align post-title">IDEA</h1>
                 </div>
             </div>
         </div>
@@ -445,12 +441,25 @@ k8s单节点部署">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/IDEA/">
+                                <span class="chip bg-color">IDEA</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -459,7 +468,7 @@ k8s单节点部署">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2023-01-20
+                    2022-12-20
                 </div>
                 
 
@@ -468,14 +477,14 @@ k8s单节点部署">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.8k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    14 Min
+                    5 Min
                 </div>
                 
 
@@ -503,628 +512,134 @@ k8s单节点部署">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>参考：</p>
-<ol>
-<li><p>集群版：</p>
-<ol>
-<li>一主二从：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Sunzz/p/15184167.html">安装Kubernetes(k8s)保姆级教程—无坑版</a>。</li>
-</ol>
+                <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li><p><code>idea</code>快捷键。</p>
+<ul>
+<li><p><code>Ctrl + Shift + 数字</code>打书签，<code>Ctrl + 数字</code>跳转书签。</p>
 </li>
-<li><p>单节点：</p>
-<p>（我初学的时候参考以下的文章，现在再看，如果不是电脑资源特别不够的情况一般不选择单节点，实际开发中都是集群模式）</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42806458/article/details/115056284">k8s单节点部署（单master）</a>，单节点k8s。</li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46237746/article/details/125453966">关于k8s安装calico “calico.yaml“: no matches for kind “PodDisruptionBudget“ in version “policy/v1“</a>，kubeadm初始化成功之后，执行对应的root用户命令。<code>export KUBECONFIG=/etc/kubernetes/admin.conf</code>，<code>curl https://docs.projectcalico.org/v3.20/manifests/calico.yaml -O</code>，去除 污点没有master节点是因为本机的hostname（localhost.localdomain）不叫master，注册到k8s的也不是matser。<code>kubectl taint node localhost.localdomain node-role.kubernetes.io/master-</code>。</li>
-</ol>
+<li><p><code>Ctrl + p</code>，提示方法参数。<code>Ctrl + Alt + 空格</code>，提示补全（类名或接口名提示）。<code>Ctrl + 空格</code>，代码提示。</p>
 </li>
-</ol>
-</blockquote>
-<p>以下是《安装Kubernetes(k8s)保姆级教程—无坑版》</p>
-<h2 id="一、安装环境说明"><a href="#一、安装环境说明" class="headerlink" title="一、安装环境说明"></a>一、安装环境说明</h2><ol>
-<li><p>硬件要求：</p>
-<p> <strong>内存</strong>：2GB或更多RAM</p>
-<p> <strong>CPU:</strong> 2核CPU或更多CPU</p>
-<p> <strong>硬盘:</strong> 30GB或更多</p>
+<li><p><code>Ctrl + F12</code>，查看该类的所有属性和方法（包括继承得到的）。</p>
 </li>
-<li><p>本次环境说明：</p>
-<p> <strong>操作系统：</strong>CentOS 7.9</p>
-<p> <strong>内核版本：</strong>3.10.0-1160</p>
-<p> <strong>master：</strong> 192.168.68.106</p>
-<p> <strong>node01：</strong> 192.168.68.107</p>
-<p> <strong>node02：</strong> 192.168.68.108</p>
+<li><p><code>Ctrl + Alt + F12</code>，打开文件所属文件夹。</p>
 </li>
-</ol>
-<h2 id="二、环境准备"><a href="#二、环境准备" class="headerlink" title="二、环境准备"></a>二、环境准备</h2><h3 id="1-关闭防火墙和selinux"><a href="#1-关闭防火墙和selinux" class="headerlink" title="1.关闭防火墙和selinux"></a>1.关闭防火墙和selinux</h3><ol>
-<li><p>关闭防火墙</p>
- <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">systemctl stop firewalld &amp;&amp; systemctl disable firewalld &amp;&amp; iptables -F<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>关闭selinux</p>
- <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sed -i &#39;s&#x2F;enforcing&#x2F;disabled&#x2F;&#39; &#x2F;etc&#x2F;selinux&#x2F;config &amp;&amp; setenforce 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h3 id="2-关闭swap分区"><a href="#2-关闭swap分区" class="headerlink" title="2. 关闭swap分区"></a>2. 关闭swap分区</h3><ul>
-<li><p>临时关闭</p>
-  <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">swapoff -a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>永久关闭swap</p>
-  <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sed -ri &#39;s&#x2F;.*swap.*&#x2F;#&amp;&#x2F;&#39; &#x2F;etc&#x2F;fstab<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p><code>CSA + c</code>，复制类名全路径。</p>
+</li>
+<li><p><code>CS + r</code>，全局替换，替换全部author成<code>Linzifeng</code>。</p>
+<p><code>CS + f</code>全局搜索，<code>Shift+Shift</code>可以搜索文件名。</p>
+</li>
+<li><p><code>Ctrl + h</code>，类的子图<br><code>CA + U</code>或<code>CSA + U</code>，查看表格，类的父图、pom依赖</p>
+</li>
+<li><p><code>CA + ←</code>，跳到光标上一个位置。</p>
+</li>
+<li><p><code>Ctrl + e</code>，最近的文件。</p>
+</li>
+<li><p><code>Ctrl + d</code>，复制一行。<code>Ctrl + y</code>删除该行。</p>
+</li>
+<li><p><code>CA + l</code>，代码格式化。</p>
+</li>
+<li><p><code>Ctrl + &gt;</code>，缩短配置长度。</p>
+</li>
+<li><p><code>Ctrl + shift + u</code>，改变英文大小写。</p>
+<p>扩展：<code>CamelCase</code>插件，按快捷键<code>Shift + Alt + U</code>，不停地按U，</p>
+</li>
 </ul>
-<h3 id="3-修改hosts文件"><a href="#3-修改hosts文件" class="headerlink" title="3.修改hosts文件"></a>3.修改hosts文件</h3><p>为每个机器设置主机名、配置hosts文件，使其能够互相认识并通信。</p>
-<ol>
-<li><p>master，执行命令：<code>hostnamectl set-hostname master.local</code></p>
 </li>
-<li><p>node01，执行命令：<code>hostnamectl set-hostname node01.local</code></p>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zeal9s/article/details/90690524">IDEA导入Eclipse项目</a></p>
 </li>
-<li><p>node02，执行命令：<code>hostnamectl set-hostname node02.local</code></p>
+<li><p>使用idea运行war包，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34958326/article/details/115762995">idea中运行war项目</a></p>
 </li>
-<li><p>修改每个机器的本地hosts文件，vi /etc/hosts 添加如下内容。</p>
-<pre class="line-numbers language-none"><code class="language-none">192.168.68.106 master.local
-192.168.68.107 node01.local
-192.168.68.108 node02.local<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="4-修改内核参数"><a href="#4-修改内核参数" class="headerlink" title="4.修改内核参数"></a>4.修改内核参数</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cat &gt; &#x2F;etc&#x2F;sysctl.d&#x2F;k8s.conf &lt;&lt; EOF
-net.bridge.bridge-nf-call-ip6tables &#x3D; 1
-net.bridge.bridge-nf-call-iptables &#x3D; 1
-net.ipv4.ip_forward &#x3D; 1
-EOF
-
-sysctl --system<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="5-加载ip-vs内核模块"><a href="#5-加载ip-vs内核模块" class="headerlink" title="5.加载ip_vs内核模块"></a>5.加载ip_vs内核模块</h3><p>如果kube-proxy 模式为ip_vs则必须加载，本文采用iptables</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">modprobe ip_vs
-modprobe ip_vs_rr
-modprobe ip_vs_wrr
-modprobe ip_vs_sh
-modprobe nf_conntrack_ipv4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p> 设置下次开机自动加载</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">cat &gt; &#x2F;etc&#x2F;modules-load.d&#x2F;ip_vs.conf &lt;&lt; EOF 
-ip_vs
-ip_vs_rr
-ip_vs_wrr
-ip_vs_sh
-nf_conntrack_ipv4
-EOF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="三、安装docker"><a href="#三、安装docker" class="headerlink" title="三、安装docker"></a>三、安装docker</h2><h3 id="1-配置yum源-这里使用阿里云的源"><a href="#1-配置yum源-这里使用阿里云的源" class="headerlink" title="1.配置yum源(这里使用阿里云的源)"></a>1.配置yum源(这里使用阿里云的源)</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">yum install wget -y 
-wget https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo -O &#x2F;etc&#x2F;yum.repos.d&#x2F;docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="2-安装docker"><a href="#2-安装docker" class="headerlink" title="2. 安装docker"></a>2. 安装docker</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">yum install docker-ce docker-ce-cli -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="3-编辑docker配置文件"><a href="#3-编辑docker配置文件" class="headerlink" title="3.编辑docker配置文件"></a>3.编辑docker配置文件</h3><p>编辑/etc/docker/daemon.json</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">mkdir &#x2F;etc&#x2F;docker&#x2F; 
-cat &gt; &#x2F;etc&#x2F;docker&#x2F;daemon.json &lt;&lt; EOF
-&#123;
-&quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;gqs7xcfd.mirror.aliyuncs.com&quot;,&quot;https:&#x2F;&#x2F;hub-mirror.c.163.com&quot;],
-&quot;exec-opts&quot;: [&quot;native.cgroupdriver&#x3D;systemd&quot;],
-&quot;log-driver&quot;: &quot;json-file&quot;,
-&quot;log-opts&quot;: &#123;
-&quot;max-size&quot;: &quot;100m&quot;
-&#125;,
-&quot;storage-driver&quot;: &quot;overlay2&quot;
-&#125;
-EOF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="3-启动docker服务"><a href="#3-启动docker服务" class="headerlink" title="3.启动docker服务"></a>3.启动docker服务</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">systemctl daemon-reload &amp;&amp; systemctl enable docker &amp;&amp; systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="4-安装指定版本的docker"><a href="#4-安装指定版本的docker" class="headerlink" title="4.安装指定版本的docker"></a>4.安装指定版本的docker</h3><h4 id="列出所有docker版本"><a href="#列出所有docker版本" class="headerlink" title="列出所有docker版本"></a>列出所有docker版本</h4><pre class="line-numbers language-none"><code class="language-none">yum list docker-ce.x86_64 --showduplicates |sort<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>选择一个你想要的版本进行安装，这里安装docker 19.03.9版本</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">yum -y install docker-ce-19.03.9-3.el7 docker-ce-cli-19.03.9-3.el7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h2 id="四、安装kubeadm-kubelet和kubectl"><a href="#四、安装kubeadm-kubelet和kubectl" class="headerlink" title="四、安装kubeadm,kubelet和kubectl"></a>四、安装kubeadm,kubelet和kubectl</h2><h3 id="1-配置yum源-这里使用阿里云的源-1"><a href="#1-配置yum源-这里使用阿里云的源-1" class="headerlink" title="1.配置yum源(这里使用阿里云的源)"></a>1.配置yum源(这里使用阿里云的源)</h3><pre class="line-numbers language-none"><code class="language-none">cat &gt; &#x2F;etc&#x2F;yum.repos.d&#x2F;kubernetes.repo &lt;&lt; EOF
-[kubernetes]
-name&#x3D;Kubernetes
-baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;repos&#x2F;kubernetes-el7-x86_64&#x2F;
-enabled&#x3D;1
-gpgcheck&#x3D;1
-repo_gpgcheck&#x3D;1
-gpgkey&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;doc&#x2F;yum-key.gpg https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;doc&#x2F;rpm-package-key.gpg
-EOF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="2-安装指定版本的kubeadm-kubelet-kubectl"><a href="#2-安装指定版本的kubeadm-kubelet-kubectl" class="headerlink" title="2.安装指定版本的kubeadm,kubelet,kubectl"></a>2.安装指定版本的kubeadm,kubelet,kubectl</h3><p>yum install -y kubelet-1.18.8 kubeadm-1.18.8 kubectl-1.18.8</p>
-<p>指定其他版本也可照做，只需指定相应的版本即可，比如安装 1.16.9</p>
-<pre class="line-numbers language-none"><code class="language-none">yum install -y kubelet-1.16.9 kubeadm-1.16.9  kubectl-1.16.9 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>由于不知道默认安装的最新版，国内的阿里云镜像站同步会有延迟，导致无法拉取镜像。如果你可以拉去到最新的镜像那请随意。</p>
-<h3 id="3-设置开机自启"><a href="#3-设置开机自启" class="headerlink" title="3.设置开机自启"></a>3.设置开机自启</h3><pre class="line-numbers language-none"><code class="language-none">systemctl enable kubelet<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="4-列出所有版本"><a href="#4-列出所有版本" class="headerlink" title="4.列出所有版本"></a>4.列出所有版本</h3><pre class="line-numbers language-none"><code class="language-none">yum list kubelet --showduplicates<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="五、部署Kubernetes-Master节点"><a href="#五、部署Kubernetes-Master节点" class="headerlink" title="五、部署Kubernetes Master节点"></a>五、部署Kubernetes Master节点</h2><h3 id="1-master节点初始化"><a href="#1-master节点初始化" class="headerlink" title="1.master节点初始化"></a>1.master节点初始化</h3><pre class="line-numbers language-none"><code class="language-none">kubeadm init \
-  --kubernetes-version 1.18.8 \
-  --apiserver-advertise-address&#x3D;0.0.0.0 \
-  --service-cidr&#x3D;10.96.0.0&#x2F;16 \
-  --pod-network-cidr&#x3D;10.245.0.0&#x2F;16 \
-  --image-repository registry.aliyuncs.com&#x2F;google_containers <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>参数说明</p>
+<li><p>idea project structure 设置，<a target="_blank" rel="noopener" href="https://blog.csdn.net/fei1234456/article/details/105973849">idea项目配置Project Structure</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43611145/article/details/102625173">IDEA Project Structure（项目结构）详解</a>。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/axibazz/article/details/118364899">IDEA 中配置及使用Docker</a>，<code>tcp://192.168.211.128:2375</code>。</p>
+</li>
+<li><p>Git，Local Changes，设置》VersionControl》Commit》第一个User non-modal取消对勾。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42813011/article/details/118787725">IDEA Local Changes窗口显示</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43012792/article/details/107743921">新版IDEA创建各种模板文件（下次new新建时直接使用）包括修改自带的文件模板_-CSDN博客</a>。</p>
+</li>
+<li><p>springboot复制服务不同端口，1、右键项目名,点击copyConfiguration。 2、换个名字,并指定一个新端口号。（Program argument：–server.port=8082）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42969135/article/details/116803562">idea复制多份springboot项目，使用不同端口运行_-CSDN博客</a>.</p>
+</li>
+<li><p>IDEA 快速删除最近打开的项目，<code>ctrl + a，delete</code>。enter。</p>
+</li>
+<li><p>导包带*最低数量。setting-&gt;editor-&gt;codestyle-&gt;java-&gt;imports-&gt;Class count to use import with “*”</p>
+<p>关闭自动导包【setting-&gt;editor-&gt;general-&gt;auto import】，增大*合并条件。</p>
+</li>
+<li><p>IDEA生成序列号 <code>serialVersionUID</code></p>
+<p>setting-&gt;Editor-&gt;Inspections-&gt;Serialization issues（搜索UID），将 jvm 的serialzable class without “serialVersionUID”打上勾；Alt + Enter 快捷键。</p>
+</li>
+<li><p>光标多选，<code>Shift+Alt+鼠标左键</code>，<code>Shift+Alt+Ctrl+鼠标划区</code>。</p>
+</li>
+<li><p>IDEA设置tab键缩进以及换行首行缩进(tab缩进太多)</p>
+<p>setting-&gt;Editor-&gt;Code Style-&gt;Java-&gt;Tabs and Indents-&gt;Tab Size / Indent</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38861743/article/details/100035812">使用idea打包war包_idea 打包war-CSDN博客</a>。</p>
+</li>
+<li><p>断点处添加 log，<code>Shift + 鼠标左键</code>。勾选上 <code>Evaluate and log</code>, 并自定义你想查看的 log/变量或者执行语句，debug的时候会自动打印表达式的返回值。不会停留。</p>
+</li>
+<li><p>字段断点，【眼睛】图标，watch监视 <code>Field access</code> 和<code>Field modification</code> 有两个选项。</p>
+<p>异常断点，在catch中打断点。查看exception对象。</p>
+<p>方法断点，</p>
+<p>流式断点，</p>
+</li>
+<li><p>显示文件大小（如jar包），<code>View</code> → <code>Appearance</code> → <code>Details in Tree View</code>。</p>
+</li>
+</ul>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Caster_Saber/article/details/82632332">intellij debug模式提示 Method breakpoints may dramatically slow down debugging_method breakpoints may dre_Caster_CSDN博客</a>。删除断点（feign接口的断点）启动就可以了。</p>
+</li>
+<li><p>pom.xml，的project标签报红可能是只能检查语法插件的锅，例如店家右上角的查看语法错误就好了。</p>
+</li>
+<li><p>Java更换版本，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/348660719">一篇让你彻底解决java:无效的目标发行版: 11 - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113514189">IntelliJ IDEA 无法正确识别 Module - 知乎 (zhihu.com)</a>。</p>
+<p>打开setting-》build,Execution..-》build tools-》maven-》ignored files，会发现，有些 Module 被意外的选中，所以导致 IntelliJ IDEA 会无法识别被选中的Module</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20042935/article/details/129544847">IDEA解决“找不到包”或“找不到符号”，但代码没有错误的问题 - CSDN博客</a>。</p>
 <blockquote>
-<p>–kubernetes-version v1.18.8 指定版本</p>
-<p>–apiserver-advertise-address 为通告给其它组件的IP，一般应为master节点的IP地址</p>
-<p>–service-cidr 指定service网络，不能和node网络冲突</p>
-<p>–pod-network-cidr 指定pod网络，不能和node网络、service网络冲突</p>
-<p>–image-repository registry.aliyuncs.com/google_containers 指定镜像源，由于默认拉取镜像地址k8s.gcr.io国内无法访问，这里指定阿里云镜像仓库地址。如果k8s版本比较新，可能阿里云没有对应的镜像，就需要自己从其它地方获取镜像了。</p>
-<p>–control-plane-endpoint 标志应该被设置成负载均衡器的地址或 DNS 和端口(可选)</p>
+<p><strong>以下是一些解决方法：</strong></p>
+<ol>
+<li><strong>方式一</strong>：清理 <code>IntelliJ IDEA</code> 的缓存。选择菜单栏的 <code>File -&gt; Invalidate Caches / Restart</code>，然后选择<code> Invalidate and Restart</code>。</li>
+<li><strong>方式二</strong>：重新构建项目。选择菜单栏的 <code>Build -&gt; Rebuild Project</code>。</li>
+<li><strong>方式三</strong>：重启 <code>IntelliJ IDEA</code>，有时候重启 IDE 可以解决一些奇怪的问题。</li>
+<li><strong>方式四</strong>：禁用自动构建。选择菜单栏的<code> File -&gt; Settings -&gt; Build</code>, <code>Execution</code>, <code>Deployment -&gt; Compiler</code>，然后取消选中 “<code>Build project automatically</code>” 选项。这样可以防止 <code>IDEA </code>在后台自动构建项目，可能导致索引出错。</li>
+<li><strong>方式五</strong>：更新 IntelliJ IDEA。如果您正在使用较旧的版本，可能存在已知问题，更新到最新版本可能会解决问题。</li>
+</ol>
+<p>如果以上方法都无法解决问题，可以尝试<strong>重新导入项目</strong>或<strong>在新的 IntelliJ IDEA 实例中打开项目</strong>。</p>
 </blockquote>
-<p>注意点：</p>
-<p><strong>版本必须和上边安装的kubelet,kubead,kubectl保持一致</strong></p>
-<h3 id="2-等待拉取镜像"><a href="#2-等待拉取镜像" class="headerlink" title="2.等待拉取镜像"></a>2.等待拉取镜像</h3><p>也可用自己提前给各个节点拉取镜像 ，查看所需镜像命令： kubeadm –kubernetes-version 1.18.8 config images list</p>
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825141737408-1502101082.png" alt="img"></p>
-<p> 等待镜像拉取成功后，会继续初始化集群，等到初始化完成后，会看到类似如下信息，保留最后两行的输出后边会用到</p>
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825142120188-2100179311.png" alt="img"></p>
-<h3 id="3-配置kubectl"><a href="#3-配置kubectl" class="headerlink" title="3. 配置kubectl"></a>3. 配置kubectl</h3><p>就是执行初始化成功后输出的那三条命令</p>
-<pre class="line-numbers language-none"><code class="language-none">mkdir -p $HOME&#x2F;.kube
-cp -i &#x2F;etc&#x2F;kubernetes&#x2F;admin.conf $HOME&#x2F;.kube&#x2F;config
-chown $(id -u):$(id -g) $HOME&#x2F;.kube&#x2F;config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lzx5290/article/details/127552559">idea启动报错“Address already in use: bind”_idea address already in use: bind-CSDN博客</a>。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chang100111/article/details/116738016">IDEA代码提示消失，代码全部变为白色（已解决）_idea中vue文件代码全都是白色-CSDN博客</a>。</p>
+</li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ol>
+<li><code>checkstyle</code>，</li>
+<li><code>restfulToolkit</code>，</li>
+<li><code>restfulTool</code>（查找Rest接口），</li>
+<li><code>jclasslib</code>（查看Java字节码），</li>
+<li><code>jrebel</code>（热部署），</li>
+<li><code>Docker</code>（连接Docker），</li>
+<li><code>.ignore</code>（添加gitignore），</li>
+<li><code>zookeeper</code>（连接zookeeper），</li>
+<li><code>gitToolBox</code>（行最后面显示最后一次提交信息），</li>
+<li><code>Grep Console</code>（控制台日志高亮背景，方便查询），</li>
+<li><code>Nyan Progress Bar</code>（彩虹猫进度条），</li>
+<li><code>Alibaba Java Coding Guidelines</code>（代码规范检查），</li>
+<li><code>GsonFormatPlus</code>（json转JavaBean），</li>
+<li><code>Maven Helper</code>（分析查看Maven依赖），</li>
+<li><code>Big Data Tools</code>（连接大数据组件），</li>
+</ol>
+<h2 id="快捷键大全"><a href="#快捷键大全" class="headerlink" title="快捷键大全"></a>快捷键大全</h2><blockquote>
+<ol>
+<li>IDeA常用快捷键，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/aashui/p/7657803.html">IDEA 代码格式化，快捷键 - 博客园 (cnblogs.com)</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136934685">IDEA 快捷键大全 - 知乎 (zhihu.com)</a>，</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/GyaoG/article/details/120639832">IDEA 常用快捷键介绍_-CSDN博客</a>，</li>
+<li><a target="_blank" rel="noopener" href="https://stu.ityxb.com/news/detail/2c9487cc712919b201715de0e9b202d5">传智 | 高校学习平台-新闻资讯 (ityxb.com)</a>，</li>
+</ol>
+</blockquote>
 
-<h3 id="4-查看节点信息"><a href="#4-查看节点信息" class="headerlink" title="4.查看节点信息"></a>4.查看节点信息</h3><pre class="line-numbers language-none"><code class="language-none">kubectl get nodes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825142423650-192590267.png" alt="img"></p>
-<p> 此时只能看到master节点，等待其他节点加入进来后即可看到。</p>
-<h2 id="六、node节点加入集群"><a href="#六、node节点加入集群" class="headerlink" title="六、node节点加入集群"></a>六、node节点加入集群</h2><p>各个node节点也要进行 二三四步骤的操作，然后才能加入集群</p>
-<h3 id="1-node01-加入集群"><a href="#1-node01-加入集群" class="headerlink" title="1. node01 加入集群"></a>1. node01 加入集群</h3><pre class="line-numbers language-none"><code class="language-none">kubeadm join 192.168.68.106:6443 --token 1quyaw.xa7yel3xla129kfw \
-    --discovery-token-ca-cert-hash sha256:470410e1180b119ebe8ee3ae2842e7a4a852e590896306ec0dab26b168d99197<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825143004341-1927052000.png" alt="img"></p>
-<h3 id="2-node02进行相同的操作即可，这里不再赘述"><a href="#2-node02进行相同的操作即可，这里不再赘述" class="headerlink" title="2. node02进行相同的操作即可，这里不再赘述"></a>2. node02进行相同的操作即可，这里不再赘述</h3><h3 id="3-master节点上查看集群节点"><a href="#3-master节点上查看集群节点" class="headerlink" title="3.master节点上查看集群节点"></a>3.master节点上查看集群节点</h3><pre class="line-numbers language-none"><code class="language-none">kubectl get nodes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825143123911-326824925.png" alt="img"></p>
-<p>可以看到 STATUS状态都是NotReady, 这是因为确实网络插件导致的，等安装好网络插件就好了</p>
-<h2 id="七、安装插件"><a href="#七、安装插件" class="headerlink" title="七、安装插件"></a>七、安装插件</h2><h3 id="1-安装-flannel"><a href="#1-安装-flannel" class="headerlink" title="1.安装 flannel"></a>1.安装 flannel</h3><p>从官网下载yaml文件</p>
-<pre class="line-numbers language-none"><code class="language-none">wget https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;coreos&#x2F;flannel&#x2F;master&#x2F;Documentation&#x2F;kube-flannel.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>也可从这里直接复制</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">---</span>
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> policy/v1beta1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> PodSecurityPolicy
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> psp.flannel.unprivileged
-  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
-    <span class="token key atrule">seccomp.security.alpha.kubernetes.io/allowedProfileNames</span><span class="token punctuation">:</span> docker/default
-    <span class="token key atrule">seccomp.security.alpha.kubernetes.io/defaultProfileName</span><span class="token punctuation">:</span> docker/default
-    <span class="token key atrule">apparmor.security.beta.kubernetes.io/allowedProfileNames</span><span class="token punctuation">:</span> runtime/default
-    <span class="token key atrule">apparmor.security.beta.kubernetes.io/defaultProfileName</span><span class="token punctuation">:</span> runtime/default
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">privileged</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> configMap
-  <span class="token punctuation">-</span> secret
-  <span class="token punctuation">-</span> emptyDir
-  <span class="token punctuation">-</span> hostPath
-  <span class="token key atrule">allowedHostPaths</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">pathPrefix</span><span class="token punctuation">:</span> <span class="token string">"/etc/cni/net.d"</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">pathPrefix</span><span class="token punctuation">:</span> <span class="token string">"/etc/kube-flannel"</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">pathPrefix</span><span class="token punctuation">:</span> <span class="token string">"/run/flannel"</span>
-  <span class="token key atrule">readOnlyRootFilesystem</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token comment"># Users and groups</span>
-  <span class="token key atrule">runAsUser</span><span class="token punctuation">:</span>
-    <span class="token key atrule">rule</span><span class="token punctuation">:</span> RunAsAny
-  <span class="token key atrule">supplementalGroups</span><span class="token punctuation">:</span>
-    <span class="token key atrule">rule</span><span class="token punctuation">:</span> RunAsAny
-  <span class="token key atrule">fsGroup</span><span class="token punctuation">:</span>
-    <span class="token key atrule">rule</span><span class="token punctuation">:</span> RunAsAny
-  <span class="token comment"># Privilege Escalation</span>
-  <span class="token key atrule">allowPrivilegeEscalation</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">defaultAllowPrivilegeEscalation</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token comment"># Capabilities</span>
-  <span class="token key atrule">allowedCapabilities</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'NET_ADMIN'</span><span class="token punctuation">,</span> <span class="token string">'NET_RAW'</span><span class="token punctuation">]</span>
-  <span class="token key atrule">defaultAddCapabilities</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token key atrule">requiredDropCapabilities</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token comment"># Host namespaces</span>
-  <span class="token key atrule">hostPID</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">hostIPC</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">hostNetwork</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">hostPorts</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">min</span><span class="token punctuation">:</span> <span class="token number">0</span>
-    <span class="token key atrule">max</span><span class="token punctuation">:</span> <span class="token number">65535</span>
-  <span class="token comment"># SELinux</span>
-  <span class="token key atrule">seLinux</span><span class="token punctuation">:</span>
-    <span class="token comment"># SELinux is unused in CaaSP</span>
-    <span class="token key atrule">rule</span><span class="token punctuation">:</span> <span class="token string">'RunAsAny'</span>
-<span class="token punctuation">---</span>
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRole
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel
-<span class="token key atrule">rules</span><span class="token punctuation">:</span>
-<span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'extensions'</span><span class="token punctuation">]</span>
-  <span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'podsecuritypolicies'</span><span class="token punctuation">]</span>
-  <span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'use'</span><span class="token punctuation">]</span>
-  <span class="token key atrule">resourceNames</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'psp.flannel.unprivileged'</span><span class="token punctuation">]</span>
-<span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token string">""</span>
-  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> pods
-  <span class="token key atrule">verbs</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> get
-<span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token string">""</span>
-  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> nodes
-  <span class="token key atrule">verbs</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> list
-  <span class="token punctuation">-</span> watch
-<span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token string">""</span>
-  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> nodes/status
-  <span class="token key atrule">verbs</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> patch
-<span class="token punctuation">---</span>
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRoleBinding
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel
-<span class="token key atrule">roleRef</span><span class="token punctuation">:</span>
-  <span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
-  <span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRole
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel
-<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
-<span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> ServiceAccount
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>system
-<span class="token punctuation">---</span>
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> ServiceAccount
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>system
-<span class="token punctuation">---</span>
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>flannel<span class="token punctuation">-</span>cfg
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>system
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">tier</span><span class="token punctuation">:</span> node
-    <span class="token key atrule">app</span><span class="token punctuation">:</span> flannel
-<span class="token key atrule">data</span><span class="token punctuation">:</span>
-  <span class="token key atrule">cni-conf.json</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
-    &#123;
-      "name": "cbr0",
-      "cniVersion": "0.3.1",
-      "plugins": [
-        &#123;
-          "type": "flannel",
-          "delegate": &#123;
-            "hairpinMode": true,
-            "isDefaultGateway": true
-          &#125;
-        &#125;,
-        &#123;
-          "type": "portmap",
-          "capabilities": &#123;
-            "portMappings": true
-          &#125;
-        &#125;
-      ]
-    &#125;</span>
-  <span class="token key atrule">net-conf.json</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
-    &#123;
-      "Network": "10.245.0.0/16",
-      "Backend": &#123;
-        "Type": "vxlan"
-      &#125;
-    &#125;</span>
-<span class="token punctuation">---</span>
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> DaemonSet
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>flannel<span class="token punctuation">-</span>ds
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>system
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">tier</span><span class="token punctuation">:</span> node
-    <span class="token key atrule">app</span><span class="token punctuation">:</span> flannel
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
-    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
-      <span class="token key atrule">app</span><span class="token punctuation">:</span> flannel
-  <span class="token key atrule">template</span><span class="token punctuation">:</span>
-    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-        <span class="token key atrule">tier</span><span class="token punctuation">:</span> node
-        <span class="token key atrule">app</span><span class="token punctuation">:</span> flannel
-    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
-      <span class="token key atrule">affinity</span><span class="token punctuation">:</span>
-        <span class="token key atrule">nodeAffinity</span><span class="token punctuation">:</span>
-          <span class="token key atrule">requiredDuringSchedulingIgnoredDuringExecution</span><span class="token punctuation">:</span>
-            <span class="token key atrule">nodeSelectorTerms</span><span class="token punctuation">:</span>
-            <span class="token punctuation">-</span> <span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
-              <span class="token punctuation">-</span> <span class="token key atrule">key</span><span class="token punctuation">:</span> kubernetes.io/os
-                <span class="token key atrule">operator</span><span class="token punctuation">:</span> In
-                <span class="token key atrule">values</span><span class="token punctuation">:</span>
-                <span class="token punctuation">-</span> linux
-      <span class="token key atrule">hostNetwork</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-      <span class="token key atrule">priorityClassName</span><span class="token punctuation">:</span> system<span class="token punctuation">-</span>node<span class="token punctuation">-</span>critical
-      <span class="token key atrule">tolerations</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> Exists
-        <span class="token key atrule">effect</span><span class="token punctuation">:</span> NoSchedule
-      <span class="token key atrule">serviceAccountName</span><span class="token punctuation">:</span> flannel
-      <span class="token key atrule">initContainers</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> install<span class="token punctuation">-</span>cni
-        <span class="token key atrule">image</span><span class="token punctuation">:</span> quay.io/coreos/flannel<span class="token punctuation">:</span>v0.14.0
-        <span class="token key atrule">command</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> cp
-        <span class="token key atrule">args</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token punctuation">-</span>f
-        <span class="token punctuation">-</span> /etc/kube<span class="token punctuation">-</span>flannel/cni<span class="token punctuation">-</span>conf.json
-        <span class="token punctuation">-</span> /etc/cni/net.d/10<span class="token punctuation">-</span>flannel.conflist
-        <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> cni
-          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /etc/cni/net.d
-        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel<span class="token punctuation">-</span>cfg
-          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /etc/kube<span class="token punctuation">-</span>flannel/
-      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>flannel
-        <span class="token key atrule">image</span><span class="token punctuation">:</span> quay.io/coreos/flannel<span class="token punctuation">:</span>v0.14.0
-        <span class="token key atrule">command</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> /opt/bin/flanneld
-        <span class="token key atrule">args</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>ip<span class="token punctuation">-</span>masq
-        <span class="token punctuation">-</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>kube<span class="token punctuation">-</span>subnet<span class="token punctuation">-</span>mgr
-        <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-          <span class="token key atrule">requests</span><span class="token punctuation">:</span>
-            <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">"100m"</span>
-            <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">"50Mi"</span>
-          <span class="token key atrule">limits</span><span class="token punctuation">:</span>
-            <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">"100m"</span>
-            <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">"50Mi"</span>
-        <span class="token key atrule">securityContext</span><span class="token punctuation">:</span>
-          <span class="token key atrule">privileged</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-          <span class="token key atrule">capabilities</span><span class="token punctuation">:</span>
-            <span class="token key atrule">add</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"NET_ADMIN"</span><span class="token punctuation">,</span> <span class="token string">"NET_RAW"</span><span class="token punctuation">]</span>
-        <span class="token key atrule">env</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> POD_NAME
-          <span class="token key atrule">valueFrom</span><span class="token punctuation">:</span>
-            <span class="token key atrule">fieldRef</span><span class="token punctuation">:</span>
-              <span class="token key atrule">fieldPath</span><span class="token punctuation">:</span> metadata.name
-        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> POD_NAMESPACE
-          <span class="token key atrule">valueFrom</span><span class="token punctuation">:</span>
-            <span class="token key atrule">fieldRef</span><span class="token punctuation">:</span>
-              <span class="token key atrule">fieldPath</span><span class="token punctuation">:</span> metadata.namespace
-        <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> run
-          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /run/flannel
-        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel<span class="token punctuation">-</span>cfg
-          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /etc/kube<span class="token punctuation">-</span>flannel/
-      <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> run
-        <span class="token key atrule">hostPath</span><span class="token punctuation">:</span>
-          <span class="token key atrule">path</span><span class="token punctuation">:</span> /run/flannel
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> cni
-        <span class="token key atrule">hostPath</span><span class="token punctuation">:</span>
-          <span class="token key atrule">path</span><span class="token punctuation">:</span> /etc/cni/net.d
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> flannel<span class="token punctuation">-</span>cfg
-        <span class="token key atrule">configMap</span><span class="token punctuation">:</span>
-          <span class="token key atrule">name</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>flannel<span class="token punctuation">-</span>cfg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>更改 128行的网络配置，要和 pod-network-cidr保持一致</p>
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825144252156-1502977434.png" alt="img"></p>
-<p> 然后执行yaml文件</p>
-<pre class="line-numbers language-none"><code class="language-none">kubectl apply -f kube-flannel.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825144402629-2030245425.png" alt="img"></p>
-<h3 id="2-查看flannel部署结果"><a href="#2-查看flannel部署结果" class="headerlink" title="2.查看flannel部署结果"></a>2.查看flannel部署结果</h3><pre class="line-numbers language-none"><code class="language-none">kubectl -n kube-system get pods -o wide<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> <img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825152111426-529239626.png" alt="img"></p>
-<h3 id="3-查看各个node的状态"><a href="#3-查看各个node的状态" class="headerlink" title="3.查看各个node的状态"></a>3.查看各个node的状态</h3><pre class="line-numbers language-none"><code class="language-none">kubectl get nodes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825144608475-271611428.png" alt="img"></p>
-<h3 id="4-修改集群kube-proxy的模式为iptables"><a href="#4-修改集群kube-proxy的模式为iptables" class="headerlink" title="4. 修改集群kube-proxy的模式为iptables"></a>4. 修改集群kube-proxy的模式为iptables</h3><p>由于 k8s 1.18对内核版本要求比较高，3.10的内核部署1.18.8使用ipvs模式会存在coredns无法解析等问题。股在此采用iptables模式。 如果你服务内核4+起，则采用iptables 和ipvs均可。 </p>
-<pre class="line-numbers language-none"><code class="language-none">kubectl get cm kube-proxy -n kube-system -o yaml | sed &#39;s&#x2F;mode: &quot;&quot;&#x2F;mode: &quot;iptables&quot;&#x2F;&#39; | kubectl apply -f -
-kubectl -n kube-system rollout restart  daemonsets.apps  kube-proxy
-kubectl -n kube-system rollout restart  daemonsets.apps  kube-flannel-ds<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="升级内核可参考：https-www-cnblogs-com-Sunzz-p-15624582-html"><a href="#升级内核可参考：https-www-cnblogs-com-Sunzz-p-15624582-html" class="headerlink" title="升级内核可参考：https://www.cnblogs.com/Sunzz/p/15624582.html"></a>升级内核可参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Sunzz/p/15624582.html">https://www.cnblogs.com/Sunzz/p/15624582.html</a></h4><h2 id="八-部署busybox来测试集群各网络情况"><a href="#八-部署busybox来测试集群各网络情况" class="headerlink" title="八.部署busybox来测试集群各网络情况"></a>八.部署busybox来测试集群各网络情况</h2><p>busybox.yaml</p>
-<pre class="line-numbers language-none"><code class="language-none">---
-apiVersion: apps&#x2F;v1
-kind: Deployment
-metadata:
-  name: busybox
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      name: busybox
-  template:
-    metadata:
-      labels:
-        name: busybox
-    spec:
-      containers:
-      - name: busybox
-        image: busybox  
-        imagePullPolicy: IfNotPresent
-        args:
-        - &#x2F;bin&#x2F;sh
-        - -c
-        - sleep 1; touch &#x2F;tmp&#x2F;healthy; sleep 30000
-        readinessProbe:   
-          exec:
-            command:
-            - cat
-            - &#x2F;tmp&#x2F;healthy
-          initialDelaySeconds: 1 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">kubectl apply -f busybox.yaml <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="1-查看集群所有pod-ip-和service-ip"><a href="#1-查看集群所有pod-ip-和service-ip" class="headerlink" title="1.查看集群所有pod ip 和service ip"></a>1.查看集群所有pod ip 和service ip</h3><p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825151310656-476256233.png" alt="img"></p>
-<h3 id="2-跨node的pods是否互通"><a href="#2-跨node的pods是否互通" class="headerlink" title="2.跨node的pods是否互通"></a>2.跨node的pods是否互通</h3><pre class="line-numbers language-none"><code class="language-none">kubectl exec -it busybox-7c84546778-h6t2d -- &#x2F;bin&#x2F;sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 10.245.2.6 为另一个busybox pod的ip</p>
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825151423752-329972911.png" alt="img"></p>
-<h3 id="3-pod-和各node是否互通"><a href="#3-pod-和各node是否互通" class="headerlink" title="3. pod 和各node是否互通"></a>3. pod 和各node是否互通</h3><p>在pod里面分别ping 各node的ip</p>
-<p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825145454043-182700170.png" alt="img"></p>
-<h3 id="4-pod-和service-的网络"><a href="#4-pod-和service-的网络" class="headerlink" title="4.pod 和service 的网络"></a>4.pod 和service 的网络</h3><p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825151619685-1404850750.png" alt="img"></p>
-<h3 id="5-测试core-dns是否正常"><a href="#5-测试core-dns是否正常" class="headerlink" title="5.测试core-dns是否正常"></a>5.测试core-dns是否正常</h3><p><img src="https://img2020.cnblogs.com/blog/1157397/202108/1157397-20210825151525216-1187608259.png" alt="img"></p>
-<h3 id="转载请在文章开头附上原文链接地址：-https-www-cnblogs-com-Sunzz-p-15184167-html"><a href="#转载请在文章开头附上原文链接地址：-https-www-cnblogs-com-Sunzz-p-15184167-html" class="headerlink" title="转载请在文章开头附上原文链接地址： https://www.cnblogs.com/Sunzz/p/15184167.html"></a><strong>转载请在文章开头附上原文链接地址：</strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Sunzz/p/15184167.html"> https://www.cnblogs.com/Sunzz/p/15184167.html</a></h3><h2 id="九，部署metrics-server、nginx-ingress"><a href="#九，部署metrics-server、nginx-ingress" class="headerlink" title="九，部署metrics-server、nginx-ingress"></a>九，部署metrics-server、nginx-ingress</h2><h3 id="1-部署nginx-ingress"><a href="#1-部署nginx-ingress" class="headerlink" title="1.部署nginx-ingress"></a>1.部署nginx-ingress</h3><pre class="line-numbers language-none"><code class="language-none">apiVersion: v1
-kind: Namespace
-metadata:
-  name: nginx-ingress
-
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: nginx-ingress 
-  namespace: nginx-ingress
-
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: default-server-secret
-  namespace: nginx-ingress
-type: Opaque
-data:
-  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURWekNDQWorZ0F3SUJBZ0lKQUtaRTllUmZaRlJSTUEwR0NTcUdTSWIzRFFFQkN3VUFNRUl4SHpBZEJnTlYKQkFNTUZrNUhTVTVZU1c1bmNtVnpjME52Ym5SeWIyeHNaWEl4SHpBZEJnTlZCQW9NRms1SFNVNVlTVzVuY21WegpjME52Ym5SeWIyeHNaWEl3SGhjTk1qRXdNVEkxTURjeE9USTRXaGNOTXpFd01USXpNRGN4T1RJNFdqQkNNUjh3CkhRWURWUVFEREJaT1IwbE9XRWx1WjNKbGMzTkRiMjUwY205c2JHVnlNUjh3SFFZRFZRUUtEQlpPUjBsT1dFbHUKWjNKbGMzTkRiMjUwY205c2JHVnlNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQQp0M1hVcFhYcUdDUTJBblRTd21DMjZ1bzRudGhmQWNYd3U4REdLUVlBSGQ1VlFKaDRPdStSWEJ4M1BTMVlTY3VNCmVTVXExV1R1ejQzRW9tRHZOWkdHcmNkSlJrWDhjYk05WWNBanlWZ0pnd0cxVFB0OUl2ZzVibWJBWE1INnR3OTUKRGJiOFFlSWVSeXBUWVl6bXJmMnJxaU45aXdROUMzSHhySDc3ektoZ1hxT20vZ09CdGpWRVhKc3lSeEpTcUdJZQpiNUp6NENJK0FzaUZGYWRjMHZhcmpvei8wTTJuS1JaU3VUQThmRHhsMUpTZlVJc2hYWUt1YmZvMzh0ck1paHFoCnh2Q09SMWFJUmxPaDNDTXAyekRoUm9nNHpjTFdyUHBXQnlyVkN2aGVBWWp2MitpWHlTQ1MyU2pRbmV4UE43aWoKUE5Kc0hpZVZMdVE0R0VCYTJ3RkxFUUlEQVFBQm8xQXdUakFkQmdOVkhRNEVGZ1FVSllDdmVtZFpFQVM4eGIxUAo3bVo3YjBGRFViZ3dId1lEVlIwakJCZ3dGb0FVSllDdmVtZFpFQVM4eGIxUDdtWjdiMEZEVWJnd0RBWURWUjBUCkJBVXdBd0VCL3pBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQW1Nc2QwbVRtaFBXc2pvejh0NUN2dTdXMVNhT2EKTzRQTlRNakJ3eEpHZUt1ZUlGNytSZWR3WUVaWXJ0M1hiY0NHRDAxMklFMjNJK1k0eWs4ekFkdWxtMmtZRUdPZQp6UDQyRGpCcFpZelhiUmpkQkY0aVFlMWR6K0xVWGJyK096bWFoRjMwOW5MVU5KVStNTStHbVVUbmlwdy90dGxnCkszNlI3WWpuSzNpelhqaE8rdFJvWnp5eWhsdDRVcmQxYTN0Tkxacy8yNk14akZ2aGlOWUNNSmh4blMzUlVzWXYKdllxUUw0WkQ1b0VaTVIvUEN3VlR3OHpTUEVuU0hlMnFLT2dmZGlOYTEwTHpYYzc0eGNmK2FZTmlvcndNdEpXdwo5NnR1WExUN3ZNMW11Ky9oM3BCR0RaMFY3SitwZTlvV2daZSsrNVVINyswK2tpSlN5S1VCN29LMHN3PT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ&#x3D;&#x3D;
-  tls.key: LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRQzNkZFNsZGVvWUpEWUMKZE5MQ1lMYnE2amllMkY4QnhmQzd3TVlwQmdBZDNsVkFtSGc2NzVGY0hIYzlMVmhKeTR4NUpTclZaTzdQamNTaQpZTzgxa1lhdHgwbEdSZnh4c3oxaHdDUEpXQW1EQWJWTSszMGkrRGx1WnNCY3dmcTNEM2tOdHZ4QjRoNUhLbE5oCmpPYXQvYXVxSTMyTEJEMExjZkdzZnZ2TXFHQmVvNmIrQTRHMk5VUmNtekpIRWxLb1loNXZrblBnSWo0Q3lJVVYKcDF6UzlxdU9qUC9RemFjcEZsSzVNRHg4UEdYVWxKOVFpeUZkZ3E1dCtqZnkyc3lLR3FIRzhJNUhWb2hHVTZIYwpJeW5iTU9GR2lEak53dGFzK2xZSEt0VUsrRjRCaU8vYjZKZkpJSkxaS05DZDdFODN1S004MG13ZUo1VXU1RGdZClFGcmJBVXNSQWdNQkFBRUNnZ0VBQlAvbkRhTksvK0ZzdjJCanBmeHd2N0ltWE4zVXFQMjE4OGZySG84VlRic1QKWTdGRUJZY2wxUGJKb1JjdFFzV1RUSEhnMnZQbk5pek00UWYzUE9SOFlSdi9PVFVMRGlZdVZBMmliQWhFS2hmUAowd3MvZThaNytqQStxY2gzaHFtYlNPNWxyWDMyQ1VaMEEwS052c3djODRRSUZkUEZ2aHdhMC9LWjloZlltSHVkCmFOcGcvbzJuS3dSUVJSYjZYVkpsWWNjTHcvMmE1VzdQMGM0NENWWnI0VDh5MEErWHBUaTF3YUh6VlloQTZOc1QKemE1emJBS3ljMjZ2NWRhQ3VCT1JhYjkzWTFIUFRjOG9VRGIwR1VQa3BNd2dOaW9TV01rakNHRzBWWGtRUFE4NwplWlVteDNrbXNCVDF6RGtPR3pnNm9oSmlpSVQvcFhoVWVIckc1K0doWVFLQmdRRG5vUE0xQmNkeFArTGpMWDVrCnJqamxuSzA3SlQ3N0RlZ0o4VmtUQU90VDQ2cmJVUGxTT0VQTEV4ZUF6dnBkM3VWNkYwa1dYcDI0L0oydlZrSXcKTklQOWJxZ0RQYzBldFdhT0hLMHloanRuM1N1VTJreGtaQTBGN3lHNEFnTzU5SlZidWNnYWpVOStKcDc0TEdHTQprVmUrc09WMGlNVDRmWGMyQzJLUWJtNlduUUtCZ1FES3cyL0lyM25ucUI0dU44bFVSdUZ6MnBNQytTK3RLZlFVCi8xSEFSODAvRDZOYU5xdGhKcXFLd015Z091OGVjcTBMVUhFdm43T1ZyTk9aYzBHcktFQzJnTjF6YXRXVURHcWYKY3J5NnovRjVVQVkwOTI5K004bUJMeWFKeldudWtYaUUwcURlQ2p0cDh4Y3hiZnJOZ1JBU1h3NytudW1jb0RxUAoxb0dSMnQyaUJRS0JnUUNRS1U5Vlg5eHFzdDF1a1VFS1Bwanc1NXUxcFEvV3h5ZjFFRDVsSW54VXdPejFCU2UzCnNZY1lIRERUblg2YjcvK1pCbWNad2hlZUs3T2tqaVl4eEcybHpUcEtraXRaQW9QcXpSUkt6dHFvWVRJZnVlSXoKMVVWNXZRU2FkcjZFL1NIOGJkdUtFd3MzczZmYlJCd09sZU1ycndPUWpSTXlxVHdKNmZvVmRIWGx6UUtCZ0RCUwp3WnBmajdzUkN4aFN2VTJ6a3Rtc2x1clhmbkJUbGxOR3dqSUVLcnREdTlldFBjenFqU3lDWklJdmFYdWxNdTZHClhtTk9PVnVMaytaM1hJZ3hFTE11SlJqenRqRVJnSHU5dVpNQUtmbVNnOWd0dkVta2gvcWN4UitFY0NHbVU4VzcKK1JEUitYVDN0V2hYWUxXSGM5QWREWkxMUnJ2SVNBeXR2N1dHSnRvTkFvR0JBSlJPMzhxOVhuRHZBeEVRUzdpWgphd2dOWFA2TnBiSnVIeUo0cDJ4VldIV0N4VDhrL0E3eDVrb0FrTEpudTUvRE10d0pVL09ZRUpPY1k1b0l2UUVsCnAybWkxM3dEcVpvNml4d2kvU3h5T2xRQ2ZmNHBjNTlTUzE1WVM1RGVEeVVuakcwNTNha2VyQ3R5TGQ4Z2xnOUYKSTE2Y05TQXdTbDFvVi9KM21qOGdzZHpmCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0&#x3D;
----
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: nginx-config
-  namespace: nginx-ingress
-data:
-  client-max-body-size: &quot;0&quot;
-  server-names-hash-bucket-size: &quot;1024&quot;
-
-
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io&#x2F;v1beta1
-metadata:
-  name: nginx-ingress
-rules:
-- apiGroups:
-  - &quot;&quot;
-  resources:
-  - services
-  - endpoints
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - &quot;&quot;
-  resources:
-  - secrets
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - &quot;&quot;
-  resources:
-  - configmaps
-  verbs:
-  - get
-  - list
-  - watch
-  - update
-  - create
-- apiGroups:
-  - &quot;&quot;
-  resources:
-  - pods
-  verbs:
-  - list
-- apiGroups:
-  - &quot;&quot;
-  resources:
-  - events
-  verbs:
-  - create
-  - patch
-- apiGroups:
-  - extensions
-  resources:
-  - ingresses
-  verbs:
-  - list
-  - watch
-  - get
-- apiGroups:
-  - &quot;extensions&quot;
-  resources:
-  - ingresses&#x2F;status
-  verbs:
-  - update
-- apiGroups:
-  - k8s.nginx.org
-  resources:
-  - virtualservers
-  - virtualserverroutes
-  verbs:
-  - list
-  - watch
-  - get
-
----
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io&#x2F;v1beta1
-metadata:
-  name: nginx-ingress
-subjects:
-- kind: ServiceAccount
-  name: nginx-ingress
-  namespace: nginx-ingress
-roleRef:
-  kind: ClusterRole
-  name: nginx-ingress
-  apiGroup: rbac.authorization.k8s.io
-
----
-apiVersion: apps&#x2F;v1
-kind: DaemonSet
-metadata:
-  name: nginx-ingress
-  namespace: nginx-ingress
-  annotations:
-    prometheus.io&#x2F;scrape: &quot;true&quot;
-    prometheus.io&#x2F;port: &quot;9113&quot;
-spec:
-  selector:
-    matchLabels:
-      app: nginx-ingress
-  template:
-    metadata:
-      labels:
-        app: nginx-ingress
-    spec:
-      serviceAccountName: nginx-ingress
-      containers:
-      - image: nginx&#x2F;nginx-ingress:1.5.5
-        imagePullPolicy: IfNotPresent
-        name: nginx-ingress
-        ports:
-        - name: http
-          containerPort: 80
-          hostPort: 80
-        - name: https
-          containerPort: 443
-          hostPort: 443
-        - name: prometheus
-          containerPort: 9113
-        env:
-        - name: POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
-        args:
-          - -nginx-configmaps&#x3D;$(POD_NAMESPACE)&#x2F;nginx-config
-          - -default-server-tls-secret&#x3D;$(POD_NAMESPACE)&#x2F;default-server-secret
-          - -enable-prometheus-metrics<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">kubectl apply -f  nginx-ingress.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="2-部署metrics-server"><a href="#2-部署metrics-server" class="headerlink" title="2.部署metrics-server"></a>2.部署metrics-server</h3><p> metrics-server</p>
-<pre class="line-numbers language-none"><code class="language-none">kubectl apply -f metrics-server.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1187,7 +702,11 @@ spec:
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/IDEA/">
+                                    <span class="chip bg-color">IDEA</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1235,43 +754,6 @@ spec:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/posts/9ccf/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Thymeleaf入门">
-                        
-                        <span class="card-title">Thymeleaf入门</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-24
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            ACsolin
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/c/">
                     <div class="card-image">
                         
@@ -1288,16 +770,77 @@ spec:
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-05
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ACsolin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/14c/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Spring揭秘5">
+                        
+                        <span class="card-title">Spring揭秘5</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
+                    </a>
+                    
                 </div>
                 
             </div>

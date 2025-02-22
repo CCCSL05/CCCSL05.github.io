@@ -437,12 +437,29 @@ Spring Security简介Spring Security 是一种高度自定义的安全框架，�
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/SpringSecurity/">
+                                <span class="chip bg-color">SpringSecurity</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -512,12 +529,12 @@ Spring Security简介Spring Security 是一种高度自定义的安全框架，�
 <p>用户名：user。</p>
 <p>密码：项目启动，打印在控制台中。</p>
 <h3 id="3、自定义用户名和密码"><a href="#3、自定义用户名和密码" class="headerlink" title="3、自定义用户名和密码"></a>3、自定义用户名和密码</h3><p>修改<strong>「application.yml」</strong> 文件</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 静态用户，一般只在内部网络认证中使用，如：内部服务器1，访问服务器2
-spring:
-  security:
-    user:
-      name: test  # 通过配置文件，设置静态用户名
-      password: test # 配置文件，设置静态登录密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 静态用户，一般只在内部网络认证中使用，如：内部服务器1，访问服务器2</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">security</span><span class="token punctuation">:</span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> test  <span class="token comment"># 通过配置文件，设置静态用户名</span>
+      <span class="token key atrule">password</span><span class="token punctuation">:</span> test <span class="token comment"># 配置文件，设置静态登录密码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="4、UserDetailsService详解"><a href="#4、UserDetailsService详解" class="headerlink" title="4、UserDetailsService详解"></a>4、UserDetailsService详解</h3><p>什么也没有配置的时候，账号和密码是由Spring Security定义生成的。而在实际项目中账号和密码都是从数据库中查询出来的。所以我们要通过<strong>「自定义逻辑控制认证逻辑」</strong>。如果需要自定义逻辑时，只需要实现UserDetailsService接口</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
@@ -1000,7 +1017,15 @@ http<span class="token punctuation">.</span><span class="token function">excepti
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/SpringSecurity/">
+                                    <span class="chip bg-color">SpringSecurity</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1069,11 +1094,27 @@ http<span class="token punctuation">.</span><span class="token function">excepti
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ACsolin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Logback/">
+                        <span class="chip bg-color">Logback</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1106,11 +1147,27 @@ http<span class="token punctuation">.</span><span class="token function">excepti
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ACsolin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Knife4j/">
+                        <span class="chip bg-color">Knife4j</span>
+                    </a>
+                    
                 </div>
                 
             </div>
